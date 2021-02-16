@@ -1,0 +1,104 @@
+<mat-toolbar class="nav-height">
+    <mat-toolbar-row>
+        <button mat-icon-button><mat-icon (click)="openLeftSide()">menu</mat-icon></button>
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container>
+    <mat-sidenav #sidenav (closed)="closeLeftSide()">
+        <mat-nav-list>
+            <a mat-list-item>
+                <img src="../assets/images/exit.png" class="imglink" style="opacity: .8">
+                <span class="brand-text font-weight-light">Thoát</span>
+            </a>
+            <hr style="color: gray;">
+            <a mat-list-item>
+                <img src="../assets/images/avatar5.png" class="imglink" alt="User Image">
+                <a href="#" class="d-block">Nguyễn Vũ Mạnh Cường</a>
+            </a>
+            <hr style="color: gray;">
+            <a mat-list-item [routerLink]="['/dashboard']">
+                <mat-icon mat-list-icon>dashboard</mat-icon>Tổng Quan
+            </a>
+            <a mat-list-item [routerLink]="['/notification']">
+                <mat-icon mat-list-icon>notifications</mat-icon>Thông Báo
+            </a>
+            <a mat-list-item [routerLink]="['/customer']">
+                <mat-icon mat-list-icon>table_chart</mat-icon>Danh Sách KHTN
+            </a>
+            <a mat-list-item [routerLink]="['/illustration']">
+                <mat-icon mat-list-icon>description</mat-icon>Bảng Minh Họa
+            </a>
+            <a mat-list-item [routerLink]="['/contract']">
+                <mat-icon mat-list-icon>table_chart</mat-icon>Danh Sách Hợp Đồng
+            </a>
+            <a mat-list-item [routerLink]="['/income']">
+                <mat-icon mat-list-icon>credit_card</mat-icon>Thu Nhập
+            </a>
+            <a mat-list-item [routerLink]="['/mail']">
+                <mat-icon mat-list-icon>email</mat-icon>Hộp Thư
+            </a>
+            <a mat-list-item [routerLink]="['/document']">
+                <mat-icon mat-list-icon>library_books</mat-icon>Tài Liệu
+            </a>
+            <a mat-list-item [routerLink]="['/certificate']">
+                <mat-icon mat-list-icon>assignment_ind</mat-icon>Chứng Chỉ
+            </a>
+            <a mat-list-item [routerLink]="['/labour-contract']">
+                <mat-icon mat-list-icon>assignment</mat-icon>Hợp Đồng Lao Động
+            </a>
+            <a mat-list-item [routerLink]="['/change-pass']">
+                <mat-icon mat-list-icon>settings</mat-icon>Đổi Mật Khẩu
+            </a>
+
+            <!-- contract manager -->
+            <a mat-list-item [routerLink]="['/dashboard']">
+                <mat-icon mat-list-icon>home</mat-icon>Xét Duyệt Hồ Sơ
+            </a>
+            <a mat-list-item [routerLink]="['/dashboard']">
+                <mat-icon mat-list-icon>home</mat-icon>Xử lý thanh toán QLBH
+            </a>
+            <a mat-list-item [routerLink]="['/dashboard']">
+                <mat-icon mat-list-icon>home</mat-icon>Lịch Sử thanh toán QLBH
+            </a>
+            <a mat-list-item [routerLink]="['/dashboard']">
+                <mat-icon mat-list-icon>home</mat-icon>Báo Cáo Hành Vi
+            </a>
+            <a mat-list-item [routerLink]="['/dashboard']">
+                <mat-icon mat-list-icon>home</mat-icon>Black List
+            </a>
+            <a mat-list-item [routerLink]="['/dashboard']">
+                <mat-icon mat-list-icon>home</mat-icon>Danh Sách Tư Vấn Viên
+            </a>
+
+            <!-- admin -->
+            <a mat-list-item [routerLink]="['/dashboard']">
+                <mat-icon mat-list-icon>home</mat-icon>Quản Lý Saler
+            </a>
+            <a mat-list-item [routerLink]="['/dashboard']">
+                <mat-icon mat-list-icon>home</mat-icon>FeedBack
+            </a>
+            <a mat-list-item [routerLink]="['/dashboard']">
+                <mat-icon mat-list-icon>home</mat-icon>KPI Nhóm
+            </a>
+            <a mat-list-item [routerLink]="['/dashboard']">
+                <mat-icon mat-list-icon>home</mat-icon>Doanh Thu
+            </a>
+            <a mat-list-item [routerLink]="['/dashboard']">
+                <mat-icon mat-list-icon>home</mat-icon>Lịch Sử thanh toán QLBH
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div style="
+        height: 90vh;
+        margin-top: 20px;
+        margin-right: 10px;
+        margin-left: 10px;
+      " [ngClass]="{
+        'content-move-left': !isOpened,
+        'content-move-right': isOpened
+      }">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
