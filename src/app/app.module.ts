@@ -24,7 +24,8 @@ import { MailComponent } from './mail/mail.component';
 import { DocumentComponent } from './document/document.component';
 import { CertificateComponent } from './certificate/certificate.component';
 import { LabourContractComponent } from './labour-contract/labour-contract.component';
-import { ChangePassComponent } from './change-pass/change-pass.component'
+import { ChangePassComponent } from './change-pass/change-pass.component';
+import { ApproveContractComponent } from './approve-contract/approve-contract.component'
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { ChangePassComponent } from './change-pass/change-pass.component'
     DocumentComponent,
     CertificateComponent,
     LabourContractComponent,
-    ChangePassComponent
+    ChangePassComponent,
+    ApproveContractComponent
   ],
   imports: [
     BrowserModule,
