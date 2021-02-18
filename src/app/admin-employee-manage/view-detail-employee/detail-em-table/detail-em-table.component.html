@@ -1,0 +1,138 @@
+<table class=" table table-bordered ">
+  <thead>
+      <tr>
+          <th>Hạng Mục</th>
+          <th>Nội Dung</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Mã Nhân Viên</td>
+          <td>#1000</td>
+      </tr>
+      <tr>
+          <td>Họ Và Tên</td>
+          <td>Nguyễn Văn A</td>
+      </tr>
+      <tr>
+          <td>Email</td>
+          <td>email01@example.com</td>
+      </tr>
+      <tr>
+          <td>Account</td>
+          <td>anv001</td>
+      </tr>
+      <tr>
+        <td>Số Điện Thoại</td>
+        <td>0123456789</td>
+      </tr>
+      <tr>
+        <td>Phòng Ban</td>
+        <td>Sale</td>
+      </tr>
+      <tr>
+        <td colspan="2"><button type="button" class="btn btn-block btn-primary btn-sm" (click)="displayAddEmployeeInfo()">Bổ Sung Thông Tin</button></td>
+      </tr>
+      <tr>
+        <td colspan="2"><button type="button" class="btn btn-block btn-warning btn-sm" (click)="displayPasswordDialog()">Tạm Ngưng Nhân Viên</button></td>
+      </tr>
+  </tbody>
+</table>
+
+
+<div class="modal" [ngClass]="statusAddInfoDialog ? 'active' : ''" id="myModal" role="dialog">
+  <div class="modal-dialog">
+      <div class="modal-content">
+                  <form>
+                      <div class="card-body" style="height: 448px; width: 1200px; overflow: auto;">
+                          <div style="display: inline;">
+                            <h3>Thông tin Cơ Bản</h3>
+                          </div>
+                          <div class="form-group">
+                              <label for="exampleInputEmail1">Họ Và Tên</label>
+                              <input type="text" class="form-control" id="exampleInputEmail1">
+                          </div>
+                          <div class="form-group">
+                              <label for="exampleInputPassword1">Ngày Sinh</label>
+                              <input type="datetime" class="form-control" id="exampleInputPassword1">
+                          </div>
+                          <div class="form-group">
+                              <label for="exampleInputEmail1">Số Điện Thoại</label>
+                              <input type="tel" class="form-control" id="exampleInputEmail1">
+                          </div>
+                          <div class="form-group">
+                              <label for="exampleInputEmail1">Email</label>
+                              <input type="email" class="form-control" id="exampleInputEmail1">
+                          </div>
+                          <div class="form-group">
+                              <label for="exampleInputEmail1">Phòng Ban</label>
+                              <select class="form-control">
+                                <option>Sale</option>
+                                <option>Chăm Sóc Khách Hàng</option>
+                                <option>Kiểm Định</option>
+                              </select>
+                          </div>
+                          <div class="form-group">
+                              <input type="submit" class="form-control" value="Lưu" id="exampleInputEmail1" style="background: #28a745; color: white;">
+                          </div>
+                          <div class="form-group">
+                            <button class="form-control" style="background: #c82333; color: white;" (click)="displayAddEmployeeInfo()">Huỷ</button>
+                        </div>
+                      </div>
+                  </form>
+          </div>
+  </div>
+</div>
+
+<div class="modal" [ngClass]="statusPasswordDialog ? 'active' : ''" id="myModal" role="dialog">
+  <div class="modal-dialog">
+      <div class="modal-content">
+                  <form>
+                      <div class="card-body" style="height: auto; width: 1200px; overflow: auto;">
+                          <div style="display: inline;">
+                            <h3>Đăng Nhập Để Xác Nhận</h3>
+                          </div>
+                          <div class="form-group">
+                              <label for="exampleInputEmail1">Account</label>
+                              <input type="text" class="form-control" id="exampleInputEmail1">
+                          </div>
+                          <div class="form-group">
+                              <label for="exampleInputPassword1">Mật Khẩu</label>
+                              <input type="password" class="form-control" id="exampleInputPassword1">
+                          </div>
+                          <div class="form-group">
+                            <button class="form-control" style="background: #28a745; color: white;" (click)="displayDeactiveAccDialog()">Đăng Nhập</button>
+                          </div>
+                          <div class="form-group">
+                            <button class="form-control" style="background: #c82333; color: white;" (click)="displayAddEmployeeInfo()">Huỷ</button>
+                        </div>
+                      </div>
+                  </form>
+          </div>
+  </div>
+</div>
+
+<div class="modal" [ngClass]="statusDeactiveAccDialog ? 'active' : ''" id="myModal" role="dialog">
+  <div class="modal-dialog">
+      <div class="modal-content">
+                  <form>
+                      <div class="card-body" style="height: auto; width: 1200px; overflow: auto;">
+                          <div style="display: inline;">
+                            <h3>Tạm Ngưng Nhân Viên</h3>
+                          </div>
+                          <div class="form-group">
+                              <label for="exampleInputEmail1">Lý Do</label>
+                              <textarea class="form-control" id="exampleInputEmail1">
+                              </textarea>
+                          </div>
+                          <div class="form-group">
+                            <button class="form-control" style="background: #bd2130; color: white;">Tạm Ngưng</button>
+                          </div>
+                          <div class="form-group">
+                            <button class="form-control" style="background: #e9ecef; color: #2b2b2b;" (click)="displayDeactiveAccDialog()">Huỷ</button>
+                        </div>
+                      </div>
+                  </form>
+          </div>
+  </div>
+</div>

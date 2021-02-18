@@ -25,7 +25,17 @@ import { DocumentComponent } from './document/document.component';
 import { CertificateComponent } from './certificate/certificate.component';
 import { LabourContractComponent } from './labour-contract/labour-contract.component';
 import { ChangePassComponent } from './change-pass/change-pass.component';
-import { ApproveContractComponent } from './approve-contract/approve-contract.component'
+import { ApproveContractComponent } from './approve-contract/approve-contract.component';
+import { LoginComponent } from './login/login.component';
+import { AdminEmployeeManageComponent } from './admin-employee-manage/admin-employee-manage.component';
+import { ViewEmTableComponent } from './admin-employee-manage/view-em-table/view-em-table.component';
+import { AdminDataServiceService } from './services/admin-data-service.service';
+import { ViewDetailEmployeeComponent } from './admin-employee-manage/view-detail-employee/view-detail-employee.component';
+import { DetailEmTableComponent } from './admin-employee-manage/view-detail-employee/detail-em-table/detail-em-table.component';
+import { AdminCustomerManageComponent } from './admin-customer-manage/admin-customer-manage.component';
+import { ViewCustomerTableComponent } from './admin-customer-manage/view-customer-table/view-customer-table.component';
+import { AdminCommissionManageComponent } from './admin-commission-manage/admin-commission-manage.component';
+import { CommissionTableComponent } from './admin-commission-manage/commission-table/commission-table.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +51,16 @@ import { ApproveContractComponent } from './approve-contract/approve-contract.co
     CertificateComponent,
     LabourContractComponent,
     ChangePassComponent,
-    ApproveContractComponent
+    ApproveContractComponent,
+    LoginComponent,
+    AdminEmployeeManageComponent,
+    ViewEmTableComponent,
+    ViewDetailEmployeeComponent,
+    DetailEmTableComponent,
+    AdminCustomerManageComponent,
+    ViewCustomerTableComponent,
+    AdminCommissionManageComponent,
+    CommissionTableComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,7 +75,7 @@ import { ApproveContractComponent } from './approve-contract/approve-contract.co
     MatListModule,
     MatButtonModule,
   ],
-  providers: [],
+  providers: [AdminDataServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

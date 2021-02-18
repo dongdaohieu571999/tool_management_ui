@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AdminCommissionManageComponent } from './admin-commission-manage/admin-commission-manage.component';
+import { AdminCustomerManageComponent } from './admin-customer-manage/admin-customer-manage.component';
+import { AdminEmployeeManageComponent } from './admin-employee-manage/admin-employee-manage.component';
+import { ViewDetailEmployeeComponent } from './admin-employee-manage/view-detail-employee/view-detail-employee.component';
 import { CertificateComponent } from './certificate/certificate.component';
 import { ChangePassComponent } from './change-pass/change-pass.component';
 import { ContractComponent } from './contract/contract.component';
@@ -9,6 +13,7 @@ import { DocumentComponent } from './document/document.component';
 import { IllustrationComponent } from './illustration/illustration.component';
 import { IncomeComponent } from './income/income.component';
 import { LabourContractComponent } from './labour-contract/labour-contract.component';
+import { LoginComponent } from './login/login.component';
 import { MailComponent } from './mail/mail.component';
 import { NotificationComponent } from './notification/notification.component';
 
@@ -25,6 +30,11 @@ const routes: Routes = [
   {path: "certificate", component:CertificateComponent},
   {path: "labour-contract", component:LabourContractComponent},
   {path: "change-pass", component:ChangePassComponent},
+  {path: "login", component:LoginComponent},
+  {path: "employee-manage", component:AdminEmployeeManageComponent},
+  {path: "detail-employee", component:ViewDetailEmployeeComponent},
+  {path: "customer-manage", component:AdminCustomerManageComponent},
+  {path: "commission-manage", component:AdminCommissionManageComponent}
 ];
 
 @NgModule({
