@@ -11,6 +11,9 @@ import { IncomeComponent } from './income/income.component';
 import { LabourContractComponent } from './labour-contract/labour-contract.component';
 import { MailComponent } from './mail/mail.component';
 import { NotificationComponent } from './notification/notification.component';
+import { DetailcontractComponent } from './contract/detailcontract/detailcontract.component';
+import { ApproveContractComponent } from './approve-contract/approve-contract.component';
+import { DetailcustomerComponent } from './customer-list/detailcustomer/detailcustomer.component'; 
 
 
 const routes: Routes = [
@@ -25,6 +28,9 @@ const routes: Routes = [
   {path: "certificate", component:CertificateComponent},
   {path: "labour-contract", component:LabourContractComponent},
   {path: "change-pass", component:ChangePassComponent},
+  {path: "contract/detailcontract", component:DetailcontractComponent},
+  {path: "approve-contract", component:ApproveContractComponent},
+  {path: "customer/detailcustomer", component:DetailcustomerComponent},
 ];
 
 @NgModule({

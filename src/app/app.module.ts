@@ -25,7 +25,10 @@ import { DocumentComponent } from './document/document.component';
 import { CertificateComponent } from './certificate/certificate.component';
 import { LabourContractComponent } from './labour-contract/labour-contract.component';
 import { ChangePassComponent } from './change-pass/change-pass.component';
-import { ApproveContractComponent } from './approve-contract/approve-contract.component'
+import { ApproveContractComponent } from './approve-contract/approve-contract.component';
+import { ReviewClaimPaymentComponent } from './review-claim-payment/review-claim-payment.component';
+import { DetailcontractComponent } from './contract/detailcontract/detailcontract.component';
+import { DetailcustomerComponent } from './customer-list/detailcustomer/detailcustomer.component'
 
 @NgModule({
   declarations: [
@@ -41,7 +44,10 @@ import { ApproveContractComponent } from './approve-contract/approve-contract.co
     CertificateComponent,
     LabourContractComponent,
     ChangePassComponent,
-    ApproveContractComponent
+    ApproveContractComponent,
+    ReviewClaimPaymentComponent,
+    DetailcontractComponent,
+    DetailcustomerComponent
   ],
   imports: [
     BrowserModule,
