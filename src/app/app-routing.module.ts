@@ -2,8 +2,11 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminCommissionManageComponent } from './admin-commission-manage/admin-commission-manage.component';
 import { AdminCustomerManageComponent } from './admin-customer-manage/admin-customer-manage.component';
+import { DetailCustomerComponent } from './admin-customer-manage/view-customer-table/detail-customer/detail-customer.component';
 import { AdminEmployeeManageComponent } from './admin-employee-manage/admin-employee-manage.component';
 import { ViewDetailEmployeeComponent } from './admin-employee-manage/view-detail-employee/view-detail-employee.component';
+import { AdminSolutionManageComponent } from './admin-solution-manage/admin-solution-manage.component';
+import { DetailSolutionRequestComponent } from './admin-solution-manage/solution-request-table/detail-solution-request/detail-solution-request.component';
 import { CertificateComponent } from './certificate/certificate.component';
 import { ChangePassComponent } from './change-pass/change-pass.component';
 import { ContractComponent } from './contract/contract.component';
@@ -14,6 +17,7 @@ import { IllustrationComponent } from './illustration/illustration.component';
 import { IncomeComponent } from './income/income.component';
 import { LabourContractComponent } from './labour-contract/labour-contract.component';
 import { LoginComponent } from './login/login.component';
+import { ResetPasswordComponent } from './login/reset-password/reset-password.component';
 import { MailComponent } from './mail/mail.component';
 import { NotificationComponent } from './notification/notification.component';
 
@@ -34,7 +38,11 @@ const routes: Routes = [
   {path: "employee-manage", component:AdminEmployeeManageComponent},
   {path: "detail-employee", component:ViewDetailEmployeeComponent},
   {path: "customer-manage", component:AdminCustomerManageComponent},
-  {path: "commission-manage", component:AdminCommissionManageComponent}
+  {path: "commission-manage", component:AdminCommissionManageComponent},
+  {path: "solution-manage", component:AdminSolutionManageComponent},
+  {path: "detail-solution-request", component:DetailSolutionRequestComponent},
+  {path: "detail-customer", component: DetailCustomerComponent},
+  {path: "reset-password", component: ResetPasswordComponent}
 ];
 
 @NgModule({

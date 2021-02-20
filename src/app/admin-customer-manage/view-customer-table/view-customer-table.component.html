@@ -1,5 +1,5 @@
 <div class="card-body">
-  <table id="example1" class="table table-bordered table-striped">
+  <table class="table table-bordered table-striped">
       <thead>
           <tr>
               <th>Mã Khách Hàng</th>
@@ -8,6 +8,7 @@
               <th>Ngày Sinh</th>
               <th>Số Điện Thoại</th>
               <th>Email</th>
+              <th>Chi Tiết</th>
               <th>Thao Tác</th>
           </tr>
       </thead>
@@ -19,6 +20,8 @@
               <td>20-11-1991</td>
               <td>01234566789</td>
               <td>example001@email.com</td>
+              <td><button type="button" class="btn btn-block btn-primary btn-sm">
+                <a [routerLink]="['/detail-customer']">Chi Tiết</a></button></td>
               <td><button type="button" class="btn btn-block btn-primary disabled">Thêm Tài Khoản</button></td>
           </tr>
           <tr>
@@ -28,6 +31,8 @@
             <td>20-11-1991</td>
             <td>01234566789</td>
             <td>example001@email.com</td>
+            <td><button type="button" class="btn btn-block btn-primary btn-sm">
+              <a [routerLink]="['/detail-customer']">Chi Tiết</a></button></td>
             <td><button type="button" class="btn btn-block btn-primary" (click)="displayAddCustomerAccDialog()">Thêm Tài Khoản</button></td>
         </tr>
         <tr>
@@ -37,6 +42,8 @@
           <td>20-11-1991</td>
           <td>01234566789</td>
           <td>example001@email.com</td>
+          <td><button type="button" class="btn btn-block btn-primary btn-sm">
+            <a [routerLink]="['/detail-customer']">Chi Tiết</a></button></td>
           <td><button type="button" class="btn btn-block btn-primary disabled">Thêm Tài Khoản</button></td>
       </tr>
       </tbody>
@@ -48,6 +55,7 @@
             <th>Ngày Sinh</th>
             <th>Số Điện Thoại</th>
             <th>Email</th>
+            <th>Chi Tiết</th>
             <th>Thao Tác</th>
           </tr>
       </tfoot>
@@ -55,7 +63,7 @@
 </div>
 
 <!-- add-customerAcc-dialog -->
-          <div class="modal" [ngClass]="status ? 'active' : ''" id="myModal" role="dialog">
+          <div class="modal" id="myModal" role="dialog" [ngClass]="status ? 'active' : ''">
             <div class="modal-dialog">
                 <div class="modal-content">
                             <form>
@@ -64,19 +72,19 @@
                                       <h3>Thêm Tài Khoản Đăng Nhập Khách Hàng</h3>
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Tên Đăng Nhập</label>
-                                        <input type="text" class="form-control" id="exampleInputEmail1">
+                                        <label>Tên Đăng Nhập</label>
+                                        <input type="text" class="form-control" name="username">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Mật Khẩu</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword1">
+                                        <label>Mật Khẩu</label>
+                                        <input type="password" class="form-control" name="password">
                                     </div>
                                     <div class="form-group">
-                                      <label for="exampleInputPassword1">Mật Khẩu Xác Nhận</label>
-                                      <input type="password" class="form-control" id="exampleInputPassword1">
+                                      <label>Mật Khẩu Xác Nhận</label>
+                                      <input type="password" class="form-control" name="confirmPassword">
                                   </div>
                                     <div class="form-group">
-                                        <input type="submit" class="form-control" value="Lưu" id="exampleInputEmail1" style="background: #28a745; color: white;">
+                                        <input type="submit" class="form-control" value="Lưu" style="background: #28a745; color: white;">
                                     </div>
                                     <div class="form-group">
                                       <button class="form-control" style="background: #c82333; color: white;" (click)="displayAddCustomerAccDialog()">Huỷ</button>

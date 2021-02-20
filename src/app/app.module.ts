@@ -31,11 +31,18 @@ import { AdminEmployeeManageComponent } from './admin-employee-manage/admin-empl
 import { ViewEmTableComponent } from './admin-employee-manage/view-em-table/view-em-table.component';
 import { AdminDataServiceService } from './services/admin-data-service.service';
 import { ViewDetailEmployeeComponent } from './admin-employee-manage/view-detail-employee/view-detail-employee.component';
-import { DetailEmTableComponent } from './admin-employee-manage/view-detail-employee/detail-em-table/detail-em-table.component';
+import { DetailEmTableComponent } from './admin-employee-manage/view-em-table/detail-em-table/detail-em-table.component';
 import { AdminCustomerManageComponent } from './admin-customer-manage/admin-customer-manage.component';
 import { ViewCustomerTableComponent } from './admin-customer-manage/view-customer-table/view-customer-table.component';
 import { AdminCommissionManageComponent } from './admin-commission-manage/admin-commission-manage.component';
 import { CommissionTableComponent } from './admin-commission-manage/commission-table/commission-table.component';
+import { AdminSolutionManageComponent } from './admin-solution-manage/admin-solution-manage.component';
+import { SolutionRequestTableComponent } from './admin-solution-manage/solution-request-table/solution-request-table.component';
+import { DetailSolutionRequestComponent } from './admin-solution-manage/solution-request-table/detail-solution-request/detail-solution-request.component';
+import { DetailCustomerComponent } from './admin-customer-manage/view-customer-table/detail-customer/detail-customer.component';
+import { ResetPasswordComponent } from './login/reset-password/reset-password.component';
+import { SolutionHistoryComponent } from './admin-solution-manage/solution-history/solution-history.component';
+import { SolutionHistoryTableComponent } from './admin-solution-manage/solution-history/solution-history-table/solution-history-table.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +68,13 @@ import { CommissionTableComponent } from './admin-commission-manage/commission-t
     ViewCustomerTableComponent,
     AdminCommissionManageComponent,
     CommissionTableComponent,
+    AdminSolutionManageComponent,
+    SolutionRequestTableComponent,
+    DetailSolutionRequestComponent,
+    DetailCustomerComponent,
+    ResetPasswordComponent,
+    SolutionHistoryComponent,
+    SolutionHistoryTableComponent
   ],
   imports: [
     BrowserModule,
