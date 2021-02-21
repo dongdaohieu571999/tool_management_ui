@@ -29,6 +29,23 @@ import { ApproveContractComponent } from './approve-contract/approve-contract.co
 import { ReviewClaimPaymentComponent } from './review-claim-payment/review-claim-payment.component';
 import { DetailcontractComponent } from './contract/detailcontract/detailcontract.component';
 import { DetailcustomerComponent } from './customer-list/detailcustomer/detailcustomer.component'
+import { LoginComponent } from './login/login.component';
+import { AdminEmployeeManageComponent } from './admin-employee-manage/admin-employee-manage.component';
+import { ViewEmTableComponent } from './admin-employee-manage/view-em-table/view-em-table.component';
+import { AdminDataServiceService } from './services/admin-data-service.service';
+import { ViewDetailEmployeeComponent } from './admin-employee-manage/view-detail-employee/view-detail-employee.component';
+import { DetailEmTableComponent } from './admin-employee-manage/view-em-table/detail-em-table/detail-em-table.component';
+import { AdminCustomerManageComponent } from './admin-customer-manage/admin-customer-manage.component';
+import { ViewCustomerTableComponent } from './admin-customer-manage/view-customer-table/view-customer-table.component';
+import { AdminCommissionManageComponent } from './admin-commission-manage/admin-commission-manage.component';
+import { CommissionTableComponent } from './admin-commission-manage/commission-table/commission-table.component';
+import { AdminSolutionManageComponent } from './admin-solution-manage/admin-solution-manage.component';
+import { SolutionRequestTableComponent } from './admin-solution-manage/solution-request-table/solution-request-table.component';
+import { DetailSolutionRequestComponent } from './admin-solution-manage/solution-request-table/detail-solution-request/detail-solution-request.component';
+import { DetailCustomerComponent } from './admin-customer-manage/view-customer-table/detail-customer/detail-customer.component';
+import { ResetPasswordComponent } from './login/reset-password/reset-password.component';
+import { SolutionHistoryComponent } from './admin-solution-manage/solution-history/solution-history.component';
+import { SolutionHistoryTableComponent } from './admin-solution-manage/solution-history/solution-history-table/solution-history-table.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +64,23 @@ import { DetailcustomerComponent } from './customer-list/detailcustomer/detailcu
     ApproveContractComponent,
     ReviewClaimPaymentComponent,
     DetailcontractComponent,
-    DetailcustomerComponent
+    DetailcustomerComponent,
+    LoginComponent,
+    AdminEmployeeManageComponent,
+    ViewEmTableComponent,
+    ViewDetailEmployeeComponent,
+    DetailEmTableComponent,
+    AdminCustomerManageComponent,
+    ViewCustomerTableComponent,
+    AdminCommissionManageComponent,
+    CommissionTableComponent,
+    AdminSolutionManageComponent,
+    SolutionRequestTableComponent,
+    DetailSolutionRequestComponent,
+    DetailCustomerComponent,
+    ResetPasswordComponent,
+    SolutionHistoryComponent,
+    SolutionHistoryTableComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +95,7 @@ import { DetailcustomerComponent } from './customer-list/detailcustomer/detailcu
     MatListModule,
     MatButtonModule,
   ],
-  providers: [],
+  providers: [AdminDataServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
