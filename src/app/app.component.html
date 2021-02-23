@@ -1,12 +1,12 @@
-<mat-toolbar class="nav-height">
+<mat-toolbar class="nav-height" *ngIf="authenService.isAuthen">
     <mat-toolbar-row>
         <button mat-icon-button><mat-icon (click)="openLeftSide()">menu</mat-icon></button>
     </mat-toolbar-row>
 </mat-toolbar>
 <mat-sidenav-container>
-    <mat-sidenav #sidenav (closed)="closeLeftSide()">
+    <mat-sidenav #sidenav (closed)="closeLeftSide()" *ngIf="authenService.isAuthen">
         <mat-nav-list>
-            <a mat-list-item>
+            <a mat-list-item (click)="logout()">
                 <img src="../assets/images/exit.png" class="imglink" style="opacity: .8">
                 <span class="brand-text font-weight-light">Thoát</span>
             </a>
@@ -71,46 +71,41 @@
             </a>
 
             <!-- admin -->
-            <a mat-list-item [routerLink]="['/approve-contract']">
-                <a mat-list-item [routerLink]="['/login']">
-                    <mat-icon mat-list-icon>home</mat-icon>----------- <br>Đăng Nhập
-                </a>
-                <a mat-list-item [routerLink]="['/employee-manage']">
-                    <mat-icon mat-list-icon>home</mat-icon>----------- <br>Quản Lý Nhân Viên
-                </a>
-                <a mat-list-item [routerLink]="['/customer-manage']">
-                    <mat-icon mat-list-icon>home</mat-icon>----------- <br>Quản Lý Tài Khoản Khách Hàng
-                </a>
-                <a mat-list-item [routerLink]="['/commission-manage']">
-                    <mat-icon mat-list-icon>home</mat-icon>----------- <br>Quản Lý Phần Trăm Hoa Hồng
-                </a>
-                <a mat-list-item [routerLink]="['/solution-manage']">
-                    <mat-icon mat-list-icon>home</mat-icon>----------- <br>Quản Lý Gói Quyền Lợi
-                </a>
-                <a mat-list-item [routerLink]="['/dashboard']">
-                    <mat-icon mat-list-icon>home</mat-icon>Quản Lý Saler
-                </a>
-                <a mat-list-item [routerLink]="['/dashboard']">
-                    <mat-icon mat-list-icon>home</mat-icon>FeedBack
-                </a>
-                <a mat-list-item [routerLink]="['/dashboard']">
-                    <mat-icon mat-list-icon>home</mat-icon>KPI Nhóm
-                </a>
-                <a mat-list-item [routerLink]="['/dashboard']">
-                    <mat-icon mat-list-icon>home</mat-icon>Doanh Thu
-                </a>
-                <a mat-list-item [routerLink]="['/dashboard']">
-                    <mat-icon mat-list-icon>home</mat-icon>Lịch Sử thanh toán QLBH
-                </a>
+            <a mat-list-item [routerLink]="['/approve-contract']"></a>
+            <a mat-list-item [routerLink]="['/login']">
+                <mat-icon mat-list-icon>home</mat-icon>----------- <br>Đăng Nhập
+            </a>
+            <a mat-list-item [routerLink]="['/employee-manage']">
+                <mat-icon mat-list-icon>home</mat-icon>----------- <br>Quản Lý Nhân Viên
+            </a>
+            <a mat-list-item [routerLink]="['/customer-manage']">
+                <mat-icon mat-list-icon>home</mat-icon>----------- <br>Quản Lý Tài Khoản Khách Hàng
+            </a>
+            <a mat-list-item [routerLink]="['/commission-manage']">
+                <mat-icon mat-list-icon>home</mat-icon>----------- <br>Quản Lý Phần Trăm Hoa Hồng
+            </a>
+            <a mat-list-item [routerLink]="['/solution-manage']">
+                <mat-icon mat-list-icon>home</mat-icon>----------- <br>Quản Lý Gói Quyền Lợi
+            </a>
+            <a mat-list-item [routerLink]="['/dashboard']">
+                <mat-icon mat-list-icon>home</mat-icon>Quản Lý Saler
+            </a>
+            <a mat-list-item [routerLink]="['/dashboard']">
+                <mat-icon mat-list-icon>home</mat-icon>FeedBack
+            </a>
+            <a mat-list-item [routerLink]="['/dashboard']">
+                <mat-icon mat-list-icon>home</mat-icon>KPI Nhóm
+            </a>
+            <a mat-list-item [routerLink]="['/dashboard']">
+                <mat-icon mat-list-icon>home</mat-icon>Doanh Thu
+            </a>
+            <a mat-list-item [routerLink]="['/dashboard']">
+                <mat-icon mat-list-icon>home</mat-icon>Lịch Sử thanh toán QLBH
+            </a>
         </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
-        <div style="
-        height: 90vh;
-        margin-top: 20px;
-        margin-right: 10px;
-        margin-left: 10px;
-      " [ngClass]="{
+        <div [ngClass]="{
         'content-move-left': !isOpened,
         'content-move-right': isOpened
       }">

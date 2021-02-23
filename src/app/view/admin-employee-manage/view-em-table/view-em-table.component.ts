@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ServerHttpService } from 'src/app/services/http/server-http.service';
 
 @Component({
   selector: 'app-view-em-table',
@@ -8,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 export class ViewEmTableComponent implements OnInit {
 
   statusAddAcc: boolean = false;
-  constructor() { }
+  constructor(private serverHttpService: ServerHttpService) { }
 
   ngOnInit(): void {
+    this.serverHttpService.getAllAcc().subscribe((data => {
+      console.log(data);
+    }));
   }
 
   displayAddAccDialog(): void {
