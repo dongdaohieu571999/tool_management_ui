@@ -19,14 +19,14 @@ export class EmployeeService {
   }
 
   public getAllAcc(): Observable<any>{
-    const url = this.common.makeUrl("/employee/get_all_employee_acc/");
+    const url = this.common.makeUrl("/employee/get_all_employee_acc");
     return this.httpClient
     .get<any>(url,this.httpOptions)
     .pipe(catchError(this.handleError));
   }
 
-  public getOneAcc(code: string): Observable<any>{
-    const url = this.common.makeUrl("/employee/get_one_employee_acc/"+code);
+  public getIdRole(): Observable<any>{
+    const url = this.common.makeUrl("/employee/get_one_employee_acc/"+this.common.getCookie('token_key'));
     return this.httpClient
     .get<any>(url,this.httpOptions)
     .pipe(catchError(this.handleError));
