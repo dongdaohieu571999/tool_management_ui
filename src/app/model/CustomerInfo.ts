@@ -1,3 +1,5 @@
+import { AddressInfo } from "./AddressInfo";
+
 export class Customer {
     private id: number;
     private birth_date: Date;
@@ -16,18 +18,20 @@ export class Customer {
     private main_business: string;
     private specific_work: string;
     private monthly_income: number;
-    private id_current_address: number;
-    private id_permanent_address: number;
-    private id_contact_address: number;
-    private id_workplace_address: number;
+    // private id_current_address: number;
+    // private id_permanent_address: number;
+    // private id_contact_address: number;
+    // private id_workplace_address: number;
+    private listAdress : AddressInfo[];
     private email: string;
     private phone_1: string;
     private phone_2: string;
-    private id_account : number
+    private id_account : number;
+    private full_name : string;
 
     constructor(id: number, birth_date: Date, age: number, birth_address: string, types_identification: string, ID_card: string, nationality_1: string, nationality_2: string,
         nation: string, job: string, career: string, position: string, occupation_group: string, company_name: string, main_business: string, specific_work: string, monthly_income: number,
-        id_current_address: number, id_permanent_address: number, id_contact_address: number, id_workplace_address: number, email: string, phone_1: string, phone_2: string, id_account: number) {
+         email: string, phone_1: string, phone_2: string, id_account: number, full_name : string) {
 
         this.id = id;
         this.birth_date = birth_date;
@@ -46,13 +50,14 @@ export class Customer {
         this.main_business = main_business;
         this.specific_work = specific_work;
         this.monthly_income = monthly_income;
-        this.id_current_address = id_current_address;
-        this.id_permanent_address = id_permanent_address;
-        this.id_contact_address = id_contact_address;
-        this.id_workplace_address = id_workplace_address;
+        // this.id_current_address = id_current_address;
+        // this.id_permanent_address = id_permanent_address;
+        // this.id_contact_address = id_contact_address;
+        // this.id_workplace_address = id_workplace_address;
         this.email = email;
         this.phone_1 = phone_1;
         this.phone_2 = phone_2;
+        this.full_name = full_name;
     }
     getId(): number {
         return this.id;
@@ -109,18 +114,18 @@ export class Customer {
     getMonthly_income(): number {
         return this.monthly_income;
     }
-    getId_current_address(): number {
-        return this.id_current_address;
-    }
-    getId_permanent_address(): number {
-        return this.id_permanent_address;
-    }
-    getId_contact_address(): number {
-        return this.id_contact_address;
-    }
-    getId_workplace_address(): number {
-        return this.id_workplace_address;
-    }
+    // getId_current_address(): number {
+    //     return this.id_current_address;
+    // }
+    // getId_permanent_address(): number {
+    //     return this.id_permanent_address;
+    // }
+    // getId_contact_address(): number {
+    //     return this.id_contact_address;
+    // }
+    // getId_workplace_address(): number {
+    //     return this.id_workplace_address;
+    // }
     getEmail(): string {
         return this.email;
     }
@@ -132,5 +137,8 @@ export class Customer {
     }
     getId_account(): number {
         return this.id_account;
+    }
+    getFull_name(): string {
+        return this.full_name;
     }
 }
