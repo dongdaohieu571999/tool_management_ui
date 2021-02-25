@@ -1,0 +1,97 @@
+<div class="card-body">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Mã Khách Hàng</th>
+                <th>Tên Account</th>
+                <th>Họ và Tên</th>
+                <th>Ngày Sinh</th>
+                <th>Số Điện Thoại</th>
+                <th>Email</th>
+                <th>Chi Tiết</th>
+                <th>Thao Tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>#1001</td>
+                <td>bnhnv002</td>
+                <td>Nguyễn Văn B</td>
+                <td>20-11-1991</td>
+                <td>01234566789</td>
+                <td>example001@email.com</td>
+                <td><button type="button" class="btn btn-block btn-primary btn-sm">
+                <a [routerLink]="['/detail-customer']">Chi Tiết</a></button></td>
+                <td><button type="button" class="btn btn-block btn-primary disabled">Thêm Tài Khoản</button></td>
+            </tr>
+            <tr>
+                <td>#1001</td>
+                <td></td>
+                <td>Nguyễn Văn B</td>
+                <td>20-11-1991</td>
+                <td>01234566789</td>
+                <td>example001@email.com</td>
+                <td><button type="button" class="btn btn-block btn-primary btn-sm">
+              <a [routerLink]="['/detail-customer']">Chi Tiết</a></button></td>
+                <td><button type="button" class="btn btn-block btn-primary" (click)="displayAddCustomerAccDialog()">Thêm Tài Khoản</button></td>
+            </tr>
+            <tr>
+                <td>#1001</td>
+                <td>bnhnv002</td>
+                <td>Nguyễn Văn B</td>
+                <td>20-11-1991</td>
+                <td>01234566789</td>
+                <td>example001@email.com</td>
+                <td><button type="button" class="btn btn-block btn-primary btn-sm">
+            <a [routerLink]="['/detail-customer']">Chi Tiết</a></button></td>
+                <td><button type="button" class="btn btn-block btn-primary disabled">Thêm Tài Khoản</button></td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>Mã Khách Hàng</th>
+                <th>Tên Account</th>
+                <th>Họ và Tên</th>
+                <th>Ngày Sinh</th>
+                <th>Số Điện Thoại</th>
+                <th>Email</th>
+                <th>Chi Tiết</th>
+                <th>Thao Tác</th>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+<!-- add-customerAcc-dialog -->
+<div class="modal" id="myModal" role="dialog" [ngClass]="status ? 'active' : ''">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form (ngSubmit)="onSubmit(addAccForm)" #addAccForm="ngForm">
+                <div class="card-body" style="height: 448px; width: 1200px; overflow: auto;">
+                    <div style="display: inline;">
+                        <h3>Thêm Tài Khoản Đăng Nhập Khách Hàng</h3>
+                    </div>
+                    <div class="form-group">
+                        <label>Tên Đăng Nhập</label>
+                        <input type="text" class="form-control" name="code" ngModel>
+                    </div>
+                    <div class="form-group">
+                        <label>Mật Khẩu</label>
+                        <input type="password" class="form-control" name="pass" ngModel>
+                    </div>
+                    <div class="form-group">
+                        <label>Mật Khẩu Xác Nhận</label>
+                        <input type="password" class="form-control" name="confirmPassword" ngModel>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="form-control" value="Lưu" style="background: #28a745; color: white;">
+                    </div>
+                    <div class="form-group">
+                        <button class="form-control" style="background: #c82333; color: white;" (click)="displayAddCustomerAccDialog()">Huỷ</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- add-customerAcc-dialog -->
