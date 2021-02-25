@@ -32,8 +32,12 @@ export class EmployeeService {
     .pipe(catchError(this.handleError));
   }
 
-  
-
+  public addEmployeeAccount(data : Account) : Observable<any>{
+    const url = this.common.makeUrl("/employee/add_employee_acc");
+    return this.httpClient
+    .post<any>(url,data,this.httpOptions) 
+    .pipe(catchError(this.handleError));
+  } 
 
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
