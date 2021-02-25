@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { WebApiService } from '../services/web-api.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-admin-employee-manage',
@@ -21,5 +21,10 @@ export class AdminEmployeeManageComponent implements OnInit {
 
   displayAddEmployeeDialog() {
     this.status = !this.status;
+  }
+
+  public onSubmit(accForm : NgForm){
+   
+
   }
 }

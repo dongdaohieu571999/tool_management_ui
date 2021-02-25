@@ -74,7 +74,7 @@
 <div class="modal" [ngClass]="statusAddAcc ? 'active' : ''" id="myModal" role="dialog">
   <div class="modal-dialog">
       <div class="modal-content">
-                  <form (ngSubmit)="onSubmit()" #myForm="ngForm" >
+                  <form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm" >
                       <div class="card-body" style="height: auto; width: 1200px; overflow: auto;">
                           <div style="display: inline;">
                             <h3>Thêm Tài Khoản Nhân Viên</h3>
@@ -82,17 +82,17 @@
                           <div class="form-group">
                             <label for="user">Account</label>
                             <input type="text" class="form-control" id="user" required
-                            [(ngModel)]="user" name="user" />
+                             name="user" ngModel/>
                           </div>
                           <div class="form-group">
                             <label for="password">Password</label>
                             <input type="password" class="form-control" id="exampleInputEmail1" required
-                            [(ngModel)]="password" name="password"/>
+                             name="password" ngModel/>
                           </div>
                           <div class="form-group">
                             <label for="confirmpassword">Confirm Password</label>
                             <input type="password" class="form-control" id="exampleInputEmail1" required
-                            [(ngModel)]="confirmpassword" name="confirmpassword"/>
+                            name="confirmpassword" ngModel/>
                           </div>
                           <div class="form-group">
                             <button type="submit" class="form-control" style="background: #0062cc; color: white;">Thêm</button>

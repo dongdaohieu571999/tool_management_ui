@@ -2,6 +2,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
+import { EmployeeAcc } from 'src/app/model/EmployeeAcc';
 import { CommonService } from '../common/common.service';
 
 @Injectable({
@@ -32,7 +33,7 @@ export class EmployeeService {
     .pipe(catchError(this.handleError));
   }
 
-  public addEmployeeAccount(data : Account) : Observable<any>{
+  public addEmployeeAccount(data : EmployeeAcc) : Observable<any>{
     const url = this.common.makeUrl("/employee/add_employee_acc");
     return this.httpClient
     .post<any>(url,data,this.httpOptions) 
