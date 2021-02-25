@@ -44,10 +44,14 @@ import { CommissionTableComponent } from './view/admin-commission-manage/commiss
 import { AdminSolutionManageComponent } from './view/admin-solution-manage/admin-solution-manage.component';
 import { SolutionRequestTableComponent } from './view/admin-solution-manage/solution-request-table/solution-request-table.component';
 import { DetailSolutionRequestComponent } from './view/admin-solution-manage/solution-request-table/detail-solution-request/detail-solution-request.component';
-import { DetailCustomerComponent } from './view/admin-customer-manage/view-customer-table/detail-customer/detail-customer.component';
 import { ResetPasswordComponent } from './view/login/reset-password/reset-password.component';
 import { SolutionHistoryComponent } from './view/admin-solution-manage/solution-history/solution-history.component';
 import { SolutionHistoryTableComponent } from './view/admin-solution-manage/solution-history/solution-history-table/solution-history-table.component';
+import { AppraiserContractManageComponent } from './view/appraiser-contract-manage/appraiser-contract-manage.component';
+import { ViewDetailContractComponent } from './view/view-detail-contract/view-detail-contract.component';
+import { AppraiserRequestManageComponent } from './view/appraiser-request-manage/appraiser-request-manage.component';
+import { DetailRequestComponent } from './view/appraiser-request-manage/detail-request/detail-request.component';
+import { ViewDetailCustomerComponent } from './view/view-detail-customer/view-detail-customer.component';
 
 
 @NgModule({
@@ -80,10 +84,14 @@ import { SolutionHistoryTableComponent } from './view/admin-solution-manage/solu
     AdminSolutionManageComponent,
     SolutionRequestTableComponent,
     DetailSolutionRequestComponent,
-    DetailCustomerComponent,
     ResetPasswordComponent,
     SolutionHistoryComponent,
-    SolutionHistoryTableComponent
+    SolutionHistoryTableComponent,
+    AppraiserContractManageComponent,
+    ViewDetailContractComponent,
+    AppraiserRequestManageComponent,
+    DetailRequestComponent,
+    ViewDetailCustomerComponent
   ],
   imports: [
     FormsModule,

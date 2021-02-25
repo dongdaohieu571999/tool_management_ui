@@ -1,0 +1,96 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>THÔNG TIN CHI TIẾT YÊU CẦU XÉT DUYỆT</h1>
+        </div>
+      </div>
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <table class=" table table-bordered ">
+              <thead>
+                  <tr>
+                      <th>Hạng Mục</th>
+                      <th>Nội Dung</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td>Giấy Tờ Liên Quan</td>
+                      <td><img src="https://img.topbank.vn/2020/02/24/b8awMTJx/minh-hoa-bao-hiem-nhan-tho-4b46.jpg"/></td>
+                  </tr>
+              </tbody>
+            </table>
+
+          </div>
+          <!-- /.card -->
+        </div>
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+                <h2><b>Form Xét Duyệt</b></h2>
+            </div>
+            <table class=" table table-bordered ">
+                  <tr>
+                      <th>Quyết Định Xét Duyệt</th>
+                      <td>
+                        <select class="custom-select">
+                          <option>Chấp Nhận</option>
+                          <option>Yêu CẦu Bổ Sung</option>
+                          <option>Từ Chối</option>
+                        </select>
+                      </td>
+                  </tr>
+                  <tr>
+                    <th>Ghi Chú</th>
+                    <td><textarea class="form-control" rows="3" placeholder="Enter ..."></textarea></td>
+                  </tr>
+                  <tr>
+                    <td colspan="2"><button type="button" class="btn btn-block btn-success btn-sm"
+                      (click)="displayConfirmDialog()">Lưu</button></td>
+                  </tr>
+            </table>
+          </div>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+  <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+
+<div class="modal" [ngClass]="status ? 'active' : ''" id="myModal" role="dialog">
+  <div class="modal-dialog">
+      <div class="modal-content">
+                  <form>
+                      <div class="card-body" style="height: auto; width: 700px; overflow: auto;">
+                          <div style="display: inline;">
+                            <h3>Xác Nhận</h3>
+                          </div>
+                          <div class="form-group">
+                              <input type="submit" class="form-control" value="Xác Nhận" id="exampleInputEmail1" style="background: #28a745; color: white;">
+                          </div>
+                          <div class="form-group">
+                            <button class="form-control" style="background: #c82333; color: white;" (click)="displayConfirmDialog()">Huỷ</button>
+                        </div>
+                      </div>
+                  </form>
+          </div>
+  </div>
+</div>
+

@@ -14,7 +14,7 @@ export class AppComponent {
   public isOpened = false;
 
   constructor(public authenService: AuthenService, public router: Router){
-    
+
   }
 
   public openLeftSide() {
@@ -32,5 +32,5 @@ export class AppComponent {
     this.closeLeftSide();
   }
 
-  
+
 }
