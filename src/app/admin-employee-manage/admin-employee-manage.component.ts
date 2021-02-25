@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WebApiService } from '../services/web-api.service';
 
 @Component({
   selector: 'app-admin-employee-manage',
@@ -11,8 +12,9 @@ export class AdminEmployeeManageComponent implements OnInit {
   addEmployeeBtn: string = "Thêm Nhân Viên";
   status: boolean = false;
 
-  constructor() {
-   }
+
+  constructor() 
+  {}
 
   ngOnInit(): void {
   }

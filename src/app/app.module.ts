@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -64,6 +66,7 @@ import { CommissionTableComponent } from './admin-commission-manage/commission-t
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatSliderModule,
@@ -74,6 +77,7 @@ import { CommissionTableComponent } from './admin-commission-manage/commission-t
     MatSidenavModule,
     MatListModule,
     MatButtonModule,
+    FormsModule,
   ],
   providers: [AdminDataServiceService],
   bootstrap: [AppComponent]
