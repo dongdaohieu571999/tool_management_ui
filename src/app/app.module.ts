@@ -99,6 +99,8 @@ import { SolutionHistoryTableComponent } from './view/admin-solution-manage/solu
     MatButtonModule,
     FormsModule,
     HttpClientModule,
+
+
   ],
   providers: [AdminDataServiceService],
   bootstrap: [AppComponent]

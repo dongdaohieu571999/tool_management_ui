@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { EmployeeAcc } from 'src/app/model/EmployeeAcc';
+import { EmployeeInfo } from 'src/app/model/EmployeeInfo';
 import { CommonService } from '../common/common.service';
 
 @Injectable({
@@ -39,6 +40,13 @@ export class EmployeeService {
     .post<any>(url,data,this.httpOptions) 
     .pipe(catchError(this.handleError));
   } 
+
+  public addEmployeeInfo(data : EmployeeInfo) : Observable<any>{
+    const url = this.common.makeUrl("/employee/add_employee_info");
+    return this.httpClient
+    .post<any>(url,data,this.httpOptions) 
+    .pipe(catchError(this.handleError));
+  }
 
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
