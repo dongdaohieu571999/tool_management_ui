@@ -30,7 +30,7 @@ import { ChangePassComponent } from './view/change-pass/change-pass.component';
 import { ApproveContractComponent } from './view/approve-contract/approve-contract.component';
 import { ReviewClaimPaymentComponent } from './view/review-claim-payment/review-claim-payment.component';
 import { DetailcontractComponent } from './view/contract/detailcontract/detailcontract.component';
-import { DetailcustomerComponent } from './view/customer-list/detailcustomer/detailcustomer.component'
+import { DetailcustomerComponent } from './view/customer-list/customer-table/detailcustomer/detailcustomer.component'
 import { LoginComponent } from './view/login/login.component';
 import { AdminEmployeeManageComponent } from './view/admin-employee-manage/admin-employee-manage.component';
 import { ViewEmTableComponent } from './view/admin-employee-manage/view-em-table/view-em-table.component';
@@ -52,6 +52,9 @@ import { ViewDetailContractComponent } from './view/view-detail-contract/view-de
 import { AppraiserRequestManageComponent } from './view/appraiser-request-manage/appraiser-request-manage.component';
 import { DetailRequestComponent } from './view/appraiser-request-manage/detail-request/detail-request.component';
 import { ViewDetailCustomerComponent } from './view/view-detail-customer/view-detail-customer.component';
+import { CustomerTableComponent } from './view/customer-list/customer-table/customer-table.component';
+import { IllustrationTableComponent } from './view/illustration/illustration-table/illustration-table.component';
+import { ContractTableComponent } from './view/contract/contract-table/contract-table.component';
 
 
 @NgModule({
@@ -91,7 +94,10 @@ import { ViewDetailCustomerComponent } from './view/view-detail-customer/view-de
     ViewDetailContractComponent,
     AppraiserRequestManageComponent,
     DetailRequestComponent,
-    ViewDetailCustomerComponent
+    ViewDetailCustomerComponent,
+    CustomerTableComponent,
+    IllustrationTableComponent,
+    ContractTableComponent,
   ],
   imports: [
     FormsModule,

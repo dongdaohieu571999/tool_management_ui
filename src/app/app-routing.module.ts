@@ -21,7 +21,7 @@ import { MailComponent } from './view/mail/mail.component';
 import { NotificationComponent } from './view/notification/notification.component';
 import { DetailcontractComponent } from './view/contract/detailcontract/detailcontract.component';
 import { ApproveContractComponent } from './view/approve-contract/approve-contract.component';
-import { DetailcustomerComponent } from './view/customer-list/detailcustomer/detailcustomer.component';
+import { DetailcustomerComponent } from './view/customer-list/customer-table/detailcustomer/detailcustomer.component';
 import { AppraiserContractManageComponent } from './view/appraiser-contract-manage/appraiser-contract-manage.component';
 import { ViewDetailContractComponent } from './view/view-detail-contract/view-detail-contract.component';
 import { AppraiserRequestManageComponent } from './view/appraiser-request-manage/appraiser-request-manage.component';

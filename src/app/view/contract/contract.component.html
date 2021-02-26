@@ -2,459 +2,161 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body class="hold-transition sidebar-mini">
-    <div class="wrapper">
-        <section class="content-header">
-            <div class="container-fluid">
-                <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1>DANH SÁCH HỢP ĐỒNG</h1>
-                        <button type="button" class="btn btn-block btn-success btn-lg" data-toggle="modal"
-                            data-target="#myModal" style="width: 210px;">THÊM HỢP ĐỒNG</button>
-                    </div>
+  <div class="wrapper">
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>DANH SÁCH HỢP ĐỒNG</h1><br>
+            <button type="button" class="btn btn-block btn-success btn-lg" style="width: auto;"
+              (click)="displayAddContractDialog()">THÊM HỢP ĐỒNG</button>
+          </div>
+        </div>
+      </div>
+      <!-- /.container-fluid -->
+    </section>
 
-                    <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">DataTables</li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-            <!-- /.container-fluid -->
-        </section>
-
-        <!-- Main content -->
-        <section class="content">
-            <div class="container-fluid">
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card" style="height: 1200px;">
+              <!-- search -->
+              <div class="card-header">
                 <div class="row">
-                    <div class="col-12">
-                        <div class="card" style="height: 1200px;">
-                            <div class="card-header">
-                                <h3 class="card-title">Dưới đây là danh sách các hợp đồng</h3>
-                                <div class="row" style="float: right;">
-                                    <div class="card" style="padding: 10px;
-                                        background: #28a745; color: white;">
-                                        <div>
-                                            <label>Search:<input id="Rsearch" type="search"
-                                                    class="form-control form-control-sm" placeholder=""
-                                                    aria-controls="example1"></label>
-                                            <label>From<input id="RfromSearch" type="date"
-                                                    class="form-control form-control-sm" placeholder=""
-                                                    aria-controls="example1"></label>
-                                            <label>To<input id="RtoSearch" type="date"
-                                                    class="form-control form-control-sm" placeholder=""
-                                                    aria-controls="example1"></label>
-                                            <button id="RdelBtn" type="button" class="btn btn-danger">XÓA</button>
-                                            <button type="button" class="btn btn-info">Tìm Kiếm</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /.card-header -->
-                            <div class="card-body" style="overflow: auto;">
-                                <table id="example1" style="text-align: center;"
-                                    class="table table-bordered table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>Mã Hợp Đồng</th>
-                                            <th>Mã Khách Hàng</th>
-                                            <th>Chủ Hợp Đồng</th>
-                                            <th>Kỳ Hạn</th>
-                                            <th>Loại Bảo Hiểm</th>
-                                            <th>Mã Gói Bảo Hiểm</th>
-                                            <th>Mã Chiến Dịch</th>
-                                            <th>Trạng Thái</th>
-                                            <th>Ngày Đăng Ký</th>
-                                            <th>Chi Tiết</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>#JHBVJHJHV798</td>
-                                            <td>#1000</td>
-                                            <td>Nguyễn Văn A</td>
-                                            <td>25 Năm</td>
-                                            <td>Bảo Hiểm Nhân Thọ</td>
-                                            <td>#1000</td>
-                                            <td>#KUHN1</td>
-                                            <td>Pending</td>
-                                            <td>Pending</td>
-                                            <td><a [routerLink]="['/contract/detailcontract']">Chi Tiết</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>#JHBVJHJHV798</td>
-                                            <td>#1000</td>
-                                            <td>Nguyễn Văn A</td>
-                                            <td>25 Năm</td>
-                                            <td>Bảo Hiểm Nhân Thọ</td>
-                                            <td>#1000</td>
-                                            <td>#KUHN1</td>
-                                            <td>Pending</td>
-                                            <td>Pending</td>
-                                            <td><a [routerLink]="['/contract/detailcontract']">Chi Tiết</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>#JHBVJHJHV798</td>
-                                            <td>#1000</td>
-                                            <td>Nguyễn Văn A</td>
-                                            <td>25 Năm</td>
-                                            <td>Bảo Hiểm Nhân Thọ</td>
-                                            <td>#1000</td>
-                                            <td>#KUHN1</td>
-                                            <td>Pending</td>
-                                            <td>Pending</td>
-                                            <td><a [routerLink]="['/contract/detailcontract']">Chi Tiết</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>#JHBVJHJHV798</td>
-                                            <td>#1000</td>
-                                            <td>Nguyễn Văn A</td>
-                                            <td>25 Năm</td>
-                                            <td>Bảo Hiểm Nhân Thọ</td>
-                                            <td>#1000</td>
-                                            <td>#KUHN1</td>
-                                            <td>Pending</td>
-                                            <td>Pending</td>
-                                            <td><a [routerLink]="['/contract/detailcontract']">Chi Tiết</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>#JHBVJHJHV798</td>
-                                            <td>#1000</td>
-                                            <td>Nguyễn Văn A</td>
-                                            <td>25 Năm</td>
-                                            <td>Bảo Hiểm Nhân Thọ</td>
-                                            <td>#1000</td>
-                                            <td>#KUHN1</td>
-                                            <td>Pending</td>
-                                            <td>Pending</td>
-                                            <td><a [routerLink]="['/contract/detailcontract']">Chi Tiết</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>#JHBVJHJHV798</td>
-                                            <td>#1000</td>
-                                            <td>Nguyễn Văn A</td>
-                                            <td>25 Năm</td>
-                                            <td>Bảo Hiểm Nhân Thọ</td>
-                                            <td>#1000</td>
-                                            <td>#KUHN1</td>
-                                            <td>Pending</td>
-                                            <td>Pending</td>
-                                            <td><a [routerLink]="['/contract/detailcontract']">Chi Tiết</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>#JHBVJHJHV798</td>
-                                            <td>#1000</td>
-                                            <td>Nguyễn Văn A</td>
-                                            <td>25 Năm</td>
-                                            <td>Bảo Hiểm Nhân Thọ</td>
-                                            <td>#1000</td>
-                                            <td>#KUHN1</td>
-                                            <td>Pending</td>
-                                            <td>Pending</td>
-                                            <td><a [routerLink]="['/contract/detailcontract']">Chi Tiết</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>#JHBVJHJHV798</td>
-                                            <td>#1000</td>
-                                            <td>Nguyễn Văn A</td>
-                                            <td>25 Năm</td>
-                                            <td>Bảo Hiểm Nhân Thọ</td>
-                                            <td>#1000</td>
-                                            <td>#KUHN1</td>
-                                            <td>Pending</td>
-                                            <td>Pending</td>
-                                            <td><a [routerLink]="['/contract/detailcontract']">Chi Tiết</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>#JHBVJHJHV798</td>
-                                            <td>#1000</td>
-                                            <td>Nguyễn Văn A</td>
-                                            <td>25 Năm</td>
-                                            <td>Bảo Hiểm Nhân Thọ</td>
-                                            <td>#1000</td>
-                                            <td>#KUHN1</td>
-                                            <td>Pending</td>
-                                            <td>Pending</td>
-                                            <td><a [routerLink]="['/contract/detailcontract']">Chi Tiết</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>#JHBVJHJHV798</td>
-                                            <td>#1000</td>
-                                            <td>Nguyễn Văn A</td>
-                                            <td>25 Năm</td>
-                                            <td>Bảo Hiểm Nhân Thọ</td>
-                                            <td>#1000</td>
-                                            <td>#KUHN1</td>
-                                            <td>Pending</td>
-                                            <td>Pending</td>
-                                            <td><a [routerLink]="['/contract/detailcontract']">Chi Tiết</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>#JHBVJHJHV798</td>
-                                            <td>#1000</td>
-                                            <td>Nguyễn Văn A</td>
-                                            <td>25 Năm</td>
-                                            <td>Bảo Hiểm Nhân Thọ</td>
-                                            <td>#1000</td>
-                                            <td>#KUHN1</td>
-                                            <td>Pending</td>
-                                            <td>Pending</td>
-                                            <td><a [routerLink]="['/contract/detailcontract']">Chi Tiết</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>#JHBVJHJHV798</td>
-                                            <td>#1000</td>
-                                            <td>Nguyễn Văn A</td>
-                                            <td>25 Năm</td>
-                                            <td>Bảo Hiểm Nhân Thọ</td>
-                                            <td>#1000</td>
-                                            <td>#KUHN1</td>
-                                            <td>Pending</td>
-                                            <td>Pending</td>
-                                            <td><a [routerLink]="['/contract/detailcontract']">Chi Tiết</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>#JHBVJHJHV798</td>
-                                            <td>#1000</td>
-                                            <td>Nguyễn Văn A</td>
-                                            <td>25 Năm</td>
-                                            <td>Bảo Hiểm Nhân Thọ</td>
-                                            <td>#1000</td>
-                                            <td>#KUHN1</td>
-                                            <td>Pending</td>
-                                            <td>Pending</td>
-                                            <td><a [routerLink]="['/contract/detailcontract']">Chi Tiết</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>#JHBVJHJHV798</td>
-                                            <td>#1000</td>
-                                            <td>Nguyễn Văn A</td>
-                                            <td>25 Năm</td>
-                                            <td>Bảo Hiểm Nhân Thọ</td>
-                                            <td>#1000</td>
-                                            <td>#KUHN1</td>
-                                            <td>Pending</td>
-                                            <td>Pending</td>
-                                            <td><a [routerLink]="['/contract/detailcontract']">Chi Tiết</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>#JHBVJHJHV798</td>
-                                            <td>#1000</td>
-                                            <td>Nguyễn Văn A</td>
-                                            <td>25 Năm</td>
-                                            <td>Bảo Hiểm Nhân Thọ</td>
-                                            <td>#1000</td>
-                                            <td>#KUHN1</td>
-                                            <td>Pending</td>
-                                            <td>Pending</td>
-                                            <td><a [routerLink]="['/contract/detailcontract']">Chi Tiết</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>#JHBVJHJHV798</td>
-                                            <td>#1000</td>
-                                            <td>Nguyễn Văn A</td>
-                                            <td>25 Năm</td>
-                                            <td>Bảo Hiểm Nhân Thọ</td>
-                                            <td>#1000</td>
-                                            <td>#KUHN1</td>
-                                            <td>Pending</td>
-                                            <td>Pending</td>
-                                            <td><a [routerLink]="['/contract/detailcontract']">Chi Tiết</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>#JHBVJHJHV798</td>
-                                            <td>#1000</td>
-                                            <td>Nguyễn Văn A</td>
-                                            <td>25 Năm</td>
-                                            <td>Bảo Hiểm Nhân Thọ</td>
-                                            <td>#1000</td>
-                                            <td>#KUHN1</td>
-                                            <td>Pending</td>
-                                            <td>Pending</td>
-                                            <td><a [routerLink]="['/contract/detailcontract']">Chi Tiết</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>#JHBVJHJHV798</td>
-                                            <td>#1000</td>
-                                            <td>Nguyễn Văn A</td>
-                                            <td>25 Năm</td>
-                                            <td>Bảo Hiểm Nhân Thọ</td>
-                                            <td>#1000</td>
-                                            <td>#KUHN1</td>
-                                            <td>Pending</td>
-                                            <td>Pending</td>
-                                            <td><a [routerLink]="['/contract/detailcontract']">Chi Tiết</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>#JHBVJHJHV798</td>
-                                            <td>#1000</td>
-                                            <td>Nguyễn Văn A</td>
-                                            <td>25 Năm</td>
-                                            <td>Bảo Hiểm Nhân Thọ</td>
-                                            <td>#1000</td>
-                                            <td>#KUHN1</td>
-                                            <td>Pending</td>
-                                            <td>Pending</td>
-                                            <td><a [routerLink]="['/contract/detailcontract']">Chi Tiết</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>#JHBVJHJHV798</td>
-                                            <td>#1000</td>
-                                            <td>Nguyễn Văn A</td>
-                                            <td>25 Năm</td>
-                                            <td>Bảo Hiểm Nhân Thọ</td>
-                                            <td>#1000</td>
-                                            <td>#KUHN1</td>
-                                            <td>Pending</td>
-                                            <td>Pending</td>
-                                            <td><a [routerLink]="['/contract/detailcontract']">Chi Tiết</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>#JHBVJHJHV798</td>
-                                            <td>#1000</td>
-                                            <td>Nguyễn Văn A</td>
-                                            <td>25 Năm</td>
-                                            <td>Bảo Hiểm Nhân Thọ</td>
-                                            <td>#1000</td>
-                                            <td>#KUHN1</td>
-                                            <td>Pending</td>
-                                            <td>Pending</td>
-                                            <td><a [routerLink]="['/contract/detailcontract']">Chi Tiết</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>#JHBVJHJHV798</td>
-                                            <td>#1000</td>
-                                            <td>Nguyễn Văn A</td>
-                                            <td>25 Năm</td>
-                                            <td>Bảo Hiểm Nhân Thọ</td>
-                                            <td>#1000</td>
-                                            <td>#KUHN1</td>
-                                            <td>Pending</td>
-                                            <td>Pending</td>
-                                            <td><a [routerLink]="['/contract/detailcontract']">Chi Tiết</a></td>
-                                        </tr>
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Mã Hợp Đồng</th>
-                                            <th>Mã Khách Hàng</th>
-                                            <th>Chủ Hợp Đồng</th>
-                                            <th>Kỳ Hạn</th>
-                                            <th>Loại Bảo Hiểm</th>
-                                            <th>Mã Gói Bảo Hiểm</th>
-                                            <th>Mã Chiến Dịch</th>
-                                            <th>Trạng Thái</th>
-                                            <th>Ngày Đăng Ký</th>
-                                            <th>Chi Tiết</th>
-                                        </tr>
-                                    </tfoot>
-                                </table>
-                            </div>
-                            <!-- /.card-body -->
+                  <div class="col-3">
+                    <div class="form-group">
+                      <div class="input-group input-group-lg">
+                        <input type="search" class="form-control form-control-lg" placeholder="Type your keywords here"
+                          value="Lorem ipsum" style="font-size: 15px;">
+                        <div class="input-group-append">
+                          <button type="submit" class="btn btn-lg btn-default">
+                            <i class="fa fa-search"></i>
+                          </button>
                         </div>
-                        <!-- /.card -->
+                      </div>
                     </div>
-                    <!-- /.col -->
+                  </div>
+                  <div class="col-3">
+                    <div class="form-group">
+                      <label style="float: right; font-size: 13px;">Order By</label>
+                      <select class="select2" style="width: 100%;" data-select2-id="3" tabindex="-1" aria-hidden="true">
+                        <option selected>Month</option>
+                        <option>ASC</option>
+                        <option>DESC</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <div class="form-group">
+                      <label style="float: right; font-size: 13px;">Order By</label>
+                      <select class="select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="6"
+                        tabindex="-1" aria-hidden="true">
+                        <option selected>Year</option>
+                        <option>Title</option>
+                        <option>Date</option>
+                      </select>
+                    </div>
+                  </div>
                 </div>
-                <!-- /.row -->
+              </div>
+              <!-- search -->
+              <div class="card-body" style="overflow: auto;">
+                <app-contract-table></app-contract-table>
+              </div>
+              <!-- /.card-body -->
             </div>
-            <!-- /.container-fluid -->
-        </section>
-        <!-- /.content -->
-        <div class="modal fade" id="myModal" role="dialog">
-            <div class="modal-dialog">
-
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <div class="card card-primary">
-
-                            <form>
-                                <div class="card-body" style="height: 448px; width: 1200px; overflow: auto;">
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Mã Hợp Đồng</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1"
-                                            placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputPassword1">Mã Khách Hàng</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword1"
-                                            placeholder="Password">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Tên Chủ Hợp Đồng</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1"
-                                            placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Kỳ Hạn</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1"
-                                            placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Loại Bảo Hiểm</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1"
-                                            placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Mã Bảng Minh Họa</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1"
-                                            placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Tổng Số Tiền Phải Trả</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1"
-                                            placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Tổng Số Tiền Đã Trả</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1"
-                                            placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Ngày Đăng Ký</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1"
-                                            placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Ngày Hết Hạn</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1"
-                                            placeholder="Enter email">
-                                    </div>
-                                </div>
-                                <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary">Save Draft</button>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
         </div>
-
-
-        <div class="modal fade" id="viewPdf" role="dialog">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <div class="card card-primary">
-                            <embed src="bang-khai-bao-thong-tin-ve-ben-thu-ba.pdf" frameborder="0" width="700px"
-                                height="650px">
-                        </div>
-                    </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+    <div class="modal" id="modal" [ngClass]="status ? 'active' : ''">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="card card-primary">
+              <form>
+                <div class="card-body" style="height: 448px; width: 1200px; overflow: auto;">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Mã Hợp Đồng</label>
+                    <input type="email" class="form-control" name="contractId">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Mã Khách Hàng</label>
+                    <input type="password" class="form-control" name="customerId">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Tên Chủ Hợp Đồng</label>
+                    <input type="email" class="form-control" name="contractOwnerName">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Kỳ Hạn</label>
+                    <input type="email" class="form-control" name="period">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Loại Bảo Hiểm</label>
+                    <input type="email" class="form-control" name="insuranceType">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Mã Bảng Minh Họa</label>
+                    <input type="email" class="form-control" name="illustrationId">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Tổng Số Tiền Phải Trả</label>
+                    <input type="email" class="form-control" name="totalPayment">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Tổng Số Tiền Đã Trả</label>
+                    <input type="email" class="form-control" name="totalPaid">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Ngày Đăng Ký</label>
+                    <input type="email" class="form-control" name="signDate">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Ngày Hết Hạn</label>
+                    <input type="email" class="form-control" name="outOfDate">
+                  </div>
                 </div>
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Save Draft</button>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
             </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" (click)="displayAddContractDialog()">Close</button>
+          </div>
         </div>
+      </div>
     </div>
+
+
+    <div class="modal fade" id="viewPdf" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="card card-primary">
+              <embed src="bang-khai-bao-thong-tin-ve-ben-thu-ba.pdf" frameborder="0" width="700px" height="650px">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>

@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomerListComponent implements OnInit {
 
+  status: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  displayAddCustomerDialog(): void {
+    this.status = !this.status;
+  }
 }
