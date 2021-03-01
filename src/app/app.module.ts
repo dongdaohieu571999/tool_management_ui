@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
 // material
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -48,6 +49,7 @@ import { DetailCustomerComponent } from './view/admin-customer-manage/view-custo
 import { ResetPasswordComponent } from './view/login/reset-password/reset-password.component';
 import { SolutionHistoryComponent } from './view/admin-solution-manage/solution-history/solution-history.component';
 import { SolutionHistoryTableComponent } from './view/admin-solution-manage/solution-history/solution-history-table/solution-history-table.component';
+import { AdminAddAccCustomerComponent } from './view/dialog/admin-add-acc-customer/admin-add-acc-customer.component';
 
 
 @NgModule({
@@ -84,6 +86,8 @@ import { SolutionHistoryTableComponent } from './view/admin-solution-manage/solu
     ResetPasswordComponent,
     SolutionHistoryComponent,
     SolutionHistoryTableComponent,
+    AdminAddAccCustomerComponent,
+    AdminAddAccCustomerComponent,
   ],
   imports: [
     FormsModule,
@@ -100,7 +104,9 @@ import { SolutionHistoryTableComponent } from './view/admin-solution-manage/solu
     MatButtonModule,
     HttpClientModule,
     NgxPaginationModule,
+    MatDialogModule,
   ],
+  entryComponents: [AdminAddAccCustomerComponent],
   providers: [AdminDataServiceService],
   bootstrap: [AppComponent]
 })

@@ -1,7 +1,7 @@
 export class Employee{
-    private code: string;
-    private id_role: string;
-    private status: string;
+     code: string;
+     id_role: string;
+     status: string;
 
     constructor(code:string, id_role:string, status:string){
         this.code = code;
