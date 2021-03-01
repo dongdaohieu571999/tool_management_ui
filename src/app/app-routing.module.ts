@@ -29,7 +29,6 @@ import { DetailRequestComponent } from '././view/appraiser-request-manage/detail
 import { ViewDetailCustomerComponent } from '././view/view-detail-customer/view-detail-customer.component';
 import { CreateIllustrationComponent } from '././view/illustration/create-illustration/create-illustration.component';
 import { DetailIllustrationComponent } from '././view/illustration/detail-illustration/detail-illustration.component';
-import { DetailCustomerComponent } from './view/admin-customer-manage/view-customer-table/detail-customer/detail-customer.component';
 
 const routes: Routes = [
   {path : "dashboard", component: DashboardComponent},
@@ -53,7 +52,6 @@ const routes: Routes = [
   {path: "commission-manage", component:AdminCommissionManageComponent},
   {path: "solution-manage", component:AdminSolutionManageComponent},
   {path: "detail-solution-request", component:DetailSolutionRequestComponent},
-  {path: "detail-customer/:customerInfo", component: DetailCustomerComponent},
   {path: "reset-password", component: ResetPasswordComponent},
   {path: "reset-password", component: ResetPasswordComponent},
   {path: "appraiser-contract-manage", component: AppraiserContractManageComponent},
