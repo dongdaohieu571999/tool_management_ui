@@ -14,6 +14,9 @@ import { AdminAddAccCustomerComponent } from 'src/app/view/dialog/admin-add-acc-
 })
 export class ViewCustomerTableComponent implements OnInit {
 
+  code: string;
+  pass: string;
+
   
 
   ngOnInit(): void {
@@ -27,14 +30,18 @@ export class ViewCustomerTableComponent implements OnInit {
   data: Array<CustomerInfo>;
   totalRecords:number;
 
+  accCustomer: CustomerAcc;
+  confirmPass: string;
+
   status: boolean = false;
   constructor(private customerService :CustomerService,public dialog: MatDialog) { }
 
   openDialog() {
-    const dialogRef = this.dialog.open(AdminAddAccCustomerComponent);
+    this.accCustomer = new CustomerAcc('','',true);
+    const dialogRef = this.dialog.open(AdminAddAccCustomerComponent)
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+      console.log(result);
     });
   }
 
