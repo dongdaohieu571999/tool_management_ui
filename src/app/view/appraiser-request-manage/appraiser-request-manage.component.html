@@ -60,6 +60,7 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
+              <h2><b>Danh Sách Yêu Cầu Xét Duyệt BH</b></h2>
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                   <tr>
@@ -108,6 +109,64 @@
                     <th>Tên Người Được Bảo Hiểm</th>
                     <th>Quan Hệ Giữa Người Mua Và Người Được Bảo Hiểm</th>
                     <th>Ngày Gửi</th>
+                    <th>Người Gửi</th>
+                    <th>Chi Tiết</th>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+
+            <div class="card-body">
+              <h2><b>Danh Sách Lịch Sử Yêu Cầu Xét Duyệt BH</b></h2>
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th>Mã Hợp Đồng</th>
+                    <th>Tên Người Mua</th>
+                    <th>Tên Người Được Bảo Hiểm</th>
+                    <th>Ngày Gửi</th>
+                    <th>Người Gửi</th>
+                    <th>Trạng Thái</th>
+                    <th>Chi Tiết</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>#JHBVJHJHV798</td>
+                    <td>Nguyễn Văn A</td>
+                    <td>Nguyễn Thị B</td>
+                    <td>20-11-2020</td>
+                    <td>anv001</td>
+                    <th>Chấp Nhận</th>
+                    <td><a [routerLink]="['/appraiser-request-detail']">Chi Tiết</a></td>
+                  </tr>
+                  <tr>
+                    <td>#JHBVJHJHV798</td>
+                    <td>Nguyễn Văn A</td>
+                    <td>Nguyễn Thị B</td>
+                    <td>20-11-2020</td>
+                    <td>anv001</td>
+                    <th>Từ Chối</th>
+                    <td><a [routerLink]="['/appraiser-request-detail']">Chi Tiết</a></td>
+                  </tr>
+                  <tr>
+                    <td>#JHBVJHJHV798</td>
+                    <td>Nguyễn Văn A</td>
+                    <td>Nguyễn Thị B</td>
+                    <td>20-11-2020</td>
+                    <td>anv001</td>
+                    <th>Yêu Cầu Bổ Sung</th>
+                    <td><a [routerLink]="['/appraiser-request-detail']">Chi Tiết</a></td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <th>Mã Hợp Đồng</th>
+                    <th>Tên Người Mua</th>
+                    <th>Tên Người Được Bảo Hiểm</th>
+                    <th>Ngày Gửi</th>
+                    <th>Người Gửi</th>
+                    <th>Trạng Thái</th>
                     <th>Chi Tiết</th>
                   </tr>
                 </tfoot>
@@ -116,7 +175,7 @@
             <!-- /.card-body -->
           </div>
           <!-- /.card -->
-          <div class="row">
+          <!-- <div class="row">
             <div class="col-sm-12 col-md-5">
               <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">
                 Showing 1 to 10 of 22 entries
@@ -143,7 +202,7 @@
                 </ul>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
         <!-- /.col -->
       </div>

@@ -2,3 +2,7 @@
 .active {
   display: block;
 }
+
+a {
+  color: white;
+}

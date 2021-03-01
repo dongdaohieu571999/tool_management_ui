@@ -55,6 +55,8 @@ import { ViewDetailCustomerComponent } from './view/view-detail-customer/view-de
 import { CustomerTableComponent } from './view/customer-list/customer-table/customer-table.component';
 import { IllustrationTableComponent } from './view/illustration/illustration-table/illustration-table.component';
 import { ContractTableComponent } from './view/contract/contract-table/contract-table.component';
+import { CreateIllustrationComponent } from './view/illustration/create-illustration/create-illustration.component';
+import { DetailIllustrationComponent } from './view/illustration/detail-illustration/detail-illustration.component';
 
 
 @NgModule({
@@ -98,6 +100,8 @@ import { ContractTableComponent } from './view/contract/contract-table/contract-
     CustomerTableComponent,
     IllustrationTableComponent,
     ContractTableComponent,
+    CreateIllustrationComponent,
+    DetailIllustrationComponent,
   ],
   imports: [
     FormsModule,

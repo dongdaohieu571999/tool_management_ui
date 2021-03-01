@@ -27,6 +27,8 @@ import { ViewDetailContractComponent } from './view/view-detail-contract/view-de
 import { AppraiserRequestManageComponent } from './view/appraiser-request-manage/appraiser-request-manage.component';
 import { DetailRequestComponent } from './view/appraiser-request-manage/detail-request/detail-request.component';
 import { ViewDetailCustomerComponent } from './view/view-detail-customer/view-detail-customer.component';
+import { CreateIllustrationComponent } from './view/illustration/create-illustration/create-illustration.component';
+import { DetailIllustrationComponent } from './view/illustration/detail-illustration/detail-illustration.component';
 
 const routes: Routes = [
   {path : "dashboard", component: DashboardComponent},
@@ -55,7 +57,9 @@ const routes: Routes = [
   {path: "appraiser-contract-detail", component: ViewDetailContractComponent},
   {path: "appraiser-request-manage", component: AppraiserRequestManageComponent},
   {path: "appraiser-request-detail", component: DetailRequestComponent},
-  {path: "customer-detail", component: ViewDetailCustomerComponent}
+  {path: "customer-detail", component: ViewDetailCustomerComponent},
+  {path: "create-illustration", component: CreateIllustrationComponent},
+  {path: "detail-illustration", component: DetailIllustrationComponent}
 ];
 
 @NgModule({
