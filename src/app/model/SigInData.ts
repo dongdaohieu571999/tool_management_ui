@@ -1,6 +1,6 @@
 export class SigInData{
-    private code: string;
-    private pass: string;
+     code: string;
+     pass: string;
 
     constructor(code:string, pass:string){
         this.code = code;

@@ -1,33 +1,74 @@
-export class Customer {
-    private id: number;
-    private birth_date: Date;
-    private age: number;
-    private birth_address: string;
-    private types_identification: string;
-    private ID_card: string;
-    private nationality_1: string;
-    private nationality_2: string;
-    private nation: string;
-    private job: string;
-    private career: string;
-    private position: string;
-    private occupation_group: string;
-    private company_name: string;
-    private main_business: string;
-    private specific_work: string;
-    private monthly_income: number;
-    private id_current_address: number;
-    private id_permanent_address: number;
-    private id_contact_address: number;
-    private id_workplace_address: number;
-    private email: string;
-    private phone_1: string;
-    private phone_2: string;
-    private id_account : number
+export class CustomerInfo {
+     id: number;
+     birth_date: Date;
+     age: number;
+     birth_address: string;
+     types_identification: string;
+     ID_card: string;
+     nationality_1: string;
+     nationality_2: string;
+     nation: string;
+     job: string;
+     career: string;
+     position: string;
+     occupation_group: string;
+     company_name: string;
+     main_business: string;
+     specific_work: string;
+     monthly_income: number;
+     code: string;
+
+      conadd_no_street:string;
+    
+      conadd_city:string;
+    
+      conadd_district:string;
+    
+      conadd_wards:string;
+
+
+    
+      curadd_no_street:string;
+    
+      curadd_city:string;
+    
+      curadd_district:string;
+    
+      curadd_wards:string;
+
+
+    
+      peradd_no_street:string;
+    
+      peradd_city:string;
+    
+      peradd_district:string;
+    
+      peradd_wards:string;
+
+
+    
+      workadd_no_street:string;
+    
+      workadd_city:string;
+    
+      workadd_district:string;
+    
+      workadd_wards:string;
+
+
+     email: string;
+     phone_1: string;
+     phone_2: string;
+     id_account : number
+     full_name : string;
 
     constructor(id: number, birth_date: Date, age: number, birth_address: string, types_identification: string, ID_card: string, nationality_1: string, nationality_2: string,
         nation: string, job: string, career: string, position: string, occupation_group: string, company_name: string, main_business: string, specific_work: string, monthly_income: number,
-        id_current_address: number, id_permanent_address: number, id_contact_address: number, id_workplace_address: number, email: string, phone_1: string, phone_2: string, id_account: number) {
+        id_current_address: number, id_permanent_address: number, id_contact_address: number, id_workplace_address: number, email: string, phone_1: string, phone_2: string, id_account: number,full_name:string
+        ,conadd_no_street:string,conadd_city:string,conadd_district:string,conadd_wards:string,curadd_no_street:string,curadd_city:string,
+        curadd_district:string,curadd_wards:string,peradd_no_street:string,peradd_city:string,peradd_district:string,peradd_wards:string,
+        workadd_no_street:string,workadd_city:string,workadd_district:string,workadd_wards:string,code:string) {
 
         this.id = id;
         this.birth_date = birth_date;
@@ -46,13 +87,88 @@ export class Customer {
         this.main_business = main_business;
         this.specific_work = specific_work;
         this.monthly_income = monthly_income;
-        this.id_current_address = id_current_address;
-        this.id_permanent_address = id_permanent_address;
-        this.id_contact_address = id_contact_address;
-        this.id_workplace_address = id_workplace_address;
+
+        this.conadd_no_street = conadd_no_street;
+        this.conadd_city = conadd_city;
+        this.conadd_district = conadd_district;
+        this.conadd_no_street = conadd_wards;
+
+        this.curadd_no_street = curadd_no_street;
+        this.curadd_city = curadd_city;
+        this.curadd_district = curadd_district;
+        this.curadd_wards = curadd_wards;
+
+        this.peradd_no_street = peradd_no_street;
+        this.peradd_city = peradd_city;
+        this.peradd_district = peradd_district;
+        this.peradd_wards = peradd_wards;
+
+
+        this.workadd_no_street = workadd_no_street;
+        this.workadd_city = workadd_city;
+        this.workadd_district = workadd_district;
+        this.workadd_wards = workadd_wards;
+
+
         this.email = email;
         this.phone_1 = phone_1;
         this.phone_2 = phone_2;
+        this.full_name =full_name;
+        this.code = code;
+    }
+    getCode():string{
+        return this.code;
+    }
+    getCuraddNoStreet():string{
+        return this.curadd_no_street;
+    }
+    getCuraddCity():string{
+        return this.curadd_city;
+    }
+    getPeraddNoStreet():string{
+        return this.peradd_no_street;
+    }
+    getCuraddDistrict():string{
+        return this.curadd_district;
+    }
+    getCuraddWards():string{
+        return this.curadd_wards;
+    }
+    getPeraddCity():string{
+        return this.peradd_city;
+    }
+    getPeraddDistrict():string{
+        return this.peradd_district;
+    }
+    getPeraddWards():string{
+        return this.peradd_wards;
+    }
+    getWorkaddNoStreet():string{
+        return this.workadd_no_street;
+    }
+    getWorkaddCity():string{
+        return this.workadd_city;
+    }
+    getWorkaddDistrict():string{
+        return this.workadd_district;
+    }
+    getWorkaddWards():string{
+        return this.workadd_wards;
+    }
+    getConaddNoStreet():string{
+        return this.conadd_no_street;
+    }
+    getConaddCity():string{
+        return this.conadd_city;
+    }
+    getConaddDistrict():string{
+        return this.conadd_district;
+    }
+    getConaddWards():string{
+        return this.conadd_wards;
+    }
+    getFullName():string{
+        return this.full_name;
     }
     getId(): number {
         return this.id;
@@ -108,18 +224,6 @@ export class Customer {
     }
     getMonthly_income(): number {
         return this.monthly_income;
-    }
-    getId_current_address(): number {
-        return this.id_current_address;
-    }
-    getId_permanent_address(): number {
-        return this.id_permanent_address;
-    }
-    getId_contact_address(): number {
-        return this.id_contact_address;
-    }
-    getId_workplace_address(): number {
-        return this.id_workplace_address;
     }
     getEmail(): string {
         return this.email;

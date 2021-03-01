@@ -1,8 +1,10 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { CustomerAcc } from 'src/app/model/CustomerAcc';
+import { CustomerInfo } from 'src/app/model/CustomerInfo';
 import { CommonService } from '../common/common.service';
 
 @Injectable({
@@ -10,7 +12,9 @@ import { CommonService } from '../common/common.service';
 })
 export class CustomerService {
 
-  constructor(private httpClient: HttpClient, private common: CommonService) { }
+  public customer: CustomerInfo;
+
+  constructor(private httpClient: HttpClient, private common: CommonService,private route: Router) { }
   
   private httpOptions = {
     headers: new HttpHeaders({
@@ -31,6 +35,10 @@ export class CustomerService {
     return this.httpClient
     .post<any>(url,customerAcc,this.httpOptions)
     .pipe(catchError(this.handleError));
+  }
+
+  public getOneAccCustomer(customer: CustomerInfo){
+    this.route.navigate(['detail-customer',JSON.stringify(customer)]);
   }
 
   private handleError(error: HttpErrorResponse) {

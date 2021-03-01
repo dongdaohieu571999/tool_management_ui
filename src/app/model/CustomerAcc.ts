@@ -1,8 +1,8 @@
 export class CustomerAcc {
-    // private id :number;
-    private code :string;
-    private pass :string;
-    private status: boolean;
+    //  id :number;
+     code :string;
+     pass :string;
+     status: boolean;
 
     constructor(code :string,pass :string,status :boolean){
         this.code = code;

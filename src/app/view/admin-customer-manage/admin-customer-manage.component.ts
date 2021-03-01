@@ -10,9 +10,8 @@ export class AdminCustomerManageComponent implements OnInit {
 
   pageTitle: string = "Danh Sách Khách Hàng";
   
-  constructor() { }
+  constructor(private all: CustomerService) { }
    
   ngOnInit(): void {
-    
   }
 }

@@ -15,9 +15,7 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router,private authenticationService:AuthenService,private common:CommonService) { }
 
   ngOnInit(): void {
-    if(this.authenticationService.isAuthen){
-      this.router.navigate(['dashboard']);
-    }
+    
   }
 
   onSubmit(sigInForm: NgForm){
