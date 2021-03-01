@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IllustrationComponent implements OnInit {
 
+  status: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  displayAddIllusDialog(): void {
+    this.status = !this.status;
   }
 
 }

@@ -1,0 +1,215 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>DANH SÁCH HỒ SƠ YÊU CẦU BẢO HIỂM</h1>
+        </div>
+      </div>
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <!-- search -->
+              <div class="row">
+                <div class="col-3">
+                  <div class="form-group">
+                    <div class="input-group input-group-lg">
+                      <input type="search" class="form-control form-control-lg" placeholder="Type your keywords here"
+                        value="Lorem ipsum" style="font-size: 15px" />
+                      <div class="input-group-append">
+                        <button type="submit" class="btn btn-lg btn-default">
+                          <i class="fa fa-search"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group">
+                    <label style="float: right; font-size: 13px">Order By</label>
+                    <select class="select2" style="width: 100%" data-select2-id="3" tabindex="-1" aria-hidden="true">
+                      <option selected>Month</option>
+                      <option>ASC</option>
+                      <option>DESC</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group">
+                    <label style="float: right; font-size: 13px">Order By</label>
+                    <select class="select2 select2-hidden-accessible" style="width: 100%" data-select2-id="6"
+                      tabindex="-1" aria-hidden="true">
+                      <option selected>Year</option>
+                      <option>Title</option>
+                      <option>Date</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <!-- search -->
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <h2><b>Danh Sách Yêu Cầu Xét Duyệt BH</b></h2>
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th>Mã Hợp Đồng</th>
+                    <th>Tên Người Mua</th>
+                    <th>Tên Người Được Bảo Hiểm</th>
+                    <th>Quan Hệ Giữa Người Mua Và Người Được Bảo Hiểm</th>
+                    <th>Ngày Gửi</th>
+                    <th>Người Gửi</th>
+                    <th>Chi Tiết</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>#JHBVJHJHV798</td>
+                    <td>Nguyễn Văn A</td>
+                    <td>Nguyễn Thị B</td>
+                    <td>Vợ Chồng</td>
+                    <td>20-11-2020</td>
+                    <td>anv001</td>
+                    <td><a [routerLink]="['/appraiser-request-detail']">Chi Tiết</a></td>
+                  </tr>
+                  <tr>
+                    <td>#JHBVJHJHV798</td>
+                    <td>Nguyễn Văn A</td>
+                    <td>Nguyễn Thị B</td>
+                    <td>Vợ Chồng</td>
+                    <td>20-11-2020</td>
+                    <td>anv001</td>
+                    <td><a [routerLink]="['/appraiser-request-detail']">Chi Tiết</a></td>
+                  </tr>
+                  <tr>
+                    <td>#JHBVJHJHV798</td>
+                    <td>Nguyễn Văn A</td>
+                    <td>Nguyễn Thị B</td>
+                    <td>Vợ Chồng</td>
+                    <td>20-11-2020</td>
+                    <td>anv001</td>
+                    <td><a [routerLink]="['/appraiser-request-detail']">Chi Tiết</a></td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <th>Mã Hợp Đồng</th>
+                    <th>Tên Người Mua</th>
+                    <th>Tên Người Được Bảo Hiểm</th>
+                    <th>Quan Hệ Giữa Người Mua Và Người Được Bảo Hiểm</th>
+                    <th>Ngày Gửi</th>
+                    <th>Người Gửi</th>
+                    <th>Chi Tiết</th>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+
+            <div class="card-body">
+              <h2><b>Danh Sách Lịch Sử Yêu Cầu Xét Duyệt BH</b></h2>
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th>Mã Hợp Đồng</th>
+                    <th>Tên Người Mua</th>
+                    <th>Tên Người Được Bảo Hiểm</th>
+                    <th>Ngày Gửi</th>
+                    <th>Người Gửi</th>
+                    <th>Trạng Thái</th>
+                    <th>Chi Tiết</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>#JHBVJHJHV798</td>
+                    <td>Nguyễn Văn A</td>
+                    <td>Nguyễn Thị B</td>
+                    <td>20-11-2020</td>
+                    <td>anv001</td>
+                    <th>Chấp Nhận</th>
+                    <td><a [routerLink]="['/appraiser-request-detail']">Chi Tiết</a></td>
+                  </tr>
+                  <tr>
+                    <td>#JHBVJHJHV798</td>
+                    <td>Nguyễn Văn A</td>
+                    <td>Nguyễn Thị B</td>
+                    <td>20-11-2020</td>
+                    <td>anv001</td>
+                    <th>Từ Chối</th>
+                    <td><a [routerLink]="['/appraiser-request-detail']">Chi Tiết</a></td>
+                  </tr>
+                  <tr>
+                    <td>#JHBVJHJHV798</td>
+                    <td>Nguyễn Văn A</td>
+                    <td>Nguyễn Thị B</td>
+                    <td>20-11-2020</td>
+                    <td>anv001</td>
+                    <th>Yêu Cầu Bổ Sung</th>
+                    <td><a [routerLink]="['/appraiser-request-detail']">Chi Tiết</a></td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <th>Mã Hợp Đồng</th>
+                    <th>Tên Người Mua</th>
+                    <th>Tên Người Được Bảo Hiểm</th>
+                    <th>Ngày Gửi</th>
+                    <th>Người Gửi</th>
+                    <th>Trạng Thái</th>
+                    <th>Chi Tiết</th>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+          <!-- <div class="row">
+            <div class="col-sm-12 col-md-5">
+              <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">
+                Showing 1 to 10 of 22 entries
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-7">
+              <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate">
+                <ul class="pagination">
+                  <li class="paginate_button page-item previous disabled" id="example1_previous">
+                    <a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
+                  </li>
+                  <li class="paginate_button page-item active">
+                    <a href="#" aria-controls="example1" data-dt-idx="1" tabindex="0" class="page-link">1</a>
+                  </li>
+                  <li class="paginate_button page-item">
+                    <a href="#" aria-controls="example1" data-dt-idx="2" tabindex="0" class="page-link">2</a>
+                  </li>
+                  <li class="paginate_button page-item">
+                    <a href="#" aria-controls="example1" data-dt-idx="3" tabindex="0" class="page-link">3</a>
+                  </li>
+                  <li class="paginate_button page-item next" id="example1_next">
+                    <a href="#" aria-controls="example1" data-dt-idx="4" tabindex="0" class="page-link">Next</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div> -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+  <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
