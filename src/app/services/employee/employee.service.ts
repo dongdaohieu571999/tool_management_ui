@@ -27,6 +27,21 @@ export class EmployeeService {
     .pipe(catchError(this.handleError));
   }
 
+  public getAllInfo(): Observable<any>{
+    const url = this.common.makeUrl("/employee/get_all_employee_info");
+    return this.httpClient
+    .get<any>(url,this.httpOptions)
+    .pipe(catchError(this.handleError));
+  }
+
+  public getAllInfoAcc(): Observable<any>{
+    const url = this.common.makeUrl("/employee/get_all_employee_info_acc");
+    return this.httpClient
+    .get<any>(url,this.httpOptions)
+    .pipe(catchError(this.handleError));
+  }
+  
+
   public getIdRole(): Observable<any>{
     const url = this.common.makeUrl("/employee/get_one_employee_acc/"+this.common.getCookie('token_key'));
     return this.httpClient

@@ -10,14 +10,16 @@ import { ServerHttpService } from 'src/app/services/http/server-http.service';
   styleUrls: ['./view-em-table.component.css']
 })
 export class ViewEmTableComponent implements OnInit {
+  public employeeInfos = [];
 
   statusAddAcc: boolean = false;
   constructor(private serverHttpService: ServerHttpService,private employeeService : EmployeeService) { }
 
-  ngOnInit(): void {
-    this.serverHttpService.getAllAcc().subscribe((data => {
-      console.log(data);
-    }));
+  ngOnInit(): void {  
+   this.employeeService.getAllInfoAcc().subscribe((data => {
+     this.employeeInfos = data;
+     console.log(this.employeeInfos);
+   }))
   }
 
   displayAddAccDialog(): void {
@@ -29,6 +31,7 @@ export class ViewEmTableComponent implements OnInit {
      this.employeeService.addEmployeeAccount(newEmAcc).subscribe((data => {
        console.log(data);
      }));
+     this.displayAddAccDialog();
   }
    
 

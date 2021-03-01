@@ -37,8 +37,8 @@ export class AdminEmployeeManageComponent implements OnInit {
      accForm.value.dob,
      accForm.value.dob,
      true,
-     1,
-     1,
+     null,
+     null,
      1);
     this.employeeService.addEmployeeInfo(emInfo).subscribe((data => {
       console.log(data);

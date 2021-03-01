@@ -12,6 +12,7 @@ export class EmployeeInfo{
     private id_acc: number;
     private id_labour_contract: number;
     private dept_id : number;
+    private code :string;
 
 
     constructor(
