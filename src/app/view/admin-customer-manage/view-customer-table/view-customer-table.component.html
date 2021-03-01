@@ -13,37 +13,15 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>#1001</td>
-                <td>bnhnv002</td>
-                <td>Nguyễn Văn B</td>
-                <td>20-11-1991</td>
-                <td>01234566789</td>
-                <td>example001@email.com</td>
+            <tr *ngFor="let customer of data | paginate: { id: 'listing_pagination' ,itemsPerPage: 3, currentPage: page, totalItems: totalRecords}">
+                <td>{{ customer.id }}</td>
+                <td>{{ customer.code }}</td>
+                <td>{{ customer.full_name }}</td>
+                <td>{{ customer.birth_date | date:'dd/MM/yyyy'}}</td>
+                <td>{{ customer.phone_1 }}</td>
+                <td>{{ customer.email }}</td>
                 <td><button type="button" class="btn btn-block btn-primary btn-sm">
-                <a [routerLink]="['/detail-customer']">Chi Tiết</a></button></td>
-                <td><button type="button" class="btn btn-block btn-primary disabled">Thêm Tài Khoản</button></td>
-            </tr>
-            <tr>
-                <td>#1001</td>
-                <td></td>
-                <td>Nguyễn Văn B</td>
-                <td>20-11-1991</td>
-                <td>01234566789</td>
-                <td>example001@email.com</td>
-                <td><button type="button" class="btn btn-block btn-primary btn-sm">
-              <a [routerLink]="['/detail-customer']">Chi Tiết</a></button></td>
-                <td><button type="button" class="btn btn-block btn-primary" (click)="displayAddCustomerAccDialog()">Thêm Tài Khoản</button></td>
-            </tr>
-            <tr>
-                <td>#1001</td>
-                <td>bnhnv002</td>
-                <td>Nguyễn Văn B</td>
-                <td>20-11-1991</td>
-                <td>01234566789</td>
-                <td>example001@email.com</td>
-                <td><button type="button" class="btn btn-block btn-primary btn-sm">
-            <a [routerLink]="['/detail-customer']">Chi Tiết</a></button></td>
+                <a [routerLink]="['/detail-customer']" (click)= "onSelectAcc(customer)">Chi Tiết</a></button></td>
                 <td><button type="button" class="btn btn-block btn-primary disabled">Thêm Tài Khoản</button></td>
             </tr>
         </tbody>
@@ -60,6 +38,7 @@
             </tr>
         </tfoot>
     </table>
+    <pagination-controls style="float: right;" id="listing_pagination" maxSize="5" directionLinks="true" (pageChange)="page = $event"></pagination-controls>
 </div>
 
 <!-- add-customerAcc-dialog -->

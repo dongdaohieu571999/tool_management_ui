@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { CustomerAcc } from 'src/app/model/CustomerAcc';
+import { CustomerInfo } from 'src/app/model/CustomerInfo';
 import { CustomerService } from 'src/app/services/customer/customer.service';
+
 
 @Component({
   selector: 'app-view-customer-table',
@@ -10,17 +12,34 @@ import { CustomerService } from 'src/app/services/customer/customer.service';
 })
 export class ViewCustomerTableComponent implements OnInit {
 
-  status: boolean = false;
-  constructor(private customerService :CustomerService) { }
+  
 
   ngOnInit(): void {
+    this.customerService.getAllCustomerInfo().subscribe((data => {
+      this.data = data;
+      console.log(data);
+      this.totalRecords = data.length;
+    }))
   }
+
+  page:number = 1;
+  data: Array<any>;
+  totalRecords:number;
+
+  status: boolean = false;
+  constructor(private customerService :CustomerService) { }
+  
+  listCustomer :CustomerInfo[] = [];
 
   onSubmit(addAccForm :NgForm): void{
     const customerAcc = new CustomerAcc(addAccForm.value.code,addAccForm.value.pass,true);
     this.customerService.addOneAccCustomer(customerAcc).subscribe((data => {
-      console.log("oki ahihi");
+      console.log("save OK");
     }))
+  }
+
+  onSelectAcc(customerInfo: CustomerInfo){
+    this.customerService.getOneAccCustomer(customerInfo);
   }
 
   displayAddCustomerAccDialog(): void {

@@ -15,13 +15,26 @@ export class AppComponent {
   @ViewChild('sidenav') sidenav: MatSidenav;
   public isOpened = false;
 
-  constructor(public authenService: AuthenService, public router: Router,private common:CommonService){
+  constructor(public authenService: AuthenService, public router: Router,private common:CommonService,private authenticationService:AuthenService){
     if(this.common.getCookie("token_key") === ''){
       this.authenService.isAuthen=false;
     }
     else {
       this.authenService.isAuthen = true;
       this.authenService.getRoleID();
+    }
+
+    if(this.authenticationService.isAuthen){
+      var url =window.location.href;
+      if(url.substring(22,url.length) === 'login'){
+        this.router.navigate(['dashboard']);
+        return;
+      }
+      
+      
+    } else if (!this.authenticationService.isAuthen){
+      this.router.navigate(['login']);
+      return;
     }
   }
 

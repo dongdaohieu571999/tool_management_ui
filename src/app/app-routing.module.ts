@@ -47,7 +47,7 @@ const routes: Routes = [
   {path: "commission-manage", component:AdminCommissionManageComponent},
   {path: "solution-manage", component:AdminSolutionManageComponent},
   {path: "detail-solution-request", component:DetailSolutionRequestComponent},
-  {path: "detail-customer", component: DetailCustomerComponent},
+  {path: "detail-customer/:customerInfo", component: DetailCustomerComponent},
   {path: "reset-password", component: ResetPasswordComponent}
 ];
 
