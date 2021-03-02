@@ -65,6 +65,7 @@ import { CustomerAddInfoDialogComponent } from './view/dialog/customer-add-info-
 import { ContractAddDialogComponent } from './view/dialog/contract-add-dialog/contract-add-dialog.component';
 import { NotificationConfirmDialogComponent } from './view/dialog/notification-confirm-dialog/notification-confirm-dialog.component';
 import { PauseCustomerDialogComponent } from './view/dialog/pause-customer-dialog/pause-customer-dialog.component';
+import { DetailInfoChangeHistoryComponent } from './view/contract/contract-table/view-detail-contract/detail-info-change-history/detail-info-change-history.component';
 
 
 @NgModule({
@@ -116,7 +117,8 @@ import { PauseCustomerDialogComponent } from './view/dialog/pause-customer-dialo
     CustomerAddInfoDialogComponent,
     ContractAddDialogComponent,
     NotificationConfirmDialogComponent,
-    PauseCustomerDialogComponent
+    PauseCustomerDialogComponent,
+    DetailInfoChangeHistoryComponent
   ],
   imports: [
     BrowserModule,
