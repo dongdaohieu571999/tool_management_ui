@@ -48,10 +48,10 @@ import { SolutionHistoryComponent } from '././view/admin-solution-manage/solutio
 import { SolutionHistoryTableComponent } from '././view/admin-solution-manage/solution-history/solution-history-table/solution-history-table.component';
 import { AdminAddAccCustomerComponent } from '././view/dialog/admin-add-acc-customer/admin-add-acc-customer.component';
 import { AppraiserContractManageComponent } from '././view/appraiser-contract-manage/appraiser-contract-manage.component';
-import { ViewDetailContractComponent } from './view/contract/contract-table/view-detail-contract/view-detail-contract.component';
+import { ViewDetailContractComponent } from './view/view-detail-contract/view-detail-contract.component';
 import { AppraiserRequestManageComponent } from '././view/appraiser-request-manage/appraiser-request-manage.component';
 import { DetailRequestComponent } from '././view/appraiser-request-manage/detail-request/detail-request.component';
-import { ViewDetailCustomerComponent } from './view/customer-list/customer-table/view-detail-customer/view-detail-customer.component';
+import { ViewDetailCustomerComponent } from './view/view-detail-customer/view-detail-customer.component';
 import { CustomerTableComponent } from '././view/customer-list/customer-table/customer-table.component';
 import { IllustrationTableComponent } from '././view/illustration/illustration-table/illustration-table.component';
 import { ContractTableComponent } from '././view/contract/contract-table/contract-table.component';
