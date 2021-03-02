@@ -19,9 +19,7 @@ import { LoginComponent } from '././view/login/login.component';
 import { ResetPasswordComponent } from '././view/login/reset-password/reset-password.component';
 import { MailComponent } from '././view/mail/mail.component';
 import { NotificationComponent } from '././view/notification/notification.component';
-import { DetailcontractComponent } from '././view/contract/detailcontract/detailcontract.component';
 import { ApproveContractComponent } from '././view/approve-contract/approve-contract.component';
-import { DetailcustomerComponent } from '././view/customer-list/customer-table/detailcustomer/detailcustomer.component';
 import { AppraiserContractManageComponent } from '././view/appraiser-contract-manage/appraiser-contract-manage.component';
 import { ViewDetailContractComponent } from '././view/view-detail-contract/view-detail-contract.component';
 import { AppraiserRequestManageComponent } from '././view/appraiser-request-manage/appraiser-request-manage.component';
@@ -42,9 +40,7 @@ const routes: Routes = [
   {path: "certificate", component:CertificateComponent},
   {path: "labour-contract", component:LabourContractComponent},
   {path: "change-pass", component:ChangePassComponent},
-  {path: "contract/detailcontract", component:DetailcontractComponent},
   {path: "approve-contract", component:ApproveContractComponent},
-  {path: "customer/detailcustomer", component:DetailcustomerComponent},
   {path: "login", component:LoginComponent},
   {path: "employee-manage", component:AdminEmployeeManageComponent},
   {path: "detail-employee", component:ViewDetailEmployeeComponent},
@@ -55,7 +51,7 @@ const routes: Routes = [
   {path: "reset-password", component: ResetPasswordComponent},
   {path: "reset-password", component: ResetPasswordComponent},
   {path: "appraiser-contract-manage", component: AppraiserContractManageComponent},
-  {path: "appraiser-contract-detail", component: ViewDetailContractComponent},
+  {path: "contract-detail", component: ViewDetailContractComponent},
   {path: "appraiser-request-manage", component: AppraiserRequestManageComponent},
   {path: "appraiser-request-detail", component: DetailRequestComponent},
   {path: "customer-detail", component: ViewDetailCustomerComponent},

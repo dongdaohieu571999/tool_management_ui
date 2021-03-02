@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
 // material
+import { MatTabsModule } from '@angular/material/tabs';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -30,8 +31,6 @@ import { LabourContractComponent } from '././view/labour-contract/labour-contrac
 import { ChangePassComponent } from '././view/change-pass/change-pass.component';
 import { ApproveContractComponent } from '././view/approve-contract/approve-contract.component';
 import { ReviewClaimPaymentComponent } from '././view/review-claim-payment/review-claim-payment.component';
-import { DetailcontractComponent } from '././view/contract/detailcontract/detailcontract.component';
-import { DetailcustomerComponent } from '././view/customer-list/customer-table/detailcustomer/detailcustomer.component'
 import { LoginComponent } from '././view/login/login.component';
 import { AdminEmployeeManageComponent } from '././view/admin-employee-manage/admin-employee-manage.component';
 import { ViewEmTableComponent } from '././view/admin-employee-manage/view-em-table/view-em-table.component';
@@ -77,8 +76,6 @@ import { DetailIllustrationComponent } from '././view/illustration/detail-illust
     ChangePassComponent,
     ApproveContractComponent,
     ReviewClaimPaymentComponent,
-    DetailcontractComponent,
-    DetailcustomerComponent,
     LoginComponent,
     AdminEmployeeManageComponent,
     ViewEmTableComponent,
@@ -123,6 +120,7 @@ import { DetailIllustrationComponent } from '././view/illustration/detail-illust
     HttpClientModule,
     NgxPaginationModule,
     MatDialogModule,
+    MatTabsModule,
   ],
   entryComponents: [AdminAddAccCustomerComponent],
   providers: [AdminDataServiceService],

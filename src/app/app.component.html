@@ -1,10 +1,10 @@
-<mat-toolbar class="nav-height" *ngIf="true">
+<mat-toolbar class="nav-height" *ngIf="authenService.isAuthen">
     <mat-toolbar-row>
         <button mat-icon-button><mat-icon (click)="openLeftSide()">menu</mat-icon></button>
     </mat-toolbar-row>
 </mat-toolbar>
 <mat-sidenav-container>
-    <mat-sidenav #sidenav (closed)="closeLeftSide()" *ngIf="true">
+    <mat-sidenav #sidenav (closed)="closeLeftSide()" *ngIf="authenService.isAuthen">
         <mat-nav-list>
             <a mat-list-item (click)="logout()">
                 <img src="../assets/images/exit.png" class="imglink" style="opacity: .8">

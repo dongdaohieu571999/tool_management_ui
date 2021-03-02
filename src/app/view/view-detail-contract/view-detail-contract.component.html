@@ -1,132 +1,670 @@
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-  <!-- Content Header (Page header) -->
-  <section class="content-header">
-    <div class="container-fluid">
-      <div class="row mb-2">
-        <div class="col-sm-6">
-          <h1>THÔNG TIN CHI TIẾT HỢP ĐỒNG</h1>
-        </div>
-      </div>
-    </div>
-    <!-- /.container-fluid -->
-  </section>
+<!DOCTYPE html>
+<html lang="en">
 
-  <!-- Main content -->
-  <section class="content">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-12">
-          <div class="card">
-            <table class=" table table-bordered ">
-              <thead>
-                  <tr>
-                      <th>Hạng Mục</th>
-                      <th>Nội Dung</th>
-                  </tr>
-              </thead>
-              <tbody>
-                  <tr>
-                      <td>Mã Hợp Đồng</td>
-                      <td>#1000</td>
-                  </tr>
-                  <tr>
-                      <td>Bên Mua Bảo Hiểm</td>
-                      <td><a [routerLink]="['/customer-detail']">Nguyễn Văn A</a></td>
-                  </tr>
-                  <tr>
-                      <td>Người Được Bảo Hiểm</td>
-                      <td><a [routerLink]="['/customer-detail']">Nguyễn Văn A</a></td>
-                  </tr>
-                  <tr>
-                      <td>Người Thụ Hưởng</td>
-                      <td><a [routerLink]="['/customer-detail']">Nguyễn Văn A</a></td>
-                  </tr>
-                  <tr>
-                    <td>Mệnh Giá</td>
-                    <td>1234</td>
-                  </tr>
-                  <tr>
-                    <td>Phí Bảo Hiểm</td>
-                    <td>123</td>
-                  </tr>
-                  <tr>
-                    <td>Định Kỳ Đóng Phí</td>
-                    <td>6 tháng</td>
-                  </tr>
-                  <tr>
-                    <td>Ngày Bắt Đầu Có Hiệu Lực</td>
-                    <td>1/1/2021</td>
-                  </tr>
-                  <tr>
-                    <td>Bản Minh Hoạ</td>
-                    <td><a [routerLink]="['/detail-illustration']">Xem</a></td>
-                  </tr>
-              </tbody>
-            </table>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-          </div>
-          <!-- /.card -->
+</head>
+
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+
+            <!-- Main content -->
+            <div class="col-12">
+                <section class="content">
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <!-- AREA CHART -->
+                            <div class="box box-primary" style="display: none;">
+                                <div class="box-body chart-responsive">
+                                    <div class="chart" id="revenue-chart" style="height: 300px; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+
+                                    </div>
+                                </div>
+                                <!-- /.box-body -->
+                            </div>
+                            <!-- /.box -->
+
+
+
+                        </div>
+                        <!-- /.col (LEFT) -->
+                        <div class="col-md-12">
+                            <!-- LINE CHART -->
+                            <div class="box box-info">
+
+                                <div class="box-body chart-responsive">
+                                    <div class="chart" id="line-chart" style="height: 300px; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><svg height="300" version="1.1" width="594" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative; left: -0.6px; top: -0.4px;">
+                                            <desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with
+                                                Raphaël 2.3.0</desc>
+                                            <defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><text
+                                                x="49.21875" y="261.375" text-anchor="end" font-family="sans-serif"
+                                                font-size="12px" stroke="none" fill="#888888"
+                                                style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;"
+                                                font-weight="normal">
+                                                <tspan dy="4.3984375"
+                                                    style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">0</tspan>
+                                            </text>
+                                            <path fill="none" stroke="#aaaaaa" d="M61.71875,261.375H569.6"
+                                                stroke-width="0.5"
+                                                style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text
+                                                x="49.21875" y="202.28125" text-anchor="end" font-family="sans-serif"
+                                                font-size="12px" stroke="none" fill="#888888"
+                                                style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;"
+                                                font-weight="normal">
+                                                <tspan dy="4.3984375"
+                                                    style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">5,000</tspan>
+                                            </text>
+                                            <path fill="none" stroke="#aaaaaa" d="M61.71875,202.28125H569.6"
+                                                stroke-width="0.5"
+                                                style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text
+                                                x="49.21875" y="143.1875" text-anchor="end" font-family="sans-serif"
+                                                font-size="12px" stroke="none" fill="#888888"
+                                                style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;"
+                                                font-weight="normal">
+                                                <tspan dy="4.3984375"
+                                                    style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">10,000
+                                                </tspan>
+                                            </text>
+                                            <path fill="none" stroke="#aaaaaa" d="M61.71875,143.1875H569.6"
+                                                stroke-width="0.5"
+                                                style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text
+                                                x="49.21875" y="84.09375" text-anchor="end" font-family="sans-serif"
+                                                font-size="12px" stroke="none" fill="#888888"
+                                                style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;"
+                                                font-weight="normal">
+                                                <tspan dy="4.3984375"
+                                                    style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">15,000
+                                                </tspan>
+                                            </text>
+                                            <path fill="none" stroke="#aaaaaa" d="M61.71875,84.09375H569.6"
+                                                stroke-width="0.5"
+                                                style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text
+                                                x="49.21875" y="25" text-anchor="end" font-family="sans-serif"
+                                                font-size="12px" stroke="none" fill="#888888"
+                                                style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;"
+                                                font-weight="normal">
+                                                <tspan dy="4.3984375"
+                                                    style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">20,000
+                                                </tspan>
+                                            </text>
+                                            <path fill="none" stroke="#aaaaaa" d="M61.71875,25H569.6" stroke-width="0.5"
+                                                style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text
+                                                x="476.4164413730256" y="273.875" text-anchor="middle"
+                                                font-family="sans-serif" font-size="12px" stroke="none" fill="#888888"
+                                                style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;"
+                                                font-weight="normal" transform="matrix(1,0,0,1,0,6.8125)">
+                                                <tspan dy="4.3984375"
+                                                    style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2013</tspan>
+                                            </text><text x="250.55430589307414" y="273.875" text-anchor="middle"
+                                                font-family="sans-serif" font-size="12px" stroke="none" fill="#888888"
+                                                style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: sans-serif; font-size: 12px; font-weight: normal;"
+                                                font-weight="normal" transform="matrix(1,0,0,1,0,6.8125)">
+                                                <tspan dy="4.3984375"
+                                                    style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">2012</tspan>
+                                            </text>
+                                            <path fill="none" stroke="#3c8dbc"
+                                                d="M61.71875,229.86621250000002C75.91227217496962,229.5352875,104.29931652490887,231.8606265625,118.49283869987849,228.5425125C132.6863608748481,225.22439843749999,161.07340522478736,204.79037708333334,175.26692739975698,203.3213C189.30617215978128,201.86819114583335,217.38466167982992,219.6577671875,231.42390643985422,216.85376875C245.46315119987852,214.04977031250002,273.5416407199271,183.68533489583336,287.5808854799514,180.88931250000002C301.77440765492105,178.06256458333334,330.1614520048603,191.42277343749998,344.3549741798299,194.3626875C358.54849635479957,197.3026015625,386.9355407047388,218.37599791666668,401.12906287970844,204.408625C415.16830763973275,190.59307135416668,443.24679715978135,91.94644419026244,457.28604191980565,83.23098125000001C471.1710092648846,74.61129262776245,498.9409439550426,125.36479253090661,512.8259113001216,135.06801875000002C527.0194334750912,144.9868722184066,555.4064778250304,155.0564796875,569.6,161.7193"
+                                                stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                                            </path>
+                                            <circle cx="61.71875" cy="229.86621250000002" r="4" fill="#3c8dbc"
+                                                stroke="#ffffff" stroke-width="1"
+                                                style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                                            <circle cx="118.49283869987849" cy="228.5425125" r="4" fill="#3c8dbc"
+                                                stroke="#ffffff" stroke-width="1"
+                                                style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                                            <circle cx="175.26692739975698" cy="203.3213" r="4" fill="#3c8dbc"
+                                                stroke="#ffffff" stroke-width="1"
+                                                style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                                            <circle cx="231.42390643985422" cy="216.85376875" r="4" fill="#3c8dbc"
+                                                stroke="#ffffff" stroke-width="1"
+                                                style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                                            <circle cx="287.5808854799514" cy="180.88931250000002" r="4" fill="#3c8dbc"
+                                                stroke="#ffffff" stroke-width="1"
+                                                style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                                            <circle cx="344.3549741798299" cy="194.3626875" r="4" fill="#3c8dbc"
+                                                stroke="#ffffff" stroke-width="1"
+                                                style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                                            <circle cx="401.12906287970844" cy="204.408625" r="4" fill="#3c8dbc"
+                                                stroke="#ffffff" stroke-width="1"
+                                                style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                                            <circle cx="457.28604191980565" cy="83.23098125000001" r="4" fill="#3c8dbc"
+                                                stroke="#ffffff" stroke-width="1"
+                                                style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                                            <circle cx="512.8259113001216" cy="135.06801875000002" r="4" fill="#3c8dbc"
+                                                stroke="#ffffff" stroke-width="1"
+                                                style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle>
+                                            <circle cx="569.6" cy="161.7193" r="4" fill="#3c8dbc" stroke="#ffffff"
+                                                stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                                            </circle>
+                                        </svg>
+                                        <div class="morris-hover morris-default-style" style="left: 18.6938px; top: 163px; display: none;">
+                                            <div class="morris-hover-row-label">2011 Q1</div>
+                                            <div class="morris-hover-point" style="color: #3c8dbc">
+                                                Item 1: 2,666
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+            </div>
+            <div class="content col-12">
+                <table class=" table table-bordered ">
+                    <thead>
+                        <tr>
+                            <th>Tiêu Đề</th>
+                            <th>Thông tin</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Mã Hợp Đồng</td>
+                            <td>#JHBVJHJHV798</td>
+                        </tr>
+                        <tr>
+                            <td>Mã Khách Hàng</td>
+                            <td>Trần Thị Ngọc Ánh</td>
+                        </tr>
+                        <tr>
+                            <td>Chủ Hợp Đồng</td>
+                            <td>Nguyễn Văn A</td>
+                        </tr>
+                        <tr>
+                            <td>Kỳ Hạn</td>
+                            <td>25 năm</td>
+                        </tr>
+                        <tr>
+                            <td>Loại Bảo Hiểm</td>
+                            <td>Nhân Thọ</td>
+                        </tr>
+                        <tr>
+                            <td>Mã Gói Bảo Hiểm</td>
+                            <td>15.000.000</td>
+                        </tr>
+                        <tr>
+                            <td>Mã Bản Minh Họa</td>
+                            <td>20-11-2020</td>
+                        </tr>
+                        <tr>
+                            <td>Ngày Đăng Ký</td>
+                            <td>#1000</td>
+                        </tr>
+                        <tr>
+                            <td>Ngày Hết Hạn</td>
+                            <td>#1000</td>
+                        </tr>
+                        <tr>
+                            <td>Ngày Đóng Tiền Kế Tiếp</td>
+                            <td>#1000</td>
+                        </tr>
+                        <tr>
+                            <td>Trạng Thái</td>
+                            <td>#1000</td>
+                        </tr>
+                        <tr>
+                            <td>Trạng Thái Phê Duyệt</td>
+                            <td>#1000</td>
+                        </tr>
+                        <tr>
+                            <td>Kỳ Hạn Đóng Phí</td>
+                            <td>#1000</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+                <div class="card">
+                    <mat-tab-group>
+                        <mat-tab label="Lịch Sử Thanh Toán Quyền Lợi">
+                            <div class="card" style="height: 700px; background-color: #b8ceff; ">
+                                <div class="card-header">
+                                    <h3 class="card-title"></h3>
+                                    <div class="row" style="float: right;">
+                                        <div class="card" style="padding: 10px;
+                              background: #28a745; color: white;">
+                                            <div>
+                                                <label>Search:<input id="Fsearch" type="search" class="form-control form-control-sm"
+                                              placeholder="" aria-controls="example1"></label>
+                                                <label>From<input id="FfromSearch" type="date" class="form-control form-control-sm"
+                                              placeholder="" aria-controls="example1"></label>
+                                                <label>To<input id="FtoSearch" type="date" class="form-control form-control-sm"
+                                              placeholder="" aria-controls="example1"></label>
+                                                <button id="FdelBtn" type="button" class="btn btn-danger">XÓA</button>
+                                                <button type="button" class="btn btn-info">Tìm Kiếm</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body" style="overflow: auto;">
+                                    <table class=" table table-bordered ">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Mã Hợp Đồng</th>
+                                                <th>Thời Gian Thanh Toán</th>
+                                                <th>Số Tiền Thanh Toán</th>
+                                                <th>Mã Quyền Lợi</th>
+                                                <th>Trạng Thái</th>
+                                                <th>Người Xuất Hóa Đơn</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>#1897234</td>
+                                                <td>#JHBVJHJHV798</td>
+                                                <td>20/11/2021 SA 7:30</td>
+                                                <td>1.200.000 đ</td>
+                                                <td><a href="#">#KJNJBNCS</a></td>
+                                                <td>Đang Chờ Xét Duyệt</td>
+                                                <td>Nguyễn Chí Ngọc Minh</td>
+                                            </tr>
+                                            <tr>
+                                                <td>#1897234</td>
+                                                <td>#JHBVJHJHV798</td>
+                                                <td>20/11/2021 SA 7:30</td>
+                                                <td>1.200.000 đ</td>
+                                                <td><a href="#">#KJNJBNCS</a></td>
+                                                <td>Đang Chờ Xét Duyệt</td>
+                                                <td>Nguyễn Chí Ngọc Minh</td>
+                                            </tr>
+                                            <tr>
+                                                <td>#1897234</td>
+                                                <td>#JHBVJHJHV798</td>
+                                                <td>20/11/2021 SA 7:30</td>
+                                                <td>1.200.000 đ</td>
+                                                <td><a href="#">#KJNJBNCS</a></td>
+                                                <td>Đang Chờ Xét Duyệt</td>
+                                                <td>Nguyễn Chí Ngọc Minh</td>
+                                            </tr>
+                                            <tr>
+                                                <td>#1897234</td>
+                                                <td>#JHBVJHJHV798</td>
+                                                <td>20/11/2021 SA 7:30</td>
+                                                <td>1.200.000 đ</td>
+                                                <td><a href="#">#KJNJBNCS</a></td>
+                                                <td>Đang Chờ Xét Duyệt</td>
+                                                <td>Nguyễn Chí Ngọc Minh</td>
+                                            </tr>
+                                            <tr>
+                                                <td>#1897234</td>
+                                                <td>#JHBVJHJHV798</td>
+                                                <td>20/11/2021 SA 7:30</td>
+                                                <td>1.200.000 đ</td>
+                                                <td><a href="#">#KJNJBNCS</a></td>
+                                                <td>Đang Chờ Xét Duyệt</td>
+                                                <td>Nguyễn Chí Ngọc Minh</td>
+                                            </tr>
+                                            <tr>
+                                                <td>#1897234</td>
+                                                <td>#JHBVJHJHV798</td>
+                                                <td>20/11/2021 SA 7:30</td>
+                                                <td>1.200.000 đ</td>
+                                                <td><a href="#">#KJNJBNCS</a></td>
+                                                <td>Đang Chờ Xét Duyệt</td>
+                                                <td>Nguyễn Chí Ngọc Minh</td>
+                                            </tr>
+                                            <tr>
+                                                <td>#1897234</td>
+                                                <td>#JHBVJHJHV798</td>
+                                                <td>20/11/2021 SA 7:30</td>
+                                                <td>1.200.000 đ</td>
+                                                <td><a href="#">#KJNJBNCS</a></td>
+                                                <td>Đang Chờ Xét Duyệt</td>
+                                                <td>Nguyễn Chí Ngọc Minh</td>
+                                            </tr>
+                                            <tr>
+                                                <td>#1897234</td>
+                                                <td>#JHBVJHJHV798</td>
+                                                <td>20/11/2021 SA 7:30</td>
+                                                <td>1.200.000 đ</td>
+                                                <td><a href="#">#KJNJBNCS</a></td>
+                                                <td>Đang Chờ Xét Duyệt</td>
+                                                <td>Nguyễn Chí Ngọc Minh</td>
+                                            </tr>
+                                            <tr>
+                                                <td>#1897234</td>
+                                                <td>#JHBVJHJHV798</td>
+                                                <td>20/11/2021 SA 7:30</td>
+                                                <td>1.200.000 đ</td>
+                                                <td><a href="#">#KJNJBNCS</a></td>
+                                                <td>Đang Chờ Xét Duyệt</td>
+                                                <td>Nguyễn Chí Ngọc Minh</td>
+                                            </tr>
+                                            <tr>
+                                                <td>#1897234</td>
+                                                <td>#JHBVJHJHV798</td>
+                                                <td>20/11/2021 SA 7:30</td>
+                                                <td>1.200.000 đ</td>
+                                                <td><a href="#">#KJNJBNCS</a></td>
+                                                <td>Đang Chờ Xét Duyệt</td>
+                                                <td>Nguyễn Chí Ngọc Minh</td>
+                                            </tr>
+                                            <tr>
+                                                <td>#1897234</td>
+                                                <td>#JHBVJHJHV798</td>
+                                                <td>20/11/2021 SA 7:30</td>
+                                                <td>1.200.000 đ</td>
+                                                <td><a href="#">#KJNJBNCS</a></td>
+                                                <td>Đang Chờ Xét Duyệt</td>
+                                                <td>Nguyễn Chí Ngọc Minh</td>
+                                            </tr>
+                                            <tr>
+                                                <td>#1897234</td>
+                                                <td>#JHBVJHJHV798</td>
+                                                <td>20/11/2021 SA 7:30</td>
+                                                <td>1.200.000 đ</td>
+                                                <td><a href="#">#KJNJBNCS</a></td>
+                                                <td>Đang Chờ Xét Duyệt</td>
+                                                <td>Nguyễn Chí Ngọc Minh</td>
+                                            </tr>
+                                            <tr>
+                                                <td>#1897234</td>
+                                                <td>#JHBVJHJHV798</td>
+                                                <td>20/11/2021 SA 7:30</td>
+                                                <td>1.200.000 đ</td>
+                                                <td><a href="#">#KJNJBNCS</a></td>
+                                                <td>Đang Chờ Xét Duyệt</td>
+                                                <td>Nguyễn Chí Ngọc Minh</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </mat-tab>
+                        <mat-tab label="Lịch Sử Đóng Phí Của Khách Hàng">
+                            <div class="card" style="height: 700px; background-color: #ff8484d1;">
+                                <div class="card-header">
+                                    <div class="row" style="float: right;">
+                                        <div class="card" style="padding: 10px;
+                              background: #28a745; color: white;">
+                                            <div>
+                                                <label>Search:<input id="Rsearch" type="search" class="form-control form-control-sm"
+                                              placeholder="" aria-controls="example1"></label>
+                                                <label>From<input id="RfromSearch" type="date" class="form-control form-control-sm"
+                                              placeholder="" aria-controls="example1"></label>
+                                                <label>To<input id="RtoSearch" type="date" class="form-control form-control-sm"
+                                              placeholder="" aria-controls="example1"></label>
+                                                <button id="RdelBtn" type="button" class="btn btn-danger">XÓA</button>
+                                                <button type="button" class="btn btn-info">Tìm Kiếm</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body" style="overflow: auto;">
+                                    <table class=" table table-bordered ">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Mã Hợp Đồng</th>
+                                                <th>Mã Hóa Đơn</th>
+                                                <th>Số Tiền</th>
+                                                <th>Phương Thức Thanh Toán</th>
+                                                <th>Mã Nhân Viên Thu Tiền</th>
+                                                <th>Ngày Thu</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>#1897234</td>
+                                                <td>#JHBVJHJHV798</td>
+                                                <td>#JHBVJHJHV798</td>
+                                                <td>1.200.000 đ</td>
+                                                <td>Internet Banking</td>
+                                                <td>Nguyễn Chí Ngọc Minh</td>
+                                                <td>20/11/2021 SA 7:30</td>
+                                            </tr>
+                                            <tr>
+                                                <td>#1897234</td>
+                                                <td>#JHBVJHJHV798</td>
+                                                <td>#JHBVJHJHV798</td>
+                                                <td>1.200.000 đ</td>
+                                                <td>Internet Banking</td>
+                                                <td>Nguyễn Chí Ngọc Minh</td>
+                                                <td>20/11/2021 SA 7:30</td>
+                                            </tr>
+                                            <tr>
+                                                <td>#1897234</td>
+                                                <td>#JHBVJHJHV798</td>
+                                                <td>#JHBVJHJHV798</td>
+                                                <td>1.200.000 đ</td>
+                                                <td>Internet Banking</td>
+                                                <td>Nguyễn Chí Ngọc Minh</td>
+                                                <td>20/11/2021 SA 7:30</td>
+                                            </tr>
+                                            <tr>
+                                                <td>#1897234</td>
+                                                <td>#JHBVJHJHV798</td>
+                                                <td>#JHBVJHJHV798</td>
+                                                <td>1.200.000 đ</td>
+                                                <td>Internet Banking</td>
+                                                <td>Nguyễn Chí Ngọc Minh</td>
+                                                <td>20/11/2021 SA 7:30</td>
+                                            </tr>
+                                            <tr>
+                                                <td>#1897234</td>
+                                                <td>#JHBVJHJHV798</td>
+                                                <td>#JHBVJHJHV798</td>
+                                                <td>1.200.000 đ</td>
+                                                <td>Internet Banking</td>
+                                                <td>Nguyễn Chí Ngọc Minh</td>
+                                                <td>20/11/2021 SA 7:30</td>
+                                            </tr>
+                                            <tr>
+                                                <td>#1897234</td>
+                                                <td>#JHBVJHJHV798</td>
+                                                <td>#JHBVJHJHV798</td>
+                                                <td>1.200.000 đ</td>
+                                                <td>Internet Banking</td>
+                                                <td>Nguyễn Chí Ngọc Minh</td>
+                                                <td>20/11/2021 SA 7:30</td>
+                                            </tr>
+                                            <tr>
+                                                <td>#1897234</td>
+                                                <td>#JHBVJHJHV798</td>
+                                                <td>#JHBVJHJHV798</td>
+                                                <td>1.200.000 đ</td>
+                                                <td>Internet Banking</td>
+                                                <td>Nguyễn Chí Ngọc Minh</td>
+                                                <td>20/11/2021 SA 7:30</td>
+                                            </tr>
+                                            <tr>
+                                                <td>#1897234</td>
+                                                <td>#JHBVJHJHV798</td>
+                                                <td>#JHBVJHJHV798</td>
+                                                <td>1.200.000 đ</td>
+                                                <td>Internet Banking</td>
+                                                <td>Nguyễn Chí Ngọc Minh</td>
+                                                <td>20/11/2021 SA 7:30</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </mat-tab>
+                        <mat-tab label="Lịch Sử Thay Đổi Thông Tin">
+                            <div class="card">
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <table id="example1" class="table table-bordered table-striped dataTable no-footer dtr-inline" role="grid" aria-describedby="example1_info">
+                                                    <thead>
+                                                        <tr role="row">
+                                                            <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending">
+                                                                Thời Gian Thay Đổi</th>
+                                                            <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending">
+                                                                Mục Thay Đổi</th>
+                                                            <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending">
+                                                                Trạng Thái</th>
+                                                            <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending">
+                                                                Chi Tiết</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr role="row" class="odd">
+                                                            <td>20/01/2021</td>
+                                                            <td>Thay Đổi Thông Tin Cá Nhân</td>
+                                                            <td>Được Chấp Nhận Thay Đổi</td>
+                                                            <td><a href="detailInfoChange.html">Chi Tiết</a></td>
+                                                        </tr>
+                                                    </tbody>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>19/01/2021</td>
+                                                            <td>Thay Đổi Thông Tin Cá Nhân</td>
+                                                            <td>Đang Đợi Kiểm Định</td>
+                                                            <td><a href="detailInfoChange.html">Chi Tiết</a></td>
+                                                        </tr>
+                                                    </tbody>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>12/01/2021</td>
+                                                            <td>Thay Đổi Thông Tin Cá Nhân</td>
+                                                            <td>Từ Chối Thay Đổi</td>
+                                                            <td><a href="detailInfoChange.html">Chi Tiết</a></td>
+                                                        </tr>
+                                                    </tbody>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>05/01/2021</td>
+                                                            <td>Thay Đổi Thông Tin Cá Nhân</td>
+                                                            <td>Đang Đợi Kiểm Định</td>
+                                                            <td><a href="detailInfoChange.html">Chi Tiết</a></td>
+                                                        </tr>
+                                                    </tbody>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>02/01/2021</td>
+                                                            <td>Thay Đổi Thông Tin Cá Nhân</td>
+                                                            <td>Được Chấp Nhận Thay Đổi</td>
+                                                            <td><a href="detailInfoChange.html">Chi Tiết</a></td>
+                                                        </tr>
+                                                    </tbody>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>13/12/2020</td>
+                                                            <td>Thay Đổi Thông Tin Cá Nhân</td>
+                                                            <td>Từ Chối Thay Đổi</td>
+                                                            <td><a href="detailInfoChange.html">Chi Tiết</a></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                        </mat-tab>
+                    </mat-tab-group>
+                </div>
+            </div>
+            <div class="col-12">
+
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger">Tạm
+                    Ngưng</button>
+                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Sửa
+                    Đổi</button>
+            </div>
         </div>
-        <!-- <div class="col-12">
-          <div class="card">
-            <div class="card-header">
-                <h2><b>Chi Tiết Các Sản Phẩm Phụ</b></h2>
+
+        <div class="modal fade show" id="myModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="card card-primary">
+
+                            <form>
+                                <div class="card-body" style="height: 448px; width: 1200px; overflow: auto;">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Mã Hợp Đồng</label>
+                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Mã Khách Hàng</label>
+                                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Tên Chủ Hợp Đồng</label>
+                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Kỳ Hạn</label>
+                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Loại Bảo Hiểm</label>
+                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Mã Bảng Minh Họa</label>
+                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Tổng Số Tiền Phải Trả</label>
+                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Tổng Số Tiền Đã Trả</label>
+                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Ngày Đăng Ký</label>
+                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Ngày Hết Hạn</label>
+                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-primary">Save Draft</button>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
             </div>
-            <table id="example1" class="table table-bordered table-striped">
-              <thead>
-                <tr>
-                  <th>Mã Sản Phẩm Phụ</th>
-                  <th>Tên Sản Phẩm Phụ</th>
-                  <th>Mệnh Giá</th>
-                  <th>Tên Người Được Bảo Hiểm</th>
-                  <th>Phí Bảo Hiểm</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>#JHBVJHJHV798</td>
-                  <td>Sản Phẩm 01</td>
-                  <td>12345</td>
-                  <td>Nguyễn Văn A</td>
-                  <td>123</td>
-                </tr>
-                <tr>
-                  <td>#JHBVJHJHV798</td>
-                  <td>Sản Phẩm 01</td>
-                  <td>12345</td>
-                  <td>Nguyễn Văn A</td>
-                  <td>123</td>
-                </tr>
-                <tr>
-                  <td>#JHBVJHJHV798</td>
-                  <td>Sản Phẩm 01</td>
-                  <td>12345</td>
-                  <td>Nguyễn Văn A</td>
-                  <td>123</td>
-                </tr>
-              </tbody>
-              <tfoot>
-                <tr>
-                  <th>Mã Sản Phẩm Phụ</th>
-                  <th>Tên Sản Phẩm Phụ</th>
-                  <th>Mệnh Giá</th>
-                  <th>Tên Người Được Bảo Hiểm</th>
-                  <th>Phí Bảo Hiểm</th>
-                </tr>
-              </tfoot>
-            </table>
-            <div class="card-header">
-              <h4><b>Tổng Phí: 12345</b></h4>
+        </div>
+
+        <div class="modal modal-danger fade in" id="modal-danger">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+
+                    </div>
+                    <div class="modal-body">
+                        <p>Gửi yêu cầu cho cấp trên để tạm ngưng hợp đồng này</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-outline">Gửi</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
             </div>
-          </div>
-        </div> -->
-        <!-- /.col -->
-      </div>
-      <!-- /.row -->
+            <!-- /.modal-dialog -->
+        </div>
     </div>
-    <!-- /.container-fluid -->
-  </section>
-  <!-- /.content -->
-</div>
-<!-- /.content-wrapper -->
+    <!-- ./wrapper -->
+</body>
+
+</html>
