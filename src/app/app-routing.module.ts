@@ -27,6 +27,7 @@ import { ViewDetailCustomerComponent } from './view/customer-list/customer-table
 import { CreateIllustrationComponent } from './view/illustration/illustration-table/list-illustration/detail-illustration/create-illustration/create-illustration.component';
 import { DetailIllustrationComponent } from './view/illustration/illustration-table/list-illustration/detail-illustration/detail-illustration.component';
 import { ListIllustrationComponent } from '././view/illustration/illustration-table/list-illustration/list-illustration.component';
+import { DetailInfoChangeHistoryComponent } from './view/contract/contract-table/view-detail-contract/detail-info-change-history/detail-info-change-history.component';
 
 const routes: Routes = [
   {path : "dashboard", component: DashboardComponent},
@@ -56,7 +57,9 @@ const routes: Routes = [
   {path: "customer-detail", component: ViewDetailCustomerComponent},
   {path: "create-illustration", component: CreateIllustrationComponent},
   {path: "detail-illustration", component: DetailIllustrationComponent},
-  {path: "list-illustration", component: ListIllustrationComponent}
+  {path: "list-illustration", component: ListIllustrationComponent},
+  {path: "detai-history-change", component:DetailInfoChangeHistoryComponent }
+
 ];
 
 @NgModule({
