@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DetailcontractComponent } from './detailcontract.component';
+import { ListIllustrationComponent } from './list-illustration.component';
 
-describe('DetailcontractComponent', () => {
-  let component: DetailcontractComponent;
-  let fixture: ComponentFixture<DetailcontractComponent>;
+describe('ListIllustrationComponent', () => {
+  let component: ListIllustrationComponent;
+  let fixture: ComponentFixture<ListIllustrationComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DetailcontractComponent ]
+      declarations: [ ListIllustrationComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DetailcontractComponent);
+    fixture = TestBed.createComponent(ListIllustrationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

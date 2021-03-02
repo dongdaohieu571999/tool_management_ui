@@ -51,9 +51,8 @@ public openDialog(){
   let dialogRef = this.dialog.open(AdminAddEmployeeInfoComponent);
   
   dialogRef.afterClosed().subscribe(result => {
-   console.log("vl day"); 
+    
   })
-
 }
 
 }

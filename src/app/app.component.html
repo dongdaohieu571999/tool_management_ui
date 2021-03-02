@@ -16,6 +16,7 @@
                 <a href="#" class="d-block">Nguyễn Vũ Mạnh Cường</a>
             </a>
             <hr style="color: gray;">
+            <!-- Saler -->
             <div *ngIf="authenService.id_role=='2'">
                 <a mat-list-item [routerLink]="['/dashboard']">
                     <mat-icon mat-list-icon>dashboard</mat-icon>Tổng Quan
@@ -105,6 +106,15 @@
                     <mat-icon mat-list-icon>home</mat-icon>Lịch Sử thanh toán QLBH
                 </a>
             </div>
+
+
+            <a mat-list-item [routerLink]="['/appraiser-request-manage']">
+                <mat-icon mat-list-icon>home</mat-icon>---Appraiser-------- <br>Quản Lý Yêu Cầu Xét Duyệt
+            </a>
+            <a mat-list-item [routerLink]="['/appraiser-contract-manage']">
+                <mat-icon mat-list-icon>home</mat-icon>---Appraiser-------- <br>Xem Hợp Đồng
+            </a>
+
         </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>

@@ -29,13 +29,13 @@ export class ServerHttpService {
   }
 
   public getAllAcc(): Observable<any>{
-    const url = this.common.makeUrl("/employee/get_all_employee_acc/");
+    const url = this.common.makeUrl('/employee/get_all_employee_acc/');
     return this.httpClient
     .get<any>(url,this.httpOptions)
     .pipe(catchError(this.handleError));
   }
 
-  
+
 
 
   private handleError(error: HttpErrorResponse) {
@@ -54,6 +54,6 @@ export class ServerHttpService {
       'Something bad happened; please try again later.');
   }
 
-  
-  
+
+
 }

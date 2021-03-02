@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { AddCustomerIllustrationDialogComponent } from '../dialog/add-customer-illustration-dialog/add-customer-illustration-dialog.component';
 
 @Component({
   selector: 'app-illustration',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IllustrationComponent implements OnInit {
 
-  constructor() { }
+  status: boolean = false;
+
+  constructor(public dialog : MatDialog) { }
 
   ngOnInit(): void {
   }
+
+  displayAddCustomerDialog(): void {
+    this.status = !this.status;
+  }
+  
+  public openDialog(){
+    let dialogRef = this.dialog.open(AddCustomerIllustrationDialogComponent);
+    
+    dialogRef.afterClosed().subscribe(result => {
+      
+    })
+  }
+
 
 }
