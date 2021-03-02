@@ -9,7 +9,7 @@
                       <div class="col-sm-6">
                           <h1 [id]="pageTitle">{{ pageTitle }}</h1>
                           <button type="button" class="btn btn-block btn-success btn-lg" data-toggle="modal" data-target="#myModal" style="width: 210px; margin-top: 16px;"
-                          (click)="displayAddEmployeeDialog()">{{ addEmployeeBtn }}</button>
+                          (click)="openDialog()">{{ addEmployeeBtn }}</button>
                       </div>
                   </div>
               </div>
@@ -70,7 +70,7 @@
               <!-- /.container-fluid -->
           </section>
           <!-- add-em-dialog -->
-          <div class="modal" [ngClass]="status ? 'active' : ''" id="myModal" role="dialog">
+          <!-- <div class="modal" [ngClass]="status ? 'active' : ''" id="myModal" role="dialog">
             <div class="modal-dialog">
                 <div class="modal-content">
                             <form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm">
@@ -128,7 +128,7 @@
                             </form>
                     </div>
             </div>
-          </div>
+          </div> -->
           <!-- add-em-dialog -->
       </div>
   </div>

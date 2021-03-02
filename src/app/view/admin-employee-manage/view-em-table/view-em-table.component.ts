@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { EmployeeAcc } from 'src/app/model/EmployeeAcc';
 import { EmployeeService } from 'src/app/services/employee/employee.service';
 import { ServerHttpService } from 'src/app/services/http/server-http.service';
+import { AdminAddAccountEmployeeComponent } from '../../dialog/admin-add-account-employee/admin-add-account-employee.component';
 
 @Component({
   selector: 'app-view-em-table',
@@ -13,7 +15,7 @@ export class ViewEmTableComponent implements OnInit {
   public employeeInfos = [];
 
   statusAddAcc: boolean = false;
-  constructor(private serverHttpService: ServerHttpService,private employeeService : EmployeeService) { }
+  constructor(private serverHttpService: ServerHttpService,private employeeService : EmployeeService,public dialog:MatDialog) { }
 
   ngOnInit(): void {  
    this.employeeService.getAllInfoAcc().subscribe((data => {
@@ -33,6 +35,8 @@ export class ViewEmTableComponent implements OnInit {
      }));
      this.displayAddAccDialog();
   }
-   
+   public openDialog(){
+     this.dialog.open(AdminAddAccountEmployeeComponent);
+   }
 
 }

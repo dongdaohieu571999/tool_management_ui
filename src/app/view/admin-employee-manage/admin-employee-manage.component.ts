@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { EmployeeInfo } from 'src/app/model/EmployeeInfo';
 import { EmployeeService } from 'src/app/services/employee/employee.service';
+import { MatDialog } from '@angular/material/dialog';
+import { AdminAddEmployeeInfoComponent } from '../dialog/admin-add-employee-info/admin-add-employee-info.component';
 
 @Component({
   selector: 'app-admin-employee-manage',
@@ -15,7 +17,7 @@ export class AdminEmployeeManageComponent implements OnInit {
   status: boolean = false;
 
 
-  constructor(private employeeService : EmployeeService) 
+  constructor(private employeeService : EmployeeService,private dialog :MatDialog ) 
   {}
 
   ngOnInit(): void {
@@ -44,4 +46,14 @@ export class AdminEmployeeManageComponent implements OnInit {
       console.log(data);
     }));
   }
+
+public openDialog(){
+  let dialogRef = this.dialog.open(AdminAddEmployeeInfoComponent);
+  
+  dialogRef.afterClosed().subscribe(result => {
+   console.log("vl day"); 
+  })
+
+}
+
 }

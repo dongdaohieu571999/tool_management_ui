@@ -1,0 +1,59 @@
+<mat-dialog-content class="mat-typography">
+    <div>
+        <div>
+            <div>
+                <form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm">
+                    <div class="card-body" style="height: 448px; width: 1200px; overflow: auto;">
+                        <div style="display: inline;">
+                            <h3>Thêm thông tin nhân viên</h3>
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Họ Và Tên</label>
+                            <input type="text" class="form-control" id="name" name="name" ngModel>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Địa chỉ</label>
+                            <input type="text" class="form-control" id="address" name="address" ngModel>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Số Điện Thoại</label>
+                            <input type="tel" class="form-control" id="phone" name="phone" ngModel>
+                        </div>
+                        <div class="form-group">
+                            <label for="dob">Ngày sinh</label>
+                            <input type="date" class="form-control" id="dob" name="dob" ngModel>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" ngModel>
+                        </div>
+                        <div class="form-group">
+                            <label for="idcard">Chứng minh thư</label>
+                            <input type="text" class="form-control" id="ID_card" name="ID_card" ngModel>
+                        </div>
+                        <div class="form-group">
+                            <label for="sex" >Giới tính</label>
+                            <select class="form-control" name="sex" ngModel>
+                              <option value="Nam"> Nam</option>
+                              <option value="Nữ">Nữ</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="phongban">Phòng Ban</label>
+                            <select class="form-control" name="phongban" ngModel>
+                              <option value="Sale"> Sale</option>
+                              <option value="Chăm Sóc Khách Hàng">Chăm Sóc Khách Hàng</option>
+                              <option value="Kiểm Định">Kiểm Định</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="hidden">Lưu</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Hủy</button>
+    <button mat-button >Lưu</button>
+</mat-dialog-actions>

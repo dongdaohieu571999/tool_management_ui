@@ -50,6 +50,8 @@ import { ResetPasswordComponent } from './view/login/reset-password/reset-passwo
 import { SolutionHistoryComponent } from './view/admin-solution-manage/solution-history/solution-history.component';
 import { SolutionHistoryTableComponent } from './view/admin-solution-manage/solution-history/solution-history-table/solution-history-table.component';
 import { AdminAddAccCustomerComponent } from './view/dialog/admin-add-acc-customer/admin-add-acc-customer.component';
+import { AdminAddEmployeeInfoComponent } from './view/dialog/admin-add-employee-info/admin-add-employee-info.component';
+import { AdminAddAccountEmployeeComponent } from './view/dialog/admin-add-account-employee/admin-add-account-employee.component';
 
 
 @NgModule({
@@ -88,6 +90,8 @@ import { AdminAddAccCustomerComponent } from './view/dialog/admin-add-acc-custom
     SolutionHistoryTableComponent,
     AdminAddAccCustomerComponent,
     AdminAddAccCustomerComponent,
+    AdminAddEmployeeInfoComponent,
+    AdminAddAccountEmployeeComponent,
   ],
   imports: [
     BrowserModule,
@@ -106,7 +110,7 @@ import { AdminAddAccCustomerComponent } from './view/dialog/admin-add-acc-custom
     NgxPaginationModule,
     MatDialogModule,
   ],
-  entryComponents: [AdminAddAccCustomerComponent],
+  entryComponents: [AdminAddAccCustomerComponent,AdminAddEmployeeInfoComponent,AdminAddAccountEmployeeComponent],
   providers: [AdminDataServiceService],
   bootstrap: [AppComponent]
 })
