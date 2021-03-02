@@ -253,9 +253,9 @@
                                     </mat-tab-group>
                                 </div>
 
-                                <button type="button " class="btn btn-success" data-toggle="modal" data-target="#myModal">Chỉnh Sửa Thông Tin</button>
+                                <button type="button " class="btn btn-success" data-toggle="modal" data-target="#myModal" (click)="openDialogEdit()">Chỉnh Sửa Thông Tin</button>
                                 <button type="button " class="btn btn-success ">Báo Cáo</button>
-                                <button type="button " class="btn btn-danger" data-toggle="modal" data-target="#tamNgung">Tạm Ngưng Khách Hàng</button>
+                                <button type="button " class="btn btn-danger" data-toggle="modal" data-target="#tamNgung"(click)="openDialogPause()" >Tạm Ngưng Khách Hàng</button>
                             </div>
                         </div>
                     </div>

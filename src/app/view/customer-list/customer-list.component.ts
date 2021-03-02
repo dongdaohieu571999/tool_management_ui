@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { CustomerAddInfoDialogComponent } from '../dialog/customer-add-info-dialog/customer-add-info-dialog.component';
 
 @Component({
   selector: 'app-customer-list',
@@ -9,7 +11,7 @@ export class CustomerListComponent implements OnInit {
 
   status: boolean = false;
 
-  constructor() { }
+  constructor(public dialog : MatDialog) { }
    
   ngOnInit(): void {
     
@@ -17,5 +19,13 @@ export class CustomerListComponent implements OnInit {
 
   displayAddCustomerDialog(): void {
     this.status = !this.status;
+  }
+
+  public openDialog(){
+    let dialogRef = this.dialog.open(CustomerAddInfoDialogComponent);
+    
+    dialogRef.afterClosed().subscribe(result => {
+      
+    })
   }
 }

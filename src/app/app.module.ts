@@ -48,10 +48,10 @@ import { SolutionHistoryComponent } from '././view/admin-solution-manage/solutio
 import { SolutionHistoryTableComponent } from '././view/admin-solution-manage/solution-history/solution-history-table/solution-history-table.component';
 import { AdminAddAccCustomerComponent } from '././view/dialog/admin-add-acc-customer/admin-add-acc-customer.component';
 import { AppraiserContractManageComponent } from '././view/appraiser-contract-manage/appraiser-contract-manage.component';
-import { ViewDetailContractComponent } from '././view/view-detail-contract/view-detail-contract.component';
+import { ViewDetailContractComponent } from './view/contract/contract-table/view-detail-contract/view-detail-contract.component';
 import { AppraiserRequestManageComponent } from '././view/appraiser-request-manage/appraiser-request-manage.component';
 import { DetailRequestComponent } from '././view/appraiser-request-manage/detail-request/detail-request.component';
-import { ViewDetailCustomerComponent } from '././view/view-detail-customer/view-detail-customer.component';
+import { ViewDetailCustomerComponent } from './view/customer-list/customer-table/view-detail-customer/view-detail-customer.component';
 import { CustomerTableComponent } from '././view/customer-list/customer-table/customer-table.component';
 import { IllustrationTableComponent } from '././view/illustration/illustration-table/illustration-table.component';
 import { ContractTableComponent } from '././view/contract/contract-table/contract-table.component';
@@ -61,6 +61,10 @@ import {AdminAddEmployeeInfoComponent} from '././view/dialog/admin-add-employee-
 import {AdminAddAccountEmployeeComponent} from '././view/dialog/admin-add-account-employee/admin-add-account-employee.component';
 import { ListIllustrationComponent } from '././view/illustration/illustration-table/list-illustration/list-illustration.component';
 import { AddCustomerIllustrationDialogComponent } from './view/dialog/add-customer-illustration-dialog/add-customer-illustration-dialog.component';
+import { CustomerAddInfoDialogComponent } from './view/dialog/customer-add-info-dialog/customer-add-info-dialog.component';
+import { ContractAddDialogComponent } from './view/dialog/contract-add-dialog/contract-add-dialog.component';
+import { NotificationConfirmDialogComponent } from './view/dialog/notification-confirm-dialog/notification-confirm-dialog.component';
+import { PauseCustomerDialogComponent } from './view/dialog/pause-customer-dialog/pause-customer-dialog.component';
 
 
 @NgModule({
@@ -109,6 +113,10 @@ import { AddCustomerIllustrationDialogComponent } from './view/dialog/add-custom
     DetailIllustrationComponent,
     ListIllustrationComponent,
     AddCustomerIllustrationDialogComponent,
+    CustomerAddInfoDialogComponent,
+    ContractAddDialogComponent,
+    NotificationConfirmDialogComponent,
+    PauseCustomerDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -128,7 +136,7 @@ import { AddCustomerIllustrationDialogComponent } from './view/dialog/add-custom
     MatDialogModule,
     MatTabsModule,
   ],
-  entryComponents: [AdminAddAccCustomerComponent,AdminAddEmployeeInfoComponent,AdminAddAccountEmployeeComponent,AddCustomerIllustrationDialogComponent],
+  entryComponents: [AdminAddAccCustomerComponent,AdminAddEmployeeInfoComponent,AdminAddAccountEmployeeComponent,AddCustomerIllustrationDialogComponent,CustomerAddInfoDialogComponent,ContractAddDialogComponent,NotificationConfirmDialogComponent,PauseCustomerDialogComponent],
   providers: [AdminDataServiceService],
   bootstrap: [AppComponent]
 })
