@@ -19,7 +19,6 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(sigInForm: NgForm){
-    console.log("ahih");
     const sigInData = new SigInData(sigInForm.value.code,sigInForm.value.pass);
     this.authenticationService.authenticate(sigInData);
   }
