@@ -23,6 +23,13 @@ export class CustomerService {
     }),
   }
 
+  public updateCustomerInfo(customerInfo:CustomerInfo):Observable<any>{
+    const url = this.common.makeUrl("/customer/update_one_customer_info");
+    return this.httpClient
+    .post<any>(url,customerInfo,this.httpOptions)
+    .pipe(catchError(this.handleError))
+  }
+
   public getAllCustomerInfo(): Observable<any>{
     const url = this.common.makeUrl("/customer/get_all_customer_info");
     return this.httpClient

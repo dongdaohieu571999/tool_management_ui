@@ -13,7 +13,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let customer of data | paginate: { id: 'listing_pagination' ,itemsPerPage: 3, currentPage: page, totalItems: totalRecords}">
+            <tr *ngFor="let customer of data | paginate: { id: 'listing_pagination' ,itemsPerPage: 3, currentPage: page, totalItems: totalRecords};let i = index">
                 <td>{{ customer.id }}</td>
                 <td>{{ customer.code }}</td>
                 <td>{{ customer.full_name }}</td>
@@ -22,7 +22,7 @@
                 <td>{{ customer.email }}</td>
                 <td><button type="button" class="btn btn-block btn-primary btn-sm">
                 <a [routerLink]="['/detail-customer']" (click)= "onSelectAcc(customer)">Chi Tiết</a></button></td>
-                <td><button mat-button (click)="openDialog()" class="btn btn-block btn-primary">Thêm Tài Khoản</button></td>
+                <td><button mat-button (click)="openDialog(i)" class="btn btn-block btn-primary">Thêm Tài Khoản</button></td>
             </tr>
         </tbody>
         <tfoot>

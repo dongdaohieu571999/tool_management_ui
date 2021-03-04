@@ -3,7 +3,7 @@
     <div class="card">
         <div class="card-body login-card-body">
 
-            <form (ngSubmit)="onSubmit(signInForm)" #signInForm="ngForm">
+            <form ngSubmit="onSubmit(signInForm)" #signInForm="ngForm">
                 <div class="input-group mb-3">
                     <input class="form-control" placeholder="Code" id="code" name="code" ngModel/>
                     <div class="input-group-append">

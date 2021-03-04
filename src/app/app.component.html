@@ -54,7 +54,7 @@
             </div>
 
             <!-- contract manager -->
-            <div *ngIf="authenService.id_role=='2'">
+            <div *ngIf="authenService.id_role=='3'">
                 <a mat-list-item [routerLink]="['/approve-contract']">
                     <mat-icon mat-list-icon>home</mat-icon>Xét Duyệt Hồ Sơ
                 </a>
@@ -107,13 +107,15 @@
                 </a>
             </div>
 
-
-            <a mat-list-item [routerLink]="['/appraiser-request-manage']">
-                <mat-icon mat-list-icon>home</mat-icon>---Appraiser-------- <br>Quản Lý Yêu Cầu Xét Duyệt
-            </a>
-            <a mat-list-item [routerLink]="['/appraiser-contract-manage']">
-                <mat-icon mat-list-icon>home</mat-icon>---Appraiser-------- <br>Xem Hợp Đồng
-            </a>
+            <!-- appraiser -->
+            <div *ngIf="authenService.id_role=='4'">
+                <a mat-list-item [routerLink]="['/appraiser-request-manage']">
+                    <mat-icon mat-list-icon>home</mat-icon>---Appraiser-------- <br>Quản Lý Yêu Cầu Xét Duyệt
+                </a>
+                <a mat-list-item [routerLink]="['/appraiser-contract-manage']">
+                    <mat-icon mat-list-icon>home</mat-icon>---Appraiser-------- <br>Xem Hợp Đồng
+                </a>
+            </div>
 
         </mat-nav-list>
     </mat-sidenav>

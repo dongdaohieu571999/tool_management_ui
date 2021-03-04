@@ -20,14 +20,14 @@ import { MailComponent } from '././view/mail/mail.component';
 import { NotificationComponent } from '././view/notification/notification.component';
 import { ApproveContractComponent } from '././view/approve-contract/approve-contract.component';
 import { AppraiserContractManageComponent } from '././view/appraiser-contract-manage/appraiser-contract-manage.component';
-import { ViewDetailContractComponent } from './view/view-detail-contract/view-detail-contract.component';
+import { ViewDetailContractComponent } from '././view/view-detail-contract/view-detail-contract.component';
 import { AppraiserRequestManageComponent } from '././view/appraiser-request-manage/appraiser-request-manage.component';
-import { DetailRequestComponent } from '././view/appraiser-request-manage/detail-request/detail-request.component';
+import { DetailRequestComponent } from './view/appraiser-request-manage/detail-request/detail-request.component';
 import { ViewDetailCustomerComponent } from './view/view-detail-customer/view-detail-customer.component';
 import { CreateIllustrationComponent } from './view/illustration/illustration-table/list-illustration/detail-illustration/create-illustration/create-illustration.component';
 import { DetailIllustrationComponent } from './view/illustration/illustration-table/list-illustration/detail-illustration/detail-illustration.component';
 import { ListIllustrationComponent } from '././view/illustration/illustration-table/list-illustration/list-illustration.component';
-import { DetailInfoChangeHistoryComponent } from './view/contract/contract-table/view-detail-contract/detail-info-change-history/detail-info-change-history.component';
+import { DetailInfoChangeHistoryComponent } from './view/view-detail-contract/detail-info-change-history/detail-info-change-history.component';
 
 const routes: Routes = [
   {path : "dashboard", component: DashboardComponent},
@@ -58,8 +58,7 @@ const routes: Routes = [
   {path: "create-illustration", component: CreateIllustrationComponent},
   {path: "detail-illustration", component: DetailIllustrationComponent},
   {path: "list-illustration", component: ListIllustrationComponent},
-  {path: "detai-history-change", component:DetailInfoChangeHistoryComponent }
-
+  {path: "detai-history-change", component: DetailInfoChangeHistoryComponent}
 ];
 
 @NgModule({
