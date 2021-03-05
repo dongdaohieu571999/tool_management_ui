@@ -10,23 +10,13 @@ import { PauseCustomerDialogComponent } from 'src/app/view/dialog/pause-customer
 })
 export class ViewDetailCustomerComponent implements OnInit {
 
-  customerCode: string = "#1001";
-  constructor(public dialog : MatDialog) { }
+  constructor() { }
 
   ngOnInit(): void {
+    this.getInfoOneCustomer();
   }
-  public openDialogEdit(){
-    let dialogRef = this.dialog.open(CustomerAddInfoDialogComponent);
+
+  public getInfoOneCustomer(){
     
-    dialogRef.afterClosed().subscribe(result => {
-      
-    })
-  }
-  public openDialogPause(){
-    let dialogRef = this.dialog.open(PauseCustomerDialogComponent);
-    
-    dialogRef.afterClosed().subscribe(result => {
-      
-    })
   }
 }

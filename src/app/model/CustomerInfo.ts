@@ -26,6 +26,8 @@ export class CustomerInfo {
     
       conadd_wards:string;
 
+      code_em_support:string;
+
 
     
       curadd_no_street:string;

@@ -45,7 +45,10 @@ export class CustomerService {
   }
 
   public getOneAccCustomer(customer: CustomerInfo){
-    this.route.navigate(['detail-customer',JSON.stringify(customer)]);
+    const url = this.common.makeUrl("/customer/add_customer_acc");
+    return this.httpClient
+    .post<any>(url,customerAcc,this.httpOptions)
+    .pipe(catchError(this.handleError));
   }
 
   private handleError(error: HttpErrorResponse) {

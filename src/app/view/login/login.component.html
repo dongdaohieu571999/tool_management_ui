@@ -1,9 +1,8 @@
 <body class="login-page">
-    <!-- /.login-logo -->
     <div class="card">
         <div class="card-body login-card-body">
 
-            <form ngSubmit="onSubmit(signInForm)" #signInForm="ngForm">
+            <form (ngSubmit)="onSubmit(signInForm)" #signInForm="ngForm">
                 <div class="input-group mb-3">
                     <input class="form-control" placeholder="Code" id="code" name="code" ngModel/>
                     <div class="input-group-append">
@@ -27,9 +26,13 @@
                             <label for="remember"> Remember Me </label>
                         </div>
                     </div>
+                    <!-- /.col -->
                     <div class="col-4">
-                        <button class="btn btn-primary btn-block" type="submit">Sign In</button>
+                        <button class="btn btn-primary btn-block" type="submit">
+              Sign In
+            </button>
                     </div>
+                    <!-- /.col -->
                 </div>
             </form>
 
@@ -43,4 +46,5 @@
             </p>
         </div>
     </div>
+    <!-- /.login-box -->
 </body>
