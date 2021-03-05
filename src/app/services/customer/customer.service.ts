@@ -41,6 +41,13 @@ export class CustomerService {
     this.route.navigate(['detail-customer',JSON.stringify(customer)]);
   }
 
+  public getDetailCustomer(id:number): Observable<any>{
+    const url = this.common.makeUrl("/customer/get_detail_customer_info");
+    return this.httpClient
+    .get<any>(url,this.httpOptions)
+    .pipe(catchError(this.handleError));
+  }
+  
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.

@@ -15,17 +15,17 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>#1000</td>
-            <td><a href="#">#JHBVJHJHV798</a></td>
-            <td>Nguyễn Văn A</td>
-            <td>20-11-2020</td>
-            <td>Hà Nội</td>
-            <td><a href="#">#1000</a></td>
-            <td>012345678</td>
-            <td>Hoạt Động</td>
-            <td>Cầu Giấy - Hà Nội</td>
-            <td>20-11-2020</td>
+        <tr *ngFor="let customerinfo of customerinfos">
+            <td>{{customerinfo.id}}</td>
+            <td><a href="#">{{customerinfo.id_contract}}</a></td>
+            <td>{{customerinfo.full_name}}</td>
+            <td>{{customerinfo.birth_date | date}}</td>
+            <td>{{customerinfo.conadd_city}}</td>
+            <td><a href="#">{{customerinfo.id_illustration}}</a></td>
+            <td>{{customerinfo.phone_1}}</td>
+            <td>{{customerinfo.status}}</td>
+            <td>{{customerinfo.workadd_no_street}} {{customerinfo.workadd_district}} {{customerinfo.workadd_city}}</td>
+            <td>{{customerinfo.id}}</td>
             <td><a [routerLink]="['/customer-detail']">Chi Tiết</a></td>
         </tr>
     </tbody>
