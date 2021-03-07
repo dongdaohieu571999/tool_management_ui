@@ -17,6 +17,8 @@ export class CustomerInfo {
      specific_work: string;
      monthly_income: number;
      code: string;
+     gender:boolean;
+     ethnic:string;
 
       conadd_no_street:string;
     

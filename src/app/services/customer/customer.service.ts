@@ -44,10 +44,10 @@ export class CustomerService {
     .pipe(catchError(this.handleError));
   }
 
-  public getOneAccCustomer(customer: CustomerInfo){
-    const url = this.common.makeUrl("/customer/add_customer_acc");
+  public getOneAccCustomer(id:number){
+    const url = this.common.makeUrl("/customer/get_one_customer_info")+"&& id="+id;
     return this.httpClient
-    .post<any>(url,customerAcc,this.httpOptions)
+    .get<any>(url,this.httpOptions)
     .pipe(catchError(this.handleError));
   }
 

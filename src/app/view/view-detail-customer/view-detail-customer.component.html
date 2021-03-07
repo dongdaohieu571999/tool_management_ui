@@ -42,15 +42,15 @@
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputPassword1 ">Mã Khách Hàng</label>
-                                                        <p style="color: red; ">#HGVHJGVp7587</p>
+                                                        <p style="color: red; ">{{ customerInfo.code }}</p>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Họ Tên</label>
-                                                        <p style="color: red; ">Nguyễn Chí Ngọc Minh</p>
+                                                        <p style="color: red; ">{{ customerInfo.full_name }}</p>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Giới Tính</label>
-                                                        <p style="color: red; ">Nam</p>
+                                                        <p style="color: red; ">{{ customerInfo.gender }}</p>
                                                     </div>
                                                 </div>
                                                 <div class="col-6">
@@ -60,35 +60,35 @@
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Ngày Sinh</label>
-                                                        <p style="color: red; ">12/11/1998</p>
+                                                        <p style="color: red; ">{{ customerInfo.birth_address }}</p>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Tuổi</label>
-                                                        <p style="color: red; ">23</p>
+                                                        <p style="color: red; ">{{ customerInfo.age }}</p>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Nơi Sinh</label>
-                                                        <p style="color: red; ">Hà Nội</p>
+                                                        <p style="color: red; ">{{ customerInfo.curadd_city }}</p>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Loại Giấy Tờ Tùy Thân</label>
-                                                        <p style="color: red; ">CMTND</p>
+                                                        <p style="color: red; ">{{ customerInfo.types_identification }}</p>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Giấy Tờ Nhân Thân Số</label>
-                                                        <p style="color: red; ">14356765432234234</p>
+                                                        <p style="color: red; ">{{ customerInfo.ID_card }}</p>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Quốc Tịch Thứ Nhất</label>
-                                                        <p style="color: red; ">Việt Nam</p>
+                                                        <p style="color: red; ">{{ customerInfo.nationality_1 }}</p>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Quốc Tịch Khác Khác (Nếu Có)</label>
-                                                        <p style="color: red; ">Không Có</p>
+                                                        <p style="color: red; ">{{ customerInfo.nationality_1 }}</p>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Dân Tộc</label>
-                                                        <p style="color: red; ">Kinh</p>
+                                                        <p style="color: red; ">{{ customerInfo.nation }}</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -98,35 +98,35 @@
                                                 <h3>Thông tin Nghề Nghiệp</h3>
                                                 <div class="form-group ">
                                                     <label for="exampleInputEmail1 ">Nghề Nghiệp</label>
-                                                    <p style="color: red; ">Kỹ Sư</p>
+                                                    <p style="color: red; ">{{ customerInfo.job }}</p>
                                                 </div>
                                                 <div class="form-group ">
                                                     <label for="exampleInputEmail1 ">Chức Vụ</label>
-                                                    <p style="color: red; ">Nhân Viên</p>
+                                                    <p style="color: red; ">{{ customerInfo.position }}</p>
                                                 </div>
                                                 <div class="form-group ">
                                                     <label for="exampleInputEmail1 ">Nghành Nghề</label>
-                                                    <p style="color: red; ">CNTT</p>
+                                                    <p style="color: red; ">{{ customerInfo.career }}</p>
                                                 </div>
                                                 <div class="form-group ">
                                                     <label for="exampleInputEmail1 ">Nhóm Nghề</label>
-                                                    <p style="color: red; ">CNTT</p>
+                                                    <p style="color: red; ">{{ customerInfo.occupation_group }}</p>
                                                 </div>
                                                 <div class="form-group ">
                                                     <label for="exampleInputEmail1 ">Tên Cơ Quan Làm Việc</label>
-                                                    <p style="color: red; ">FPT</p>
+                                                    <p style="color: red; ">{{ customerInfo.company_name }}</p>
                                                 </div>
                                                 <div class="form-group ">
                                                     <label for="exampleInputEmail1 ">Lĩnh vực Kinh Doanh</label>
-                                                    <p style="color: red; ">Không Có</p>
+                                                    <p style="color: red; ">{{ customerInfo.main_business }}</p>
                                                 </div>
                                                 <div class="form-group ">
                                                     <label for="exampleInputEmail1 ">Công việc cụ thể</label>
-                                                    <p style="color: red; ">Không Có</p>
+                                                    <p style="color: red; ">{{ customerInfo.specific_work }}</p>
                                                 </div>
                                                 <div class="form-group ">
                                                     <label for="exampleInputEmail1 ">Thu Nhập Cá Nhân Hàng Tháng</label>
-                                                    <p style="color: red; ">10.000.000đ</p>
+                                                    <p style="color: red; ">{{ customerInfo.monthly_income }}\</p>
                                                 </div>
                                             </div>
                                         </mat-tab>
@@ -136,38 +136,38 @@
                                                     <h4>Địa Chỉ Nơi Ở Hiện Tại</h4>
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Số Nhà và Tên Đường</label>
-                                                        <p style="color: red; ">hà nội</p>
+                                                        <p style="color: red; ">{{ customerInfo.curadd_no_street }}</p>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Thành Phố/Tỉnh</label>
-                                                        <p style="color: red; ">hà nội</p>
+                                                        <p style="color: red; ">{{ customerInfo.curadd_city }}</p>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Quận/Huyện</label>
-                                                        <p style="color: red; ">hà nội</p>
+                                                        <p style="color: red; ">{{ customerInfo.curadd_district }}</p>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Phường/Xã/Thị Trấn:</label>
-                                                        <p style="color: red; ">Hoàn Kiếm - Hà Nội</p>
+                                                        <p style="color: red; ">{{ customerInfo.curadd_wards }}</p>
                                                     </div>
                                                 </div>
                                                 <div class="col-6 ">
                                                     <h4>Địa Chỉ Thường Chú</h4>
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Số Nhà và Tên Đường</label>
-                                                        <p style="color: red; ">Nhà 25 Ngách 25</p>
+                                                        <p style="color: red; ">{{ customerInfo.peradd_no_street }}</p>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Thành Phố/Tỉnh</label>
-                                                        <p style="color: red; ">hà Nội</p>
+                                                        <p style="color: red; ">{{ customerInfo.peradd_city }}</p>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Quận/Huyện</label>
-                                                        <p style="color: red; ">hà Nội</p>
+                                                        <p style="color: red; ">{{ customerInfo.peradd_district }}</p>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Phường/Xã/Thị Trấn:</label>
-                                                        <p style="color: red; ">hà Nội</p>
+                                                        <p style="color: red; ">{{ customerInfo.peradd_wards }}</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -176,38 +176,38 @@
                                                     <h4>Địa Chỉ Liên Lạc Đặc Biệt</h4>
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Số Nhà và Tên Đường</label>
-                                                        <p style="color: red; ">hà Nội</p>
+                                                        <p style="color: red; ">{{ customerInfo.conadd_no_street }}</p>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Thành Phố/Tỉnh</label>
-                                                        <p style="color: red; ">hà Nội</p>
+                                                        <p style="color: red; ">{{ customerInfo.conadd_city }}</p>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Quận/Huyện</label>
-                                                        <p style="color: red; ">hà Nội</p>
+                                                        <p style="color: red; ">{{ customerInfo.conadd_district }}</p>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Phường/Xã/Thị Trấn:</label>
-                                                        <p style="color: red; ">hà Nội</p>
+                                                        <p style="color: red; ">{{ customerInfo.conadd_wards }}</p>
                                                     </div>
                                                 </div>
                                                 <div class="col-6 ">
                                                     <h4>Địa Chỉ Nơi Làm Việc</h4>
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Số Nhà và Tên Đường</label>
-                                                        <p style="color: red; ">hà Nội</p>
+                                                        <p style="color: red; ">{{ customerInfo.workadd_no_street }}</p>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Thành Phố/Tỉnh</label>
-                                                        <p style="color: red; ">hà Nội</p>
+                                                        <p style="color: red; ">{{ customerInfo.workadd_city }}</p>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Quận/Huyện</label>
-                                                        <p style="color: red; ">hà Nội</p>
+                                                        <p style="color: red; ">{{ customerInfo.workadd_district }}</p>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Phường/Xã/Thị Trấn:</label>
-                                                        <p style="color: red; ">hà Nội</p>
+                                                        <p style="color: red; ">{{ customerInfo.workadd_wards }}</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -218,19 +218,19 @@
                                                     <h3>ĐT cố Định và Email</h3>
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Email:</label>
-                                                        <p style="color: red; ">acnkjnsdv@gmail.com</p>
+                                                        <p style="color: red; ">{{ customerInfo.email }}</p>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Điện Thoại Cố Định:</label>
-                                                        <p style="color: red; ">098124545345</p>
+                                                        <p style="color: red; ">{{ customerInfo.workadd_wards }}</p>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Điện Thoại Di Động 1:</label>
-                                                        <p style="color: red; ">878936454</p>
+                                                        <p style="color: red; ">{{ customerInfo.phone_1 }}</p>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Điện Thoại Di Động 2:</label>
-                                                        <p style="color: red; ">Không Có</p>
+                                                        <p style="color: red; ">{{ customerInfo.phone_2 }}</p>
                                                     </div>
                                                 </div>
                                                 <div class="col-6">
@@ -253,9 +253,9 @@
                                     </mat-tab-group>
                                 </div>
 
-                                <button type="button " class="btn btn-success" data-toggle="modal" data-target="#myModal" (click)="openDialogEdit()">Chỉnh Sửa Thông Tin</button>
+                                <!-- <button type="button " class="btn btn-success" data-toggle="modal" data-target="#myModal" (click)="openDialogEdit()">Chỉnh Sửa Thông Tin</button> -->
                                 <button type="button " class="btn btn-success ">Báo Cáo</button>
-                                <button type="button " class="btn btn-danger" data-toggle="modal" data-target="#tamNgung"(click)="openDialogPause()" >Tạm Ngưng Khách Hàng</button>
+                                <!-- <button type="button " class="btn btn-danger" data-toggle="modal" data-target="#tamNgung" (click)="openDialogPause()">Tạm Ngưng Khách Hàng</button> -->
                             </div>
                         </div>
                     </div>
