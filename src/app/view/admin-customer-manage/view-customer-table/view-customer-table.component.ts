@@ -14,15 +14,11 @@ import { AdminAddAccCustomerComponent } from 'src/app/view/dialog/admin-add-acc-
 })
 export class ViewCustomerTableComponent implements OnInit {
 
-  code: string;
-  pass: string;
-
-  
-
   ngOnInit(): void {
     this.customerService.getAllCustomerInfo().subscribe((data => {
       this.data = data;
       this.totalRecords = data.length;
+      console.log(data);
     }))
   }
 
@@ -30,31 +26,22 @@ export class ViewCustomerTableComponent implements OnInit {
   data: Array<CustomerInfo>;
   totalRecords:number;
 
-  accCustomer: CustomerAcc;
-  confirmPass: string;
-
   status: boolean = false;
   constructor(private customerService :CustomerService,public dialog: MatDialog) { }
 
-  openDialog() {
-    this.accCustomer = new CustomerAcc('','',true);
-    const dialogRef = this.dialog.open(AdminAddAccCustomerComponent)
+  openDialog(i:number) {
+    const dialogRef = this.dialog.open(AdminAddAccCustomerComponent,({
+      data:this.data[i]
+    }));
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);
     });
   }
 
-  onSubmit(addAccForm :NgForm): void{
-    const customerAcc = new CustomerAcc(addAccForm.value.code,addAccForm.value.pass,true);
-    this.customerService.addOneAccCustomer(customerAcc).subscribe((data => {
-      console.log("save OK");
-    }))
-  }
-
   onSelectAcc(customerInfo: CustomerInfo){
-    this.customerService.getOneAccCustomer(customerInfo);
+    // this.customerService.getOneAccCustomer(customerInfo);
   }
-
+  
   
 }

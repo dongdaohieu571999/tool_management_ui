@@ -6,8 +6,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { ChartsModule } from 'ng2-charts';
 
 // material
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSliderModule } from '@angular/material/slider';
@@ -48,10 +50,10 @@ import { SolutionHistoryComponent } from '././view/admin-solution-manage/solutio
 import { SolutionHistoryTableComponent } from '././view/admin-solution-manage/solution-history/solution-history-table/solution-history-table.component';
 import { AdminAddAccCustomerComponent } from '././view/dialog/admin-add-acc-customer/admin-add-acc-customer.component';
 import { AppraiserContractManageComponent } from '././view/appraiser-contract-manage/appraiser-contract-manage.component';
-import { ViewDetailContractComponent } from './view/contract/contract-table/view-detail-contract/view-detail-contract.component';
+import { ViewDetailContractComponent } from './view/view-detail-contract/view-detail-contract.component';
 import { AppraiserRequestManageComponent } from '././view/appraiser-request-manage/appraiser-request-manage.component';
 import { DetailRequestComponent } from '././view/appraiser-request-manage/detail-request/detail-request.component';
-import { ViewDetailCustomerComponent } from './view/customer-list/customer-table/view-detail-customer/view-detail-customer.component';
+import { ViewDetailCustomerComponent } from './view/view-detail-customer/view-detail-customer.component';
 import { CustomerTableComponent } from '././view/customer-list/customer-table/customer-table.component';
 import { IllustrationTableComponent } from '././view/illustration/illustration-table/illustration-table.component';
 import { ContractTableComponent } from '././view/contract/contract-table/contract-table.component';
@@ -65,7 +67,7 @@ import { CustomerAddInfoDialogComponent } from './view/dialog/customer-add-info-
 import { ContractAddDialogComponent } from './view/dialog/contract-add-dialog/contract-add-dialog.component';
 import { NotificationConfirmDialogComponent } from './view/dialog/notification-confirm-dialog/notification-confirm-dialog.component';
 import { PauseCustomerDialogComponent } from './view/dialog/pause-customer-dialog/pause-customer-dialog.component';
-import { DetailInfoChangeHistoryComponent } from './view/contract/contract-table/view-detail-contract/detail-info-change-history/detail-info-change-history.component';
+import { DetailInfoChangeHistoryComponent } from './view/view-detail-contract/detail-info-change-history/detail-info-change-history.component';
 
 
 @NgModule({
@@ -118,9 +120,10 @@ import { DetailInfoChangeHistoryComponent } from './view/contract/contract-table
     ContractAddDialogComponent,
     NotificationConfirmDialogComponent,
     PauseCustomerDialogComponent,
-    DetailInfoChangeHistoryComponent
+    DetailInfoChangeHistoryComponent,
   ],
   imports: [
+    ChartsModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -137,6 +140,7 @@ import { DetailInfoChangeHistoryComponent } from './view/contract/contract-table
     NgxPaginationModule,
     MatDialogModule,
     MatTabsModule,
+    MatSnackBarModule,
   ],
   entryComponents: [AdminAddAccCustomerComponent,AdminAddEmployeeInfoComponent,AdminAddAccountEmployeeComponent,AddCustomerIllustrationDialogComponent,CustomerAddInfoDialogComponent,ContractAddDialogComponent,NotificationConfirmDialogComponent,PauseCustomerDialogComponent],
   providers: [AdminDataServiceService],

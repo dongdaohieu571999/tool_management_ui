@@ -18,7 +18,7 @@ export class CustomerInfo {
     monthly_income: number;
     code: string;
 
-    gender:string;
+    gender:boolean;
   
     ethnic:string;
 
@@ -26,6 +26,7 @@ export class CustomerInfo {
 
     id_illustration:number;
 
+    code_em_support:string;
 
     conadd_no_street: string;
 
@@ -77,8 +78,8 @@ export class CustomerInfo {
         id_current_address: number, id_permanent_address: number, id_contact_address: number, id_workplace_address: number, email: string, phone_1: string, phone_2: string, id_account: number, full_name: string
         , conadd_no_street: string, conadd_city: string, conadd_district: string, conadd_wards: string, curadd_no_street: string, curadd_city: string,
         curadd_district: string, curadd_wards: string, peradd_no_street: string, peradd_city: string, peradd_district: string, peradd_wards: string,
-        workadd_no_street: string, workadd_city: string, workadd_district: string, workadd_wards: string, code: string,gender:string,
-        ethnic:string,id_contract:number,id_illustration:number) {
+        workadd_no_street: string, workadd_city: string, workadd_district: string, workadd_wards: string, code: string,gender:boolean,
+        ethnic:string,id_contract:number,id_illustration:number,code_em_support : string) {
 
         this.id = id;
         this.birth_date = birth_date;
@@ -101,7 +102,7 @@ export class CustomerInfo {
         this.main_business = main_business;
         this.specific_work = specific_work;
         this.monthly_income = monthly_income;
-
+        this.code_em_support = code_em_support;
         this.conadd_no_street = conadd_no_street;
         this.conadd_city = conadd_city;
         this.conadd_district = conadd_district;
@@ -138,6 +139,9 @@ export class CustomerInfo {
     }
     getCuraddCity(): string {
         return this.curadd_city;
+    }
+    getCodeEmSupport() : string{
+        return this.code_em_support;
     }
     getPeraddNoStreet(): string {
         return this.peradd_no_street;

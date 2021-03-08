@@ -1,7 +1,7 @@
 {
     "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
     "cli": {
-      "analytics": "40a606ae-0b3b-41a4-a736-651c89af99d5"
+        "analytics": "40a606ae-0b3b-41a4-a736-651c89af99d5"
     },
     "version": 1,
     "newProjectRoot": "projects",
@@ -30,7 +30,9 @@
                             "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
                             "src/styles.css"
                         ],
-                        "scripts": []
+                        "scripts": [
+                            "./node_modules/chart.js/dist/Chart.min.js"
+                        ]
                     },
                     "configurations": {
                         "production": {

@@ -1,11 +1,11 @@
-<mat-toolbar class="nav-height" *ngIf="authenService.isAuthen">
+<mat-toolbar class="nav-height fixed-toolbar" *ngIf="authenService.isAuthen">
     <mat-toolbar-row>
         <button mat-icon-button><mat-icon (click)="openLeftSide()">menu</mat-icon></button>
     </mat-toolbar-row>
 </mat-toolbar>
 <mat-sidenav-container>
     <mat-sidenav #sidenav (closed)="closeLeftSide()" *ngIf="authenService.isAuthen">
-        <mat-nav-list>
+        <mat-nav-list class="nav-list-fixed">
             <a mat-list-item (click)="logout()">
                 <img src="../assets/images/exit.png" class="imglink" style="opacity: .8">
                 <span class="brand-text font-weight-light">Thoát</span>
@@ -54,7 +54,7 @@
             </div>
 
             <!-- contract manager -->
-            <div *ngIf="authenService.id_role=='2'">
+            <div *ngIf="authenService.id_role=='3'">
                 <a mat-list-item [routerLink]="['/approve-contract']">
                     <mat-icon mat-list-icon>home</mat-icon>Xét Duyệt Hồ Sơ
                 </a>
@@ -107,13 +107,15 @@
                 </a>
             </div>
 
-
-            <a mat-list-item [routerLink]="['/appraiser-request-manage']">
-                <mat-icon mat-list-icon>home</mat-icon>---Appraiser-------- <br>Quản Lý Yêu Cầu Xét Duyệt
-            </a>
-            <a mat-list-item [routerLink]="['/appraiser-contract-manage']">
-                <mat-icon mat-list-icon>home</mat-icon>---Appraiser-------- <br>Xem Hợp Đồng
-            </a>
+            <!-- appraiser -->
+            <div *ngIf="authenService.id_role=='4'">
+                <a mat-list-item [routerLink]="['/appraiser-request-manage']">
+                    <mat-icon mat-list-icon>home</mat-icon>---Appraiser-------- <br>Quản Lý Yêu Cầu Xét Duyệt
+                </a>
+                <a mat-list-item [routerLink]="['/appraiser-contract-manage']">
+                    <mat-icon mat-list-icon>home</mat-icon>---Appraiser-------- <br>Xem Hợp Đồng
+                </a>
+            </div>
 
         </mat-nav-list>
     </mat-sidenav>

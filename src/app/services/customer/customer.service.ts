@@ -23,6 +23,13 @@ export class CustomerService {
     }),
   }
 
+  public updateCustomerInfo(customerInfo:CustomerInfo):Observable<any>{
+    const url = this.common.makeUrl("/customer/update_one_customer_info");
+    return this.httpClient
+    .post<any>(url,customerInfo,this.httpOptions)
+    .pipe(catchError(this.handleError))
+  }
+
   public getAllCustomerInfo(): Observable<any>{
     const url = this.common.makeUrl("/customer/get_all_customer_info");
     return this.httpClient
@@ -35,10 +42,6 @@ export class CustomerService {
     return this.httpClient
     .post<any>(url,customerAcc,this.httpOptions)
     .pipe(catchError(this.handleError));
-  }
-
-  public getOneAccCustomer(customer: CustomerInfo){
-    this.route.navigate(['detail-customer',JSON.stringify(customer)]);
   }
 
   public getDetailCustomer(id:number): Observable<any>{

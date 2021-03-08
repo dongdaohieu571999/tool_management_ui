@@ -2,47 +2,57 @@
     <div>
         <div>
             <div>
-                <form>
-                    <div class="card-body" style="height: 448px; width: 1200px; overflow: auto;">
-                        <div class="form-group">
-                          <label for="exampleInputEmail1">Mã Hợp Đồng</label>
-                          <input type="email" class="form-control" name="contractId">
-                        </div>
+                <form #ContractForm="ngForm">
+                    <div class="card-body" style="height: 608px; width: 1000px; overflow: auto;">
+                        <!-- <div class="form-group">
+                          <label for="exampleInputPassword1">Mã Khách Hàng</label>
+                          <input type="password" class="form-control" name="customerId" ngModel>
+                        </div> -->
                         <div class="form-group">
                           <label for="exampleInputPassword1">Mã Khách Hàng</label>
-                          <input type="password" class="form-control" name="customerId">
+                          <select class="form-control disabled" id="customerID" name="customerId">
+                            <option *ngFor="let customerinfo of customerinfos" value="customerinfo.id">{{customerinfo.id}}</option>
+                          </select>
                         </div>
                         <div class="form-group">
                           <label for="exampleInputEmail1">Tên Chủ Hợp Đồng</label>
-                          <input type="email" class="form-control" name="contractOwnerName">
+                          <input type="email" class="form-control" name="contractOwnerName" ngModel>
                         </div>
                         <div class="form-group">
                           <label for="exampleInputEmail1">Kỳ Hạn</label>
-                          <input type="email" class="form-control" name="period">
+                          <input type="email" class="form-control" name="period" ngModel>
                         </div>
                         <div class="form-group">
                           <label for="exampleInputEmail1">Loại Bảo Hiểm</label>
-                          <input type="email" class="form-control" name="insuranceType">
+                          <input type="email" class="form-control" name="insuranceType" ngModel>
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Mã Quyền lợi chính</label>
+                          <input type="email" class="form-control" name="insuranceId" ngModel>
                         </div>
                         <div class="form-group">
                           <label for="exampleInputEmail1">Mã Bảng Minh Họa</label>
-                          <input type="email" class="form-control" name="illustrationId">
+                          <input type="email" class="form-control" name="illustrationId" ngModel>
                         </div>
                         <div class="form-group">
                           <label for="exampleInputEmail1">Tổng Số Tiền Phải Trả</label>
-                          <input type="email" class="form-control" name="totalPayment">
-                        </div>
-                        <div class="form-group">
-                          <label for="exampleInputEmail1">Tổng Số Tiền Đã Trả</label>
-                          <input type="email" class="form-control" name="totalPaid">
+                          <input type="email" class="form-control" name="totalPayment" ngModel>
                         </div>
                         <div class="form-group">
                           <label for="exampleInputEmail1">Ngày Đăng Ký</label>
-                          <input type="email" class="form-control" name="signDate">
+                          <input type="date" class="form-control" name="signDate" ngModel>
                         </div>
                         <div class="form-group">
                           <label for="exampleInputEmail1">Ngày Hết Hạn</label>
-                          <input type="email" class="form-control" name="outOfDate">
+                          <input type="date" class="form-control" name="outOfDate" ngModel>
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Tình trạng hoạt động</label>
+                          <input type="email" class="form-control" name="status" ngModel>
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Tình trạng xét duyệt</label>
+                          <input type="email" class="form-control" name="approval_status" ngModel>
                         </div>
                       </div>
                 </form>
@@ -52,5 +62,5 @@
 </mat-dialog-content>
 <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>Hủy</button>
-    <button mat-button >Lưu</button>
+    <button mat-button mat-dialog-close type="submit" (click)="onSubmit(ContractForm)">Lưu</button>
 </mat-dialog-actions>

@@ -14,7 +14,22 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
+        <tr *ngFor="let contract of contracts">
+            <td>{{contract.id}}</td>
+            <td>{{contract.id_customer}}</td>
+            <td>{{contract.name_contract_owner}}</td>
+            <td>{{contract.payment_period}}</td>
+            <td>{{contract.insurance_type}}</td>
+            <td>{{contract.id_main_interest}}</td>
+            <td>{{contract.id_illustration}}</td>
+            <td>{{contract.status}}</td>
+            <td>{{contract.start_time}}</td>
+            <td>
+                <button (click)="contractDetail(contract.id)"class="btn btn-info" style="height: 30px;">Chi Tiết</button>
+            </td>
+            <!-- <td><a >Chi Tiết</a></td> -->
+        </tr>
+        <!-- <tr>
             <td>#JHBVJHJHV798</td>
             <td>#1000</td>
             <td>Nguyễn Văn A</td>
@@ -73,19 +88,7 @@
             <td>Pending</td>
             <td>Pending</td>
             <td><a [routerLink]="['/contract-detail']">Chi Tiết</a></td>
-        </tr>
-        <tr>
-            <td>#JHBVJHJHV798</td>
-            <td>#1000</td>
-            <td>Nguyễn Văn A</td>
-            <td>25 Năm</td>
-            <td>Bảo Hiểm Nhân Thọ</td>
-            <td>#1000</td>
-            <td>#KUHN1</td>
-            <td>Pending</td>
-            <td>Pending</td>
-            <td><a [routerLink]="['/contract-detail']">Chi Tiết</a></td>
-        </tr>
+        </tr> -->
     </tbody>
     <tfoot>
         <tr>

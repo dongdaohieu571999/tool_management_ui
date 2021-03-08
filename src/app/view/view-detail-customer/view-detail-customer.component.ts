@@ -44,9 +44,10 @@ export class ViewDetailCustomerComponent implements OnInit {
   }
   public openDialogPause(){
     let dialogRef = this.dialog.open(PauseCustomerDialogComponent);
+    this.getInfoOneCustomer();
+  }
+
+  public getInfoOneCustomer(){
     
-    dialogRef.afterClosed().subscribe(result => {
-      
-    })
   }
 }
