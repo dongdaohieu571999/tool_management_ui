@@ -14,8 +14,9 @@ import { PauseCustomerDialogComponent } from 'src/app/view/dialog/pause-customer
 })
 export class ViewDetailCustomerComponent implements OnInit {
 
-  customerCode: string = "#1001";
-  constructor(public dialog : MatDialog,public route : ActivatedRoute,public customerService : CustomerService) { }
+  constructor(private customerService: CustomerService,private activateRoute: ActivatedRoute) { }
+
+  customerInfo: CustomerInfo;
 
   customerinfo : CustomerInfo;
   ngOnInit(): void {
@@ -25,9 +26,9 @@ export class ViewDetailCustomerComponent implements OnInit {
     //   console.log(data);
     // }));
 
-    this.route.params.subscribe((params: Params) => {
+    this.activateRoute.params.subscribe((params: Params) => {
       let id = params['id'];
-      this.customerService.getDetailCustomer(id).subscribe((data => {
+      this.customerService.getOneAccCustomer(id).subscribe((data => {
         this.customerinfo = data;
         console.log(this.customerinfo);
       }));
@@ -48,6 +49,12 @@ export class ViewDetailCustomerComponent implements OnInit {
   }
 
   public getInfoOneCustomer(){
+    // this.activateRoute.queryParams.subscribe(params => {
+    //   let id = params['id'];
+    //   this.customerService.getOneAccCustomer(id).subscribe((data => {
+    //     this.customerInfo = data;
+    //   }));
+    // });
     
   }
 }

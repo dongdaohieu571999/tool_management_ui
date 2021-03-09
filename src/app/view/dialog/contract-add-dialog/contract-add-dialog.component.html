@@ -25,6 +25,9 @@
                         <div class="form-group">
                           <label for="exampleInputEmail1">Loại Bảo Hiểm</label>
                           <input type="email" class="form-control" name="insuranceType" ngModel>
+                          <select class="form-control disabled" id="insuranceType" name="insuranceType">
+                            <option *ngFor="let customerinfo of customerinfos" value="customerinfo.id">{{customerinfo.id}}</option>
+                          </select>
                         </div>
                         <div class="form-group">
                           <label for="exampleInputEmail1">Mã Quyền lợi chính</label>

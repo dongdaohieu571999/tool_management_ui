@@ -44,8 +44,8 @@ export class CustomerService {
     .pipe(catchError(this.handleError));
   }
 
-  public getDetailCustomer(id:number): Observable<any>{
-    const url = this.common.makeUrl("/customer/get_detail_customer_info");
+  public getOneAccCustomer(id:number){
+    const url = this.common.makeUrl("/customer/get_one_customer_info")+"&& id="+id;
     return this.httpClient
     .get<any>(url,this.httpOptions)
     .pipe(catchError(this.handleError));

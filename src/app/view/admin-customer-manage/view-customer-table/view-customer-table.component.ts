@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { CustomerAcc } from 'src/app/model/CustomerAcc';
 import { CustomerInfo } from 'src/app/model/CustomerInfo';
 import { CustomerService } from 'src/app/services/customer/customer.service';
@@ -27,7 +28,7 @@ export class ViewCustomerTableComponent implements OnInit {
   totalRecords:number;
 
   status: boolean = false;
-  constructor(private customerService :CustomerService,public dialog: MatDialog) { }
+  constructor(private customerService :CustomerService,public dialog: MatDialog,private router:Router) { }
 
   openDialog(i:number) {
     const dialogRef = this.dialog.open(AdminAddAccCustomerComponent,({
@@ -39,8 +40,8 @@ export class ViewCustomerTableComponent implements OnInit {
     });
   }
 
-  onSelectAcc(customerInfo: CustomerInfo){
-    // this.customerService.getOneAccCustomer(customerInfo);
+  onSelectAcc(id:number){
+    this.router.navigate(['customer-detail',id]);
   }
   
   
