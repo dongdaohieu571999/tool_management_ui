@@ -1,14 +1,18 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, throwError } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
+import { Mail } from 'src/app/model/Mail';
 import { CommonService } from '../common/common.service';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
+export class MailService {
 
-export class ServerHttpService {
+  public mail : Mail;
+  constructor(private httpClient: HttpClient, private common: CommonService,private route: Router) { }
 
   private httpOptions = {
     headers: new HttpHeaders({
@@ -17,26 +21,10 @@ export class ServerHttpService {
     }),
   }
 
-  constructor(private httpClient: HttpClient, private common: CommonService) { }
-
-  private REST_API_SERVER = 'http://localhost:8080/api';
-
-  public getAcc(code: string,pass: string): Observable<any>{
-    const url = `${this.REST_API_SERVER}/login?code=`+code+'&pass='+pass;
-    return this.httpClient
-    .post<any>(url,this.httpOptions)
-    .pipe(catchError(this.handleError));
+  public getAllMail() : Observable<any> {
+    const url = this.common.makeUrl("/mail/abc");
+    return this.httpClient.get<any>(url, this.httpOptions).pipe(catchError(this.handleError));
   }
-
-  public getAllAcc(): Observable<any>{
-    const url = this.common.makeUrl('/employee/get_all_employee_acc/');
-    return this.httpClient
-    .get<any>(url,this.httpOptions)
-    .pipe(catchError(this.handleError));
-  }
-
-
-
 
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
@@ -53,7 +41,4 @@ export class ServerHttpService {
     return throwError(
       'Something bad happened; please try again later.');
   }
-
-
-
 }

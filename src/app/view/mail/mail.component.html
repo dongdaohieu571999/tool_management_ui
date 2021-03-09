@@ -19,13 +19,6 @@
                             <h1>HỘP THƯ</h1>
                             <button type="button" class="btn btn-block btn-success btn-lg" data-toggle="modal" data-target="#myModal" style="width: 210px;">SOẠN THƯ</button>
                         </div>
-
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">DataTables</li>
-                            </ol>
-                        </div>
                     </div>
                 </div>
                 <!-- /.container-fluid -->
@@ -37,9 +30,6 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
-                                <div class="card-header">
-                                    <h3 class="card-title">DataTable with default features</h3>
-                                </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
                                     <table id="example1" class="table table-bordered table-striped">
@@ -50,23 +40,20 @@
                                                 <th>Người Gửi</th>
                                                 <th>Độ Ưu Tiên</th>
                                                 <th>Trạng Thái</th>
-                                                <th>Nội Dung</th>
                                                 <th>Ngày Gửi</th>
                                                 <th>CC</th>
                                                 <th>Chi Tiết</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>#JHBVJHJHV798</td>
-                                                <td>#1000</td>
-                                                <td>Nguyễn Văn A</td>
-                                                <td>25 Năm</td>
-                                                <td>Bảo Hiểm Nhân Thọ</td>
-                                                <td>#KUHN1</td>
-                                                <td>440.000.000 VNĐ</td>
-                                                <td>60.000.000 VNĐ</td>
-                                                <td><a data-toggle="modal" data-target="#detailModal" href="#">Chi Tiết</a></td>
+                                            <tr **ngFor="let mail of data; let i = index">
+                                              <td>{{ mail.id }}</td>
+                                              <td>{{ mail.title }}</td>
+                                              <td>{{ mail.sender_id }}</td>
+                                              <td>{{ mail.status }}</td>
+                                              <td>{{ mail.date }}</td>
+                                              <td>{{ mail.id }}</td>
+                                              <td><a data-toggle="modal" data-target="#detailModal" href="#">Chi Tiết</a></td>
                                             </tr>
                                         </tbody>
                                         <tfoot>
@@ -76,7 +63,6 @@
                                                 <th>Người Gửi</th>
                                                 <th>Độ Ưu Tiên</th>
                                                 <th>Trạng Thái</th>
-                                                <th>Nội Dung</th>
                                                 <th>Ngày Gửi</th>
                                                 <th>CC</th>
                                                 <th>Chi Tiết</th>
