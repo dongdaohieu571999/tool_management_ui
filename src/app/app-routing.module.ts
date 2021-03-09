@@ -28,6 +28,7 @@ import { CreateIllustrationComponent } from './view/illustration/illustration-ta
 import { DetailIllustrationComponent } from './view/illustration/illustration-table/list-illustration/detail-illustration/detail-illustration.component';
 import { ListIllustrationComponent } from '././view/illustration/illustration-table/list-illustration/list-illustration.component';
 import { DetailInfoChangeHistoryComponent } from './view/view-detail-contract/detail-info-change-history/detail-info-change-history.component';
+import { MailDetailComponent } from './view/mail/mail-detail/mail-detail.component';
 
 const routes: Routes = [
   {path : "dashboard", component: DashboardComponent},
@@ -37,6 +38,7 @@ const routes: Routes = [
   {path: "contract", component:ContractComponent},
   {path: "income", component:IncomeComponent},
   {path: "mail", component:MailComponent},
+  {path: "view_detail_mail/4", component:MailDetailComponent},
   {path: "document", component:DocumentComponent},
   {path: "certificate", component:CertificateComponent},
   {path: "labour-contract", component:LabourContractComponent},

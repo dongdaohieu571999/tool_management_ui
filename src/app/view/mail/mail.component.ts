@@ -18,12 +18,15 @@ export class MailComponent implements OnInit {
     this.mailService.getAllMail().subscribe((data => {
       this.data = data;
       this.totalRecord = data.length;
-      console.log(data);
     }));
   }
 
   data: Array<Mail>;
   pages: number = 1;
   totalRecord: number;
+
+  detailMail(mail_id: number): void {
+    this.router.navigate(["/view_detail_mail", mail_id]);
+  }
 
 }

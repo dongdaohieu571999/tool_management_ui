@@ -68,6 +68,7 @@ import { ContractAddDialogComponent } from './view/dialog/contract-add-dialog/co
 import { NotificationConfirmDialogComponent } from './view/dialog/notification-confirm-dialog/notification-confirm-dialog.component';
 import { PauseCustomerDialogComponent } from './view/dialog/pause-customer-dialog/pause-customer-dialog.component';
 import { DetailInfoChangeHistoryComponent } from './view/view-detail-contract/detail-info-change-history/detail-info-change-history.component';
+import { MailDetailComponent } from './view/mail/mail-detail/mail-detail.component';
 
 
 @NgModule({
@@ -121,6 +122,7 @@ import { DetailInfoChangeHistoryComponent } from './view/view-detail-contract/de
     NotificationConfirmDialogComponent,
     PauseCustomerDialogComponent,
     DetailInfoChangeHistoryComponent,
+    MailDetailComponent,
   ],
   imports: [
     ChartsModule,

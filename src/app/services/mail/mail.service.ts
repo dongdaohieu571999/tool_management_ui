@@ -22,7 +22,12 @@ export class MailService {
   }
 
   public getAllMail() : Observable<any> {
-    const url = this.common.makeUrl("/mail/abc");
+    const url = this.common.makeUrl("/mail/all_mail");
+    return this.httpClient.get<any>(url, this.httpOptions).pipe(catchError(this.handleError));
+  }
+
+  public getDetailMail() : Observable<any> {
+    const url = this.common.makeUrl("/mail/view_detail_mail");
     return this.httpClient.get<any>(url, this.httpOptions).pipe(catchError(this.handleError));
   }
 
