@@ -68,6 +68,8 @@ import { ContractAddDialogComponent } from './view/dialog/contract-add-dialog/co
 import { NotificationConfirmDialogComponent } from './view/dialog/notification-confirm-dialog/notification-confirm-dialog.component';
 import { PauseCustomerDialogComponent } from './view/dialog/pause-customer-dialog/pause-customer-dialog.component';
 import { DetailInfoChangeHistoryComponent } from './view/view-detail-contract/detail-info-change-history/detail-info-change-history.component';
+import { CustomerEditInfoComponent } from './view/dialog/customer-edit-info/customer-edit-info.component';
+import { ReportCustomerDialogComponent } from './view/dialog/report-customer-dialog/report-customer-dialog.component';
 
 
 @NgModule({
@@ -121,6 +123,8 @@ import { DetailInfoChangeHistoryComponent } from './view/view-detail-contract/de
     NotificationConfirmDialogComponent,
     PauseCustomerDialogComponent,
     DetailInfoChangeHistoryComponent,
+    CustomerEditInfoComponent,
+    ReportCustomerDialogComponent,
   ],
   imports: [
     ChartsModule,
@@ -142,7 +146,7 @@ import { DetailInfoChangeHistoryComponent } from './view/view-detail-contract/de
     MatTabsModule,
     MatSnackBarModule,
   ],
-  entryComponents: [AdminAddAccCustomerComponent,AdminAddEmployeeInfoComponent,AdminAddAccountEmployeeComponent,AddCustomerIllustrationDialogComponent,CustomerAddInfoDialogComponent,ContractAddDialogComponent,NotificationConfirmDialogComponent,PauseCustomerDialogComponent],
+  entryComponents: [ReportCustomerDialogComponent,CustomerEditInfoComponent,AdminAddAccCustomerComponent,AdminAddEmployeeInfoComponent,AdminAddAccountEmployeeComponent,AddCustomerIllustrationDialogComponent,CustomerAddInfoDialogComponent,ContractAddDialogComponent,NotificationConfirmDialogComponent,PauseCustomerDialogComponent],
   providers: [AdminDataServiceService],
   bootstrap: [AppComponent]
 })

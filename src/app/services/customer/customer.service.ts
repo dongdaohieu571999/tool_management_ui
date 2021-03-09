@@ -44,10 +44,19 @@ export class CustomerService {
     .pipe(catchError(this.handleError));
   }
 
-  public getOneAccCustomer(id:number){
-    const url = this.common.makeUrl("/customer/get_one_customer_info")+"&& id="+id;
+  public addCustomerInfo(customerInfo :CustomerInfo): Observable<any>{
+    const url = this.common.makeUrl("/customer/add_customer_info");
     return this.httpClient
-    .get<any>(url,this.httpOptions)
+    .post<any>(url,customerInfo,this.httpOptions)
+    .pipe(catchError(this.handleError));
+  }
+
+  public getOneAccCustomer(id:number,token_key:String){
+    const url = this.common.makeUrl("/customer/get_one_customer_info");
+    let data = {id:id,token_key:token_key};
+    console.log(data);
+    return this.httpClient
+    .post<any>(url,data,this.httpOptions)
     .pipe(catchError(this.handleError));
   }
   

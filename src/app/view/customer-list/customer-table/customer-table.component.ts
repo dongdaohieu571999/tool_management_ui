@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CustomerInfo } from 'src/app/model/CustomerInfo';
 import { CustomerService } from 'src/app/services/customer/customer.service';
 
@@ -9,7 +10,7 @@ import { CustomerService } from 'src/app/services/customer/customer.service';
 })
 export class CustomerTableComponent implements OnInit {
 
-  constructor(public customerService : CustomerService) { }
+  constructor(public customerService : CustomerService, private router : Router) { }
 
   customerinfos : Array<CustomerInfo>;
 
@@ -20,5 +21,7 @@ export class CustomerTableComponent implements OnInit {
     }))
   }
 
-
+  public customerDetail(id:number){
+    this.router.navigate(['customer-detail',id]);
+  }
 }

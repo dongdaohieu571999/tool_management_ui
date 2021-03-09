@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { CustomerInfo } from 'src/app/model/CustomerInfo';
 import { CustomerAddInfoDialogComponent } from '../dialog/customer-add-info-dialog/customer-add-info-dialog.component';
 
 @Component({
@@ -10,6 +11,8 @@ import { CustomerAddInfoDialogComponent } from '../dialog/customer-add-info-dial
 export class CustomerListComponent implements OnInit {
 
   status: boolean = false;
+
+  customerInfo = new CustomerInfo(0,new Date(),0,'','','','','','','','','','','','','',0,0,0,0,0,'','','',0,'','','','','','','','','','','','','','','','','','',false,'',0,0,'');
 
   constructor(public dialog : MatDialog) { }
    
@@ -22,7 +25,9 @@ export class CustomerListComponent implements OnInit {
   }
 
   public openDialog(){
-    let dialogRef = this.dialog.open(CustomerAddInfoDialogComponent);
+    let dialogRef = this.dialog.open(CustomerAddInfoDialogComponent,{
+      data:this.customerInfo
+    });
     
     dialogRef.afterClosed().subscribe(result => {
       

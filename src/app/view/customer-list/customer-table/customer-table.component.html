@@ -26,7 +26,8 @@
             <td>{{customerinfo.status}}</td>
             <td>{{customerinfo.workadd_no_street}} {{customerinfo.workadd_district}} {{customerinfo.workadd_city}}</td>
             <td>{{customerinfo.id}}</td>
-            <td><a [routerLink]="['/customer-detail']">Chi Tiết</a></td>
+            <!-- <td><a [routerLink]="['/customer-detail']">Chi Tiết</a></td> -->
+            <button (click)="customerDetail(customerinfo.id)"class="btn btn-info" style="height: 40px; width: 100px; margin: 10px; color: black;">Chi Tiết</button>
         </tr>
     </tbody>
     <tfoot>
