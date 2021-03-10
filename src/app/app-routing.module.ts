@@ -38,7 +38,7 @@ const routes: Routes = [
   {path: "contract", component:ContractComponent},
   {path: "income", component:IncomeComponent},
   {path: "mail", component:MailComponent},
-  {path: "view_detail_mail/:id", component:MailDetailComponent},
+  {path: "view_detail_mail", component:MailDetailComponent},
   {path: "document", component:DocumentComponent},
   {path: "certificate", component:CertificateComponent},
   {path: "labour-contract", component:LabourContractComponent},

@@ -27,28 +27,20 @@
               </thead>
               <tbody>
                   <tr>
-                      <td>Tiêu Đề</td>
-                      <td>Demo</td>
+                      <td><b>Tiêu Đề</b></td>
+                      <td>{{ data.title }}</td>
                   </tr>
                   <tr>
-                    <td>Người Gửi</td>
-                    <td>Demo</td>
+                    <td><b>Người Gửi</b></td>
+                    <td>{{ data.senderName }}</td>
                   </tr>
                   <tr>
-                    <td>Ngày Gửi</td>
-                    <td>Demo</td>
+                    <td><b>Ngày Gửi</b></td>
+                    <td>{{ data.time | date:'dd/MM/yyyy'}}</td>
                   </tr>
                   <tr>
-                    <td>CC</td>
-                    <td>Demo</td>
-                  </tr>
-                  <tr>
-                    <td>Nội Dung</td>
-                    <td>Demo</td>
-                  </tr>
-                  <tr>
-                    <td>File Đính Kèm</td>
-                    <td>Demo</td>
+                    <td><b>Nội Dung</b></td>
+                    <td>{{ data.content }}</td>
                   </tr>
               </tbody>
             </table>

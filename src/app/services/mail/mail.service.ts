@@ -22,12 +22,13 @@ export class MailService {
   }
 
   public getAllMail() : Observable<any> {
-    const url = this.common.makeUrl("/mail/all_mail");
-    return this.httpClient.post<any>(url, this.httpOptions).pipe(catchError(this.handleError));
+    const url = this.common.makeUrl("/mail/all_mail/" + this.common.getCookie("token_key"));
+    console.log(url);
+    return this.httpClient.get<any>(url, this.httpOptions).pipe(catchError(this.handleError));
   }
 
-  public getDetailMail() : Observable<any> {
-    const url = this.common.makeUrl("/mail/view_detail_mail");
+  public getDetailMail(mailId: number) : Observable<any> {
+    const url = this.common.makeUrl("/mail/view_detail_mail/" + mailId + "/" + this.common.getCookie("token_key"));
     return this.httpClient.get<any>(url, this.httpOptions).pipe(catchError(this.handleError));
   }
 
@@ -45,5 +46,15 @@ export class MailService {
     // Return an observable with a user-facing error message.
     return throwError(
       'Something bad happened; please try again later.');
+  }
+
+  mailId: number;
+
+  setMailId(mailId: number){
+    this.mailId = mailId;
+  }
+
+  getMailId(): number {
+    return this.mailId;
   }
 }

@@ -69,6 +69,7 @@ import { NotificationConfirmDialogComponent } from './view/dialog/notification-c
 import { PauseCustomerDialogComponent } from './view/dialog/pause-customer-dialog/pause-customer-dialog.component';
 import { DetailInfoChangeHistoryComponent } from './view/view-detail-contract/detail-info-change-history/detail-info-change-history.component';
 import { MailDetailComponent } from './view/mail/mail-detail/mail-detail.component';
+import { AddMailDialogComponent } from './view/dialog/add-mail-dialog/add-mail-dialog.component';
 
 
 @NgModule({
@@ -123,6 +124,7 @@ import { MailDetailComponent } from './view/mail/mail-detail/mail-detail.compone
     PauseCustomerDialogComponent,
     DetailInfoChangeHistoryComponent,
     MailDetailComponent,
+    AddMailDialogComponent,
   ],
   imports: [
     ChartsModule,

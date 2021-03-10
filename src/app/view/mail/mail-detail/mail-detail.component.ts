@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MailDTO } from 'src/app/model/MailDTO';
+import { MailService } from 'src/app/services/mail/mail.service';
 
 @Component({
   selector: 'app-mail-detail',
@@ -8,12 +10,20 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MailDetailComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) { }
+  data: MailDTO;
+  mailId : number;
+  constructor(private mailService: MailService, private router: Router) {
+    this.mailId = mailService.getMailId();
+  }
 
   ngOnInit(): void {
-    this.route.params.subscribe(params => {
-      console.log(params['id']);
-    })
+    console.log(this.mailId);
+    this.mailService.getDetailMail(this.mailId).subscribe((data => {
+      this.data = data;
+      console.log(data);
+    }));
   }
+
+
 
 }

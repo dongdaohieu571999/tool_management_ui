@@ -17,7 +17,7 @@
                     <div class="row mb-2">
                         <div class="col-sm-6">
                             <h1>HỘP THƯ</h1>
-                            <button type="button" class="btn btn-block btn-success btn-lg" data-toggle="modal" data-target="#myModal" style="width: 210px;">SOẠN THƯ</button>
+                            <button type="button" class="btn btn-block btn-success btn-lg" style="width: auto;" (click)="displayDialog()">SOẠN THƯ</button>
                         </div>
                     </div>
                 </div>
@@ -48,10 +48,10 @@
                                             <tr *ngFor="let mail of data">
                                               <td>{{ mail.id }}</td>
                                               <td>{{ mail.title }}</td>
-                                              <td>{{ mail.sender_id }}</td>
+                                              <td>{{ mail.senderName }}</td>
                                               <td>{{ mail.priority }}</td>
                                               <td>{{ mail.status }}</td>
-                                              <td>{{ mail.date | date:'dd/MM/yyyy'}}</td>
+                                              <td>{{ mail.time | date:'dd/MM/yyyy'}}</td>
                                               <td><a [routerLink]="['/view_detail_mail']" (click)="detailMail(mail.id)">Chi Tiết</a></td>
                                             </tr>
                                         </tbody>
@@ -79,97 +79,6 @@
                 <!-- /.container-fluid -->
             </section>
             <!-- /.content -->
-            <div class="modal fade" id="myModal" role="dialog">
-                <div class="modal-dialog">
-
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-body">
-                            <div class="card card-primary">
-                                <div class="card-header">
-                                    <h3 class="card-title">Viết Thư</h3>
-                                </div>
-                                <form>
-                                    <div class="card-body">
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Đến</label>
-                                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleInputPassword1">CC/BCC</label>
-                                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleInputPassword1">Chủ Đề</label>
-                                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Nội Dung</label>
-                                            <textarea style="width: 100%;"></textarea>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Tệp Đính Kèm</label>
-                                            <input type="file">
-                                        </div>
-                                    </div>
-                                    <div class="card-footer">
-                                        <button type="submit" class="btn btn-primary">Gửi</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="modal fade" id="detailModal" role="dialog">
-                <div class="modal-dialog">
-
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-body">
-                            <div class="card card-primary">
-                                <div class="card-header">
-                                    <h3 class="card-title">Chi Tiết</h3>
-                                </div>
-                                <form>
-                                    <div class="card-body">
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Đến</label>
-                                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleInputPassword1">CC/BCC</label>
-                                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleInputPassword1">Chủ Đề</label>
-                                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Nội Dung</label>
-                                            <textarea style="width: 100%;"></textarea>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Tệp Đính Kèm</label>
-                                            <input type="file">
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
         </div>
     </div>
 </body>
