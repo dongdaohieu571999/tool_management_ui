@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CustomerInfo } from 'src/app/model/CustomerInfo';
 import { CustomerAddInfoDialogComponent } from '../dialog/customer-add-info-dialog/customer-add-info-dialog.component';
@@ -11,11 +11,13 @@ import { CustomerAddInfoDialogComponent } from '../dialog/customer-add-info-dial
 export class CustomerListComponent implements OnInit {
 
   status: boolean = false;
+  
+  
 
-  customerInfo = new CustomerInfo(0,new Date(),0,'','','','','','','','','','','','','',0,0,0,0,0,'','','',0,'','','','','','','','','','','','','','','','','','',false,'',0,0,'');
+  customerInfo = new CustomerInfo(0,new Date(),0,'','','','','','','','','','','','','',0,0,0,0,0,'','','',0,'','','','','','','','','','','','','','','','','','',false,'',0,0,'',new Date(),false,new Date(),'');
 
   constructor(public dialog : MatDialog) { }
-   
+  
   ngOnInit(): void {
     
   }

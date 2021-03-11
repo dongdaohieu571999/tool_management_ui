@@ -1,273 +1,264 @@
 <mat-dialog-content class="mat-typography">
-    <div>
-        <div>
-            <div>
-                <form> 
-                    <div class="card-body" style="height: 700px; width: 1200px; ">
-                        <mat-tab-group>
-                            <mat-tab label="Thông tin Cơ Bản">
-                                <div class="row">
-                                    <div class=" col-6 ">
-                                        <div class="form-group ">
-                                            <label for="exampleInputEmail1 ">Nguồn</label>                                            
-                                            <input type="text" class="form-control" name="Source"  value="null">
-                                        </div>
-                                        <div class="form-group ">
-                                            <label for="exampleInputPassword1 ">Ngày Cập Nhật</label>
-                                            <!-- <p style="color: black; ">20/11/2021</p> -->
-                                            <input type="date" class="form-control" name="DateUpdated" >
-                                        </div>
-                                        <div class="form-group ">
-                                            <label for="exampleInputPassword1 ">Mã Hợp Đồng</label>
-                                            <!-- <p style="color: black; "><a href="# ">#128462364</a></p> -->
-                                            <input type="text" class="form-control" name="id_contract"  [(ngModel)]="customerInfo.id_contract">
-                                        </div>
-                                        <div class="form-group ">
-                                            <label for="exampleInputPassword1 ">Mã Bản Minh Họa</label>
-                                            <!-- <p style="color: black; "><a href="# ">#128462364</a></p> -->
-                                            <input type="text" class="form-control" name="id_illustration"  [(ngModel)]="customerInfo.id_illustration">
-                                        </div>
-                                        <div class="form-group ">
-                                            <label for="exampleInputPassword1 ">Mã Khách Hàng</label>
-                                            <!-- <p style="color: black; ">{{ customerInfo.code }}</p> -->
-                                            <input type="text" class="form-control" name="id"  [(ngModel)]="customerInfo.id" >
-                                        </div>
-                                        <div class="form-group ">
-                                            <label for="exampleInputEmail1 ">Họ Tên</label>
-                                            <!-- <p style="color: black; ">{{ customerInfo.full_name }}</p> -->
-                                            <input type="text" class="form-control" name="full_name"  [(ngModel)]="customerInfo.full_name" >
-                                        </div>
-                                        <div class="form-group ">
-                                            <label for="exampleInputEmail1 ">Giới Tính</label>
-                                            <!-- <p style="color: black; ">{{ customerInfo.gender }}</p> -->
-                                            <input type="text" class="form-control" name="gender"  [(ngModel)]="customerInfo.gender">
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="form-group ">
-                                            <label for="exampleInputEmail1 ">Tình Trạng Hôn Nhân</label>
-                                            <!-- <p style="color: black; ">Chưa Kết Hôn</p> -->
-                                            <input type="text" class="form-control" name="MarriageStatus" [(ngModel)]="customerInfo.id_contract">
-                                        </div>
-                                        <div class="form-group ">
-                                            <label for="exampleInputEmail1 ">Ngày Sinh</label>
-                                            <!-- <p style="color: black; ">{{ customerInfo.birth_date }}</p> -->
-                                            <!-- them database -->
-                                            <input type="date" class="form-control" name="birth_date" [(ngModel)]="customerInfo.birth_date">
-                                        </div>
-                                        <div class="form-group ">
-                                            <label for="exampleInputEmail1 ">Tuổi</label>
-                                            <!-- <p style="color: black; ">{{ customerInfo.age }}</p> -->
-                                            <input type="number" class="form-control" name="age" [(ngModel)]="customerInfo.age" >
-                                        </div>
-                                        <div class="form-group ">
-                                            <label for="exampleInputEmail1 ">Nơi Sinh</label>
-                                            <!-- <p style="color: black; ">{{ customerInfo.curadd_city }}</p> -->
-                                            <input type="text" class="form-control" name="curadd_city" [(ngModel)]="customerInfo.birth_address">
-                                        </div>
-                                        <div class="form-group ">
-                                            <label for="exampleInputEmail1 ">Loại Giấy Tờ Tùy Thân</label>
-                                            <!-- <p style="color: black; ">{{ customerInfo.types_identification }}</p> -->
-                                            <input type="text" class="form-control" name="types_identification" [(ngModel)]="customerInfo.types_identification" >
-                                        </div>
-                                        <div class="form-group ">
-                                            <label for="exampleInputEmail1 ">Giấy Tờ Nhân Thân Số</label>
-                                            <!-- <p style="color: black; ">{{ customerInfo.ID_card }}</p> -->
-                                            <input type="text" class="form-control" name="ID_card"  [(ngModel)]="customerInfo.ID_card" >
-                                        </div>
-                                        <div class="form-group ">
-                                            <label for="exampleInputEmail1 ">Quốc Tịch Thứ Nhất</label>
-                                            <!-- <p style="color: black; ">{{ customerInfo.nationality_1 }}</p> -->
-                                            <input type="text" class="form-control" name="nationality_1" [(ngModel)]="customerInfo.nationality_1" >
-                                        </div>
-                                        <div class="form-group ">
-                                            <label for="exampleInputEmail1 ">Quốc Tịch Khác Khác (Nếu Có)</label>
-                                            <!-- <p style="color: black; ">{{ customerInfo.nationality_1 }}</p> -->
-                                            <input type="text" class="form-control" name="nationality_2"  [(ngModel)]="customerInfo.nationality_2">
-                                        </div>
-                                        <div class="form-group ">
-                                            <label for="exampleInputEmail1 ">Dân Tộc</label>
-                                            <!-- <p style="color: black; ">{{ customerInfo.nation }}</p> -->
-                                            <input type="text" class="form-control" name="nation"  [(ngModel)]="customerInfo.nation">
-                                        </div>
-                                    </div>
-                                </div>
-                            </mat-tab>
-                            <mat-tab label="Thông tin Nghề Nghiệp">
-                                <div class="col-6 ">
-                                    
-                                    <div class="form-group ">
-                                        <label for="exampleInputEmail1 ">Nghề Nghiệp</label>
-                                        <!-- <p style="color: black; ">{{ customerInfo.job }}</p> -->
-                                        <input type="text" class="form-control" name="job" [(ngModel)]="customerInfo.job" >
-                                    </div>
-                                    <div class="form-group ">
-                                        <label for="exampleInputEmail1 ">Chức Vụ</label>
-                                        <!-- <p style="color: black; ">{{ customerInfo.position }}</p> -->
-                                        <input type="text" class="form-control" name="position"  [(ngModel)]="customerInfo.position">
-                                    </div>
-                                    <div class="form-group ">
-                                        <label for="exampleInputEmail1 ">Nghành Nghề</label>
-                                        <!-- <p style="color: black; ">{{ customerInfo.career }}</p> -->
-                                        <input type="text" class="form-control" name="career"  [(ngModel)]="customerInfo.career">
-                                    </div>
-                                    <div class="form-group ">
-                                        <label for="exampleInputEmail1 ">Nhóm Nghề</label>
-                                        <!-- <p style="color: black; ">{{ customerInfo.occupation_group }}</p> -->
-                                        <input type="text" class="form-control" name="occupation_group"  [(ngModel)]="customerInfo.occupation_group" >
-                                    </div>
-                                    <div class="form-group ">
-                                        <label for="exampleInputEmail1 ">Tên Cơ Quan Làm Việc</label>
-                                        <!-- <p style="color: black; ">{{ customerInfo.company_name }}</p> -->
-                                        <input type="text" class="form-control" name="company_name"  [(ngModel)]="customerInfo.company_name">
-                                    </div>
-                                    <div class="form-group ">
-                                        <label for="exampleInputEmail1 ">Lĩnh vực Kinh Doanh</label>
-                                        <!-- <p style="color: black; ">{{ customerInfo.main_business }}</p> -->
-                                        <input type="text" class="form-control" name="main_business" [(ngModel)]="customerInfo.main_business">
-                                    </div>
-                                    <div class="form-group ">
-                                        <label for="exampleInputEmail1 ">Công việc cụ thể</label>
-                                        <!-- <p style="color: black; ">{{ customerInfo.specific_work }}</p> -->
-                                        <input type="text" class="form-control" name="specific_work" [(ngModel)]="customerInfo.specific_work" >
-                                    </div>
-                                    <div class="form-group ">
-                                        <label for="exampleInputEmail1 ">Thu Nhập Cá Nhân Hàng Tháng</label>
-                                        <!-- <p style="color: black; ">{{ customerInfo.monthly_income }}\</p> -->
-                                        <input type="text" class="form-control" name="monthly_income" [(ngModel)]="customerInfo.monthly_income" >
-                                    </div>
-                                </div>
-                            </mat-tab>
-                            <mat-tab label="Địa Chỉ Và Thông Tin Liên Lạc">
-                                <div class="row">
-                                    <div class="col-6 ">
-                                        <h4>Địa Chỉ Nơi Ở Hiện Tại</h4>
-                                        <div class="form-group ">
-                                            <label for="exampleInputEmail1 ">Số Nhà và Tên Đường</label>
-                                            <!-- <p style="color: black; ">{{ customerInfo.curadd_no_street }}</p> -->
-                                            <input type="text" class="form-control" name="curadd_no_street"  [(ngModel)]="customerInfo.curadd_no_street">
-                                        </div>
-                                        <div class="form-group ">
-                                            <label for="exampleInputEmail1 ">Thành Phố/Tỉnh</label>
-                                            <!-- <p style="color: black; ">{{ customerInfo.curadd_city }}</p> -->
-                                            <input type="text" class="form-control" name="curadd_city" [(ngModel)]="customerInfo.curadd_city" >
-                                        </div>
-                                        <div class="form-group ">
-                                            <label for="exampleInputEmail1 ">Quận/Huyện</label>
-                                            <!-- <p style="color: black; ">{{ customerInfo.curadd_district }}</p> -->
-                                            <input type="text" class="form-control" name="curadd_district"  [(ngModel)]="customerInfo.curadd_district" >
-                                        </div>
-                                        <div class="form-group ">
-                                            <label for="exampleInputEmail1 ">Phường/Xã/Thị Trấn:</label>
-                                            <!-- <p style="color: black; ">{{ customerInfo.curadd_wards }}</p> -->
-                                            <input type="text" class="form-control" name="curadd_wards"  [(ngModel)]="customerInfo.curadd_wards">
-                                        </div>
-                                    </div>
-                                    <div class="col-6 ">
-                                        <h4>Địa Chỉ Thường Chú</h4>
-                                        <div class="form-group ">
-                                            <label for="exampleInputEmail1 ">Số Nhà và Tên Đường</label>
-                                            <!-- <p style="color: black; ">{{ customerInfo.peradd_no_street }}</p> -->
-                                            <input type="text" class="form-control" name="peradd_no_street" [(ngModel)]="customerInfo.peradd_no_street" >
-                                        </div>
-                                        <div class="form-group ">
-                                            <label for="exampleInputEmail1 ">Thành Phố/Tỉnh</label>
-                                            <!-- <p style="color: black; ">{{ customerInfo.peradd_city }}</p> -->
-                                            <input type="text" class="form-control" name="peradd_city" [(ngModel)]="customerInfo.peradd_city" >
-                                        </div>
-                                        <div class="form-group ">
-                                            <label for="exampleInputEmail1 ">Quận/Huyện</label>
-                                            <!-- <p style="color: black; ">{{ customerInfo.peradd_district }}</p> -->
-                                            <input type="text" class="form-control" name="peradd_district" [(ngModel)]="customerInfo.peradd_district" >
-                                        </div>
-                                        <div class="form-group ">
-                                            <label for="exampleInputEmail1 ">Phường/Xã/Thị Trấn:</label>
-                                            <!-- <p style="color: black; ">{{ customerInfo.peradd_wards }}</p> -->
-                                            <input type="text" class="form-control" name="peradd_wards"  [(ngModel)]="customerInfo.peradd_wards" >
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-6 ">
-                                        <h4>Địa Chỉ Liên Lạc Đặc Biệt</h4>
-                                        <div class="form-group ">
-                                            <label for="exampleInputEmail1 ">Số Nhà và Tên Đường</label>
-                                            <!-- <p style="color: black; ">{{ customerInfo.conadd_no_street }}</p> -->
-                                            <input type="text" class="form-control" name="conadd_no_street" [(ngModel)]="customerInfo.conadd_no_street" >
-                                        </div>
-                                        <div class="form-group ">
-                                            <label for="exampleInputEmail1 ">Thành Phố/Tỉnh</label>
-                                            <!-- <p style="color: black; ">{{ customerInfo.conadd_city }}</p> -->
-                                            <input type="text" class="form-control" name="conadd_city"  [(ngModel)]="customerInfo.conadd_city" >
-                                        </div>
-                                        <div class="form-group ">
-                                            <label for="exampleInputEmail1 ">Quận/Huyện</label>
-                                            <!-- <p style="color: black; ">{{ customerInfo.conadd_district }}</p> -->
-                                            <input type="text" class="form-control" name="conadd_district" [(ngModel)]="customerInfo.conadd_district" >
-                                        </div>
-                                        <div class="form-group ">
-                                            <label for="exampleInputEmail1 ">Phường/Xã/Thị Trấn:</label>
-                                            <!-- <p style="color: black; ">{{ customerInfo.conadd_wards }}</p> -->
-                                            <input type="text" class="form-control" name="conadd_wards"  [(ngModel)]="customerInfo.conadd_wards">
-                                        </div>
-                                    </div>
-                                    <div class="col-6 ">
-                                        <h4>Địa Chỉ Nơi Làm Việc</h4>
-                                        <div class="form-group ">
-                                            <label for="exampleInputEmail1 ">Số Nhà và Tên Đường</label>
-                                            <!-- <p style="color: black; ">{{ customerInfo.workadd_no_street }}</p> -->
-                                            <input type="text" class="form-control" name="workadd_no_street"  [(ngModel)]="customerInfo.workadd_no_street">
-                                        </div>
-                                        <div class="form-group ">
-                                            <label for="exampleInputEmail1 ">Thành Phố/Tỉnh</label>
-                                            <!-- <p style="color: black; ">{{ customerInfo.workadd_city }}</p> -->
-                                            <input type="text" class="form-control" name="workadd_city"  [(ngModel)]="customerInfo.workadd_city">
-                                        </div>
-                                        <div class="form-group ">
-                                            <label for="exampleInputEmail1 ">Quận/Huyện</label>
-                                            <!-- <p style="color: black; ">{{ customerInfo.workadd_district }}</p> -->
-                                            <input type="text" class="form-control" name="workadd_district"  [(ngModel)]="customerInfo.workadd_district">
-                                        </div>
-                                        <div class="form-group ">
-                                            <label for="exampleInputEmail1 ">Phường/Xã/Thị Trấn:</label>
-                                            <!-- <p style="color: black; ">{{ customerInfo.workadd_wards }}</p> -->
-                                            <input type="text" class="form-control" name="workadd_wards"  [(ngModel)]="customerInfo.workadd_wards">
-                                        </div>
-                                    </div>
-                                </div>
-                            </mat-tab>
-                            <mat-tab label="Thông Tin Liên Lạc">
-                                <div class="row">
-                                    <div class="col-6">
-                                       
-                                        <div class="form-group ">
-                                            <label for="exampleInputEmail1 ">Email:</label>
-                                            <!-- <p style="color: black; ">{{ customerInfo.email }}</p> -->
-                                            <input type="text" class="form-control" name="email"  [(ngModel)]="customerInfo.email">
-                                        </div>
-                                        <div class="form-group ">
-                                            <label for="exampleInputEmail1 ">Điện Thoại Cố Định:</label>
-                                            <!-- <p style="color: black; ">{{ customerInfo.phone_1 }}</p> -->
-                                            <input type="text" class="form-control" name="phone_1"  [(ngModel)]="customerInfo.phone_1">
-                                        </div>
-                                        <div class="form-group ">
-                                            <label for="exampleInputEmail1 ">Điện Thoại Di Động 1:</label>
-                                            <!-- <p style="color: black; ">{{ customerInfo.phone_1 }}</p> -->
-                                            <input type="text" class="form-control" name="phone_1"  [(ngModel)]="customerInfo.phone_1">
-                                        </div>
-                                        <div class="form-group ">
-                                            <label for="exampleInputEmail1 ">Điện Thoại Di Động 2:</label>
-                                           
-                                            <input type="text" class="form-control" name="phone_2"  [(ngModel)]="customerInfo.phone_2">
-                                        </div>
-                                    </div>
-                                </div>
-                            </mat-tab>
-                        </mat-tab-group>                    
+    <div style="overflow: hidden;">
+        <mat-tab-group>
+            <mat-tab label="Thông tin Cơ Bản">
+                <div class="row">
+                    <div class=" col-6 ">
+                        <div class="form-group ">
+                            <label for="exampleInputEmail1 ">Nguồn</label>
+                            <input type="text" class="form-control" name="Source" [(ngModel)]="customerInfo.source">
+                        </div>
+                        <div class="form-group ">
+                            <label for="exampleInputPassword1 ">Ngày Cập Nhật Cuối Cùng</label>
+                            <!-- <p style="color: black; ">20/11/2021</p> -->
+                            <input type="date" class="form-control" name="DateUpdated" [ngModel]="customerInfo.updated_time | date:'yyyy-MM-dd'" readonly>
+                        </div>
+                        <div class="form-group ">
+                            <label for="exampleInputPassword1 ">Mã Hợp Đồng</label>
+                            <!-- <p style="color: black; "><a href="# ">#128462364</a></p> -->
+                            <input type="text" class="form-control" name="id_contract" [(ngModel)]="customerInfo.id_contract" readonly>
+                        </div>
+                        <div class="form-group ">
+                            <label for="exampleInputPassword1 " readonly>Mã Bản Minh Họa</label>
+                            <!-- <p style="color: black; "><a href="# ">#128462364</a></p> -->
+                            <input type="text" class="form-control" name="id_illustration" [(ngModel)]="customerInfo.id_illustration" readonly>
+                        </div>
+                        <div class="form-group ">
+                            <label for="exampleInputPassword1 ">Mã Khách Hàng</label>
+                            <!-- <p style="color: black; ">{{ customerInfo.code }}</p> -->
+                            <input type="text" class="form-control" name="id" [(ngModel)]="customerInfo.id" readonly>
+                        </div>
+                        <div class="form-group ">
+                            <label for="exampleInputEmail1 ">Họ Tên</label>
+                            <!-- <p style="color: black; ">{{ customerInfo.full_name }}</p> -->
+                            <input type="text" class="form-control" name="full_name" [(ngModel)]="customerInfo.full_name">
+                        </div>
+                        <div class="form-group">
+                            <label>Giới Tính</label>
+                            <select [(ngModel)]="customerInfo.gender" class="form-control" name="gender">
+                                                <option *ngFor="let gender of genders" [value]="gender.value">{{gender.viewValue}}</option>
+                                            </select>
+                        </div>
                     </div>
-                </form>
-            </div>
-        </div>
+                    <div class="col-6">
+                        <div class="form-group ">
+                            <label for="exampleInputEmail1 ">Tình Trạng Hôn Nhân</label>
+                            <select [(ngModel)]="customerInfo.marital_status" class="form-control" name="marital_status">
+                                <option *ngFor="let marital_status of marital_statuss" [value]="marital_status.value">{{marital_status.viewValue}}</option>
+                            </select>
+                        </div>
+                        <div class="form-group ">
+                            <label for="exampleInputEmail1 ">Ngày Sinh</label>
+                            <input type="date" class="form-control" name="birth_date" [ngModel]="customerInfo.birth_date | date:'yyyy-MM-dd'" (ngModelChange)="dateChanged($event)" required>
+                        </div>
+                        <div class="form-group ">
+                            <label for="exampleInputEmail1 ">Tuổi</label>
+                            <!-- <p style="color: black; ">{{ customerInfo.age }}</p> -->
+                            <input type="number" class="form-control" name="age" [(ngModel)]="customerInfo.age">
+                        </div>
+                        <div class="form-group ">
+                            <label for="exampleInputEmail1 ">Nơi Sinh</label>
+                            <!-- <p style="color: black; ">{{ customerInfo.curadd_city }}</p> -->
+                            <input type="text" class="form-control" name="curadd_city" [(ngModel)]="customerInfo.birth_address">
+                        </div>
+                        <div class="form-group ">
+                            <label for="exampleInputEmail1 ">Loại Giấy Tờ Tùy Thân</label>
+                            <!-- <p style="color: black; ">{{ customerInfo.types_identification }}</p> -->
+                            <input type="text" class="form-control" name="types_identification" [(ngModel)]="customerInfo.types_identification">
+                        </div>
+                        <div class="form-group ">
+                            <label for="exampleInputEmail1 ">Giấy Tờ Nhân Thân Số</label>
+                            <input type="text" class="form-control" name="id_card" [(ngModel)]="customerInfo.id_card">
+                        </div>
+                        <div class="form-group ">
+                            <label for="exampleInputEmail1 ">Quốc Tịch Thứ Nhất</label>
+                            <!-- <p style="color: black; ">{{ customerInfo.nationality_1 }}</p> -->
+                            <input type="text" class="form-control" name="nationality_1" [(ngModel)]="customerInfo.nationality_1">
+                        </div>
+                        <div class="form-group ">
+                            <label for="exampleInputEmail1 ">Quốc Tịch Khác Khác (Nếu Có)</label>
+                            <!-- <p style="color: black; ">{{ customerInfo.nationality_1 }}</p> -->
+                            <input type="text" class="form-control" name="nationality_2" [(ngModel)]="customerInfo.nationality_2">
+                        </div>
+                        <div class="form-group ">
+                            <label for="exampleInputEmail1 ">Dân Tộc</label>
+                            <!-- <p style="color: black; ">{{ customerInfo.nation }}</p> -->
+                            <input type="text" class="form-control" name="nation" [(ngModel)]="customerInfo.nation">
+                        </div>
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab label="Thông tin Nghề Nghiệp">
+                <div class="col-6 ">
+
+                    <div class="form-group ">
+                        <label for="exampleInputEmail1 ">Nghề Nghiệp</label>
+                        <!-- <p style="color: black; ">{{ customerInfo.job }}</p> -->
+                        <input type="text" class="form-control" name="job" [(ngModel)]="customerInfo.job">
+                    </div>
+                    <div class="form-group ">
+                        <label for="exampleInputEmail1 ">Chức Vụ</label>
+                        <!-- <p style="color: black; ">{{ customerInfo.position }}</p> -->
+                        <input type="text" class="form-control" name="position" [(ngModel)]="customerInfo.position">
+                    </div>
+                    <div class="form-group ">
+                        <label for="exampleInputEmail1 ">Nghành Nghề</label>
+                        <!-- <p style="color: black; ">{{ customerInfo.career }}</p> -->
+                        <input type="text" class="form-control" name="career" [(ngModel)]="customerInfo.career">
+                    </div>
+                    <div class="form-group ">
+                        <label for="exampleInputEmail1 ">Nhóm Nghề</label>
+                        <!-- <p style="color: black; ">{{ customerInfo.occupation_group }}</p> -->
+                        <input type="text" class="form-control" name="occupation_group" [(ngModel)]="customerInfo.occupation_group">
+                    </div>
+                    <div class="form-group ">
+                        <label for="exampleInputEmail1 ">Tên Cơ Quan Làm Việc</label>
+                        <!-- <p style="color: black; ">{{ customerInfo.company_name }}</p> -->
+                        <input type="text" class="form-control" name="company_name" [(ngModel)]="customerInfo.company_name">
+                    </div>
+                    <div class="form-group ">
+                        <label for="exampleInputEmail1 ">Lĩnh vực Kinh Doanh</label>
+                        <!-- <p style="color: black; ">{{ customerInfo.main_business }}</p> -->
+                        <input type="text" class="form-control" name="main_business" [(ngModel)]="customerInfo.main_business">
+                    </div>
+                    <div class="form-group ">
+                        <label for="exampleInputEmail1 ">Công việc cụ thể</label>
+                        <!-- <p style="color: black; ">{{ customerInfo.specific_work }}</p> -->
+                        <input type="text" class="form-control" name="specific_work" [(ngModel)]="customerInfo.specific_work">
+                    </div>
+                    <div class="form-group ">
+                        <label for="exampleInputEmail1 ">Thu Nhập Cá Nhân Hàng Tháng</label>
+                        <!-- <p style="color: black; ">{{ customerInfo.monthly_income }}\</p> -->
+                        <input type="text" class="form-control" name="monthly_income" [(ngModel)]="customerInfo.monthly_income">
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab label="Địa Chỉ Và Thông Tin Liên Lạc">
+                <div class="row">
+                    <div class="col-6 ">
+                        <h4>Địa Chỉ Nơi Ở Hiện Tại</h4>
+                        <div class="form-group ">
+                            <label for="exampleInputEmail1 ">Số Nhà và Tên Đường</label>
+                            <!-- <p style="color: black; ">{{ customerInfo.curadd_no_street }}</p> -->
+                            <input type="text" class="form-control" name="curadd_no_street" [(ngModel)]="customerInfo.curadd_no_street">
+                        </div>
+                        <div class="form-group ">
+                            <label for="exampleInputEmail1 ">Thành Phố/Tỉnh</label>
+                            <!-- <p style="color: black; ">{{ customerInfo.curadd_city }}</p> -->
+                            <input type="text" class="form-control" name="curadd_city" [(ngModel)]="customerInfo.curadd_city">
+                        </div>
+                        <div class="form-group ">
+                            <label for="exampleInputEmail1 ">Quận/Huyện</label>
+                            <!-- <p style="color: black; ">{{ customerInfo.curadd_district }}</p> -->
+                            <input type="text" class="form-control" name="curadd_district" [(ngModel)]="customerInfo.curadd_district">
+                        </div>
+                        <div class="form-group ">
+                            <label for="exampleInputEmail1 ">Phường/Xã/Thị Trấn:</label>
+                            <!-- <p style="color: black; ">{{ customerInfo.curadd_wards }}</p> -->
+                            <input type="text" class="form-control" name="curadd_wards" [(ngModel)]="customerInfo.curadd_wards">
+                        </div>
+                    </div>
+                    <div class="col-6 ">
+                        <h4>Địa Chỉ Thường Chú</h4>
+                        <div class="form-group ">
+                            <label for="exampleInputEmail1 ">Số Nhà và Tên Đường</label>
+                            <!-- <p style="color: black; ">{{ customerInfo.peradd_no_street }}</p> -->
+                            <input type="text" class="form-control" name="peradd_no_street" [(ngModel)]="customerInfo.peradd_no_street">
+                        </div>
+                        <div class="form-group ">
+                            <label for="exampleInputEmail1 ">Thành Phố/Tỉnh</label>
+                            <!-- <p style="color: black; ">{{ customerInfo.peradd_city }}</p> -->
+                            <input type="text" class="form-control" name="peradd_city" [(ngModel)]="customerInfo.peradd_city">
+                        </div>
+                        <div class="form-group ">
+                            <label for="exampleInputEmail1 ">Quận/Huyện</label>
+                            <!-- <p style="color: black; ">{{ customerInfo.peradd_district }}</p> -->
+                            <input type="text" class="form-control" name="peradd_district" [(ngModel)]="customerInfo.peradd_district">
+                        </div>
+                        <div class="form-group ">
+                            <label for="exampleInputEmail1 ">Phường/Xã/Thị Trấn:</label>
+                            <!-- <p style="color: black; ">{{ customerInfo.peradd_wards }}</p> -->
+                            <input type="text" class="form-control" name="peradd_wards" [(ngModel)]="customerInfo.peradd_wards">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 ">
+                        <h4>Địa Chỉ Liên Lạc Đặc Biệt</h4>
+                        <div class="form-group ">
+                            <label for="exampleInputEmail1 ">Số Nhà và Tên Đường</label>
+                            <!-- <p style="color: black; ">{{ customerInfo.conadd_no_street }}</p> -->
+                            <input type="text" class="form-control" name="conadd_no_street" [(ngModel)]="customerInfo.conadd_no_street">
+                        </div>
+                        <div class="form-group ">
+                            <label for="exampleInputEmail1 ">Thành Phố/Tỉnh</label>
+                            <!-- <p style="color: black; ">{{ customerInfo.conadd_city }}</p> -->
+                            <input type="text" class="form-control" name="conadd_city" [(ngModel)]="customerInfo.conadd_city">
+                        </div>
+                        <div class="form-group ">
+                            <label for="exampleInputEmail1 ">Quận/Huyện</label>
+                            <!-- <p style="color: black; ">{{ customerInfo.conadd_district }}</p> -->
+                            <input type="text" class="form-control" name="conadd_district" [(ngModel)]="customerInfo.conadd_district">
+                        </div>
+                        <div class="form-group ">
+                            <label for="exampleInputEmail1 ">Phường/Xã/Thị Trấn:</label>
+                            <!-- <p style="color: black; ">{{ customerInfo.conadd_wards }}</p> -->
+                            <input type="text" class="form-control" name="conadd_wards" [(ngModel)]="customerInfo.conadd_wards">
+                        </div>
+                    </div>
+                    <div class="col-6 ">
+                        <h4>Địa Chỉ Nơi Làm Việc</h4>
+                        <div class="form-group ">
+                            <label for="exampleInputEmail1 ">Số Nhà và Tên Đường</label>
+                            <!-- <p style="color: black; ">{{ customerInfo.workadd_no_street }}</p> -->
+                            <input type="text" class="form-control" name="workadd_no_street" [(ngModel)]="customerInfo.workadd_no_street">
+                        </div>
+                        <div class="form-group ">
+                            <label for="exampleInputEmail1 ">Thành Phố/Tỉnh</label>
+                            <!-- <p style="color: black; ">{{ customerInfo.workadd_city }}</p> -->
+                            <input type="text" class="form-control" name="workadd_city" [(ngModel)]="customerInfo.workadd_city">
+                        </div>
+                        <div class="form-group ">
+                            <label for="exampleInputEmail1 ">Quận/Huyện</label>
+                            <!-- <p style="color: black; ">{{ customerInfo.workadd_district }}</p> -->
+                            <input type="text" class="form-control" name="workadd_district" [(ngModel)]="customerInfo.workadd_district">
+                        </div>
+                        <div class="form-group ">
+                            <label for="exampleInputEmail1 ">Phường/Xã/Thị Trấn:</label>
+                            <!-- <p style="color: black; ">{{ customerInfo.workadd_wards }}</p> -->
+                            <input type="text" class="form-control" name="workadd_wards" [(ngModel)]="customerInfo.workadd_wards">
+                        </div>
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab label="Thông Tin Liên Lạc">
+                <div class="row">
+                    <div class="col-6">
+
+                        <div class="form-group ">
+                            <label for="exampleInputEmail1 ">Email:</label>
+                            <!-- <p style="color: black; ">{{ customerInfo.email }}</p> -->
+                            <input type="text" class="form-control" name="email" [(ngModel)]="customerInfo.email">
+                        </div>
+                        <div class="form-group ">
+                            <label for="exampleInputEmail1 ">Điện Thoại Cố Định:</label>
+                            <!-- <p style="color: black; ">{{ customerInfo.phone_1 }}</p> -->
+                            <input type="text" class="form-control" name="phone_1" [(ngModel)]="customerInfo.phone_1">
+                        </div>
+                        <div class="form-group ">
+                            <label for="exampleInputEmail1 ">Điện Thoại Di Động 1:</label>
+                            <!-- <p style="color: black; ">{{ customerInfo.phone_1 }}</p> -->
+                            <input type="text" class="form-control" name="phone_1" [(ngModel)]="customerInfo.phone_1">
+                        </div>
+                        <div class="form-group ">
+                            <label for="exampleInputEmail1 ">Điện Thoại Di Động 2:</label>
+
+                            <input type="text" class="form-control" name="phone_2" [(ngModel)]="customerInfo.phone_2">
+                        </div>
+                    </div>
+                </div>
+            </mat-tab>
+        </mat-tab-group>
     </div>
 </mat-dialog-content>
 <mat-dialog-actions align="end">

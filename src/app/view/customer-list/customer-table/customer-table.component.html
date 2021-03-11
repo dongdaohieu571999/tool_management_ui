@@ -23,11 +23,11 @@
             <td>{{customerinfo.conadd_city}}</td>
             <td><a href="#">{{customerinfo.id_illustration}}</a></td>
             <td>{{customerinfo.phone_1}}</td>
-            <td>{{customerinfo.status}}</td>
+            <td>{{customerinfo.status==true?'Hoạt Động' : 'Tạm Ngưng'}}</td>
             <td>{{customerinfo.workadd_no_street}} {{customerinfo.workadd_district}} {{customerinfo.workadd_city}}</td>
-            <td>{{customerinfo.id}}</td>
-            <!-- <td><a [routerLink]="['/customer-detail']">Chi Tiết</a></td> -->
-            <button (click)="customerDetail(customerinfo.id)"class="btn btn-info" style="height: 40px; width: 100px; margin: 10px; color: black;">Chi Tiết</button>
+            <td>{{customerinfo.created_time | date: 'yyyy-MM-dd'}}</td>
+            <button *ngIf="customerinfo.status" (click)="customerDetail(customerinfo.id)" class="btn btn-info" style="height: 40px; width: 100px; margin: 10px; color: white;">Chi Tiết</button>
+            <button *ngIf="!customerinfo.status" (click)="editDrafCustomerInfo(customerinfo)" class="btn btn-success" style="height: 40px; width: 100px; margin: 10px; color: white;">Chỉnh Sửa</button>
         </tr>
     </tbody>
     <tfoot>
