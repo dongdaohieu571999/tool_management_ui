@@ -53,7 +53,7 @@ const routes: Routes = [
   {path: "appraiser-contract-manage", component: AppraiserContractManageComponent},
   {path: "contract-detail/:id", component: ViewDetailContractComponent},
   {path: "appraiser-request-manage", component: AppraiserRequestManageComponent},
-  {path: "appraiser-request-detail", component: DetailRequestComponent},
+  {path: "appraiser-request-detail/:id", component: DetailRequestComponent},
   {path: "customer-detail/:id", component: ViewDetailCustomerComponent},
   {path: "create-illustration", component: CreateIllustrationComponent},
   {path: "detail-illustration", component: DetailIllustrationComponent},

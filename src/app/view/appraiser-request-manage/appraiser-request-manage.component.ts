@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ContractRequest } from 'src/app/model/ContractRequest';
 import { ContractrequestService } from 'src/app/services/contractRequest/contractrequest.service';
 
@@ -9,7 +10,7 @@ import { ContractrequestService } from 'src/app/services/contractRequest/contrac
 })
 export class AppraiserRequestManageComponent implements OnInit {
 
-  constructor(private contractRequestService:ContractrequestService) { }
+  constructor(private contractRequestService:ContractrequestService,private router : Router) { }
 
   contractRequests : Array<ContractRequest>
   ngOnInit(): void {
@@ -18,5 +19,9 @@ export class AppraiserRequestManageComponent implements OnInit {
       console.log(this.contractRequests);
  }))
   }
+
+public requestDetail(id_request:number){
+  this.router.navigate(['appraiser-request-detail',id_request]);
+}
 
 }

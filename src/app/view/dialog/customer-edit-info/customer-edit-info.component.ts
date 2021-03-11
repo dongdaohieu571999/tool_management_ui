@@ -23,10 +23,6 @@ export class CustomerEditInfoComponent implements OnInit {
     {value: 'false', viewValue: 'Chưa Kết Hôn'},
   ];
 
-<<<<<<< HEAD
-  constructor(@Inject(MAT_DIALOG_DATA) public customerInfo:any) { }
-  ngOnInit(): void { }
-=======
   public dateChanged(newDate:any){
     this.customerInfo.birth_date = new Date(newDate);
     
@@ -45,5 +41,4 @@ export class CustomerEditInfoComponent implements OnInit {
     }))
   }
 
->>>>>>> hieu
 }

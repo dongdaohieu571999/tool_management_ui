@@ -32,11 +32,7 @@ export class CustomerAddInfoDialogComponent implements OnInit {
   }
 public onSubmit(){
   this.customerService.addCustomerInfo(this.customerInfo).subscribe((data => {
-<<<<<<< HEAD
-    console.log(data);
-=======
     
->>>>>>> hieu
   }))
 }
 

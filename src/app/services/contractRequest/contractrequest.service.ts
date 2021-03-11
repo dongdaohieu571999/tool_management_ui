@@ -25,6 +25,16 @@ export class ContractrequestService {
     .get<any>(url,this.httpOptions)
     .pipe(catchError(this.handleError));
   }
+
+  public getOneContractRequest(id:number){
+    const url = this.common.makeUrl("/contractRequest/get_detail_contract_request");
+    let data = {id:id};
+    console.log(data);
+    return this.httpClient
+    .post<any>(url,data,this.httpOptions)
+    .pipe(catchError(this.handleError));
+  }
+
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.
