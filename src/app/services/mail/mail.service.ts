@@ -36,6 +36,7 @@ export class MailService {
 
   public addNewMail(mail: MailDTO) : Observable<any> {
     const url = this.common.makeUrl("/mail/add_mail/" + this.common.getCookie("token_key"));
+    console.log(mail);
     return this.httpClient.post<any>(url, mail, this.httpOptions).pipe(catchError(this.handleError));
   }
 

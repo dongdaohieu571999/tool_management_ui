@@ -28,7 +28,7 @@ export class MailComponent implements OnInit {
   totalRecord: number;
   mailId: number;
 
-  mail = new MailDTO(0, "", "", new Date(), "", "", "", "");
+  mail = new MailDTO("", "", new Date(), "", "", "", "");
 
   detailMail(mail_id: number): void {
     this.mailService.setMailId(mail_id);

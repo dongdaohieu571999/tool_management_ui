@@ -6,17 +6,16 @@ export class MailDTO {
   status: String;
   priority: String;
   senderName: String;
-  receiverName: String;
+  receiverNameCode: String;
 
-  constructor(id: number, title: String, content: String, time: Date, status: String, priority: String, senderName: String, receiverName: String){
-    this.id = id;
+  constructor(title: String, content: String, time: Date, status: String, priority: String, senderName: String, receiverNameCode: String){
     this.title = title;
     this.content = content;
     this.time = time;
     this.status = status;
     this.priority = priority;
     this.senderName = senderName;
-    this.receiverName = receiverName;
+    this.receiverNameCode = receiverNameCode;
   }
 
   getId() : number {
@@ -48,6 +47,6 @@ export class MailDTO {
   }
 
   getReceiverId(): String {
-    return this.receiverName;
+    return this.receiverNameCode;
   }
 }
