@@ -10,8 +10,5 @@ import { CustomerInfo } from 'src/app/model/CustomerInfo';
 export class CustomerEditInfoComponent implements OnInit {
 
   constructor(@Inject(MAT_DIALOG_DATA) public customerInfo:any) { }
-  ngOnInit(): void {
-    
-  }
-
+  ngOnInit(): void { }
 }

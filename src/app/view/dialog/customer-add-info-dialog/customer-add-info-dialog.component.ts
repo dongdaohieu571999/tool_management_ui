@@ -19,7 +19,6 @@ export class CustomerAddInfoDialogComponent implements OnInit {
 public onSubmit(){
   this.customerService.addCustomerInfo(this.customerInfo).subscribe((data => {
     console.log(data);
-    
   }))
 }
 
