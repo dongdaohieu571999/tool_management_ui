@@ -7,8 +7,10 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ChartsModule } from 'ng2-charts';
+import { NgxSpinnerModule } from 'ngx-spinner'
 
 // material
+import {MatSelectModule} from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -127,6 +129,7 @@ import { ReportCustomerDialogComponent } from './view/dialog/report-customer-dia
     ReportCustomerDialogComponent,
   ],
   imports: [
+    NgxSpinnerModule,
     ChartsModule,
     BrowserModule,
     AppRoutingModule,
@@ -145,6 +148,7 @@ import { ReportCustomerDialogComponent } from './view/dialog/report-customer-dia
     MatDialogModule,
     MatTabsModule,
     MatSnackBarModule,
+    MatSelectModule
   ],
   entryComponents: [ReportCustomerDialogComponent,CustomerEditInfoComponent,AdminAddAccCustomerComponent,AdminAddEmployeeInfoComponent,AdminAddAccountEmployeeComponent,AddCustomerIllustrationDialogComponent,CustomerAddInfoDialogComponent,ContractAddDialogComponent,NotificationConfirmDialogComponent,PauseCustomerDialogComponent],
   providers: [AdminDataServiceService],
