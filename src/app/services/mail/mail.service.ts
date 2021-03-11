@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Mail } from 'src/app/model/Mail';
+import { MailDTO } from 'src/app/model/MailDTO';
 import { CommonService } from '../common/common.service';
 
 @Injectable({
@@ -29,7 +30,13 @@ export class MailService {
 
   public getDetailMail(mailId: number) : Observable<any> {
     const url = this.common.makeUrl("/mail/view_detail_mail/" + mailId + "/" + this.common.getCookie("token_key"));
+    // console.log(url);
     return this.httpClient.get<any>(url, this.httpOptions).pipe(catchError(this.handleError));
+  }
+
+  public addNewMail(mail: MailDTO) : Observable<any> {
+    const url = this.common.makeUrl("/mail/add_mail/" + this.common.getCookie("token_key"));
+    return this.httpClient.post<any>(url, mail, this.httpOptions).pipe(catchError(this.handleError));
   }
 
   private handleError(error: HttpErrorResponse) {
@@ -49,11 +56,9 @@ export class MailService {
   }
 
   mailId: number;
-
   setMailId(mailId: number){
     this.mailId = mailId;
   }
-
   getMailId(): number {
     return this.mailId;
   }

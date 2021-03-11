@@ -28,11 +28,13 @@ export class MailComponent implements OnInit {
   totalRecord: number;
   mailId: number;
 
+  mail = new MailDTO(0, "", "", new Date(), "", "", "", "");
+
   detailMail(mail_id: number): void {
     this.mailService.setMailId(mail_id);
   }
 
   displayDialog(): void {
-    let dialogRef = this.dialog.open(AddMailDialogComponent);
+    let dialogRef = this.dialog.open(AddMailDialogComponent, {data : this.mail});
   }
 }
