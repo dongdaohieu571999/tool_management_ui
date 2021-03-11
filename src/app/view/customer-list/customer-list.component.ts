@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CustomerInfo } from 'src/app/model/CustomerInfo';
 import { CustomerAddInfoDialogComponent } from '../dialog/customer-add-info-dialog/customer-add-info-dialog.component';
@@ -6,7 +6,7 @@ import { CustomerAddInfoDialogComponent } from '../dialog/customer-add-info-dial
 @Component({
   selector: 'app-customer-list',
   templateUrl: './customer-list.component.html',
-  styleUrls: ['./customer-list.component.css']
+  styleUrls: ['./customer-list.component.css'],
 })
 export class CustomerListComponent implements OnInit {
 
@@ -32,7 +32,6 @@ export class CustomerListComponent implements OnInit {
     });
     
     dialogRef.afterClosed().subscribe(result => {
-      
     })
   }
 }

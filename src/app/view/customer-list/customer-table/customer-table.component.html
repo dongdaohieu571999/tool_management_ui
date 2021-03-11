@@ -15,7 +15,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let customerinfo of customerinfos">
+        <tr *ngFor="let customerinfo of customerinfos | paginate: { id: 'listing_pagination' ,itemsPerPage: 8, currentPage: page, totalItems: totalRecords}">
             <td>{{customerinfo.id}}</td>
             <td><a href="#">{{customerinfo.id_contract}}</a></td>
             <td>{{customerinfo.full_name}}</td>
@@ -46,3 +46,4 @@
         </tr>
     </tfoot>
 </table>
+<pagination-controls style="float: right;" id="listing_pagination" maxSize="5" directionLinks="true" (pageChange)="page = $event"></pagination-controls>

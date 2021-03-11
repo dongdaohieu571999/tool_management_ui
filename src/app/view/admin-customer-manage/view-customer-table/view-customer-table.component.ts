@@ -19,7 +19,6 @@ export class ViewCustomerTableComponent implements OnInit {
     this.customerService.getAllCustomerInfo().subscribe((data => {
       this.data = data;
       this.totalRecords = data.length;
-      console.log(data);
     }))
   }
 

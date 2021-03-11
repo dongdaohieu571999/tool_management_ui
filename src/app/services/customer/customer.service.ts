@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter  } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, throwError } from 'rxjs';
+import { Observable, Subscription, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { CustomerAcc } from 'src/app/model/CustomerAcc';
 import { CustomerInfo } from 'src/app/model/CustomerInfo';
@@ -13,6 +13,12 @@ import { CommonService } from '../common/common.service';
 export class CustomerService {
 
   public customer: CustomerInfo;
+  callRefreshTable = new EventEmitter();
+  subsVar: Subscription;
+
+  invokeRefreshTableFun() { 
+    this.callRefreshTable.emit();
+  }
 
   constructor(private httpClient: HttpClient, private common: CommonService,private route: Router) { }
   
