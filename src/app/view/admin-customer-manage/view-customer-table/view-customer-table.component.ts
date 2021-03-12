@@ -43,6 +43,6 @@ export class ViewCustomerTableComponent implements OnInit {
   onSelectAcc(id:number){
     this.router.navigate(['customer-detail',id]);
   }
-
+  
   
 }

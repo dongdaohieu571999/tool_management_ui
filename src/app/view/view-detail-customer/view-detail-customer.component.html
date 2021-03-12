@@ -76,7 +76,7 @@
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Giấy Tờ Nhân Thân Số</label>
-                                                        <p style="color: red; ">{{ customerInfo.ID_card }}</p>
+                                                        <p style="color: red; ">{{ customerInfo.id_card }}</p>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Quốc Tịch Thứ Nhất</label>
@@ -253,8 +253,8 @@
                                     </mat-tab-group>
                                 </div>
 
-                                <!-- <button type="button " class="btn btn-success" data-toggle="modal" data-target="#myModal" (click)="openDialogEdit()">Chỉnh Sửa Thông Tin</button> -->
-                                <button type="button " class="btn btn-success ">Báo Cáo</button>
+                                <button type="button " class="btn btn-success" data-toggle="modal" data-target="#myModal" (click)="openDialogEdit()">Chỉnh Sửa Thông Tin</button>
+                                <button type="button " class="btn btn-success " (click)="openDialogReport()">Báo Cáo</button>
                                 <!-- <button type="button " class="btn btn-danger" data-toggle="modal" data-target="#tamNgung" (click)="openDialogPause()">Tạm Ngưng Khách Hàng</button> -->
                             </div>
                         </div>
@@ -282,218 +282,7 @@
             </div>
         </div>
 
-        <div class="modal fade" id="myModal" role="dialog">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <div class="card card-primary">
-                            <form>
-                                <div class="card-body" style="height: 448px; width: 1200px; overflow: auto;">
-                                    <h3>Thông tin Cơ Bản</h3>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Nguồn</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputPassword1">Ngày Cập Nhật</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Họ Tên</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Mã Hợp Đồng</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Mã Bản Minh Họa</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Giới Tính</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Tình Trạng Hôn Nhân</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Ngày Sinh</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Tuổi</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Nơi Sinh</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Loại Giấy Tờ Tùy Thân</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Giấy Tờ Nhân Thân Số</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Quốc Tịch Thứ Nhất</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Quốc Tịch Khác Khác (Nếu Có)</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Dân Tộc</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <h3>Thông tin Nghề Nghiệp</h3>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Nghề Nghiệp</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Chức Vụ</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Nghành Nghề</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Nhóm Nghề</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Tên Cơ Quan Làm Việc</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Lĩnh vực Kinh Doanh</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Công việc cụ thể</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Thu Nhập Cá Nhân Hàng Tháng</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <h3>Địa Chỉ Và Thông Tin Liên Lạc</h3>
-                                    <h4>Địa Chỉ Nơi Ở Hiện Tại</h4>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Số Nhà và Tên Đường</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Thành Phố/Tỉnh</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Quận/Huyện</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Phường/Xã/Thị Trấn:</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <h4>Địa Chỉ Liên Lạc</h4>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Địa Chỉ Liên Lạc</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <h4>Địa Chỉ Thường Chú</h4>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Số Nhà và Tên Đường</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Thành Phố/Tỉnh</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Quận/Huyện</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Phường/Xã/Thị Trấn:</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <h4>Địa Chỉ Liên Lạc Đặc Biệt</h4>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Số Nhà và Tên Đường</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Thành Phố/Tỉnh</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Quận/Huyện</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Phường/Xã/Thị Trấn:</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <h4>Địa Chỉ Nơi Làm Việc</h4>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Số Nhà và Tên Đường</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Thành Phố/Tỉnh</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Quận/Huyện</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Phường/Xã/Thị Trấn:</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <h3>ĐT cố Định và Email</h3>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Email:</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Điện Thoại Cố Định:</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Điện Thoại Di Động 1:</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Điện Thoại Di Động 2:</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <h3>Thông Tin tài khoản bên mua bảo hiểm</h3>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Tên Tài Khoản</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Chi Nhánh - Phòng Giao Dịch</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Tỉnh/Thành Phố</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
 
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark ">

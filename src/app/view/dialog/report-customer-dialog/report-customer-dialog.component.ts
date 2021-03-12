@@ -1,0 +1,15 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-report-customer-dialog',
+  templateUrl: './report-customer-dialog.component.html',
+  styleUrls: ['./report-customer-dialog.component.css']
+})
+export class ReportCustomerDialogComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+}

@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { CustomerInfo } from 'src/app/model/CustomerInfo';
+import { CustomerService } from 'src/app/services/customer/customer.service';
+import { SnackbarService } from 'src/app/services/snackbar/snackbar.service';
 
 @Component({
   selector: 'app-customer-add-info-dialog',
@@ -7,9 +11,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomerAddInfoDialogComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(public dialogRef: MatDialogRef<CustomerAddInfoDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public customerInfo: CustomerInfo,private customerService:CustomerService,private notiService: SnackbarService) { }
+    selectedDeal:Date;
+    genders= Array[2] = [
+      {value: 'true', viewValue: 'Nam'},
+      {value: 'false', viewValue: 'Nữ'},
+    ];
+  
+    marital_statuss = Array[2] = [
+      {value: 'true', viewValue: 'Đã Kết Hôn'},
+      {value: 'false', viewValue: 'Chưa Kết Hôn'},
+    ];
+  
+    public dateChanged(newDate:any){
+      this.customerInfo.birth_date = new Date(newDate);
+      
+    }
   ngOnInit(): void {
   }
+public onSubmit(){
+  this.customerService.addCustomerInfo(this.customerInfo).subscribe((data => {
+    
+  }))
+}
 
 }

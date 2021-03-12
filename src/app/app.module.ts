@@ -7,8 +7,10 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ChartsModule } from 'ng2-charts';
+import { NgxSpinnerModule } from 'ngx-spinner'
 
 // material
+import {MatSelectModule} from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -68,8 +70,11 @@ import { ContractAddDialogComponent } from './view/dialog/contract-add-dialog/co
 import { NotificationConfirmDialogComponent } from './view/dialog/notification-confirm-dialog/notification-confirm-dialog.component';
 import { PauseCustomerDialogComponent } from './view/dialog/pause-customer-dialog/pause-customer-dialog.component';
 import { DetailInfoChangeHistoryComponent } from './view/view-detail-contract/detail-info-change-history/detail-info-change-history.component';
+import { CustomerEditInfoComponent } from './view/dialog/customer-edit-info/customer-edit-info.component';
+import { ReportCustomerDialogComponent } from './view/dialog/report-customer-dialog/report-customer-dialog.component';
 import { MailDetailComponent } from './view/mail/mail-detail/mail-detail.component';
 import { AddMailDialogComponent } from './view/dialog/add-mail-dialog/add-mail-dialog.component';
+
 
 
 @NgModule({
@@ -123,10 +128,13 @@ import { AddMailDialogComponent } from './view/dialog/add-mail-dialog/add-mail-d
     NotificationConfirmDialogComponent,
     PauseCustomerDialogComponent,
     DetailInfoChangeHistoryComponent,
+    CustomerEditInfoComponent,
+    ReportCustomerDialogComponent,
     MailDetailComponent,
     AddMailDialogComponent,
   ],
   imports: [
+    NgxSpinnerModule,
     ChartsModule,
     BrowserModule,
     AppRoutingModule,
@@ -145,8 +153,9 @@ import { AddMailDialogComponent } from './view/dialog/add-mail-dialog/add-mail-d
     MatDialogModule,
     MatTabsModule,
     MatSnackBarModule,
+    MatSelectModule
   ],
-  entryComponents: [AdminAddAccCustomerComponent,AdminAddEmployeeInfoComponent,AdminAddAccountEmployeeComponent,AddCustomerIllustrationDialogComponent,CustomerAddInfoDialogComponent,ContractAddDialogComponent,NotificationConfirmDialogComponent,PauseCustomerDialogComponent],
+  entryComponents: [ReportCustomerDialogComponent,CustomerEditInfoComponent,AdminAddAccCustomerComponent,AdminAddEmployeeInfoComponent,AdminAddAccountEmployeeComponent,AddCustomerIllustrationDialogComponent,CustomerAddInfoDialogComponent,ContractAddDialogComponent,NotificationConfirmDialogComponent,PauseCustomerDialogComponent],
   providers: [AdminDataServiceService],
   bootstrap: [AppComponent]
 })
