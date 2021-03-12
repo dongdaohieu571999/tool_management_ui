@@ -72,6 +72,9 @@ import { PauseCustomerDialogComponent } from './view/dialog/pause-customer-dialo
 import { DetailInfoChangeHistoryComponent } from './view/view-detail-contract/detail-info-change-history/detail-info-change-history.component';
 import { CustomerEditInfoComponent } from './view/dialog/customer-edit-info/customer-edit-info.component';
 import { ReportCustomerDialogComponent } from './view/dialog/report-customer-dialog/report-customer-dialog.component';
+import { MailDetailComponent } from './view/mail/mail-detail/mail-detail.component';
+import { AddMailDialogComponent } from './view/dialog/add-mail-dialog/add-mail-dialog.component';
+
 
 
 @NgModule({
@@ -127,6 +130,8 @@ import { ReportCustomerDialogComponent } from './view/dialog/report-customer-dia
     DetailInfoChangeHistoryComponent,
     CustomerEditInfoComponent,
     ReportCustomerDialogComponent,
+    MailDetailComponent,
+    AddMailDialogComponent,
   ],
   imports: [
     NgxSpinnerModule,
