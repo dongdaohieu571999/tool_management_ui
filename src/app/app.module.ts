@@ -10,7 +10,7 @@ import { ChartsModule } from 'ng2-charts';
 import { NgxSpinnerModule } from 'ngx-spinner'
 
 // material
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -107,7 +107,6 @@ import { AddMailDialogComponent } from './view/dialog/add-mail-dialog/add-mail-d
     SolutionHistoryComponent,
     SolutionHistoryTableComponent,
     AdminAddAccCustomerComponent,
-    AdminAddAccCustomerComponent,
     AdminAddEmployeeInfoComponent,
     AdminAddAccountEmployeeComponent,
     AppraiserContractManageComponent,
@@ -129,9 +128,12 @@ import { AddMailDialogComponent } from './view/dialog/add-mail-dialog/add-mail-d
     DetailInfoChangeHistoryComponent,
     MailDetailComponent,
     AddMailDialogComponent,
+    CustomerEditInfoComponent,
+    ReportCustomerDialogComponent,
   ],
   imports: [
     NgxSpinnerModule,
+    FormsModule,
     ChartsModule,
     BrowserModule,
     AppRoutingModule,
@@ -144,7 +146,6 @@ import { AddMailDialogComponent } from './view/dialog/add-mail-dialog/add-mail-d
     MatSidenavModule,
     MatListModule,
     MatButtonModule,
-    FormsModule,
     HttpClientModule,
     NgxPaginationModule,
     MatDialogModule,
