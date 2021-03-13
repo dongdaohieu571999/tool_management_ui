@@ -15,12 +15,14 @@ export class ContractAddDialogComponent implements OnInit {
   constructor(private contractService:ContractService,private customerService : CustomerService) { }
   customerinfos : Array<CustomerInfo>;
 
+  searchText: string = '';
 
   ngOnInit(): void {
     this.customerService.getAllCustomerInfo().subscribe((data => {
       this.customerinfos = data;
+      console.log(data);
     }))
-  
+
   }
 
   onSubmit(contractForm : NgForm){

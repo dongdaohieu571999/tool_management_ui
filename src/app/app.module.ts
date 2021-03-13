@@ -74,6 +74,7 @@ import { CustomerEditInfoComponent } from './view/dialog/customer-edit-info/cust
 import { ReportCustomerDialogComponent } from './view/dialog/report-customer-dialog/report-customer-dialog.component';
 import { MailDetailComponent } from './view/mail/mail-detail/mail-detail.component';
 import { AddMailDialogComponent } from './view/dialog/add-mail-dialog/add-mail-dialog.component';
+import { CustomerNameSearchPipe } from './pipe/customer-name-search.pipe';
 
 
 
@@ -132,6 +133,7 @@ import { AddMailDialogComponent } from './view/dialog/add-mail-dialog/add-mail-d
     ReportCustomerDialogComponent,
     MailDetailComponent,
     AddMailDialogComponent,
+    CustomerNameSearchPipe
   ],
   imports: [
     NgxSpinnerModule,

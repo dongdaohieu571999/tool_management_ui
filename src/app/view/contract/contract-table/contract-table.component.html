@@ -15,15 +15,15 @@
     </thead>
     <tbody>
         <tr *ngFor="let contract of contracts">
-            <td>{{contract.id}}</td>
-            <td>{{contract.id_customer}}</td>
-            <td>{{contract.name_contract_owner}}</td>
-            <td>{{contract.payment_period}}</td>
-            <td>{{contract.insurance_type}}</td>
-            <td>{{contract.id_main_interest}}</td>
-            <td>{{contract.id_illustration}}</td>
+            <td>{{contract.contractId}}</td>
+            <td>{{contract.customerId}}</td>
+            <td>{{contract.nameContractOwner}}</td>
+            <td>{{contract.paymentPeriod}}</td>
+            <td>{{contract.insuranceType}}</td>
+            <td>{{contract.idMainInterest}}</td>
+            <td>{{contract.idIllustration}}</td>
             <td>{{contract.status}}</td>
-            <td>{{contract.start_time}}</td>
+            <td>{{contract.startTime | date:'dd/MM/yyyy'}}</td>
             <td>
                 <button (click)="contractDetail(contract.id)" class="btn btn-info" style="height: 30px;color: white;">Chi Tiết</button>
             </td>
