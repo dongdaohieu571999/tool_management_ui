@@ -72,6 +72,8 @@ import { PauseCustomerDialogComponent } from './view/dialog/pause-customer-dialo
 import { DetailInfoChangeHistoryComponent } from './view/view-detail-contract/detail-info-change-history/detail-info-change-history.component';
 import { CustomerEditInfoComponent } from './view/dialog/customer-edit-info/customer-edit-info.component';
 import { ReportCustomerDialogComponent } from './view/dialog/report-customer-dialog/report-customer-dialog.component';
+import { ContractChangeInfoDialogComponent } from './view/dialog/contract-change-info-dialog/contract-change-info-dialog.component';
+import { ContractPauseDialogComponent } from './view/dialog/contract-pause-dialog/contract-pause-dialog.component';
 
 
 @NgModule({
@@ -127,6 +129,8 @@ import { ReportCustomerDialogComponent } from './view/dialog/report-customer-dia
     DetailInfoChangeHistoryComponent,
     CustomerEditInfoComponent,
     ReportCustomerDialogComponent,
+    ContractChangeInfoDialogComponent,
+    ContractPauseDialogComponent,
   ],
   imports: [
     NgxSpinnerModule,
@@ -150,7 +154,7 @@ import { ReportCustomerDialogComponent } from './view/dialog/report-customer-dia
     MatSnackBarModule,
     MatSelectModule
   ],
-  entryComponents: [ReportCustomerDialogComponent,CustomerEditInfoComponent,AdminAddAccCustomerComponent,AdminAddEmployeeInfoComponent,AdminAddAccountEmployeeComponent,AddCustomerIllustrationDialogComponent,CustomerAddInfoDialogComponent,ContractAddDialogComponent,NotificationConfirmDialogComponent,PauseCustomerDialogComponent],
+  entryComponents: [ContractPauseDialogComponent,ContractChangeInfoDialogComponent,ReportCustomerDialogComponent,CustomerEditInfoComponent,AdminAddAccCustomerComponent,AdminAddEmployeeInfoComponent,AdminAddAccountEmployeeComponent,AddCustomerIllustrationDialogComponent,CustomerAddInfoDialogComponent,ContractAddDialogComponent,NotificationConfirmDialogComponent,PauseCustomerDialogComponent],
   providers: [AdminDataServiceService],
   bootstrap: [AppComponent]
 })

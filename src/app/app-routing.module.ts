@@ -58,7 +58,7 @@ const routes: Routes = [
   {path: "create-illustration", component: CreateIllustrationComponent},
   {path: "detail-illustration", component: DetailIllustrationComponent},
   {path: "list-illustration", component: ListIllustrationComponent},
-  {path: "detai-history-change", component: DetailInfoChangeHistoryComponent}
+  {path: "detai-history-change/:id", component: DetailInfoChangeHistoryComponent}
 ];
 
 @NgModule({
