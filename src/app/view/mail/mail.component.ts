@@ -5,6 +5,7 @@ import { MailDTO } from 'src/app/model/MailDTO';
 import { MailService } from 'src/app/services/mail/mail.service';
 import { CommonService } from 'src/app/services/common/common.service';
 import { AddMailDialogComponent } from '../dialog/add-mail-dialog/add-mail-dialog.component';
+import { ServerHttpService } from 'src/app/services/http/server-http.service';
 
 @Component({
   selector: 'app-mail',
@@ -14,7 +15,7 @@ import { AddMailDialogComponent } from '../dialog/add-mail-dialog/add-mail-dialo
 
 export class MailComponent implements OnInit {
 
-  constructor(private mailService: MailService, public dialog: MatDialog, private router: Router, private common: CommonService) { }
+  constructor(private mailService: MailService,private confirmMail:ServerHttpService ,public dialog: MatDialog, private router: Router, private common: CommonService) { }
 
   ngOnInit(): void {
     this.mailService.getAllMail().subscribe((data => {

@@ -15,7 +15,6 @@ import { IllustrationComponent } from '././view/illustration/illustration.compon
 import { IncomeComponent } from '././view/income/income.component';
 import { LabourContractComponent } from '././view/labour-contract/labour-contract.component';
 import { LoginComponent } from '././view/login/login.component';
-import { ResetPasswordComponent } from '././view/login/reset-password/reset-password.component';
 import { MailComponent } from '././view/mail/mail.component';
 import { NotificationComponent } from '././view/notification/notification.component';
 import { ApproveContractComponent } from '././view/approve-contract/approve-contract.component';
@@ -29,6 +28,7 @@ import { DetailIllustrationComponent } from './view/illustration/illustration-ta
 import { ListIllustrationComponent } from '././view/illustration/illustration-table/list-illustration/list-illustration.component';
 import { DetailInfoChangeHistoryComponent } from './view/view-detail-contract/detail-info-change-history/detail-info-change-history.component';
 import { MailDetailComponent } from './view/mail/mail-detail/mail-detail.component';
+import { ConfirmChangePassComponent } from './view/change-pass/confirm-change-pass/confirm-change-pass.component'
 
 const routes: Routes = [
   {path : "dashboard", component: DashboardComponent},
@@ -50,8 +50,6 @@ const routes: Routes = [
   {path: "commission-manage", component:AdminCommissionManageComponent},
   {path: "solution-manage", component:AdminSolutionManageComponent},
   {path: "detail-solution-request", component:DetailSolutionRequestComponent},
-  {path: "reset-password", component: ResetPasswordComponent},
-  {path: "reset-password", component: ResetPasswordComponent},
   {path: "appraiser-contract-manage", component: AppraiserContractManageComponent},
   {path: "contract-detail", component: ViewDetailContractComponent},
   {path: "appraiser-request-manage", component: AppraiserRequestManageComponent},
@@ -60,7 +58,8 @@ const routes: Routes = [
   {path: "create-illustration", component: CreateIllustrationComponent},
   {path: "detail-illustration", component: DetailIllustrationComponent},
   {path: "list-illustration", component: ListIllustrationComponent},
-  {path: "detai-history-change", component: DetailInfoChangeHistoryComponent}
+  {path: "confirm-change-pass", component: ConfirmChangePassComponent},
+  {path: "detai-history-change/:id", component: DetailInfoChangeHistoryComponent}
 ];
 
 @NgModule({

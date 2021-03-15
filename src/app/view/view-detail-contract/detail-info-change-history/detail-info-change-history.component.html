@@ -5,25 +5,45 @@
             <thead>
                 <tr>
                     <th>Hạng Mục</th>
-                    <th>Thông Tin Hiện Tại</th>
-                    <th>Thông Tin Yêu Cầu Sửa</th>
+                    <th>Thông Tin Cũ</th>
+                    <th>Thông Tin Mới</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody>            
                 <tr>
-                    <td>Địa Chỉ</td>
-                    <td>121 Thái Hà, Đống Đa, Hà Nội</td>
-                    <td>98 Chùa Bộc, Đống Đa, Hà Nội</td>
+                    <td>Tên chủ hợp đồng</td>
+                    <td>{{oldInfomation.name_contract_owner}}</td>
+                    <td>{{newInfomation.name_contract_owner}}</td>
                 </tr>
                 <tr>
-                    <td>Số Điện Thoại</td>
-                    <td>0123456789</td>
-                    <td>0987654321</td>
+                    <td>Kỳ Hạn</td>
+                    <td>{{oldInfomation.payment_period}}</td>
+                    <td>{{newInfomation.payment_period}}</td>
                 </tr>
                 <tr>
-                    <td>Email</td>
-                    <td>email01@example.com</td>
-                    <td>email02@example.com</td>
+                    <td>Loại Bảo Hiểm</td>
+                    <td>{{oldInfomation.insurance_type}}</td>
+                    <td>{{newInfomation.insurance_type}}</td>
+                </tr>
+                <tr>
+                    <td>Mã Quyền lợi chính</td>
+                    <td>{{oldInfomation.id_main_interest}}</td>
+                    <td>{{newInfomation.id_main_interest}}</td>
+                </tr>
+                <tr>
+                    <td>Mã Bảng Minh Họa</td>
+                    <td>{{oldInfomation.id_illustration}}</td>
+                    <td>{{newInfomation.id_illustration}}</td>
+                </tr>
+                <tr>
+                    <td>Tổng Số Tiền Phải Trả</td>
+                    <td>{{oldInfomation.contract_total_value}}</td>
+                    <td>{{newInfomation.contract_total_value}}</td>
+                </tr>
+                <tr>
+                    <td>Ngày Hết Hạn</td>
+                    <td>{{oldInfomation.end_time}}</td>
+                    <td>{{newInfomation.end_time}}</td>
                 </tr>
             </tbody>
         </table>

@@ -1,7 +1,6 @@
 import { Component, OnInit,Inject } from '@angular/core';
 import { inject } from '@angular/core/testing';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { CustomerInfo } from 'src/app/model/CustomerInfo';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { CustomerService } from 'src/app/services/customer/customer.service';
 import { SnackbarService } from 'src/app/services/snackbar/snackbar.service';
 @Component({
@@ -11,7 +10,8 @@ import { SnackbarService } from 'src/app/services/snackbar/snackbar.service';
 })
 
 export class CustomerEditInfoComponent implements OnInit {
-  constructor(@Inject(MAT_DIALOG_DATA) public customerInfo:any,private customerService:CustomerService,private snackbar: SnackbarService) { }
+  constructor(public dialogRef: MatDialogRef<CustomerEditInfoComponent>,
+    @Inject(MAT_DIALOG_DATA) public customerInfo:any,private customerService:CustomerService,private snackbar: SnackbarService) { }
   selectedDeal:Date;
   genders= Array[2] = [
     {value: 'true', viewValue: 'Nam'},
@@ -31,9 +31,6 @@ export class CustomerEditInfoComponent implements OnInit {
     
   }
 
-  
-
-  
 
   public updateInfoCustomer(){
     this.customerService.updateCustomerInfo(this.customerInfo).subscribe(( data => {

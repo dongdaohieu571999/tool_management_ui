@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,7 +10,8 @@ import { ChartsModule } from 'ng2-charts';
 import { NgxSpinnerModule } from 'ngx-spinner'
 
 // material
-import {MatSelectModule} from '@angular/material/select';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -47,7 +48,6 @@ import { CommissionTableComponent } from '././view/admin-commission-manage/commi
 import { AdminSolutionManageComponent } from '././view/admin-solution-manage/admin-solution-manage.component';
 import { SolutionRequestTableComponent } from '././view/admin-solution-manage/solution-request-table/solution-request-table.component';
 import { DetailSolutionRequestComponent } from '././view/admin-solution-manage/solution-request-table/detail-solution-request/detail-solution-request.component';
-import { ResetPasswordComponent } from '././view/login/reset-password/reset-password.component';
 import { SolutionHistoryComponent } from '././view/admin-solution-manage/solution-history/solution-history.component';
 import { SolutionHistoryTableComponent } from '././view/admin-solution-manage/solution-history/solution-history-table/solution-history-table.component';
 import { AdminAddAccCustomerComponent } from '././view/dialog/admin-add-acc-customer/admin-add-acc-customer.component';
@@ -75,8 +75,9 @@ import { ReportCustomerDialogComponent } from './view/dialog/report-customer-dia
 import { MailDetailComponent } from './view/mail/mail-detail/mail-detail.component';
 import { AddMailDialogComponent } from './view/dialog/add-mail-dialog/add-mail-dialog.component';
 import { CustomerNameSearchPipe } from './pipe/customer-name-search.pipe';
-import { AutocompleteLibComponent } from 'angular-ng-autocomplete';
-
+import { ConfirmChangePassComponent } from './view/change-pass/confirm-change-pass/confirm-change-pass.component';
+import { ContractChangeInfoDialogComponent } from './view/dialog/contract-change-info-dialog/contract-change-info-dialog.component';
+import { ContractPauseDialogComponent } from './view/dialog/contract-pause-dialog/contract-pause-dialog.component';
 
 
 @NgModule({
@@ -106,10 +107,8 @@ import { AutocompleteLibComponent } from 'angular-ng-autocomplete';
     AdminSolutionManageComponent,
     SolutionRequestTableComponent,
     DetailSolutionRequestComponent,
-    ResetPasswordComponent,
     SolutionHistoryComponent,
     SolutionHistoryTableComponent,
-    AdminAddAccCustomerComponent,
     AdminAddAccCustomerComponent,
     AdminAddEmployeeInfoComponent,
     AdminAddAccountEmployeeComponent,
@@ -130,15 +129,20 @@ import { AutocompleteLibComponent } from 'angular-ng-autocomplete';
     NotificationConfirmDialogComponent,
     PauseCustomerDialogComponent,
     DetailInfoChangeHistoryComponent,
-    CustomerEditInfoComponent,
-    ReportCustomerDialogComponent,
     MailDetailComponent,
     AddMailDialogComponent,
+    CustomerEditInfoComponent,
+    ReportCustomerDialogComponent,
+    ContractChangeInfoDialogComponent,
+    ContractPauseDialogComponent,
     CustomerNameSearchPipe,
-    AutocompleteLibComponent
+    ConfirmChangePassComponent
   ],
   imports: [
+    ReactiveFormsModule,
+    MatAutocompleteModule,
     NgxSpinnerModule,
+    FormsModule,
     ChartsModule,
     BrowserModule,
     AppRoutingModule,
@@ -151,7 +155,6 @@ import { AutocompleteLibComponent } from 'angular-ng-autocomplete';
     MatSidenavModule,
     MatListModule,
     MatButtonModule,
-    FormsModule,
     HttpClientModule,
     NgxPaginationModule,
     MatDialogModule,
@@ -159,7 +162,7 @@ import { AutocompleteLibComponent } from 'angular-ng-autocomplete';
     MatSnackBarModule,
     MatSelectModule
   ],
-  entryComponents: [ReportCustomerDialogComponent,CustomerEditInfoComponent,AdminAddAccCustomerComponent,AdminAddEmployeeInfoComponent,AdminAddAccountEmployeeComponent,AddCustomerIllustrationDialogComponent,CustomerAddInfoDialogComponent,ContractAddDialogComponent,NotificationConfirmDialogComponent,PauseCustomerDialogComponent],
+  entryComponents: [ContractPauseDialogComponent,ContractChangeInfoDialogComponent,ReportCustomerDialogComponent,CustomerEditInfoComponent,AdminAddAccCustomerComponent,AdminAddEmployeeInfoComponent,AdminAddAccountEmployeeComponent,AddCustomerIllustrationDialogComponent,CustomerAddInfoDialogComponent,ContractAddDialogComponent,NotificationConfirmDialogComponent,PauseCustomerDialogComponent],
   providers: [AdminDataServiceService],
   bootstrap: [AppComponent]
 })

@@ -16,6 +16,7 @@ export class AppComponent {
   public isOpened = false;
 
   constructor(public authenService: AuthenService, public router: Router,private common:CommonService,private authenticationService:AuthenService){
+    var url =window.location.href;
     if(this.common.getCookie("token_key") === ''){
       this.authenService.isAuthen=false;
     }
@@ -25,15 +26,18 @@ export class AppComponent {
     }
 
     if(this.authenticationService.isAuthen){
-      var url =window.location.href;
+      
       if(url.substring(22,url.length) === 'login'){
         this.router.navigate(['dashboard']);
         return;
       }
       
       
-    } else if (!this.authenticationService.isAuthen){
+    } else if (!this.authenticationService.isAuthen && url.substring(22,41) !== 'confirm-change-pass'){
+      console.log(url);
       this.router.navigate(['login']);
+      return;
+    } else if (!this.authenticationService.isAuthen && url.substring(22,41) === 'confirm-change-pass'){
       return;
     }
   }
