@@ -6,3 +6,8 @@ img {
 .active {
   display: block;
 }
+
+.btn-item{
+  width: 200px;
+  margin:10px;
+}

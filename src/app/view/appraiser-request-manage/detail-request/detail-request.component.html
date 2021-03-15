@@ -18,20 +18,506 @@
       <div class="row">
         <div class="col-12">
           <div class="card">
-            <table class=" table table-bordered ">
-              <thead>
+
+            <mat-tab-group>
+              <td>
+                <mat-tab label="Giấy Tờ Liên Quan">
+                  
+                </mat-tab>
+                <mat-tab label="Thông tin cá nhân">
+                  <mat-tab-group>
+                    <mat-tab label="Thông tin Cơ Bản">
+                        <div class="row">
+                            <div class=" col-6 ">
+                                <h3>Thông tin Cơ Bản</h3>
+                                <div class="form-group ">
+                                    <label for="exampleInputEmail1 ">Nguồn</label>
+                                    <p style="color: red; ">{{detailContractRequest.source}}</p>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="exampleInputPassword1 ">Ngày Cập Nhật</label>
+                                    <p style="color: red; ">{{detailContractRequest.start_time}}</p>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="exampleInputPassword1 ">Mã Hợp Đồng</label>
+                                    <p style="color: red; "><a href="# "></a>{{detailContractRequest.start_time}}</p>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="exampleInputPassword1 ">Mã Bản Minh Họa</label>
+                                    <p style="color: red; "><a href="# ">{{detailContractRequest.id_illustration}}</a></p>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="exampleInputPassword1 ">Mã Khách Hàng</label>
+                                    <p style="color: red; ">{{ detailContractRequest.code }}</p>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="exampleInputEmail1 ">Họ Tên</label>
+                                    <p style="color: red; ">{{ detailContractRequest.full_name }}</p>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="exampleInputEmail1 ">Giới Tính</label>
+                                    <p *ngIf="detailContractRequest.gender" style="color: red; ">Nam</p>
+                                    <p *ngIf="!detailContractRequest.gender" style="color: red; ">Nữ</p>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group ">
+                                    <label for="exampleInputEmail1 ">Tình Trạng Hôn Nhân</label>
+                                    <p *ngIf="detailContractRequest.birth_address" style="color: red; ">Kết Hôn</p>
+                                    <p *ngIf="!detailContractRequest.birth_address" style="color: red; ">Chưa Kết Hôn</p>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="exampleInputEmail1 ">Ngày Sinh</label>
+                                    <p style="color: red; ">{{ detailContractRequest.birth_address }}</p>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="exampleInputEmail1 ">Tuổi</label>
+                                    <p style="color: red; ">{{ detailContractRequest.age }}</p>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="exampleInputEmail1 ">Nơi Sinh</label>
+                                    <p style="color: red; ">{{ detailContractRequest.curadd_city }}</p>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="exampleInputEmail1 ">Loại Giấy Tờ Tùy Thân</label>
+                                    <p style="color: red; ">{{ detailContractRequest.types_identification }}</p>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="exampleInputEmail1 ">Giấy Tờ Nhân Thân Số</label>
+                                    <p style="color: red; ">{{ detailContractRequest.id_card }}</p>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="exampleInputEmail1 ">Quốc Tịch Thứ Nhất</label>
+                                    <p style="color: red; ">{{ detailContractRequest.nationality_1 }}</p>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="exampleInputEmail1 ">Quốc Tịch Khác Khác (Nếu Có)</label>
+                                    <p style="color: red; ">{{ detailContractRequest.nationality_1 }}</p>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="exampleInputEmail1 ">Dân Tộc</label>
+                                    <p style="color: red; ">{{ detailContractRequest.nation }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="Thông tin Nghề Nghiệp">
+                        <div class="col-6 ">
+                            <h3>Thông tin Nghề Nghiệp</h3>
+                            <div class="form-group ">
+                                <label for="exampleInputEmail1 ">Nghề Nghiệp</label>
+                                <p style="color: red; ">{{ detailContractRequest.job }}</p>
+                            </div>
+                            <div class="form-group ">
+                                <label for="exampleInputEmail1 ">Chức Vụ</label>
+                                <p style="color: red; ">{{ detailContractRequest.position }}</p>
+                            </div>
+                            <div class="form-group ">
+                                <label for="exampleInputEmail1 ">Nghành Nghề</label>
+                                <p style="color: red; ">{{ detailContractRequest.career }}</p>
+                            </div>
+                            <div class="form-group ">
+                                <label for="exampleInputEmail1 ">Nhóm Nghề</label>
+                                <p style="color: red; ">{{ detailContractRequest.occupation_group }}</p>
+                            </div>
+                            <div class="form-group ">
+                                <label for="exampleInputEmail1 ">Tên Cơ Quan Làm Việc</label>
+                                <p style="color: red; ">{{ detailContractRequest.company_name }}</p>
+                            </div>
+                            <div class="form-group ">
+                                <label for="exampleInputEmail1 ">Lĩnh vực Kinh Doanh</label>
+                                <p style="color: red; ">{{ detailContractRequest.main_business }}</p>
+                            </div>
+                            <div class="form-group ">
+                                <label for="exampleInputEmail1 ">Công việc cụ thể</label>
+                                <p style="color: red; ">{{ detailContractRequest.specific_work }}</p>
+                            </div>
+                            <div class="form-group ">
+                                <label for="exampleInputEmail1 ">Thu Nhập Cá Nhân Hàng Tháng</label>
+                                <p style="color: red; ">{{ detailContractRequest.monthly_income }}\</p>
+                            </div>
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="Địa Chỉ Và Thông Tin Liên Lạc">
+                        <div class="row">
+                            <div class="col-6 ">
+                                <h4>Địa Chỉ Nơi Ở Hiện Tại</h4>
+                                <div class="form-group ">
+                                    <label for="exampleInputEmail1 ">Số Nhà và Tên Đường</label>
+                                    <p style="color: red; ">{{ detailContractRequest.curadd_no_street }}</p>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="exampleInputEmail1 ">Thành Phố/Tỉnh</label>
+                                    <p style="color: red; ">{{ detailContractRequest.curadd_city }}</p>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="exampleInputEmail1 ">Quận/Huyện</label>
+                                    <p style="color: red; ">{{ detailContractRequest.curadd_district }}</p>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="exampleInputEmail1 ">Phường/Xã/Thị Trấn:</label>
+                                    <p style="color: red; ">{{ detailContractRequest.curadd_wards }}</p>
+                                </div>
+                            </div>
+                            <div class="col-6 ">
+                                <h4>Địa Chỉ Thường Chú</h4>
+                                <div class="form-group ">
+                                    <label for="exampleInputEmail1 ">Số Nhà và Tên Đường</label>
+                                    <p style="color: red; ">{{ detailContractRequest.peradd_no_street }}</p>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="exampleInputEmail1 ">Thành Phố/Tỉnh</label>
+                                    <p style="color: red; ">{{ detailContractRequest.peradd_city }}</p>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="exampleInputEmail1 ">Quận/Huyện</label>
+                                    <p style="color: red; ">{{ detailContractRequest.peradd_district }}</p>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="exampleInputEmail1 ">Phường/Xã/Thị Trấn:</label>
+                                    <p style="color: red; ">{{ detailContractRequest.peradd_wards }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 ">
+                                <h4>Địa Chỉ Liên Lạc Đặc Biệt</h4>
+                                <div class="form-group ">
+                                    <label for="exampleInputEmail1 ">Số Nhà và Tên Đường</label>
+                                    <p style="color: red; ">{{ detailContractRequest.conadd_no_street }}</p>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="exampleInputEmail1 ">Thành Phố/Tỉnh</label>
+                                    <p style="color: red; ">{{ detailContractRequest.conadd_city }}</p>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="exampleInputEmail1 ">Quận/Huyện</label>
+                                    <p style="color: red; ">{{ detailContractRequest.conadd_district }}</p>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="exampleInputEmail1 ">Phường/Xã/Thị Trấn:</label>
+                                    <p style="color: red; ">{{ detailContractRequest.conadd_wards }}</p>
+                                </div>
+                            </div>
+                            <div class="col-6 ">
+                                <h4>Địa Chỉ Nơi Làm Việc</h4>
+                                <div class="form-group ">
+                                    <label for="exampleInputEmail1 ">Số Nhà và Tên Đường</label>
+                                    <p style="color: red; ">{{ detailContractRequest.workadd_no_street }}</p>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="exampleInputEmail1 ">Thành Phố/Tỉnh</label>
+                                    <p style="color: red; ">{{ detailContractRequest.workadd_city }}</p>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="exampleInputEmail1 ">Quận/Huyện</label>
+                                    <p style="color: red; ">{{ detailContractRequest.workadd_district }}</p>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="exampleInputEmail1 ">Phường/Xã/Thị Trấn:</label>
+                                    <p style="color: red; ">{{ detailContractRequest.workadd_wards }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="Thông Tin Liên Lạc">
+                        <div class="row">
+                            <div class="col-6">
+                                <h3>ĐT cố Định và Email</h3>
+                                <div class="form-group ">
+                                    <label for="exampleInputEmail1 ">Email:</label>
+                                    <p style="color: red; ">{{ detailContractRequest.email }}</p>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="exampleInputEmail1 ">Điện Thoại Cố Định:</label>
+                                    <p style="color: red; ">{{ detailContractRequest.workadd_wards }}</p>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="exampleInputEmail1 ">Điện Thoại Di Động 1:</label>
+                                    <p style="color: red; ">{{ detailContractRequest.phone_1 }}</p>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="exampleInputEmail1 ">Điện Thoại Di Động 2:</label>
+                                    <p style="color: red; ">{{ detailContractRequest.phone_2 }}</p>
+                                </div>
+                            </div>
+                            <!-- <div class="col-6">
+                                <h3>Thông Tin tài khoản bên mua bảo hiểm</h3>
+                                <div class="form-group ">
+                                    <label for="exampleInputEmail1 ">Tên Tài Khoản</label>
+                                    <p style="color: red; ">nguyenchingocminh</p>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="exampleInputEmail1 ">Chi Nhánh - Phòng Giao Dịch</label>
+                                    <p style="color: red; ">APHA</p>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="exampleInputEmail1 ">Tỉnh/Thành Phố</label>
+                                    <p style="color: red; ">Hà Nội</p>
+                                </div>
+                            </div> -->
+                        </div>
+                    </mat-tab>
+                </mat-tab-group>
+                </mat-tab>
+                <mat-tab label="Bảng minh họa">
+                  <!-- <img src="https://img.topbank.vn/2020/02/24/b8awMTJx/minh-hoa-bao-hiem-nhan-tho-4b46.jpg" /> -->
+                  <!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>THÔNG TIN CHI TIẾT BẢN MINH HOẠ</h1>
+          </div>
+        </div>
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+  
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                  <h2><b>Thông Tin Bên Mua Bảo Hiểm</b></h2>
+              </div>
+              <table id="example1" class="table table-bordered table-striped">
                   <tr>
-                      <th>Hạng Mục</th>
-                      <th>Nội Dung</th>
+                    <th>Họ Và Tên</th>
+                    <td>Nguyễn Văn A</td>
                   </tr>
-              </thead>
-              <tbody>
                   <tr>
-                      <td>Giấy Tờ Liên Quan</td>
-                      <td><img src="https://img.topbank.vn/2020/02/24/b8awMTJx/minh-hoa-bao-hiem-nhan-tho-4b46.jpg"/></td>
+                    <th>Mối Quan Hệ Với NĐBH Sản Phẩm Chính</th>
+                    <td>Bản Thân</td>
                   </tr>
-              </tbody>
-            </table>
+                  <tr>
+                    <th>Ngày Sinh</th>
+                    <td>01/01/1992</td>
+                  </tr>
+                  <tr>
+                    <th>CMND</th>
+                    <td>123456789</td>
+                  </tr>
+                  <tr>
+                    <th>Giới Tính</th>
+                    <td>Nam</td>
+                  </tr>
+                  <tr>
+                    <th>Quốc Tịch</th>
+                    <td>Việt Nam</td>
+                  </tr>
+                  <tr>
+                    <th>Số CMND</th>
+                    <td>1234567890</td>
+                  </tr>
+              </table>
+            </div>
+          </div>
+  
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                  <h2><b>Người Được Bảo Hiểm Của Hợp Đồng Chính</b></h2>
+              </div>
+              <table id="example1" class="table table-bordered table-striped">
+                <tr>
+                  <th>Họ Và Tên</th>
+                  <td>Nguyễn Văn A</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+  
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                  <h2><b>Thông Tin Hợp Đồng Chính</b></h2>
+              </div>
+              <table id="example1" class="table table-bordered table-striped">
+                  <tr>
+                    <th>Chương Trình</th>
+                    <td>001</td>
+                  </tr>
+                  <tr>
+                    <th>Chọn Lựa</th>
+                    <td>001</td>
+                  </tr>
+                  <tr>
+                    <th>Lựa Chọn Sản Phẩm</th>
+                    <td>001</td>
+                  </tr>
+                  <tr>
+                    <th>Thời Hạn</th>
+                    <td>10 năm</td>
+                  </tr>
+                  <tr>
+                    <th>Số Tiền Bảo Hiểm (VNĐ)</th>
+                    <td>123456</td>
+                  </tr>
+                  <tr>
+                    <th>Phí Bảo Hiểm (VNĐ)</th>
+                    <td>123</td>
+                  </tr>
+              </table>
+            </div>
+          </div>
+  
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                  <h2><b>Thông Tin Quyền Lợi Bảo Hiểm Bổ Sung</b></h2>
+              </div>
+              <table id="example1" class="table table-bordered table-striped">
+                  <tr>
+                    <th>Tên Quyền Lợi</th>
+                    <th>Nhóm Nghề Nghiệp</th>
+                    <th>Thời Hạn</th>
+                    <th>Số Tiền Bảo Hiểm</th>
+                    <th>Phí Bảo Hiểm</th>
+                  </tr>
+                  <tr>
+                    <td>BH Tai nạn Toàn Diện nâng cao</td>
+                    <td>Kỹ Sư</td>
+                    <td>10 năm</td>
+                    <td>123456</td>
+                    <td>1234</td>
+                  </tr>
+                  <tr>
+                    <td>BH Chăm Sóc Sức Khỏe</td>
+                    <td>Kỹ Sư</td>
+                    <td>10 năm</td>
+                    <td>123456</td>
+                    <td>1234</td>
+                  </tr>
+                  <tr>
+                    <td>Quyền Lợi Điều Trị nội trú</td>
+                    <td></td>
+                    <td></td>
+                    <td>123456</td>
+                    <td>1234</td>
+                  </tr>
+                  <tr>
+                    <td>Quyền Lợi Điều Trị ngoại trú</td>
+                    <td></td>
+                    <td></td>
+                    <td>123456</td>
+                    <td>1234</td>
+                  </tr>
+                  <tr>
+                    <td>Quyền Lợi Chăm sóc răng</td>
+                    <td></td>
+                    <td></td>
+                    <td>123456</td>
+                    <td>1234</td>
+                  </tr>
+                  <tr>
+                    <td>BH Hỗ Trợ Chi phí chữa bệnh nan y</td>
+                    <td>Kỹ Sư</td>
+                    <td>10 năm</td>
+                    <td>123456</td>
+                    <td>1234</td>
+                  </tr>
+                  <tr>
+                    <td>BH Hỗ Trợ điều trị bệnh ung thư</td>
+                    <td>Kỹ Sư</td>
+                    <td>10 năm</td>
+                    <td>123456</td>
+                    <td>1234</td>
+                  </tr>
+                  <tr>
+                    <td>BH bệnh hiểm nghèo cao cấp toàn diện trả trước</td>
+                    <td>Kỹ Sư</td>
+                    <td>10 năm</td>
+                    <td>123456</td>
+                    <td>1234</td>
+                  </tr>
+                  <tr>
+                    <td>BH bệnh hiểm nghèo cao cấp toàn diện</td>
+                    <td>Kỹ Sư</td>
+                    <td>10 năm</td>
+                    <td>123456</td>
+                    <td>1234</td>
+                  </tr>
+              </table>
+            </div>
+          </div>
+  
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                  <h2><b>Người Được Bảo Hiểm Bổ Sung</b></h2>
+              </div>
+              <table id="example1" class="table table-bordered table-striped">
+                <tr>
+                  <th>Họ Và Tên</th>
+                  <td>Nguyễn Văn A</td>
+                </tr>
+                <tr>
+                  <th>Địa Chỉ</th>
+                  <td>121 Thái Hà, Đống Đa, Hà Nội</td>
+                </tr>
+                <tr>
+                  <th>Mối Quan hệ với NĐBH sản phẩm chính</th>
+                  <td>Bản Thân</td>
+                </tr>
+                <tr>
+                  <th>Ngày Sinh</th>
+                  <td>01/01/1992</td>
+                </tr>
+                <tr>
+                  <th>CMND</th>
+                  <td>123456789</td>
+                </tr>
+                <tr>
+                  <th>Giới Tính</th>
+                  <td>Nam</td>
+                </tr>
+                <tr>
+                  <th>Quốc Tịch</th>
+                  <td>Việt Nam</td>
+                </tr>
+                <tr>
+                  <th>Nghề Nghiệp</th>
+                  <td>Kỹ Sư</td>
+                  </tr>
+              </table>
+            </div>
+          </div>
+  
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                  <h2><b>Tổng Phí Bảo Hiểm</b></h2>
+              </div>
+              <table id="example1" class="table table-bordered table-striped">
+                <tr>
+                  <th>123456</th>
+                </tr>
+              </table>
+            </div>
+          </div>
+  
+         
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  
+  
+                </mat-tab>
+              </td>
+              <td>
+              </td>
+            </mat-tab-group>
+
 
           </div>
           <!-- /.card -->
@@ -39,28 +525,32 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-                <h2><b>Form Xét Duyệt</b></h2>
+              <h2><b>Form Xét Duyệt</b></h2>
             </div>
+            <form>
             <table class=" table table-bordered ">
-                  <tr>
-                      <th>Quyết Định Xét Duyệt</th>
-                      <td>
-                        <select class="custom-select">
-                          <option>Chấp Nhận</option>
-                          <option>Yêu CẦu Bổ Sung</option>
-                          <option>Từ Chối</option>
-                        </select>
-                      </td>
-                  </tr>
-                  <tr>
-                    <th>Ghi Chú</th>
-                    <td><textarea class="form-control" rows="3" placeholder="Enter ..."></textarea></td>
-                  </tr>
-                  <tr>
-                    <td colspan="2"><button type="button" class="btn btn-block btn-success btn-sm"
-                      (click)="displayConfirmDialog()">Lưu</button></td>
-                  </tr>
+             
+              <tr>
+                <th>Quyết Định Xét Duyệt</th>
+                <td>
+                  <select class="custom-select">
+                    <option>Chấp Nhận</option>
+                    <option>Yêu CẦu Bổ Sung</option>
+                    <option>Từ Chối</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <th>Ghi Chú</th>
+                <td><textarea class="form-control" rows="3" placeholder="Enter ..."></textarea></td>
+              </tr>
+              <tr>
+                <td colspan="2"><button type="button" class="btn btn-block btn-success btn-sm"
+                    (click)="displayConfirmDialog()">Lưu</button></td>
+              </tr>
+            
             </table>
+        </form>
           </div>
         </div>
         <!-- /.col -->
@@ -76,21 +566,22 @@
 
 <div class="modal" [ngClass]="status ? 'active' : ''" id="myModal" role="dialog">
   <div class="modal-dialog">
-      <div class="modal-content">
-                  <form>
-                      <div class="card-body" style="height: auto; width: 700px; overflow: auto;">
-                          <div style="display: inline;">
-                            <h3>Xác Nhận</h3>
-                          </div>
-                          <div class="form-group">
-                              <input type="submit" class="form-control" value="Xác Nhận" id="exampleInputEmail1" style="background: #28a745; color: white;">
-                          </div>
-                          <div class="form-group">
-                            <button class="form-control" style="background: #c82333; color: white;" (click)="displayConfirmDialog()">Huỷ</button>
-                        </div>
-                      </div>
-                  </form>
+    <div class="modal-content">
+      <form>
+        <div class="card-body" style="height: auto; width: 700px; overflow: auto;">
+          <div style="display: inline;">
+            <h3>Xác Nhận</h3>
           </div>
+          <div class="form-group">
+            <input type="submit" class="form-control" value="Xác Nhận" id="exampleInputEmail1"
+              style="background: #28a745; color: white;">
+          </div>
+          <div class="form-group">
+            <button class="form-control" style="background: #c82333; color: white;"
+              (click)="displayConfirmDialog()">Huỷ</button>
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
-

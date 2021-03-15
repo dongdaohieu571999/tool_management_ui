@@ -24,10 +24,8 @@ export class ContractDTO{
     date_changed_contract:Date;
     description:String;
     approval_status_contract_change:String;
-    id_attachment_contract_change:number;
     id_request:number;
-    new_information:String;
-    old_information:String;
     payment_amount_fee:String;
     payment_amount_interset:String;
+    id_employee:number;
 }

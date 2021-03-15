@@ -131,123 +131,16 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
+                                            <tr *ngFor="let intersetpayment of intersetpayments">
                                                 <td>#1897234</td>
-                                                <td><a>{{contract.id}}</a></td>
-                                                <td>{{contract.created_time_interset}}</td>
-                                                <td>{{contract.payment_amount_interset}}</td>
-                                                <td><a href="#">{{contract.id_main_interest}}</a></td>
-                                                <td><a>{{contract.id_bill_issuer}}</a></td>
-                                                <td>{{contract.approve_status_interset}}</td>
+                                                <td><a>{{intersetpayment.id}}</a></td>
+                                                <td>{{intersetpayment.created_time | date}}</td>
+                                                <td>{{intersetpayment.payment_amount}}</td>
+                                                <td><a href="#">{{intersetpayment.id_main_interest}}</a></td>
+                                                <td><a>{{intersetpayment.id_bill_issuer}}</a></td>
+                                                <td>{{intersetpayment.approve_status}}</td>
                                             </tr>
-                                            <!-- <tr>
-                                                <td>#1897234</td>
-                                                <td>#JHBVJHJHV798</td>
-                                                <td>20/11/2021 SA 7:30</td>
-                                                <td>1.200.000 đ</td>
-                                                <td><a href="#">#KJNJBNCS</a></td>
-                                                <td>Đang Chờ Xét Duyệt</td>
-                                                <td>Nguyễn Chí Ngọc Minh</td>
-                                            </tr>
-                                            <tr>
-                                                <td>#1897234</td>
-                                                <td>#JHBVJHJHV798</td>
-                                                <td>20/11/2021 SA 7:30</td>
-                                                <td>1.200.000 đ</td>
-                                                <td><a href="#">#KJNJBNCS</a></td>
-                                                <td>Đang Chờ Xét Duyệt</td>
-                                                <td>Nguyễn Chí Ngọc Minh</td>
-                                            </tr>
-                                            <tr>
-                                                <td>#1897234</td>
-                                                <td>#JHBVJHJHV798</td>
-                                                <td>20/11/2021 SA 7:30</td>
-                                                <td>1.200.000 đ</td>
-                                                <td><a href="#">#KJNJBNCS</a></td>
-                                                <td>Đang Chờ Xét Duyệt</td>
-                                                <td>Nguyễn Chí Ngọc Minh</td>
-                                            </tr>
-                                            <tr>
-                                                <td>#1897234</td>
-                                                <td>#JHBVJHJHV798</td>
-                                                <td>20/11/2021 SA 7:30</td>
-                                                <td>1.200.000 đ</td>
-                                                <td><a href="#">#KJNJBNCS</a></td>
-                                                <td>Đang Chờ Xét Duyệt</td>
-                                                <td>Nguyễn Chí Ngọc Minh</td>
-                                            </tr>
-                                            <tr>
-                                                <td>#1897234</td>
-                                                <td>#JHBVJHJHV798</td>
-                                                <td>20/11/2021 SA 7:30</td>
-                                                <td>1.200.000 đ</td>
-                                                <td><a href="#">#KJNJBNCS</a></td>
-                                                <td>Đang Chờ Xét Duyệt</td>
-                                                <td>Nguyễn Chí Ngọc Minh</td>
-                                            </tr>
-                                            <tr>
-                                                <td>#1897234</td>
-                                                <td>#JHBVJHJHV798</td>
-                                                <td>20/11/2021 SA 7:30</td>
-                                                <td>1.200.000 đ</td>
-                                                <td><a href="#">#KJNJBNCS</a></td>
-                                                <td>Đang Chờ Xét Duyệt</td>
-                                                <td>Nguyễn Chí Ngọc Minh</td>
-                                            </tr>
-                                            <tr>
-                                                <td>#1897234</td>
-                                                <td>#JHBVJHJHV798</td>
-                                                <td>20/11/2021 SA 7:30</td>
-                                                <td>1.200.000 đ</td>
-                                                <td><a href="#">#KJNJBNCS</a></td>
-                                                <td>Đang Chờ Xét Duyệt</td>
-                                                <td>Nguyễn Chí Ngọc Minh</td>
-                                            </tr>
-                                            <tr>
-                                                <td>#1897234</td>
-                                                <td>#JHBVJHJHV798</td>
-                                                <td>20/11/2021 SA 7:30</td>
-                                                <td>1.200.000 đ</td>
-                                                <td><a href="#">#KJNJBNCS</a></td>
-                                                <td>Đang Chờ Xét Duyệt</td>
-                                                <td>Nguyễn Chí Ngọc Minh</td>
-                                            </tr>
-                                            <tr>
-                                                <td>#1897234</td>
-                                                <td>#JHBVJHJHV798</td>
-                                                <td>20/11/2021 SA 7:30</td>
-                                                <td>1.200.000 đ</td>
-                                                <td><a href="#">#KJNJBNCS</a></td>
-                                                <td>Đang Chờ Xét Duyệt</td>
-                                                <td>Nguyễn Chí Ngọc Minh</td>
-                                            </tr>
-                                            <tr>
-                                                <td>#1897234</td>
-                                                <td>#JHBVJHJHV798</td>
-                                                <td>20/11/2021 SA 7:30</td>
-                                                <td>1.200.000 đ</td>
-                                                <td><a href="#">#KJNJBNCS</a></td>
-                                                <td>Đang Chờ Xét Duyệt</td>
-                                                <td>Nguyễn Chí Ngọc Minh</td>
-                                            </tr>
-                                            <tr>
-                                                <td>#1897234</td>
-                                                <td>#JHBVJHJHV798</td>
-                                                <td>20/11/2021 SA 7:30</td>
-                                                <td>1.200.000 đ</td>
-                                                <td><a href="#">#KJNJBNCS</a></td>
-                                                <td>Đang Chờ Xét Duyệt</td>
-                                                <td>Nguyễn Chí Ngọc Minh</td>
-                                            </tr>
-                                            <tr>
-                                                <td>#1897234</td>
-                                                <td>#JHBVJHJHV798</td>
-                                                <td>20/11/2021 SA 7:30</td>
-                                                <td>1.200.000 đ</td>
-                                                <td><a href="#">#KJNJBNCS</a></td>
-                                                <td>Đang Chờ Xét Duyệt</td>
-                                                <td>Nguyễn Chí Ngọc Minh</td>
-                                            </tr> -->
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -289,78 +182,16 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
+                                            <tr *ngFor="let feepayment of feepayments">
                                                 <td>#1897234</td>
-                                                <td><a>a{{contract.id}}</a></td>
-                                                <td><a>{{contract.id_invoice}}</a></td>
-                                                <td>{{contract.payment_amount_fee}}</td>
-                                                <td>{{contract.payment_method}}</td>
-                                                <td><a>{{contract.id_collecter}}</a></td>
-                                                <td>{{contract.created_time_fee}}</td>
+                                                <td><a>a{{feepayment.id}}</a></td>
+                                                <td><a>{{feepayment.id_invoice}}</a></td>
+                                                <td>{{feepayment.payment_amount}}</td>
+                                                <td>{{feepayment.payment_method}}</td>
+                                                <td><a>{{feepayment.id_collecter}}</a></td>
+                                                <td>{{feepayment.created_time | date}}</td>
                                             </tr>
-                                            <!-- <tr>
-                                                <td>#1897234</td>
-                                                <td>#JHBVJHJHV798</td>
-                                                <td>#JHBVJHJHV798</td>
-                                                <td>1.200.000 đ</td>
-                                                <td>Internet Banking</td>
-                                                <td>Nguyễn Chí Ngọc Minh</td>
-                                                <td>20/11/2021 SA 7:30</td>
-                                            </tr>
-                                            <tr>
-                                                <td>#1897234</td>
-                                                <td>#JHBVJHJHV798</td>
-                                                <td>#JHBVJHJHV798</td>
-                                                <td>1.200.000 đ</td>
-                                                <td>Internet Banking</td>
-                                                <td>Nguyễn Chí Ngọc Minh</td>
-                                                <td>20/11/2021 SA 7:30</td>
-                                            </tr>
-                                            <tr>
-                                                <td>#1897234</td>
-                                                <td>#JHBVJHJHV798</td>
-                                                <td>#JHBVJHJHV798</td>
-                                                <td>1.200.000 đ</td>
-                                                <td>Internet Banking</td>
-                                                <td>Nguyễn Chí Ngọc Minh</td>
-                                                <td>20/11/2021 SA 7:30</td>
-                                            </tr>
-                                            <tr>
-                                                <td>#1897234</td>
-                                                <td>#JHBVJHJHV798</td>
-                                                <td>#JHBVJHJHV798</td>
-                                                <td>1.200.000 đ</td>
-                                                <td>Internet Banking</td>
-                                                <td>Nguyễn Chí Ngọc Minh</td>
-                                                <td>20/11/2021 SA 7:30</td>
-                                            </tr>
-                                            <tr>
-                                                <td>#1897234</td>
-                                                <td>#JHBVJHJHV798</td>
-                                                <td>#JHBVJHJHV798</td>
-                                                <td>1.200.000 đ</td>
-                                                <td>Internet Banking</td>
-                                                <td>Nguyễn Chí Ngọc Minh</td>
-                                                <td>20/11/2021 SA 7:30</td>
-                                            </tr>
-                                            <tr>
-                                                <td>#1897234</td>
-                                                <td>#JHBVJHJHV798</td>
-                                                <td>#JHBVJHJHV798</td>
-                                                <td>1.200.000 đ</td>
-                                                <td>Internet Banking</td>
-                                                <td>Nguyễn Chí Ngọc Minh</td>
-                                                <td>20/11/2021 SA 7:30</td>
-                                            </tr>
-                                            <tr>
-                                                <td>#1897234</td>
-                                                <td>#JHBVJHJHV798</td>
-                                                <td>#JHBVJHJHV798</td>
-                                                <td>1.200.000 đ</td>
-                                                <td>Internet Banking</td>
-                                                <td>Nguyễn Chí Ngọc Minh</td>
-                                                <td>20/11/2021 SA 7:30</td>
-                                            </tr> -->
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -392,6 +223,7 @@
                                     <table class=" table table-bordered ">
                                         <thead>
                                             <tr>
+                                                <th>ID</th>
                                                 <th>Thời Gian Thay Đổi</th>
                                                 <th>Mục Thay Đổi</th>
                                                 <th>Trạng Thái</th>
@@ -399,11 +231,12 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>{{contract.date_changed_contract}}</td>
-                                                <td>{{contract.id_request}}</td>
-                                                <td>{{contract.approval_status_contract_change}}</td>
-                                                <td><a [routerLink]="['/detai-history-change']" routerLinkActive="router-link-active">Chi Tiết</a></td>
+                                            <tr *ngFor="let contractchange of contractchanges">
+                                                <td>{{contractchange.id}}</td>
+                                                <td>{{contractchange.date | date}}</td>
+                                                <td>{{contractchange.id_request}}</td>
+                                                <td>{{contractchange.approval_status}}</td>
+                                                <button (click)="contractChangeDetail(contractchange.id)" class="btn btn-info" style="height: 30px;color: white;">Chi Tiết</button>
                                             </tr>
                                             <!-- <tr>
                                                 <td>19/01/2021</td>
@@ -441,98 +274,13 @@
                             </div>
                         </mat-tab>
                     </mat-tab-group>
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger">Tạm
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger" (click)="openDialogPause()">Tạm
                             Ngưng</button>
-                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Sửa
+                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" (click)="openDialogChange()">Sửa
                             Đổi</button>
                 </div>
             </div>
 
-        </div>
-
-        <div class="modal fade show" id="myModal" role="dialog">
-            <div class="modal-dialog">
-
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <div class="card card-primary">
-
-                            <form>
-                                <div class="card-body" style="height: 448px; width: 1200px; overflow: auto;">
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Mã Hợp Đồng</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputPassword1">Mã Khách Hàng</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Tên Chủ Hợp Đồng</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Kỳ Hạn</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Loại Bảo Hiểm</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Mã Bảng Minh Họa</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Tổng Số Tiền Phải Trả</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Tổng Số Tiền Đã Trả</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Ngày Đăng Ký</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Ngày Hết Hạn</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                </div>
-                                <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary">Save Draft</button>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="modal modal-danger fade in" id="modal-danger">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-
-                    </div>
-                    <div class="modal-body">
-                        <p>Gửi yêu cầu cho cấp trên để tạm ngưng hợp đồng này</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-outline">Gửi</button>
-                    </div>
-                </div>
-                <!-- /.modal-content -->
-            </div>
-            <!-- /.modal-dialog -->
         </div>
     </div>
     <!-- ./wrapper -->

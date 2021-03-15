@@ -39,7 +39,8 @@ export class ContractAddDialogComponent implements OnInit {
       contractForm.value.status,
       contractForm.value.approval_status,
       contractForm.value.totalPayment,
-      contractForm.value.signDate
+      contractForm.value.signDate,
+      1
       );
       this.contractService.addContract(contract).subscribe((data => {
         console.log(data);

@@ -75,6 +75,8 @@ import { ReportCustomerDialogComponent } from './view/dialog/report-customer-dia
 import { MailDetailComponent } from './view/mail/mail-detail/mail-detail.component';
 import { AddMailDialogComponent } from './view/dialog/add-mail-dialog/add-mail-dialog.component';
 import { ConfirmChangePassComponent } from './view/change-pass/confirm-change-pass/confirm-change-pass.component';
+import { ContractChangeInfoDialogComponent } from './view/dialog/contract-change-info-dialog/contract-change-info-dialog.component';
+import { ContractPauseDialogComponent } from './view/dialog/contract-pause-dialog/contract-pause-dialog.component';
 
 
 @NgModule({
@@ -130,7 +132,9 @@ import { ConfirmChangePassComponent } from './view/change-pass/confirm-change-pa
     AddMailDialogComponent,
     CustomerEditInfoComponent,
     ReportCustomerDialogComponent,
-    ConfirmChangePassComponent,
+    ContractChangeInfoDialogComponent,
+    ContractPauseDialogComponent,
+    ConfirmChangePassComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -156,7 +160,7 @@ import { ConfirmChangePassComponent } from './view/change-pass/confirm-change-pa
     MatSnackBarModule,
     MatSelectModule
   ],
-  entryComponents: [ReportCustomerDialogComponent,CustomerEditInfoComponent,AdminAddAccCustomerComponent,AdminAddEmployeeInfoComponent,AdminAddAccountEmployeeComponent,AddCustomerIllustrationDialogComponent,CustomerAddInfoDialogComponent,ContractAddDialogComponent,NotificationConfirmDialogComponent,PauseCustomerDialogComponent],
+  entryComponents: [ContractPauseDialogComponent,ContractChangeInfoDialogComponent,ReportCustomerDialogComponent,CustomerEditInfoComponent,AdminAddAccCustomerComponent,AdminAddEmployeeInfoComponent,AdminAddAccountEmployeeComponent,AddCustomerIllustrationDialogComponent,CustomerAddInfoDialogComponent,ContractAddDialogComponent,NotificationConfirmDialogComponent,PauseCustomerDialogComponent],
   providers: [AdminDataServiceService],
   bootstrap: [AppComponent]
 })

@@ -41,6 +41,41 @@ export class ContractService {
     .pipe(catchError(this.handleError));
   }
 
+  public EditContract(contract: Contract): Observable<any>{
+    const url = this.common.makeUrl("/contract/edit_contract");
+    return this.httpClient 
+    .post<any>(url,contract,this.httpOptions)
+    .pipe(catchError(this.handleError));
+  }
+
+  public getAllContractChangeHistory(id:number): Observable<any>{
+    const url = this.common.makeUrl("/contract/get_all_contract_change_history/"+id);
+    return this.httpClient
+    .get<any>(url,this.httpOptions)
+    .pipe(catchError(this.handleError));
+  }
+
+  public getAllIntersetPaymentHistory(id:number): Observable<any>{
+    const url = this.common.makeUrl("/contract/get_all_interset_payment_history/"+id);
+    return this.httpClient
+    .get<any>(url,this.httpOptions)
+    .pipe(catchError(this.handleError));
+  }
+
+  public getAllFeePaymentHistory(id:number): Observable<any>{
+    const url = this.common.makeUrl("/contract/get_all_fee_payment_history/"+id);
+    return this.httpClient
+    .get<any>(url,this.httpOptions)
+    .pipe(catchError(this.handleError));
+  }
+
+  public getDetailContractChangeHistory(id:number): Observable<any>{
+    const url = this.common.makeUrl("/contract/get_detail_contract_change_history/"+id);
+    return this.httpClient
+    .get<any>(url,this.httpOptions)
+    .pipe(catchError(this.handleError));
+  }
+
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.
