@@ -15,7 +15,7 @@ export class CustomerService {
   public customer: CustomerInfo;
 
   constructor(private httpClient: HttpClient, private common: CommonService,private route: Router) { }
-  
+
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -59,7 +59,7 @@ export class CustomerService {
     .post<any>(url,data,this.httpOptions)
     .pipe(catchError(this.handleError));
   }
-  
+
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.

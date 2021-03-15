@@ -75,6 +75,7 @@ import { ReportCustomerDialogComponent } from './view/dialog/report-customer-dia
 import { MailDetailComponent } from './view/mail/mail-detail/mail-detail.component';
 import { AddMailDialogComponent } from './view/dialog/add-mail-dialog/add-mail-dialog.component';
 import { CustomerNameSearchPipe } from './pipe/customer-name-search.pipe';
+import { AutocompleteLibComponent } from 'angular-ng-autocomplete';
 
 
 
@@ -133,7 +134,8 @@ import { CustomerNameSearchPipe } from './pipe/customer-name-search.pipe';
     ReportCustomerDialogComponent,
     MailDetailComponent,
     AddMailDialogComponent,
-    CustomerNameSearchPipe
+    CustomerNameSearchPipe,
+    AutocompleteLibComponent
   ],
   imports: [
     NgxSpinnerModule,

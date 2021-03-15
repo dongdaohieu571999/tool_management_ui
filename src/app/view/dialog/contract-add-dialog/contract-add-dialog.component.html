@@ -4,16 +4,22 @@
             <div>
                 <form #ContractForm="ngForm">
                     <div class="card-body" style="height: 608px; width: 1000px;">
-                        <!-- <div class="form-group">
-                          <label for="exampleInputPassword1">Mã Khách Hàng</label>
-                          <input type="password" class="form-control" name="customerId" ngModel>
-                        </div> -->
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Mã Khách Hàng</label>
-                            <input type="text" class="form-control" name="customerCode" id="customerCode" [(ngModel)]="searchText" autofocus/>
-                            <!-- <select class="form-control disabled" id="customerID" name="customerId">
-                            <option *ngFor="let customerinfo of customerinfos" value="customerinfo.id">{{customerinfo.code}}</option> -->
-                          <!-- </select> -->
+                            <label>Mã Khách Hàng</label>
+                            <div class="ng-autocomplete">
+                              <ng-autocomplete [data]="customerinfos" [searchKeyword]="searchText" (selected)='selectEvent($event)'
+                                  (inputChanged)='onChangeSearch($event)' (inputFocused)='onFocused($event)' [itemTemplate]="itemTemplate"
+                                  [notFoundTemplate]="notFoundTemplate">
+                              </ng-autocomplete>
+
+                              <ng-template #itemTemplate let-item>
+                                  <a [innerHTML]="customerinfo.code"></a>
+                              </ng-template>
+
+                              <ng-template #notFoundTemplate let-notFound>
+                                  <div [innerHTML]="notFound"></div>
+                              </ng-template>
+                          </div>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Tên Chủ Hợp Đồng</label>
@@ -51,12 +57,12 @@
                             <input type="date" class="form-control" name="outOfDate" ngModel>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Tình trạng hoạt động</label>
-                            <input type="email" class="form-control" name="status" ngModel>
+                            <label>Tình trạng hoạt động</label>
+                            <input type="text" class="form-control" name="status" value="Chưa Hoạt Động" disabled ngModel>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Tình trạng xét duyệt</label>
-                            <input type="email" class="form-control" name="approval_status" ngModel>
+                            <label>Tình trạng xét duyệt</label>
+                            <input type="text" class="form-control" name="approval_status" value="Đợi Xét Duyệt" disabled ngModel>
                         </div>
                     </div>
                 </form>
