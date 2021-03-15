@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import jwt_decode from "jwt-decode";
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { CustomerAcc } from 'src/app/model/CustomerAcc';
 import { CustomerInfo } from 'src/app/model/CustomerInfo';
 import { CustomerService } from 'src/app/services/customer/customer.service';
 import { AdminAddAccCustomerComponent } from 'src/app/view/dialog/admin-add-acc-customer/admin-add-acc-customer.component'
+import { CommonService } from 'src/app/services/common/common.service';
 
 
 @Component({
@@ -15,8 +16,10 @@ import { AdminAddAccCustomerComponent } from 'src/app/view/dialog/admin-add-acc-
 })
 export class ViewCustomerTableComponent implements OnInit {
 
+  constructor(private customerService :CustomerService,private common: CommonService,public dialog: MatDialog,private router:Router) { }
   ngOnInit(): void {
-    this.customerService.getAllCustomerInfo().subscribe((data => {
+
+    this.customerService.getAllCustomerInfo(jwt_decode(this.common.getCookie('token_key'))['sub']).subscribe((data => {
       this.data = data;
       this.totalRecords = data.length;
     }))
@@ -27,7 +30,7 @@ export class ViewCustomerTableComponent implements OnInit {
   totalRecords:number;
 
   status: boolean = false;
-  constructor(private customerService :CustomerService,public dialog: MatDialog,private router:Router) { }
+  
 
   openDialog(i:number) {
     const dialogRef = this.dialog.open(AdminAddAccCustomerComponent,({

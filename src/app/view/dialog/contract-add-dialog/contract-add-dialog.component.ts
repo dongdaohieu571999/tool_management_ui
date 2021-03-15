@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import jwt_decode from "jwt-decode";
 import { Contract } from 'src/app/model/Contract';
 import { CustomerInfo } from 'src/app/model/CustomerInfo';
+import { CommonService } from 'src/app/services/common/common.service';
 import { ContractService } from 'src/app/services/contract/contract.service';
 import { CustomerService } from 'src/app/services/customer/customer.service';
 
@@ -12,12 +14,12 @@ import { CustomerService } from 'src/app/services/customer/customer.service';
 })
 export class ContractAddDialogComponent implements OnInit {
 
-  constructor(private contractService:ContractService,private customerService : CustomerService) { }
+  constructor(private contractService:ContractService,private common:CommonService,private customerService : CustomerService) { }
   customerinfos : Array<CustomerInfo>;
 
 
   ngOnInit(): void {
-    this.customerService.getAllCustomerInfo().subscribe((data => {
+    this.customerService.getAllCustomerInfo(jwt_decode(this.common.getCookie('token_key'))['sub']).subscribe((data => {
       this.customerinfos = data;
     }))
   
