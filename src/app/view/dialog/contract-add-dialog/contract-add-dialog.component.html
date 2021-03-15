@@ -11,12 +11,6 @@
                         <div class="form-group">
                             <label for="exampleInputPassword1">Mã Khách Hàng</label>
                             <input type="text" class="form-control" name="customerCode" id="customerCode" [(ngModel)]="searchText" autofocus/>
-                            <ul class="list-group list-group-flush">
-                              <!-- results of ngFor is passed to appFilter with argument searchText -->
-                              <li class="list-group-item" *ngFor="let customer of customerinfos | customerNameSearch: searchText">
-                                {{customer.code}}
-                              </li>
-                            </ul>
                             <!-- <select class="form-control disabled" id="customerID" name="customerId">
                             <option *ngFor="let customerinfo of customerinfos" value="customerinfo.id">{{customerinfo.code}}</option> -->
                           <!-- </select> -->

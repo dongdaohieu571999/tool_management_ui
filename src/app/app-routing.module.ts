@@ -53,7 +53,7 @@ const routes: Routes = [
   {path: "reset-password", component: ResetPasswordComponent},
   {path: "reset-password", component: ResetPasswordComponent},
   {path: "appraiser-contract-manage", component: AppraiserContractManageComponent},
-  {path: "contract-detail/:id", component: ViewDetailContractComponent},
+  {path: "contract-detail", component: ViewDetailContractComponent},
   {path: "appraiser-request-manage", component: AppraiserRequestManageComponent},
   {path: "appraiser-request-detail/:id", component: DetailRequestComponent},
   {path: "customer-detail/:id", component: ViewDetailCustomerComponent},

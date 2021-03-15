@@ -25,6 +25,7 @@ export class ContractTableComponent implements OnInit {
   }
 
   public contractDetail(id:number){
-    this.router.navigate(['contract-detail',id]);
+    this.contractService.setContractId(id);
+    this.router.navigate(['contract-detail']);
   }
 }

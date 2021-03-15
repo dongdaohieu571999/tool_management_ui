@@ -27,8 +27,14 @@ export class ContractService {
     .pipe(catchError(this.handleError));
   }
 
-  public getDetailContract(id:number): Observable<any>{
-    const url = this.common.makeUrl("/contract/get_detail_contract/"+id);
+  contractId: number;
+
+  setContractId(contractId: number){
+    this.contractId = contractId;
+  }
+
+  public getDetailContract(): Observable<any>{
+    const url = this.common.makeUrl("/contract/get_detail_contract/"+ this.contractId + "/" + this.common.getCookie("token_key"));
     return this.httpClient
     .get<any>(url,this.httpOptions)
     .pipe(catchError(this.handleError));
