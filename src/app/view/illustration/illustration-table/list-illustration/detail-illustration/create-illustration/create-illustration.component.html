@@ -11,7 +11,7 @@
             <span>Tạo Bảng minh họa</span>
         </div>
         <div class="title">
-          <br>
+            <br>
             <h1><b>Bảng Minh Họa - Tạo Bảng Minh Họa</b></h1>
         </div>
         <div class="infoUser">
@@ -23,9 +23,7 @@
                 <fieldset>
                     <legend>Ngày Dự Kiến Bắt Đầu Quyền Lợi Bảo Hiểm</legend>
                     <div class="form-group">
-                        <label>Date:</label>
-                        <input type="date">
-                        <!-- /.input group -->
+                        <input type="date" class="form-control">
                     </div>
                 </fieldset>
             </div>
@@ -34,45 +32,45 @@
         <div style="display: grid; grid-template-columns: auto auto;">
             <div>
                 <fieldset>
-                    <legend>Bên Mua Bảo Hiểm</legend>
+                    <legend>Người Được Bảo Hiểm</legend>
                     <table style="display: block;">
                         <tr>
                             <td>Tên</td>
-                            <td><input></td>
+                            <td><input class="form-control"></td>
                         </tr>
                         <tr>
-                            <td>Mối Quan hệ với NĐBH sản phẩm chính</td>
-                            <td><input></td>
+                            <td>Nhóm Nghề</td>
+                            <td><input type="date" class="form-control"></td>
                         </tr>
                         <tr>
                             <td>Ngày Sinh</td>
-                            <td><input type="date"></td>
+                            <td><input type="date" class="form-control"></td>
                         </tr>
                         <tr>
                             <td>Giới Tính</td>
-                            <td><select>
+                            <td><select class="form-control">
                                 <option value="volvo">Nam</option>
                                 <option value="saab">Nữ</option>
                             </select></td>
-                        </tr>
-                        <tr>
-                            <td>Số CMND</td>
-                            <td><input></td>
-                        </tr>
-                        <tr>
-                            <td>Địa Chỉ</td>
-                            <td><input></td>
                         </tr>
                     </table>
                 </fieldset>
             </div>
             <div>
                 <fieldset>
-                    <legend>Người được bảo hiểm của hợp đồng chính</legend>
+                    <legend>Bên Mua Bảo Hiểm</legend>
                     <div class="row">
                         <p>Tên</p>
-                        <input>
-                        <p>Người được bảo hiểm cũng là chủ hợp đồng nếu là 2 người khác nhau, nhập tên của người được bảo hiểm ở trên</p>
+                        <input class="form-control">
+                    </div>
+                    <div class="row">
+                        <p>Quan Hệ Với Người Được Bảo Hiểm</p>
+                        <select class="form-control">
+                            <option>Bố/Mẹ Đẻ</option>
+                            <option>Con Cái</option>
+                            <option>Vợ/Chồng</option>
+                            <option>Bản Thân</option>
+                        </select>
                     </div>
                 </fieldset>
             </div>
@@ -80,31 +78,14 @@
         <div>
             <div>
                 <fieldset>
-                    <legend>Hợp Đồng Chính</legend>
+                    <legend>Sản Phẩm Chính</legend>
                     <table>
                         <tr>
-                            <td>Chương Trình</td>
-                            <td>Chọn Lựa</td>
+                            <td>Sản Phẩm</td>
                         </tr>
                         <tr>
                             <td>
-                                <select name="cars" id="cars">
-                                    <option value="volvo">Volvo</option>
-                                    <option value="saab">Saab</option>
-                                    <option value="opel">Opel</option>
-                                    <option value="audi">Audi</option>
-                                </select>
-                            </td>
-                            <td>
-                                <select name="cars" id="cars">
-                                    <option value="volvo">Volvo</option>
-                                    <option value="saab">Saab</option>
-                                    <option value="opel">Opel</option>
-                                    <option value="audi">Audi</option>
-                                </select>
-                            </td>
-                            <td>
-                                <select name="cars" id="cars">
+                                <select class="form-control">
                                     <option value="volvo">Volvo</option>
                                     <option value="saab">Saab</option>
                                     <option value="opel">Opel</option>
@@ -113,14 +94,13 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>Lựa Chọn Sản Phẩm</td>
                             <td>Thời Hạn</td>
-                            <td>Số Tiền Bảo Hiểm (VNĐ)</td>
+                            <td>Mệnh Giá (VNĐ)</td>
                             <td>Phí Bảo Hiểm (VNĐ)</td>
                         </tr>
                         <tr>
                             <td>
-                                <select name="cars" id="cars">
+                                <select class="form-control">
                                     <option value="volvo">Volvo</option>
                                     <option value="saab">Saab</option>
                                     <option value="opel">Opel</option>
@@ -128,7 +108,7 @@
                                 </select>
                             </td>
                             <td>
-                                <select name="cars" id="cars">
+                                <select class="form-control">
                                     <option value="volvo">Volvo</option>
                                     <option value="saab">Saab</option>
                                     <option value="opel">Opel</option>
@@ -136,15 +116,7 @@
                                 </select>
                             </td>
                             <td>
-                                <select name="cars" id="cars">
-                                    <option value="volvo">Volvo</option>
-                                    <option value="saab">Saab</option>
-                                    <option value="opel">Opel</option>
-                                    <option value="audi">Audi</option>
-                                </select>
-                            </td>
-                            <td>
-                                <select name="cars" id="cars">
+                                <select class="form-control">
                                     <option value="volvo">Volvo</option>
                                     <option value="saab">Saab</option>
                                     <option value="opel">Opel</option>
@@ -169,16 +141,22 @@
                             <td></td>
                             <td></td>
                             <td>Nhóm Nghề Nghiệp</td>
-                            <td>Thời Hạn</td>
-                            <td>Số Tiền Bảo Hiểm</td>
+                            <td>Mệnh Giá</td>
                             <td>Phí Bảo Hiểm</td>
                         </tr>
                         <tr>
-                            <td><input type="checkbox" class="form-check-input" id="exampleCheck1"></td>
+                            <td><input type="checkbox"></td>
                             <td></td>
                             <td>BH Tai nạn Toàn Diện nâng cao</td>
                             <td>
-                                <select name="cars" id="cars">
+                                <select class="form-control">
+                                        <option value="volvo">1</option>
+                                        <option value="saab">2</option>
+                                        <option value="opel">3</option>
+                                    </select>
+                            </td>
+                            <td>
+                                <select class="form-control">
                                         <option value="volvo">Volvo</option>
                                         <option value="saab">Saab</option>
                                         <option value="opel">Opel</option>
@@ -186,23 +164,7 @@
                                     </select>
                             </td>
                             <td>
-                                <select name="cars" id="cars">
-                                        <option value="volvo">Volvo</option>
-                                        <option value="saab">Saab</option>
-                                        <option value="opel">Opel</option>
-                                        <option value="audi">Audi</option>
-                                    </select>
-                            </td>
-                            <td>
-                                <select name="cars" id="cars">
-                                        <option value="volvo">Volvo</option>
-                                        <option value="saab">Saab</option>
-                                        <option value="opel">Opel</option>
-                                        <option value="audi">Audi</option>
-                                    </select>
-                            </td>
-                            <td>
-                                <select name="cars" id="cars">
+                                <select class="form-control">
                                         <option value="volvo">Volvo</option>
                                         <option value="saab">Saab</option>
                                         <option value="opel">Opel</option>
@@ -210,164 +172,20 @@
                                     </select>
                             </td>
                         </tr>
+
                         <tr>
-                            <td><input type="checkbox" class="form-check-input" id="exampleCheck1"></td>
-                            <td></td>
-                            <td>BH Chăm Sóc Sức Khỏe</td>
-                            <td>
-                                <select name="cars" id="cars">
-                                        <option value="volvo">Volvo</option>
-                                        <option value="saab">Saab</option>
-                                        <option value="opel">Opel</option>
-                                        <option value="audi">Audi</option>
-                                    </select>
-                            </td>
-                            <td>
-                                <select name="cars" id="cars">
-                                        <option value="volvo">Volvo</option>
-                                        <option value="saab">Saab</option>
-                                        <option value="opel">Opel</option>
-                                        <option value="audi">Audi</option>
-                                    </select>
-                            </td>
-                            <td>
-                                <select name="cars" id="cars">
-                                        <option value="volvo">Volvo</option>
-                                        <option value="saab">Saab</option>
-                                        <option value="opel">Opel</option>
-                                        <option value="audi">Audi</option>
-                                    </select>
-                            </td>
-                            <td>
-                                <select name="cars" id="cars">
-                                        <option value="volvo">Volvo</option>
-                                        <option value="saab">Saab</option>
-                                        <option value="opel">Opel</option>
-                                        <option value="audi">Audi</option>
-                                    </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td><input type="checkbox" class="form-check-input" id="exampleCheck1"></td>
-                            <td>Người được bh sản phẩm chính đã tham gia bảo hiểm chăm sóc sức khỏe tại hợp đồng khác ở DLVN</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td><input type="checkbox" class="form-check-input" id="exampleCheck1"></td>
-                            <td>Quyền Lợi Điều Trị nội trú</td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <select name="cars" id="cars">
-                                        <option value="volvo">Volvo</option>
-                                        <option value="saab">Saab</option>
-                                        <option value="opel">Opel</option>
-                                        <option value="audi">Audi</option>
-                                    </select>
-                            </td>
-                            <td>
-                                <select name="cars" id="cars">
-                                        <option value="volvo">Volvo</option>
-                                        <option value="saab">Saab</option>
-                                        <option value="opel">Opel</option>
-                                        <option value="audi">Audi</option>
-                                    </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td><input type="checkbox" class="form-check-input" id="exampleCheck1"></td>
-                            <td>Quyền Lợi Điều Trị ngoại trú</td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <select name="cars" id="cars">
-                                        <option value="volvo">Volvo</option>
-                                        <option value="saab">Saab</option>
-                                        <option value="opel">Opel</option>
-                                        <option value="audi">Audi</option>
-                                    </select>
-                            </td>
-                            <td>
-                                <select name="cars" id="cars">
-                                        <option value="volvo">Volvo</option>
-                                        <option value="saab">Saab</option>
-                                        <option value="opel">Opel</option>
-                                        <option value="audi">Audi</option>
-                                    </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td><input type="checkbox" class="form-check-input" id="exampleCheck1"></td>
-                            <td> quyền lợi Chăm sóc răng</td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <select name="cars" id="cars">
-                                        <option value="volvo">Volvo</option>
-                                        <option value="saab">Saab</option>
-                                        <option value="opel">Opel</option>
-                                        <option value="audi">Audi</option>
-                                    </select>
-                            </td>
-                            <td>
-                                <select name="cars" id="cars">
-                                        <option value="volvo">Volvo</option>
-                                        <option value="saab">Saab</option>
-                                        <option value="opel">Opel</option>
-                                        <option value="audi">Audi</option>
-                                    </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" class="form-check-input" id="exampleCheck1"></td>
-                            <td></td>
-                            <td>BH Hỗ Trợ Chi phí chữa bệnh nan y</td>
-                            <td>
-                                <select name="cars" id="cars">
-                                        <option value="volvo">Volvo</option>
-                                        <option value="saab">Saab</option>
-                                        <option value="opel">Opel</option>
-                                        <option value="audi">Audi</option>
-                                    </select>
-                            </td>
-                            <td>
-                                <select name="cars" id="cars">
-                                        <option value="volvo">Volvo</option>
-                                        <option value="saab">Saab</option>
-                                        <option value="opel">Opel</option>
-                                        <option value="audi">Audi</option>
-                                    </select>
-                            </td>
-                            <td>
-                                <select name="cars" id="cars">
-                                        <option value="volvo">Volvo</option>
-                                        <option value="saab">Saab</option>
-                                        <option value="opel">Opel</option>
-                                        <option value="audi">Audi</option>
-                                    </select>
-                            </td>
-                            <td>
-                                <select name="cars" id="cars">
-                                        <option value="volvo">Volvo</option>
-                                        <option value="saab">Saab</option>
-                                        <option value="opel">Opel</option>
-                                        <option value="audi">Audi</option>
-                                    </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" class="form-check-input" id="exampleCheck1"></td>
+                            <td><input type="checkbox"></td>
                             <td></td>
                             <td>BH Hỗ Trợ điều trị bệnh ung thư</td>
                             <td>
-                                <select name="cars" id="cars">
+                                <select class="form-control">
+                                    <option value="volvo">1</option>
+                                    <option value="saab">2</option>
+                                    <option value="opel">3</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="form-control">
                                         <option value="volvo">Volvo</option>
                                         <option value="saab">Saab</option>
                                         <option value="opel">Opel</option>
@@ -375,23 +193,7 @@
                                     </select>
                             </td>
                             <td>
-                                <select name="cars" id="cars">
-                                        <option value="volvo">Volvo</option>
-                                        <option value="saab">Saab</option>
-                                        <option value="opel">Opel</option>
-                                        <option value="audi">Audi</option>
-                                    </select>
-                            </td>
-                            <td>
-                                <select name="cars" id="cars">
-                                        <option value="volvo">Volvo</option>
-                                        <option value="saab">Saab</option>
-                                        <option value="opel">Opel</option>
-                                        <option value="audi">Audi</option>
-                                    </select>
-                            </td>
-                            <td>
-                                <select name="cars" id="cars">
+                                <select class="form-control">
                                         <option value="volvo">Volvo</option>
                                         <option value="saab">Saab</option>
                                         <option value="opel">Opel</option>
@@ -400,11 +202,18 @@
                             </td>
                         </tr>
                         <tr>
-                            <td><input type="checkbox" class="form-check-input" id="exampleCheck1"></td>
+                            <td><input type="checkbox"></td>
                             <td></td>
                             <td>BH bệnh hiểm nghèo cao cấp toàn diện trả trước</td>
                             <td>
-                                <select name="cars" id="cars">
+                                <select class="form-control">
+                                    <option value="volvo">1</option>
+                                    <option value="saab">2</option>
+                                    <option value="opel">3</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="form-control">
                                         <option value="volvo">Volvo</option>
                                         <option value="saab">Saab</option>
                                         <option value="opel">Opel</option>
@@ -412,23 +221,7 @@
                                     </select>
                             </td>
                             <td>
-                                <select name="cars" id="cars">
-                                        <option value="volvo">Volvo</option>
-                                        <option value="saab">Saab</option>
-                                        <option value="opel">Opel</option>
-                                        <option value="audi">Audi</option>
-                                    </select>
-                            </td>
-                            <td>
-                                <select name="cars" id="cars">
-                                        <option value="volvo">Volvo</option>
-                                        <option value="saab">Saab</option>
-                                        <option value="opel">Opel</option>
-                                        <option value="audi">Audi</option>
-                                    </select>
-                            </td>
-                            <td>
-                                <select name="cars" id="cars">
+                                <select class="form-control">
                                         <option value="volvo">Volvo</option>
                                         <option value="saab">Saab</option>
                                         <option value="opel">Opel</option>
@@ -437,11 +230,18 @@
                             </td>
                         </tr>
                         <tr>
-                            <td><input type="checkbox" class="form-check-input" id="exampleCheck1"></td>
+                            <td><input type="checkbox"></td>
                             <td></td>
                             <td>BH bệnh hiểm nghèo cao cấp toàn diện</td>
                             <td>
-                                <select name="cars" id="cars">
+                                <select class="form-control">
+                                    <option value="volvo">1</option>
+                                    <option value="saab">2</option>
+                                    <option value="opel">3</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="form-control">
                                         <option value="volvo">Volvo</option>
                                         <option value="saab">Saab</option>
                                         <option value="opel">Opel</option>
@@ -449,23 +249,7 @@
                                     </select>
                             </td>
                             <td>
-                                <select name="cars" id="cars">
-                                        <option value="volvo">Volvo</option>
-                                        <option value="saab">Saab</option>
-                                        <option value="opel">Opel</option>
-                                        <option value="audi">Audi</option>
-                                    </select>
-                            </td>
-                            <td>
-                                <select name="cars" id="cars">
-                                        <option value="volvo">Volvo</option>
-                                        <option value="saab">Saab</option>
-                                        <option value="opel">Opel</option>
-                                        <option value="audi">Audi</option>
-                                    </select>
-                            </td>
-                            <td>
-                                <select name="cars" id="cars">
+                                <select class="form-control">
                                         <option value="volvo">Volvo</option>
                                         <option value="saab">Saab</option>
                                         <option value="opel">Opel</option>
@@ -480,63 +264,35 @@
         <div class="col-12">
             <fieldset>
                 <legend>Người Được bảo hiểm bổ sung</legend>
-                <div class="row">
-                    <input>
-                    <button>Thêm NĐBH Bổ Sung</button>
-                    <button>Xóa NĐBH Bổ Sung</button>
-                </div>
+                <p>Họ Và Tên</p>
+                <input class="form-control">
+                <p>Quan Hệ Với Người Được Bảo Hiểm</p>
+                <select class="form-control">
+                            <option>Bố/Mẹ Đẻ</option>
+                            <option>Con Cái</option>
+                            <option>Vợ/Chồng</option>
+                            <option>Bản Thân</option>
+                        </select>
+                <p>Ngày Sinh</p>
+                <input class="form-control">
+                <p>Giới Tính</p>
+                <input class="form-control">
+                <p>Nhóm Nghề</p>
+                <select class="form-control">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                </select>
             </fieldset>
         </div>
 
-        <div class="col-12">
-            <fieldset>
-                <legend>Quyền Lợi Bảo Hiểm Của</legend>
-                <table>
-                    <tr>
-                        <td>Tên </td>
-                        <td><input> </td>
-                        <td> Địa Chỉ</td>
-                        <td> <input> </td>
-                    </tr>
-                    <tr>
-                        <td> Mối Quan hệ với NĐBH sản phẩm chính</td>
-                        <td>
-                            <select name="cars" id="cars">
-                                    <option value="volvo">Volvo</option>
-                                    <option value="saab">Saab</option>
-                                    <option value="opel">Opel</option>
-                                    <option value="audi">Audi</option>
-                                </select>
-                        </td>
-                        <td> </td>
-                        <td> </td>
-                    </tr>
-                    <tr>
-                        <td>Ngày Sinh </td>
-                        <td><input type="date"> </td>
-                        <td>Số CMND </td>
-                        <td> <input></td>
-                    </tr>
-                    <tr>
-                        <td> Giới Tính </td>
-                        <td>
-                            <select>
-                                    <option value="volvo">Nam</option>
-                                    <option value="saab">Nữ</option>
-                                </select>
-                        </td>
-                        <td> Nghề Nghiệp </td>
-                        <td><input> </td>
-                    </tr>
-                </table>
-            </fieldset>
-        </div>
+
         <div style="width: 100%; border: 1px solid; padding: 10px;">
             <div class="row">
                 <div class="col-4">
                     <div class="row">
                         <p>Định Kỳ Trả Phí</p>
-                        <select name="cars" id="cars" style="width: fit-content;">
+                        <select class="form-control" style="width: fit-content;">
                                 <option value="volvo">Volvo</option>
                                 <option value="saab">Saab</option>
                                 <option value="opel">Opel</option>
@@ -558,4 +314,5 @@
 
 
 </body>
+
 </html>
