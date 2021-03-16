@@ -42,42 +42,15 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td><b>001</b></td>
-                                                <td>Draft001</td>
-                                                <td>05/01/2021</td>
-                                                <td>Bảo hiểm nhân thọ</td>
+                                            <tr *ngFor="let illustration of illustrations">
+                                                <td><b>{{illustration.id_customer}}</b></td>
+                                                <td>{{illustration.id}}</td>
+                                                <td>{{illustration.create_time | date}}</td>
+                                                <td>{{illustration.main_interest_name}}</td>
                                                 <td><a [routerLink]="['/detail-illustration']">View</a></td>
                                             </tr>
                                         </tbody>
-                                        <tbody>
-                                            <tr>
-                                                <td><b>001</b></td>
-                                                <td>Draft001</td>
-                                                <td>05/01/2021</td>
-                                                <td>Bảo hiểm nhân thọ</td>
-                                                <td><a [routerLink]="['/detail-illustration']">View</a></td>
-                                            </tr>
-                                        </tbody>
-                                        <tbody>
-                                            <tr>
-                                                <td><b>001</b></td>
-                                                <td>Draft001</td>
-                                                <td>05/01/2021</td>
-                                                <td>Bảo hiểm nhân thọ</td>
-                                                <td><a [routerLink]="['/detail-illustration']">View</a></td>
-                                            </tr>
-                                        </tbody>
-                                        <tbody>
-                                            <tr>
-                                                <td><b>001</b></td>
-                                                <td>Draft001</td>
-                                                <td>05/01/2021</td>
-                                                <td>Bảo hiểm nhân thọ</td>
-                                                <td><a [routerLink]="['/detail-illustration']">View</a></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                                                            </table>
                                 </div>
                                 <!-- /.card-body -->
                             </div>

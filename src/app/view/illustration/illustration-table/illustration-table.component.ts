@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { CustomerOwnIllustration } from 'src/app/model/CustomerOwnIllustration';
 import { IllustrationService } from 'src/app/services/illustration/illustration.service';
@@ -10,7 +11,7 @@ import { IllustrationService } from 'src/app/services/illustration/illustration.
 })
 export class IllustrationTableComponent implements OnInit {
 
-  constructor(private illustration:IllustrationService,private spinner:NgxSpinnerService,private illustrationService:IllustrationService) { }
+  constructor(private router : Router,private illustration:IllustrationService,private spinner:NgxSpinnerService,private illustrationService:IllustrationService) { }
 
   listCustomerOwnIllustration:Array<CustomerOwnIllustration>
 
@@ -28,9 +29,16 @@ export class IllustrationTableComponent implements OnInit {
     this.spinner.show();
     this.illustrationService.getAllCustomerOwnIllustration().subscribe((data => {
       this.listCustomerOwnIllustration = data;
+      console.log(this.listCustomerOwnIllustration);;
       this.spinner.hide();
     }))
   }
+
+  public listIllustration(id:number){
+    this.router.navigate(['list-illustration',id]);
+  }
+
+
 
 
 
