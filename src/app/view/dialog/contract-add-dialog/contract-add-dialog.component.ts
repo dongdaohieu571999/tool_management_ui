@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormControl, NgForm } from '@angular/forms';
 import jwt_decode from "jwt-decode";
+import { Observable } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
 import { Contract } from 'src/app/model/Contract';
+import { CustomerAccDTO } from 'src/app/model/CustomerAccountDTO';
 import { CustomerInfo } from 'src/app/model/CustomerInfo';
 import { CommonService } from 'src/app/services/common/common.service';
 import { ContractService } from 'src/app/services/contract/contract.service';
@@ -16,15 +19,28 @@ export class ContractAddDialogComponent implements OnInit {
 
   constructor(private contractService:ContractService,private common:CommonService,private customerService : CustomerService) { }
   customerinfos : Array<CustomerInfo>;
-
+  customers: Array<CustomerAccDTO>;
   searchText: string = '';
 
-  ngOnInit(): void {
-    this.customerService.getAllCustomerInfo(jwt_decode(this.common.getCookie('token_key'))['sub']).subscribe((data => {
-      this.customerinfos = data;
-      console.log(data);
-    }))
+  formControl: FormControl;
 
+  options = new Array();
+  filteredOptions: Observable<string[]>;
+
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+
+    return this.options.filter(option => option.toLowerCase().includes(filterValue));
+  }
+
+  ngOnInit(): void {
+    this.customerService.getAllCustomerAccountDTO().subscribe((data => {
+      this.customers = data;
+      console.log(data);
+    }));
+
+    this.filteredOptions = this.formControl.valueChanges
+    .pipe(startWith(''), map(value => this._filter(value)));
   }
 
   onSubmit(contractForm : NgForm){
@@ -50,16 +66,4 @@ export class ContractAddDialogComponent implements OnInit {
       }))
   }
 
-  selectEvent(item) {
-    // do something with selected item
-  }
-
-  onChangeSearch(val: string) {
-    // fetch remote data from here
-    // And reassign the 'data' which is binded to 'data' property.
-  }
-
-  onFocused(e){
-    // do something when input is focused
-  }
 }

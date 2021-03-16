@@ -6,20 +6,12 @@
                     <div class="card-body" style="height: 608px; width: 1000px;">
                         <div class="form-group">
                             <label>Mã Khách Hàng</label>
-                            <!-- <div class="ng-autocomplete">
-                              <ng-autocomplete [data]="customerinfos" [searchKeyword]="searchText" (selected)='selectEvent($event)'
-                                  (inputChanged)='onChangeSearch($event)' (inputFocused)='onFocused($event)' [itemTemplate]="itemTemplate"
-                                  [notFoundTemplate]="notFoundTemplate">
-                              </ng-autocomplete>
-
-                              <ng-template #itemTemplate let-item>
-                                  <a [innerHTML]="customerinfo.code"></a>
-                              </ng-template>
-
-                              <ng-template #notFoundTemplate let-notFound>
-                                  <div [innerHTML]="notFound"></div>
-                              </ng-template>
-                          </div> -->
+                            <input type="text" class="form-control" name="idCustomer" [matAutocomplete]="auto">
+                            <mat-autocomplete #auto="matAutocomplete">
+                              <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                                  {{option}}
+                              </mat-option>
+                          </mat-autocomplete>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Tên Chủ Hợp Đồng</label>

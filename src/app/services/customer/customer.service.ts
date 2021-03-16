@@ -16,7 +16,7 @@ export class CustomerService {
   callRefreshTable = new EventEmitter();
   subsVar: Subscription;
 
-  invokeRefreshTableFun() { 
+  invokeRefreshTableFun() {
     this.callRefreshTable.emit();
   }
 
@@ -64,6 +64,11 @@ export class CustomerService {
     return this.httpClient
     .post<any>(url,data,this.httpOptions)
     .pipe(catchError(this.handleError));
+  }
+
+  public getAllCustomerAccountDTO(){
+    const url = this.common.makeUrl("/customer/get_customer_account_dto");
+    return this.httpClient.get<any>(url, this.httpOptions).pipe(catchError(this.handleError));
   }
 
   private handleError(error: HttpErrorResponse) {
