@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ContractService } from 'src/app/services/contract/contract.service';
 import { NgxSpinnerService } from 'ngx-spinner'
-import { ContractInContractListDTO } from 'src/app/model/ContractInContractListDTO';
+import { ContractListDTO } from 'src/app/model/ContractListDTO';
 
 @Component({
   selector: 'app-contract-table',
@@ -13,7 +13,7 @@ export class ContractTableComponent implements OnInit {
 
   constructor(private spinner:NgxSpinnerService, private contractService:ContractService, private router:Router) { }
 
-  contracts : Array<ContractInContractListDTO>;
+  contracts : Array<ContractListDTO>;
 
   ngOnInit(): void {
     this.spinner.show();

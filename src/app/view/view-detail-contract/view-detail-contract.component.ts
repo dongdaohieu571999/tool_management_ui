@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Contract } from 'src/app/model/Contract';
 import { ContractChangeHistory } from 'src/app/model/ContractChangeHistory';
 import { ContractDTO } from 'src/app/model/ContractDTO';
-import { ContractInContractListDTO } from 'src/app/model/ContractInContractListDTO';
+import { ContractListDTO } from 'src/app/model/ContractListDTO';
 import { FeePaymentHistory } from 'src/app/model/FeePaymentHistory';
 import { IntersetPaymentHistory } from 'src/app/model/IntersetPaymentHistory';
 import { ContractService } from 'src/app/services/contract/contract.service';
@@ -28,7 +28,7 @@ export class ViewDetailContractComponent implements OnInit {
 
   id:number;
   // contract:ContractDTO;
-  contract: ContractInContractListDTO;
+  contract: ContractListDTO;
   intersetpayments:IntersetPaymentHistory;
   feepayments:FeePaymentHistory;
   contractchanges:ContractChangeHistory;
@@ -69,16 +69,16 @@ export class ViewDetailContractComponent implements OnInit {
   }
   public openDialogChange(){
     let dialogRef = this.dialog.open(ContractChangeInfoDialogComponent,{data:this.contract});
-    
+
     dialogRef.afterClosed().subscribe(result => {
-      
+
     })
   }
   public openDialogPause(){
     let dialogRef = this.dialog.open(ContractPauseDialogComponent);
-    
+
     dialogRef.afterClosed().subscribe(result => {
-      
+
     })
   }
 }

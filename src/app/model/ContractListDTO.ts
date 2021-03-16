@@ -1,11 +1,11 @@
-export class ContractInContractListDTO{
+export class ContractListDTO{
   contractId: number;
   customerId: number;
   nameContractOwner: String;
   paymentPeriod: String;
   insuranceType: String;
-  idMainInterest: number;
-  idIllustration: number;
+  mainInterestId: number;
+  illustrationId: number;
   startTime: Date;
   status: String;
 
@@ -19,9 +19,9 @@ export class ContractInContractListDTO{
 
   getInsuranceType(): String {return this.insuranceType;}
 
-  getIdMainInterst(): number {return this.idMainInterest;}
+  getIdMainInterst(): number {return this.mainInterestId;}
 
-  getIdIllustration(): number {return this.idIllustration;}
+  getIdIllustration(): number {return this.illustrationId;}
 
   getStartTime(): Date {return this.startTime;}
 
