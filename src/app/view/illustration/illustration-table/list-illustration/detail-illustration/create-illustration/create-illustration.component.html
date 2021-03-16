@@ -261,9 +261,12 @@
                 </fieldset>
             </div>
         </div>
-        <div class="col-12">
+        <div class="col-12" *ngFor="let item of relatedPerson ; index as i">
             <fieldset>
-                <legend>Người Được bảo hiểm bổ sung</legend>
+                <legend>
+                    Người Được bảo hiểm bổ sung
+                    <button class="w3-button w3-xlarge w3-circle w3-red w3-card-4 customPlusButton" (click)="removeField(i)">-</button>
+                </legend>
                 <p>Họ Và Tên</p>
                 <input class="form-control">
                 <p>Quan Hệ Với Người Được Bảo Hiểm</p>
@@ -284,8 +287,135 @@
                     <option>3</option>
                 </select>
             </fieldset>
-        </div>
+            <h3>Quyền lợi bổ sung</h3>
+            <table>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Nhóm Nghề Nghiệp</td>
+                    <td>Mệnh Giá</td>
+                    <td>Phí Bảo Hiểm</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td></td>
+                    <td>BH Tai nạn Toàn Diện nâng cao</td>
+                    <td>
+                        <select class="form-control">
+                                <option value="volvo">1</option>
+                                <option value="saab">2</option>
+                                <option value="opel">3</option>
+                            </select>
+                    </td>
+                    <td>
+                        <select class="form-control">
+                                <option value="volvo">Volvo</option>
+                                <option value="saab">Saab</option>
+                                <option value="opel">Opel</option>
+                                <option value="audi">Audi</option>
+                            </select>
+                    </td>
+                    <td>
+                        <select class="form-control">
+                                <option value="volvo">Volvo</option>
+                                <option value="saab">Saab</option>
+                                <option value="opel">Opel</option>
+                                <option value="audi">Audi</option>
+                            </select>
+                    </td>
+                </tr>
 
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td></td>
+                    <td>BH Hỗ Trợ điều trị bệnh ung thư</td>
+                    <td>
+                        <select class="form-control">
+                            <option value="volvo">1</option>
+                            <option value="saab">2</option>
+                            <option value="opel">3</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="form-control">
+                                <option value="volvo">Volvo</option>
+                                <option value="saab">Saab</option>
+                                <option value="opel">Opel</option>
+                                <option value="audi">Audi</option>
+                            </select>
+                    </td>
+                    <td>
+                        <select class="form-control">
+                                <option value="volvo">Volvo</option>
+                                <option value="saab">Saab</option>
+                                <option value="opel">Opel</option>
+                                <option value="audi">Audi</option>
+                            </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td></td>
+                    <td>BH bệnh hiểm nghèo cao cấp toàn diện trả trước</td>
+                    <td>
+                        <select class="form-control">
+                            <option value="volvo">1</option>
+                            <option value="saab">2</option>
+                            <option value="opel">3</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="form-control">
+                                <option value="volvo">Volvo</option>
+                                <option value="saab">Saab</option>
+                                <option value="opel">Opel</option>
+                                <option value="audi">Audi</option>
+                            </select>
+                    </td>
+                    <td>
+                        <select class="form-control">
+                                <option value="volvo">Volvo</option>
+                                <option value="saab">Saab</option>
+                                <option value="opel">Opel</option>
+                                <option value="audi">Audi</option>
+                            </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td></td>
+                    <td>BH bệnh hiểm nghèo cao cấp toàn diện</td>
+                    <td>
+                        <select class="form-control">
+                            <option value="volvo">1</option>
+                            <option value="saab">2</option>
+                            <option value="opel">3</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="form-control">
+                                <option value="volvo">Volvo</option>
+                                <option value="saab">Saab</option>
+                                <option value="opel">Opel</option>
+                                <option value="audi">Audi</option>
+                            </select>
+                    </td>
+                    <td>
+                        <select class="form-control">
+                                <option value="volvo">Volvo</option>
+                                <option value="saab">Saab</option>
+                                <option value="opel">Opel</option>
+                                <option value="audi">Audi</option>
+                            </select>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="formButtonP">
+            <button class="w3-button w3-xlarge w3-circle w3-red w3-card-4 customPlusButton" (click)="addField()">+</button>
+            <p>Thêm Người Được Bảo Hiểm Bổ Sung</p>
+        </div>
 
         <div style="width: 100%; border: 1px solid; padding: 10px;">
             <div class="row">
