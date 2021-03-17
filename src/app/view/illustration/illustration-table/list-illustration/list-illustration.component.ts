@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { illustration } from 'src/app/model/illustration';
 import { IllustrationService } from 'src/app/services/illustration/illustration.service';
 
@@ -10,7 +10,7 @@ import { IllustrationService } from 'src/app/services/illustration/illustration.
 })
 export class ListIllustrationComponent implements OnInit {
 
-  constructor(private illustrationService : IllustrationService,private activateRoute:ActivatedRoute) { }
+  constructor(private router:Router,private illustrationService : IllustrationService,private activateRoute:ActivatedRoute) { }
 
 illustrations : Array<illustration>;
   ngOnInit(): void {
@@ -18,6 +18,10 @@ illustrations : Array<illustration>;
         this.illustrations = data;
         console.log(this.illustrations);
       }))
+  }
+
+  addIllustration(){
+    this.router.navigate(['create-illustration'],{ queryParams: { id: this.activateRoute.snapshot.params['id'] } });
   }
 
 }

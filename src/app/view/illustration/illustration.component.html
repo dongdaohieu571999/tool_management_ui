@@ -2,113 +2,113 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body class="hold-transition sidebar-mini">
-  <div class="wrapper">
+    <div class="wrapper">
 
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-      <!-- Content Header (Page header) -->
-      <section class="content-header">
-        <div class="container-fluid">
-          <div class="row mb-2" style="display: grid;">
-            <div class="col-sm-6">
-              <h1>DANH SÁCH BẢN MINH HOẠ</h1>
-            </div>
-            <div>
-              <h3 class="card-title">
-                <button type="button" class="btn btn-block btn-success btn-lg" style="width: auto;" (click)="openDialog()">
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2" style="display: grid;">
+                        <div class="col-sm-6">
+                            <h1>DANH SÁCH BẢN MINH HOẠ</h1>
+                        </div>
+                        <div>
+                            <h3 class="card-title">
+                                <button type="button" class="btn btn-block btn-success btn-lg" style="width: auto;" (click)="openDialog()">
                   THÊM SẢN PHẨM KHÁCH HÀNG
                 </button>
-              </h3>
-            </div>
-            
-          </div>
-        </div>
-        <!-- /.container-fluid -->
-      </section>
+                            </h3>
+                        </div>
 
-      <!-- Main content -->
-      <section class="content">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-12">
-              <div class="card">
-                
-                <div class="card-header">              
-                  <div class="row" style="float: right;">
-                    <div class="card" style="padding: 10px;
+                    </div>
+                </div>
+                <!-- /.container-fluid -->
+            </section>
+
+            <!-- Main content -->
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+
+                                <div class="card-header">
+                                    <div class="row" style="float: right;">
+                                        <div class="card" style="padding: 10px;
           background: #28a745; color: white;">
-                        <div>
-                            <label>Search:<input id="Rsearch" type="search"
+                                            <div>
+                                                <label>Search:<input id="Rsearch" type="search"
                                     class="form-control form-control-sm" placeholder=""
                                     aria-controls="example1"></label>
-                            <label>From<input id="RfromSearch" type="date"
+                                                <label>From<input id="RfromSearch" type="date"
                                     class="form-control form-control-sm" placeholder=""
                                     aria-controls="example1"></label>
-                            <label>To<input id="RtoSearch" type="date"
+                                                <label>To<input id="RtoSearch" type="date"
                                     class="form-control form-control-sm" placeholder=""
                                     aria-controls="example1"></label>
-                            <button id="RdelBtn" type="button" class="btn btn-danger">XÓA</button>
-                            <button type="button" class="btn btn-info">Tìm Kiếm</button>
+                                                <button id="RdelBtn" type="button" class="btn btn-danger">XÓA</button>
+                                                <button type="button" class="btn btn-info">Tìm Kiếm</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <app-illustration-table></app-illustration-table>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- /.container-fluid -->
+            </section>
+            <!-- /.content -->
+            <div class="modal" id="modal" [ngClass]="status ? 'active' : ''">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="card card-primary">
+                                <div class="card-header">
+                                    <h3 class="card-title">Chi Tiết</h3>
+                                </div>
+                                <!-- /.card-header -->
+                                <!-- form start -->
+                                <form>
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Mã Khách Hàng</label>
+                                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Mã Khách Hàng">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">Tên Khách Hàng</label>
+                                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Tên Khách Hàng">
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" (click)="displayAddCustomerDialog()">Close</button>
                         </div>
                     </div>
                 </div>
-                </div>
-                <!-- /.card-header -->
-                <div class="card-body">
-                  <app-illustration-table></app-illustration-table>
-                </div>
-                <!-- /.card-body -->
-              </div>
-              <!-- /.card -->
             </div>
-            <!-- /.col -->
-          </div>
-          <!-- /.row -->
         </div>
-        <!-- /.container-fluid -->
-      </section>
-      <!-- /.content -->
-      <div class="modal" id="modal" [ngClass]="status ? 'active' : ''">
-        <div class="modal-dialog">
-          <!-- Modal content-->
-          <div class="modal-content">
-            <div class="modal-body">
-              <div class="card card-primary">
-                <div class="card-header">
-                  <h3 class="card-title">Chi Tiết</h3>
-                </div>
-                <!-- /.card-header -->
-                <!-- form start -->
-                <form>
-                  <div class="card-body">
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">Mã Khách Hàng</label>
-                      <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Mã Khách Hàng">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword1">Tên Khách Hàng</label>
-                      <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Tên Khách Hàng">
-                    </div>
-                  </div>
-                  <div class="card-footer">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                  </div>
-                </form>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" (click)="displayAddCustomerDialog()">Close</button>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
 </body>
 
 </html>
