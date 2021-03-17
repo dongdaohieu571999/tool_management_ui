@@ -33,6 +33,13 @@ export class IllustrationService {
     .pipe(catchError(this.handleError));
   }
 
+  public getAllIllustrationBelongCustomer(id:number): Observable<any>{
+    const url = this.common.makeUrl('/illustration/get_all_illustration_belong_customer/'+id);
+    return this.httpClient
+    .get<any>(url,this.httpOptions)
+    .pipe(catchError(this.handleError));
+  }
+
   public addOneCustomerOwnIllustration(code:string): Observable<any>{
     const url = this.common.makeUrl('/illustration/add_one_customer_own_illustration/');
     return this.httpClient

@@ -12,7 +12,7 @@
             <td><b>{{ customerOwnIllustration.code }}</b></td>
             <td>{{ customerOwnIllustration.full_name }}</td>
             <td>{{ customerOwnIllustration.create_time | date : 'MMM d, y' }}</td>
-            <td><a [routerLink]="['/list-illustration']">View</a></td>
+            <button (click)="listIllustration(customerOwnIllustration.id_customer)" class="btn btn-info" style="height: 30px;color: white;">Chi Tiết</button>
         </tr>
     </tbody>
 </table>
