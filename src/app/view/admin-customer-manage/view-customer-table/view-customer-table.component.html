@@ -20,9 +20,12 @@
                 <td>{{ customer.birth_date | date:'dd/MM/yyyy'}}</td>
                 <td>{{ customer.phone_1 }}</td>
                 <td>{{ customer.email }}</td>
-                <td><button type="button" class="btn btn-block btn-primary btn-sm">
-                <a [routerLink]="['/detail-customer']" (click)= "onSelectAcc(customer)">Chi Tiết</a></button></td>
-                <td><button mat-button (click)="openDialog(i)" class="btn btn-block btn-primary">Thêm Tài Khoản</button></td>
+                <td>
+                    <!-- <button type="button" class="btn btn-block btn-primary btn-sm"> -->
+                <!-- <a [routerLink]="['/detail-customer']" (click)= "onSelectAcc(customer)">Chi Tiết</a></button></td> -->
+                <button (click)="customerDetail(customer.id)" class="btn btn-info" style="height: 40px; width: 100px; margin: 10px; color: white;">Chi Tiết</button></td>
+                <td><button *ngIf="customer.code"  class="btn btn-block btn-primary" disabled>Thêm Tài Khoản</button>
+                <button *ngIf="!customer.code" (click)="openDialog(i)" class="btn btn-block btn-primary">Thêm Tài Khoản</button></td>
             </tr>
         </tbody>
         <tfoot>

@@ -43,6 +43,20 @@ export class CustomerService {
     .pipe(catchError(this.handleError));
   }
 
+  public getAllCustomerInfoAdmin(): Observable<any>{
+    const url = this.common.makeUrl("/customer/get_all_customer_info_admin");
+    return this.httpClient
+    .get<any>(url,this.httpOptions)
+    .pipe(catchError(this.handleError));
+  }
+
+  public getDetailCustomerInfoAdmin(id:number): Observable<any>{
+    const url = this.common.makeUrl("/customer/get_detail_customer_info_admin/"+id);
+    return this.httpClient
+    .get<any>(url,this.httpOptions)
+    .pipe(catchError(this.handleError));
+  }
+
   public addOneAccCustomer(customerAcc :CustomerAcc): Observable<any>{
     const url = this.common.makeUrl("/customer/add_customer_acc");
     return this.httpClient
