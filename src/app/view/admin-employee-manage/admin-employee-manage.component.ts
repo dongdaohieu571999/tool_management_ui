@@ -4,6 +4,7 @@ import { EmployeeInfo } from 'src/app/model/EmployeeInfo';
 import { EmployeeService } from 'src/app/services/employee/employee.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AdminAddEmployeeInfoComponent } from '../dialog/admin-add-employee-info/admin-add-employee-info.component';
+import { EmployeeInfoDTO } from 'src/app/model/EmployeeInfoDTO';
 
 @Component({
   selector: 'app-admin-employee-manage',
@@ -27,28 +28,11 @@ export class AdminEmployeeManageComponent implements OnInit {
     this.status = !this.status;
   }
 
-  public onSubmit(accForm : NgForm){
-   const emInfo = new EmployeeInfo(
-     accForm.value.name,
-     accForm.value.address,
-     accForm.value.email,
-     accForm.value.phone,
-     accForm.value.dob,  
-     accForm.value.ID_card,
-     1,
-     accForm.value.dob,
-     accForm.value.dob,
-     true,
-     null,
-     null,
-     1);
-    this.employeeService.addEmployeeInfo(emInfo).subscribe((data => {
-      console.log(data);
-    }));
-  }
-
+  employeeinfo = new EmployeeInfoDTO(0,'','',new Date(),12,'','','','',new Date(),new Date(),true,1,1,1,1,1,1,true,'','','','','','','','','','','','','');
 public openDialog(){
-  let dialogRef = this.dialog.open(AdminAddEmployeeInfoComponent);
+  let dialogRef = this.dialog.open(AdminAddEmployeeInfoComponent,{
+    data : this.employeeinfo
+  });
   
   dialogRef.afterClosed().subscribe(result => {
     

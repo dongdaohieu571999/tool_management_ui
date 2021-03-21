@@ -78,6 +78,7 @@ import { ConfirmChangePassComponent } from './view/change-pass/confirm-change-pa
 import { ContractChangeInfoDialogComponent } from './view/dialog/contract-change-info-dialog/contract-change-info-dialog.component';
 import { ContractPauseDialogComponent } from './view/dialog/contract-pause-dialog/contract-pause-dialog.component';
 import { ViewDetailCustomerAdminComponent } from './view/admin-customer-manage/view-customer-table/view-detail-customer-admin/view-detail-customer-admin.component';
+import { EmployeeEditInfoDialogComponent } from './view/dialog/employee-edit-info-dialog/employee-edit-info-dialog.component';
 
 
 @NgModule({
@@ -136,7 +137,8 @@ import { ViewDetailCustomerAdminComponent } from './view/admin-customer-manage/v
     ContractChangeInfoDialogComponent,
     ContractPauseDialogComponent,
     ConfirmChangePassComponent,
-    ViewDetailCustomerAdminComponent
+    ViewDetailCustomerAdminComponent,
+    EmployeeEditInfoDialogComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -162,7 +164,7 @@ import { ViewDetailCustomerAdminComponent } from './view/admin-customer-manage/v
     MatSnackBarModule,
     MatSelectModule
   ],
-  entryComponents: [ContractPauseDialogComponent,ContractChangeInfoDialogComponent,ReportCustomerDialogComponent,CustomerEditInfoComponent,AdminAddAccCustomerComponent,AdminAddEmployeeInfoComponent,AdminAddAccountEmployeeComponent,AddCustomerIllustrationDialogComponent,CustomerAddInfoDialogComponent,ContractAddDialogComponent,NotificationConfirmDialogComponent,PauseCustomerDialogComponent],
+  entryComponents: [EmployeeEditInfoDialogComponent,ContractPauseDialogComponent,ContractChangeInfoDialogComponent,ReportCustomerDialogComponent,CustomerEditInfoComponent,AdminAddAccCustomerComponent,AdminAddEmployeeInfoComponent,AdminAddAccountEmployeeComponent,AddCustomerIllustrationDialogComponent,CustomerAddInfoDialogComponent,ContractAddDialogComponent,NotificationConfirmDialogComponent,PauseCustomerDialogComponent],
   providers: [AdminDataServiceService],
   bootstrap: [AppComponent]
 })

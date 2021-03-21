@@ -41,9 +41,7 @@ export class CustomerAddInfoDialogComponent implements OnInit {
 public onSubmit(){
   this.customerInfo.code_em_support = this.user['sub'];
   this.customerService.addCustomerInfo(this.customerInfo).subscribe((data => {
-
     this.customerService.invokeRefreshTableFun(); 
-
   }))
 }
 

@@ -14,19 +14,24 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let employeeinfo of employeeInfos ; first as isFirst">
+      <tr *ngFor="let employeeinfo of data | paginate: { id: 'listing_pagination' ,itemsPerPage: 3, currentPage: page, totalItems: totalRecords};let i = index">
         <td>{{employeeinfo.id}}</td>
         <td>{{employeeinfo.code}}</td>
         <td>{{employeeinfo.name}}</td>
         <td>{{employeeinfo.date_of_birth | date}}</td>
         <td>{{employeeinfo.phone}}</td>
         <td>{{employeeinfo.email}}</td>
-        <td>Phòng Sale</td>
-        <td><button type="button" class="btn btn-block btn-primary btn-sm">
-            <a [routerLink]="['/detail-employee']">Chi Tiết</a>
-          </button></td>
-        <td><button [ngClass]="employeeinfo.code === null ? 'disabled': '' "  type="button" class="btn btn-block btn-primary " (click)="openDialog()">Thêm Tài Khoản</button></td>    
-      </tr>      
+        <td>{{employeeinfo.in_dept}}</td>
+        <td>
+          <button (click)="EmployeeDetail(employeeinfo.id)" class="btn btn-info"
+            style="height: 40px; width: 100px; margin: 10px; color: white;">Chi Tiết</button>
+        </td>
+        <td>
+          <button *ngIf="employeeinfo.code" class="btn btn-block btn-primary" disabled>Thêm Tài Khoản</button>
+          <button *ngIf="!employeeinfo.code" (click)="openDialog(employeeinfo)" class="btn btn-block btn-primary">Thêm Tài
+            Khoản</button>
+        </td>
+      </tr>
     </tbody>
     <tfoot>
       <tr>
@@ -42,6 +47,7 @@
       </tr>
     </tfoot>
   </table>
+  <pagination-controls style="float: right;" id="listing_pagination" maxSize="5" directionLinks="true" (pageChange)="page = $event"></pagination-controls>
 </div>
 
 

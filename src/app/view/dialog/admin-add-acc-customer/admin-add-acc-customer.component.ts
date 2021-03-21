@@ -35,6 +35,7 @@ export class AdminAddAccCustomerComponent implements OnInit {
           console.log("this is ok");
           this.onNoClick();
           this.notiService.openSnackBar("Thêm Data Thành Công!",'Đóng');
+          this.customerService.invokeRefreshTableFun();
         }));
       }
     }));

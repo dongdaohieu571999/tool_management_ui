@@ -38,9 +38,11 @@ export class ViewCustomerTableComponent implements OnInit {
     this.router.navigate(['customer-detail-admin',id]);
   }
 
-  openDialog(i:number) {
+  openDialog(customerinfo : CustomerInfo) {
+   
+     
     const dialogRef = this.dialog.open(AdminAddAccCustomerComponent,({
-      data:this.data[i]
+      data:customerinfo
     }));
 
     dialogRef.afterClosed().subscribe(result => {
