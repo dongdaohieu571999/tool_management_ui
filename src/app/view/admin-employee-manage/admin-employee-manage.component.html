@@ -27,17 +27,23 @@
                                         <div class="card" style="padding: 10px;
                                             background: #28a745; color: white;">
                                             <div>
-                                                <label>Search:<input id="Fsearch" type="search"
+                                                <label>Search:
+                                                    <input id="Fsearch" type="search"
+                                                    class="form-control form-control-sm" placeholder="Search by Name"
+                                                    aria-controls="example1" name="searchName" [(ngModel)]="namesearch">
+                                                </label>
+                                                <label>From
+                                                    <input id="FfromSearch" type="date"
                                                     class="form-control form-control-sm" placeholder=""
-                                                    aria-controls="example1"></label>
-                                                <label>From<input id="FfromSearch" type="date"
+                                                    aria-controls="example1">
+                                                </label>
+                                                <label>To
+                                                    <input id="FtoSearch" type="date"
                                                     class="form-control form-control-sm" placeholder=""
-                                                    aria-controls="example1"></label>
-                                                <label>To<input id="FtoSearch" type="date"
-                                                    class="form-control form-control-sm" placeholder=""
-                                                    aria-controls="example1"></label>
+                                                    aria-controls="example1">
+                                                </label>
                                                 <button id="FdelBtn" type="button" class="btn btn-danger">XÓA</button>
-                                                <button type="button" class="btn btn-info">Tìm Kiếm</button>
+                                                <button type="button" class="btn btn-info" >Tìm Kiếm</button>
                                             </div>
                                         </div>
                                     </div>

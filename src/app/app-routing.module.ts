@@ -29,6 +29,8 @@ import { ListIllustrationComponent } from '././view/illustration/illustration-ta
 import { DetailInfoChangeHistoryComponent } from './view/view-detail-contract/detail-info-change-history/detail-info-change-history.component';
 import { MailDetailComponent } from './view/mail/mail-detail/mail-detail.component';
 import { ConfirmChangePassComponent } from './view/change-pass/confirm-change-pass/confirm-change-pass.component'
+import { ViewDetailCustomerAdminComponent } from './view/admin-customer-manage/view-customer-table/view-detail-customer-admin/view-detail-customer-admin.component';
+import { DetailEmTableComponent } from './view/admin-employee-manage/view-em-table/detail-em-table/detail-em-table.component';
 
 const routes: Routes = [
   {path : "dashboard", component: DashboardComponent},
@@ -59,7 +61,9 @@ const routes: Routes = [
   {path: "detail-illustration", component: DetailIllustrationComponent},
   {path: "list-illustration/:id", component: ListIllustrationComponent},
   {path: "confirm-change-pass", component: ConfirmChangePassComponent},
-  {path: "detai-history-change/:id", component: DetailInfoChangeHistoryComponent}
+  {path: "detai-history-change/:id", component: DetailInfoChangeHistoryComponent},
+  {path: "customer-detail-admin/:id", component: ViewDetailCustomerAdminComponent},
+  {path: "employee-detail-admin/:id", component: DetailEmTableComponent},
 ];
 
 @NgModule({

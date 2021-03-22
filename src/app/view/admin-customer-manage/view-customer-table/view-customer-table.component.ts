@@ -7,6 +7,7 @@ import { CustomerInfo } from 'src/app/model/CustomerInfo';
 import { CustomerService } from 'src/app/services/customer/customer.service';
 import { AdminAddAccCustomerComponent } from 'src/app/view/dialog/admin-add-acc-customer/admin-add-acc-customer.component'
 import { CommonService } from 'src/app/services/common/common.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 
 @Component({
@@ -16,13 +17,15 @@ import { CommonService } from 'src/app/services/common/common.service';
 })
 export class ViewCustomerTableComponent implements OnInit {
 
-  constructor(private customerService :CustomerService,private common: CommonService,public dialog: MatDialog,private router:Router) { }
+  constructor(private spinner : NgxSpinnerService,private customerService :CustomerService,private common: CommonService,public dialog: MatDialog,private router:Router) { }
   ngOnInit(): void {
-
-    this.customerService.getAllCustomerInfo(jwt_decode(this.common.getCookie('token_key'))['sub']).subscribe((data => {
+    this.spinner.show();
+    this.customerService.getAllCustomerInfoAdmin().subscribe((data => {
       this.data = data;
       this.totalRecords = data.length;
-    }))
+      console.log(jwt_decode(this.common.getCookie('token_key'))['sub']);
+    })) 
+    this.spinner.hide();
   }
 
   page:number = 1;
@@ -31,10 +34,15 @@ export class ViewCustomerTableComponent implements OnInit {
 
   status: boolean = false;
   
+  public customerDetail(id:number){
+    this.router.navigate(['customer-detail-admin',id]);
+  }
 
-  openDialog(i:number) {
+  openDialog(customerinfo : CustomerInfo) {
+   
+     
     const dialogRef = this.dialog.open(AdminAddAccCustomerComponent,({
-      data:this.data[i]
+      data:customerinfo
     }));
 
     dialogRef.afterClosed().subscribe(result => {

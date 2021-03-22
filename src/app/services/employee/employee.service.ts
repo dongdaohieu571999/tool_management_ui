@@ -1,15 +1,24 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
+import { EventEmitter, Injectable } from '@angular/core';
+import { Observable, Subscription, throwError } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { EmployeeAcc } from 'src/app/model/EmployeeAcc';
 import { EmployeeInfo } from 'src/app/model/EmployeeInfo';
+import { EmployeeInfoDTO } from 'src/app/model/EmployeeInfoDTO';
 import { CommonService } from '../common/common.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmployeeService {
+
+  callRefreshTable = new EventEmitter();
+  subsVar: Subscription;
+
+  invokeRefreshTableFun() { 
+    this.callRefreshTable.emit();
+  }
+
 
   constructor(private httpClient: HttpClient, private common: CommonService) {  }
 
@@ -19,6 +28,8 @@ export class EmployeeService {
       // Authorization: 'my-auth-token',
     }),
   }
+
+
 
   public getAllAcc(): Observable<any>{
     const url = this.common.makeUrl("/employee/get_all_employee_acc");
@@ -40,8 +51,27 @@ export class EmployeeService {
     .get<any>(url,this.httpOptions)
     .pipe(catchError(this.handleError));
   }
-  
 
+  public addOneAccEmployee(employeeAcc :EmployeeAcc): Observable<any>{
+    const url = this.common.makeUrl("/employee/add_employee_acc");
+    return this.httpClient
+    .post<any>(url,employeeAcc,this.httpOptions)
+    .pipe(catchError(this.handleError));
+  }
+
+  public getDetailEmployebyID(id:number): Observable<any>{
+    const url = this.common.makeUrl("/employee/get_detail_employee_info/"+id);
+    return this.httpClient
+    .get<any>(url,this.httpOptions)
+    .pipe(catchError(this.handleError));
+  }
+  public UpdateEmployeeInfo(employeeInfoDTO :EmployeeInfoDTO): Observable<any>{
+    const url = this.common.makeUrl("/employee/update_employee_info");
+    return this.httpClient
+    .post<any>(url,employeeInfoDTO,this.httpOptions)
+    .pipe(catchError(this.handleError));
+  }
+ 
   public getIdRole(): Observable<any>{
     const url = this.common.makeUrl("/employee/get_one_employee_acc/"+this.common.getCookie('token_key'));
     return this.httpClient
@@ -56,10 +86,10 @@ export class EmployeeService {
     .pipe(catchError(this.handleError));
   } 
 
-  public addEmployeeInfo(data : EmployeeInfo) : Observable<any>{
+  public addEmployeeInfo(employeeInfoDTO:EmployeeInfoDTO) : Observable<any>{
     const url = this.common.makeUrl("/employee/add_employee_info");
     return this.httpClient
-    .post<any>(url,data,this.httpOptions) 
+    .post<any>(url,employeeInfoDTO,this.httpOptions) 
     .pipe(catchError(this.handleError));
   }
 

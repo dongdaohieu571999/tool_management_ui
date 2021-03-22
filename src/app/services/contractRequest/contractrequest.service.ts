@@ -20,14 +20,14 @@ export class ContractrequestService {
   }
 
   public getAllContractRequest(): Observable<any>{
-    const url = this.common.makeUrl("/contractRequest/get_all_contract_request");
+    const url = this.common.makeUrl("/request/get_all_request");
     return this.httpClient
     .get<any>(url,this.httpOptions)
     .pipe(catchError(this.handleError));
   }
 
   public getOneContractRequest(id:number){
-    const url = this.common.makeUrl("/contractRequest/get_detail_contract_request");
+    const url = this.common.makeUrl("/request/get_detail_request");
     let data = {id:id};
     console.log(data);
     return this.httpClient
