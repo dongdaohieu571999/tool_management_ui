@@ -23,7 +23,7 @@
                 <fieldset>
                     <legend>Ngày Dự Kiến Bắt Đầu Quyền Lợi Bảo Hiểm</legend>
                     <div class="form-group">
-                        <input type="date" class="form-control">
+                        <input type="date" class="form-control" [(ngModel)]="create_time_ill">
                     </div>
                 </fieldset>
             </div>
@@ -36,11 +36,11 @@
                     <table style="display: block;">
                         <tr>
                             <td>Tên</td>
-                            <td><input class="form-control"></td>
+                            <td><input class="form-control" [(ngModel)]="illustrationMainInterest.full_name_insured_person"></td>
                         </tr>
                         <tr>
                             <td>Nhóm Nghề</td>
-                            <td><select class="form-control">
+                            <td><select class="form-control" [(ngModel)]="illustrationMainInterest.carrier_group_insured_person">
                                 <option>1</option>
                                 <option>2</option>
                                 <option>3</option>
@@ -48,13 +48,13 @@
                         </tr>
                         <tr>
                             <td>Ngày Sinh</td>
-                            <td><input type="date" class="form-control"></td>
+                            <td><input type="date" class="form-control" [(ngModel)]="illustrationMainInterest.birth_date_insured_person"></td>
                         </tr>
                         <tr>
                             <td>Giới Tính</td>
-                            <td><select class="form-control">
-                                <option>Nam</option>
-                                <option>Nữ</option>
+                            <td><select class="form-control" [(ngModel)]="illustrationMainInterest.gender_insured_person">
+                                <option [value] = true>Nam</option>
+                                <option [value] = false>Nữ</option>
                             </select></td>
                         </tr>
                     </table>
@@ -65,11 +65,11 @@
                     <legend>Bên Mua Bảo Hiểm</legend>
                     <div class="row">
                         <p>Tên</p>
-                        <input class="form-control" value="{{ customerInfo.full_name }}" readonly>
+                        <input class="form-control" value="{{ customerInfo.full_name }}" [(ngModel)]="illustrationMainInterest.full_name_insurance_buyer" readonly>
                     </div>
                     <div class="row">
                         <p>Quan Hệ Với Người Được Bảo Hiểm</p>
-                        <select class="form-control">
+                        <select class="form-control" [(ngModel)]="illustrationMainInterest.insurance_buyer_relation_insured_person">
                             <option>Bố/Mẹ Đẻ</option>
                             <option>Con Cái</option>
                             <option>Vợ/Chồng</option>
@@ -104,10 +104,10 @@
                                 <input class="form-control" value="{{ mainInterestSelect.fee_period }}" readonly>
                             </td>
                             <td>
-                                <input class="form-control" type="number" min="{{ mainInterestSelect.minimum_value }}">
+                                <input class="form-control" type="number" [(ngModel)]="illustrationMainInterest.denominations" min="{{ mainInterestSelect.minimum_value }}">
                             </td>
                             <td>
-                                <input class="form-control" readonly>
+                                <input class="form-control" readonly [(ngModel)]="illustrationMainInterest.fee_value">
                             </td>
                         </tr>
                     </table>
@@ -136,17 +136,13 @@
                                 <td></td>
                                 <td>{{ interest.interest_name }}</td>
                                 <td>
-                                    <select class="form-control">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                </select>
+                                    <input class="form-control" value="{{ illustrationMainInterest.carrier_group_insured_person }}" name="carrier_group_extra_insured_person" readonly>
                                 </td>
                                 <td>
-                                    <input class="form-control" type="number" [disabled]="interest.isDisable">
+                                    <input class="form-control" type="number" name="denominations" [(ngModel)]="interest.denominations" [attr.disabled]="interest.isDisable?'':null">
                                 </td>
                                 <td>
-                                    <input class="form-control" readonly>
+                                    <input class="form-control" [(ngModel)]="interest.fee_value" name="fee_value" readonly>
                                 </td>
                             </tr>
                         </table>
@@ -161,20 +157,23 @@
                     <button class="w3-button w3-xlarge w3-circle w3-red w3-card-4 customPlusButton" (click)="removeField(i)">-</button>
                 </legend>
                 <p>Họ Và Tên</p>
-                <input class="form-control">
+                <input class="form-control" [(ngModel)]="item.full_name">
                 <p>Quan Hệ Với Người Được Bảo Hiểm</p>
-                <select class="form-control">
+                <select class="form-control" [(ngModel)]="item.relation">
                             <option>Bố/Mẹ Đẻ</option>
                             <option>Con Cái</option>
                             <option>Vợ/Chồng</option>
                             <option>Bản Thân</option>
                         </select>
                 <p>Ngày Sinh</p>
-                <input class="form-control">
+                <input class="form-control" type="date" [(ngModel)]="item.date_of_birth">
                 <p>Giới Tính</p>
-                <input class="form-control">
+                <td><select class="form-control" [(ngModel)]="item.gender">
+                    <option [value] = true >Nam</option>
+                    <option [value] = false>Nữ</option>
+                </select></td>
                 <p>Nhóm Nghề</p>
-                <select class="form-control">
+                <select class="form-control" [(ngModel)]="item.carreer_group">
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -195,17 +194,13 @@
                     <td></td>
                     <td>{{ interest.interest_name }}</td>
                     <td>
-                        <select class="form-control">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                        </select>
+                        <input class="form-control" value="{{ item.carreer_group }}" [(ngModel)]="interest.carrier_group_extra_insured_person" name="carrier_group_extra_insured_person" readonly>
                     </td>
                     <td>
-                        <input class="form-control" type="number" [disabled]="relatedPerson[i].listSubInterest[i2].isDisable">
+                        <input class="form-control" type="number" name="denominations" [(ngModel)]="interest.denominations" [attr.disabled]="interest.isDisable?'':null">
                     </td>
                     <td>
-                        <input class="form-control" readonly>
+                        <input class="form-control" [(ngModel)]="interest.fee_value" name="fee_value" readonly>
                     </td>
                 </tr>
             </table>
@@ -219,13 +214,8 @@
             <div class="row">
                 <div class="col-4">
                     <div class="row">
-                        <p>Định Kỳ Trả Phí</p>
-                        <select class="form-control" style="width: fit-content;">
-                                <option value="volvo">Volvo</option>
-                                <option value="saab">Saab</option>
-                                <option value="opel">Opel</option>
-                                <option value="audi">Audi</option>
-                            </select>
+                        <p>Định Kỳ Trả Phí (Năm)</p>
+                        <input class="form-control" type="number">
                         <button class="form-control">Tính Phí</button>
                     </div>
                 </div>
@@ -237,7 +227,7 @@
                 </div>
             </div>
         </div>
-        <button style="margin-top: 20px; margin-bottom: 20px;">PRINT</button>
+        <button class="form-control" style="margin-top: 20px; margin-bottom: 20px;" (click)="save()">LƯU BẢNG MINH HỌA</button>
     </div>
 
 

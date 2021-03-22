@@ -3,6 +3,7 @@ import { EventEmitter, Injectable } from '@angular/core';
 import { Observable, Subscription, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { CustomerOwnIllustration } from 'src/app/model/CustomerOwnIllustration';
+import { Illustration } from 'src/app/model/Illustration';
 import { CommonService } from '../common/common.service';
 
 @Injectable({
@@ -44,6 +45,13 @@ export class IllustrationService {
     const url = this.common.makeUrl('/illustration/add_one_customer_own_illustration/');
     return this.httpClient
     .post<any>(url,code,this.httpOptions)
+    .pipe(catchError(this.handleError));
+  }
+
+  public saveOneIllustration(illustration:Illustration): Observable<any>{
+    const url = this.common.makeUrl('/illustration/add_one_illustration/');
+    return this.httpClient
+    .post<any>(url,illustration,this.httpOptions)
     .pipe(catchError(this.handleError));
   }
 

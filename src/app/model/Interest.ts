@@ -7,4 +7,9 @@ export class Interest {
     minimum_value:number;
     paying_period:number;
     isDisable:boolean;
+
+
+    carrier_group_extra_insured_person:number;
+    denominations:number;
+    fee_value:number;
 }

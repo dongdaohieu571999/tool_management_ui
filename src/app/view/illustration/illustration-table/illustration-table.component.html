@@ -12,7 +12,9 @@
             <td><b>{{ customerOwnIllustration.code }}</b></td>
             <td>{{ customerOwnIllustration.full_name }}</td>
             <td>{{ customerOwnIllustration.create_time | date : 'MMM d, y' }}</td>
-            <button (click)="listIllustration(customerOwnIllustration.id_customer)" class="btn btn-info" style="height: 30px;color: white;">Chi Tiết</button>
+            <td>
+                <button (click)="listIllustration(customerOwnIllustration.id_customer)" class="btn btn-info" style="width: 100%;color: white;">Chi Tiết</button>
+            </td>
         </tr>
     </tbody>
 </table>

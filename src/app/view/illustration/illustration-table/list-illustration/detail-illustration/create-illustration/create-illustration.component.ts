@@ -2,10 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { CustomerInfo } from 'src/app/model/CustomerInfo';
+import { Illustration } from 'src/app/model/Illustration';
+import { IllustrationMainInterest } from 'src/app/model/IllustrationMainInterest';
+import { IllustrationSubInterest } from 'src/app/model/IllustrationSubInterest';
 import { Interest } from 'src/app/model/Interest';
 import { RelatedPerson } from 'src/app/model/RelatedPerson';
 import { CommonService } from 'src/app/services/common/common.service';
 import { CustomerService } from 'src/app/services/customer/customer.service';
+import { IllustrationService } from 'src/app/services/illustration/illustration.service';
 import { InterestService } from 'src/app/services/interest/interest.service';
 
 @Component({
@@ -15,15 +19,28 @@ import { InterestService } from 'src/app/services/interest/interest.service';
 })
 export class CreateIllustrationComponent implements OnInit {
 
-  constructor(private interest:InterestService,private activeRoute:ActivatedRoute,private common:CommonService,private customerService:CustomerService) { 
+  constructor(private illustService : IllustrationService,private interest:InterestService,private activeRoute:ActivatedRoute,private common:CommonService,private customerService:CustomerService) { 
   }
 
   relatedPerson = new Array<RelatedPerson>();
-  customerInfo : CustomerInfo;
+  customerInfo = new CustomerInfo(0,new Date(),0,'','','','','','','','','','','','','',0,0,0,0,0,'','','',0,'','','','','','','','','','','','','','','','','','',false,'',0,0,'',new Date(),false,new Date(),'');
   mainInterestList: Array<Interest>;
   subInterestList: Array<Interest>;
   subInterestListCopy:Array<Interest>;
-  mainInterestSelect:Interest;
+  mainInterestSelect= new Interest;
+  
+
+
+  //Them cac bien thuoc bang minh hoa o day
+
+  create_time_ill = new Date();
+  
+  illustrationMainInterest=new IllustrationMainInterest(0,this.mainInterestSelect.id,'',new Date(),0,false,0,'','',0,0);
+
+  illustration = new Illustration(0,0,new Date(),this.mainInterestSelect.interest_name,this.illustrationMainInterest,[]);
+
+
+  //Them cac bien thuoc bang minh hoa o day
 
 
   ngOnInit(): void {
@@ -31,11 +48,10 @@ export class CreateIllustrationComponent implements OnInit {
     this.getAllMainInterest();
     this.getInfoCustomer();
     
-    
   }
 
   addField(){
-    var relatedPer1 = new RelatedPerson('','',new Date(),true,0,[]);
+    var relatedPer1 = new RelatedPerson('','',new Date(),true,0,[],[]);
     // deep copy this.subInterestList
     let list = this.subInterestList.map(x => Object.assign({},x));
     relatedPer1.listSubInterest = list
@@ -61,10 +77,7 @@ export class CreateIllustrationComponent implements OnInit {
       }
       this.subInterestList = data;
       this.subInterestListCopy = this.subInterestList.map(x => Object.assign({},x));
-      var relatedPer = new RelatedPerson('','',new Date(),true,0,[]);
-      let list = this.subInterestList.map(x => Object.assign({},x));
-      relatedPer.listSubInterest = list;
-      this.relatedPerson.push(relatedPer);
+      
     }))
   }
 
@@ -72,6 +85,8 @@ export class CreateIllustrationComponent implements OnInit {
     this.activeRoute.queryParams.subscribe(params => {
       this.customerService.getOneAccCustomer(params['id'],this.common.getCookie('token_key')).subscribe((data => {
         this.customerInfo=data;
+        this.illustrationMainInterest.full_name_insurance_buyer = this.customerInfo.full_name;
+        this.illustrationMainInterest.id_illustration = params['id'];
       }))
     })
   }
@@ -92,6 +107,42 @@ export class CreateIllustrationComponent implements OnInit {
     this.relatedPerson[indexParent].listSubInterest[indexChild].isDisable = !this.relatedPerson[indexParent].listSubInterest[indexChild].isDisable;
         return;
 
+  }
+
+  save(){
+    this.illustration.illustrationSubInterestList = [];
+    for(let interest of this.subInterestListCopy){
+      if(!interest.isDisable){
+      this.activeRoute.queryParams.subscribe(params => {
+
+        let subInterest = new IllustrationSubInterest(params['id'],interest.id,this.illustrationMainInterest.full_name_insured_person
+        ,this.illustrationMainInterest.insurance_buyer_relation_insured_person,this.illustrationMainInterest.birth_date_insured_person,0,
+        this.illustrationMainInterest.gender_insured_person,this.illustrationMainInterest.carrier_group_insured_person,interest.denominations,
+        interest.fee_value,false);
+
+        
+        this.illustration.illustrationSubInterestList.push(subInterest);
+      })
+    }
+    }
+
+    for(let relatePer of this.relatedPerson){
+      for(let interest of relatePer.listSubInterest){
+        if(!interest.isDisable){
+        this.activeRoute.queryParams.subscribe(params => {
+          this.illustration.illustrationSubInterestList.push(new IllustrationSubInterest(params['id'],interest.id,relatePer.full_name
+          ,relatePer.relation,relatePer.date_of_birth,0,relatePer.gender,relatePer.carreer_group,interest.denominations,interest.fee_value
+          ,true));
+        })
+      }
+      }
+    }
+    this.illustration.illustrationMainInterest.id_main_interest = this.mainInterestSelect.id;
+    this.illustration.id_customer_info = this.customerInfo.id;
+    // console.log(this.illustration);
+    this.illustService.saveOneIllustration(this.illustration).subscribe((data => {
+      console.log('ok');
+    }))
   }
 
 }
