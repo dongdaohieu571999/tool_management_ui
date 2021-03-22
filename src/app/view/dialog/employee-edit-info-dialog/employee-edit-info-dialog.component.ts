@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { EmployeeInfoDTO } from 'src/app/model/EmployeeInfoDTO';
 import { EmployeeService } from 'src/app/services/employee/employee.service';
 import { SnackbarService } from 'src/app/services/snackbar/snackbar.service';
@@ -11,7 +11,8 @@ import { SnackbarService } from 'src/app/services/snackbar/snackbar.service';
 })
 export class EmployeeEditInfoDialogComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public employeinfoDTO:EmployeeInfoDTO,private employeeService:EmployeeService,private snackbar: SnackbarService) { }
+  constructor(public dialogRef: MatDialogRef<EmployeeEditInfoDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public employeinfoDTO:EmployeeInfoDTO,private employeeService:EmployeeService,private snackbar: SnackbarService) { }
 
 
   genders= Array[2] = [
@@ -29,6 +30,7 @@ export class EmployeeEditInfoDialogComponent implements OnInit {
 public onSubmit(employeinfoDTO:EmployeeInfoDTO){
   this.employeeService.UpdateEmployeeInfo(employeinfoDTO).subscribe((data =>{
     this.snackbar.openSnackBar('Cập Nhật Thành Công','Đóng');
+    this.dialogRef.close();
   }))
 }
 }

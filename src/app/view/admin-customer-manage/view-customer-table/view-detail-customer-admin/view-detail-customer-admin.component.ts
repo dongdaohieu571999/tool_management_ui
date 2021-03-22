@@ -5,6 +5,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { CustomerInfo } from 'src/app/model/CustomerInfo';
 import { CommonService } from 'src/app/services/common/common.service';
 import { CustomerService } from 'src/app/services/customer/customer.service';
+import { CustomerEditInfoComponent } from 'src/app/view/dialog/customer-edit-info/customer-edit-info.component';
 
 @Component({
   selector: 'app-view-detail-customer-admin',
@@ -24,5 +25,11 @@ export class ViewDetailCustomerAdminComponent implements OnInit {
     this.spinner.hide();
   }))
   }
-
+  openDialogEdit(){
+    let dialogRef = this.dialog.open(CustomerEditInfoComponent,{data : this.customerInfo} );
+    
+    dialogRef.afterClosed().subscribe(result => {
+      
+    })
+  }
 }

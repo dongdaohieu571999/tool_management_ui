@@ -35,6 +35,7 @@ export class CustomerEditInfoComponent implements OnInit {
   public updateInfoCustomer(){
     this.customerService.updateCustomerInfo(this.customerInfo).subscribe(( data => {
       this.snackbar.openSnackBar('Cập Nhật Thành Công','Đóng');
+      this.dialogRef.close();
     }))
   }
 
