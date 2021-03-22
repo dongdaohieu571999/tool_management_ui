@@ -23,9 +23,8 @@
                             <div class="card">
                                 <div class="card-header">
                                     <h3 class="card-title">
-                                        <button type="button" class="btn btn-block btn-success btn-lg"
-                                            style="width: auto;">
-                                            <a [routerLink]="['/create-illustration']" style="color: white;">THÊM BẢN MINH HỌA</a>
+                                        <button type="button" class="btn btn-block btn-success btn-lg" style="width: auto;" (click)="addIllustration()">
+                                            THÊM BẢN MINH HỌA
                                         </button>
                                     </h3>
                                 </div>
@@ -43,14 +42,14 @@
                                         </thead>
                                         <tbody>
                                             <tr *ngFor="let illustration of illustrations">
-                                                <td><b>{{illustration.id_customer}}</b></td>
+                                                <td><b>{{illustration.id_customer_info }}</b></td>
                                                 <td>{{illustration.id}}</td>
                                                 <td>{{illustration.create_time | date}}</td>
-                                                <td>{{illustration.main_interest_name}}</td>
+                                                <td>{{illustration.interest_name}}</td>
                                                 <td><a [routerLink]="['/detail-illustration']">View</a></td>
                                             </tr>
                                         </tbody>
-                                                                            </table>
+                                    </table>
                                 </div>
                                 <!-- /.card-body -->
                             </div>
@@ -66,4 +65,3 @@
         </div>
     </div>
 </body>
-
