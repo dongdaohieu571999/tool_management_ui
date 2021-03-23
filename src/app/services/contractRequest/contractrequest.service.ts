@@ -26,6 +26,13 @@ export class ContractrequestService {
     .pipe(catchError(this.handleError));
   }
 
+  public getAllContractRequestApproval(): Observable<any>{
+    const url = this.common.makeUrl("/request/get_all_request_approval");
+    return this.httpClient
+    .get<any>(url,this.httpOptions)
+    .pipe(catchError(this.handleError));
+  }
+
   public getOneContractRequest(id:number){
     const url = this.common.makeUrl("/request/get_detail_request");
     let data = {id:id};

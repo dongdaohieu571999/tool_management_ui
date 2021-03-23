@@ -511,18 +511,19 @@
                   </div>
                   <!-- /.content-wrapper -->
 
-
+                  <button *ngIf="detailContractRequest.request_status !='DXD'" type="button" class="btn btn-block btn-success btn-sm" (click)="displayConfirmDialog()">Xét Duyệt</button>
+                  <button *ngIf="detailContractRequest.request_status =='CXD'" type="button" class="btn btn-block btn-success btn-sm" (click)="displayConfirmDialog()">Xét Duyệt</button>
                 </mat-tab>
               </td>
               <td>
               </td>
+              
             </mat-tab-group>
-
-
           </div>
+          
           <!-- /.card -->
         </div>
-        <div class="col-12">
+        <!-- <div class="col-12">
           <div class="card">
             <div class="card-header">
               <h2><b>Form Xét Duyệt</b></h2>
@@ -552,7 +553,7 @@
               </table>
             </form>
           </div>
-        </div>
+        </div> -->
         <!-- /.col -->
       </div>
       <!-- /.row -->

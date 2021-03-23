@@ -1,0 +1,38 @@
+<div class="col-12">
+    <div class="card">
+        <div class="card-header">
+            <h2><b>Form Xét Duyệt</b></h2>
+        </div>
+        <form>
+            <table class=" table table-bordered ">
+
+                <tr>
+                    <th>Quyết Định Xét Duyệt</th>
+                    <td>
+                        <select class="custom-select" [(ngModel)]="approveStatus" name="approveStatus">
+                            <option value="Chấp Nhận">Chấp Nhận</option>
+                            <option value="Yêu CẦu Bổ Sung">Yêu CẦu Bổ Sung</option>
+                            <option value="Từ Chối">Từ Chối</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Ghi Chú</th>
+                    <td><textarea class="form-control" rows="3" placeholder="Enter ..." name="description" [(ngModel)]="description">
+
+                    </textarea>
+                </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button type="button" class="btn btn-block btn-success btn-sm" (click)="Review()">Lưu</button>
+                        <button type="button" class="btn btn-block btn-success btn-sm" (click)="CloseReview()">Đóng</button>
+
+                    </td>
+
+                </tr>
+
+            </table>
+        </form>
+    </div>
+</div>

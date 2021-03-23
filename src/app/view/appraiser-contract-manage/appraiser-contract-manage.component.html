@@ -1,147 +1,78 @@
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-  <!-- Content Header (Page header) -->
-  <section class="content-header">
-    <div class="container-fluid">
-      <div class="row mb-2">
-        <div class="col-sm-6">
-          <h1>DANH SÁCH HỢP ĐỒNG</h1>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body class="hold-transition sidebar-mini">
+  <div class="wrapper">
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>DANH SÁCH HỢP ĐỒNG</h1><br>
+            
+          </div>
         </div>
       </div>
-    </div>
-    <!-- /.container-fluid -->
-  </section>
+      <!-- /.container-fluid -->
+    </section>
 
-  <!-- Main content -->
-  <section class="content">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-12">
-          <div class="card">
-            <div class="card-header">
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card" style="height: 1200px;">
               <!-- search -->
               <div class="card-header">
                 <div class="row" style="float: right;">
-                  <div class="card" style="padding: 10px;background: #28a745; color: white;">
-                    <div>
-                      <label>Search:<input id="Rsearch" type="search" class="form-control form-control-sm"
-                          placeholder="" aria-controls="example1"></label>
-                      <label>From<input id="RfromSearch" type="date" class="form-control form-control-sm" placeholder=""
-                          aria-controls="example1"></label>
-                      <label>To<input id="RtoSearch" type="date" class="form-control form-control-sm" placeholder=""
-                          aria-controls="example1"></label>
-                      <button id="RdelBtn" type="button" class="btn btn-danger">XÓA</button>
-                      <button type="button" class="btn btn-info">Tìm Kiếm</button>
-                    </div>
+                  <div class="card" style="padding: 10px;
+        background: #28a745; color: white;">
+                      <div>
+                          <label>Search:<input id="Rsearch" type="search"
+                                  class="form-control form-control-sm" placeholder=""
+                                  aria-controls="example1"></label>
+                          <label>From<input id="RfromSearch" type="date"
+                                  class="form-control form-control-sm" placeholder=""
+                                  aria-controls="example1"></label>
+                          <label>To<input id="RtoSearch" type="date"
+                                  class="form-control form-control-sm" placeholder=""
+                                  aria-controls="example1"></label>
+                          <button id="RdelBtn" type="button" class="btn btn-danger">XÓA</button>
+                          <button type="button" class="btn btn-info">Tìm Kiếm</button>
+                      </div>
                   </div>
-                </div>
+              </div>
               </div>
               <!-- search -->
+              <div class="card-body" style="overflow: auto;">
+                <app-contract-table></app-contract-table>
+              </div>
+              <!-- /.card-body -->
             </div>
-            <!-- /.card-header -->
-            <div class="card-body">
-              <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                  <tr>
-                    <th>Mã Hợp Đồng</th>
-                    <th>Mã Bảng Minh Hoạ</th>
-                    <th>Tên Người Mua</th>
-                    <th>Tên Người Được Bảo Hiểm</th>
-                    <th>Loại Bảo Hiểm</th>
-                    <th>Ngày Đăng Ký</th>
-                    <th>Ngày Hết Hạn</th>
-                    <th>Chi Tiết</th>
-                    <th>View PDF</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>#JHBVJHJHV798</td>
-                    <td>#1000</td>
-                    <td>Nguyễn Văn A</td>
-                    <td>Nguyễn Văn A</td>
-                    <td>Bảo Hiểm Nhân Thọ</td>
-                    <td>20-11-2020</td>
-                    <td>20-11-2046</td>
-                    <td><a [routerLink]="['/appraiser-contract-detail']">Chi Tiết</a></td>
-                    <td><button class="btn btn-primary">View PDF</button></td>
-                  </tr>
-                  <tr>
-                    <td>#JHBVJHJHV798</td>
-                    <td>#1000</td>
-                    <td>Nguyễn Văn A</td>
-                    <td>Nguyễn Văn A</td>
-                    <td>Bảo Hiểm Nhân Thọ</td>
-                    <td>20-11-2020</td>
-                    <td>20-11-2046</td>
-                    <td><a [routerLink]="['/appraiser-contract-detail']">Chi Tiết</a></td>
-                    <td><button class="btn btn-primary">View PDF</button></td>
-                  </tr>
-                  <tr>
-                    <td>#JHBVJHJHV798</td>
-                    <td>#1000</td>
-                    <td>Nguyễn Văn A</td>
-                    <td>Nguyễn Văn A</td>
-                    <td>Bảo Hiểm Nhân Thọ</td>
-                    <td>20-11-2020</td>
-                    <td>20-11-2046</td>
-                    <td><a [routerLink]="['/appraiser-contract-detail']">Chi Tiết</a></td>
-                    <td><button class="btn btn-primary">View PDF</button></td>
-                  </tr>
-                </tbody>
-                <tfoot>
-                  <tr>
-                    <th>Mã Hợp Đồng</th>
-                    <th>Mã Bảng Minh Hoạ</th>
-                    <th>Tên Người Mua</th>
-                    <th>Tên Người Được Bảo Hiểm</th>
-                    <th>Loại Bảo Hiểm</th>
-                    <th>Ngày Đăng Ký</th>
-                    <th>Ngày Hết Hạn</th>
-                    <th>Chi Tiết</th>
-                    <th>View PDF</th>
-                  </tr>
-                </tfoot>
-              </table>
-            </div>
-            <!-- /.card-body -->
+            <!-- /.card -->
           </div>
-          <!-- /.card -->
-          <div class="row">
-            <div class="col-sm-12 col-md-5">
-              <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">
-                Showing 1 to 10 of 22 entries
-              </div>
-            </div>
-            <div class="col-sm-12 col-md-7">
-              <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate">
-                <ul class="pagination">
-                  <li class="paginate_button page-item previous disabled" id="example1_previous">
-                    <a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
-                  </li>
-                  <li class="paginate_button page-item active">
-                    <a href="#" aria-controls="example1" data-dt-idx="1" tabindex="0" class="page-link">1</a>
-                  </li>
-                  <li class="paginate_button page-item">
-                    <a href="#" aria-controls="example1" data-dt-idx="2" tabindex="0" class="page-link">2</a>
-                  </li>
-                  <li class="paginate_button page-item">
-                    <a href="#" aria-controls="example1" data-dt-idx="3" tabindex="0" class="page-link">3</a>
-                  </li>
-                  <li class="paginate_button page-item next" id="example1_next">
-                    <a href="#" aria-controls="example1" data-dt-idx="4" tabindex="0" class="page-link">Next</a>
-                  </li>
-                </ul>
-              </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <div class="modal fade" id="viewPdf" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="card card-primary">
+              <embed src="bang-khai-bao-thong-tin-ve-ben-thu-ba.pdf" frameborder="0" width="700px" height="650px">
             </div>
           </div>
         </div>
-        <!-- /.col -->
       </div>
-      <!-- /.row -->
     </div>
-    <!-- /.container-fluid -->
-  </section>
-  <!-- /.content -->
-</div>
-<!-- /.content-wrapper -->
+  </div>
+</body>
+
+</html>
