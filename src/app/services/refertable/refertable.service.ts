@@ -1,56 +1,28 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 import { CommonService } from '../common/common.service';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
+export class RefertableService {
 
-export class ServerHttpService {
+  constructor(private httpClient: HttpClient, private common: CommonService) { }
 
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      // Authorization: 'my-auth-token',
     }),
   }
 
-  constructor(private httpClient: HttpClient, private common: CommonService) { }
-
-  private REST_API_SERVER = 'http://localhost:8080/api';
-
-  public getAcc(code: string,pass: string): Observable<any>{
-    const url = `${this.REST_API_SERVER}/login?code=`+code+'&pass='+pass;
+  public getAllReference(): Observable<any>{
+    const url = this.common.makeUrl('/reference_table/get_all_reference_table/');
     return this.httpClient
     .get<any>(url,this.httpOptions)
     .pipe(catchError(this.handleError));
   }
-
-  public getAllAcc(): Observable<any>{
-    const url = this.common.makeUrl('/employee/get_all_employee_acc/');
-    return this.httpClient
-    .get<any>(url,this.httpOptions)
-    .pipe(catchError(this.handleError));
-  }
-
-  public sendMailConfirm(data:any){
-    const url = this.common.makeUrl('/sendSimpleEmail/');
-    return this.httpClient
-    .post<any>(url,data,this.httpOptions)
-    .pipe(catchError(this.handleError));
-  }
-
-  public changePassword(data:any){
-    const url =  `${this.REST_API_SERVER}`+'/changePassword/' ;
-    return this.httpClient
-    .post<any>(url,data,this.httpOptions)
-    .pipe(catchError(this.handleError));
-  }
-
-
-
 
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
@@ -67,7 +39,4 @@ export class ServerHttpService {
     return throwError(
       'Something bad happened; please try again later.');
   }
-
-
-
 }

@@ -1,16 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { CustomerInfo } from 'src/app/model/CustomerInfo';
 import { Illustration } from 'src/app/model/Illustration';
 import { IllustrationMainInterest } from 'src/app/model/IllustrationMainInterest';
 import { IllustrationSubInterest } from 'src/app/model/IllustrationSubInterest';
 import { Interest } from 'src/app/model/Interest';
+import { Referencetable } from 'src/app/model/Referencetable';
 import { RelatedPerson } from 'src/app/model/RelatedPerson';
 import { CommonService } from 'src/app/services/common/common.service';
 import { CustomerService } from 'src/app/services/customer/customer.service';
 import { IllustrationService } from 'src/app/services/illustration/illustration.service';
 import { InterestService } from 'src/app/services/interest/interest.service';
+import { RefertableService } from 'src/app/services/refertable/refertable.service';
 
 @Component({
   selector: 'app-create-illustration',
@@ -19,7 +20,7 @@ import { InterestService } from 'src/app/services/interest/interest.service';
 })
 export class CreateIllustrationComponent implements OnInit {
 
-  constructor(private illustService : IllustrationService,private interest:InterestService,private activeRoute:ActivatedRoute,private common:CommonService,private customerService:CustomerService) { 
+  constructor(private referenceTable:RefertableService,private illustService : IllustrationService,private interest:InterestService,private activeRoute:ActivatedRoute,private common:CommonService,private customerService:CustomerService) { 
   }
 
   relatedPerson = new Array<RelatedPerson>();
@@ -28,6 +29,7 @@ export class CreateIllustrationComponent implements OnInit {
   subInterestList: Array<Interest>;
   subInterestListCopy:Array<Interest>;
   mainInterestSelect= new Interest;
+  reference:Referencetable;
   
 
 
@@ -47,7 +49,22 @@ export class CreateIllustrationComponent implements OnInit {
     this.getAllSubInterest();
     this.getAllMainInterest();
     this.getInfoCustomer();
+    this.referenceTable.getAllReference().subscribe((data => {
+      this.reference = data;
+    }))
+
     
+  }
+
+  CalculateFee(ref:Referencetable,illustration:Illustration){
+    let multiplier_for_main_interest = ref.multiplierForMainInterest.find(i => i.main_interest_id == illustration.illustrationMainInterest.id_main_interest)['multiplier'];
+    for(let item of illustration.illustrationSubInterestList){
+      item.fee_value = item.denominations * ref.multiplierForSubInterests.find(i => i.sub_interest_id == item.id_sub_interest)['multiplier'] *
+                        ref.multiplierForGenders.find(i => i.gender == item.gender_extra_insured_person)['multiplier'] *
+                        (1 + item.age_extra_insured_person * ref.multiplierForAge.find(i => i.age == item.age_extra_insured_person)['multiplier']) *
+                        ref.multiplierForCareerGroup.find(i => i.group_number == item.carrier_group_extra_insured_person)['multiplier'];
+      
+    }
   }
 
   addField(){

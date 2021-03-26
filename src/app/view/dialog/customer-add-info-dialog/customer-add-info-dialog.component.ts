@@ -6,6 +6,7 @@ import { CustomerInfo } from 'src/app/model/CustomerInfo';
 import { CustomerService } from 'src/app/services/customer/customer.service';
 import { SnackbarService } from 'src/app/services/snackbar/snackbar.service';
 import { CommonService } from 'src/app/services/common/common.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-customer-add-info-dialog',
@@ -15,7 +16,7 @@ import { CommonService } from 'src/app/services/common/common.service';
 export class CustomerAddInfoDialogComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<CustomerAddInfoDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public customerInfo: CustomerInfo,private common: CommonService,private router: Router,private customerService:CustomerService,private notiService: SnackbarService) { }
+    @Inject(MAT_DIALOG_DATA) public customerInfo: CustomerInfo,private sppiner : NgxSpinnerService,private common: CommonService,private router: Router,private customerService:CustomerService,private notiService: SnackbarService) { }
     selectedDeal:Date;
 
     user = jwt_decode(this.common.getCookie('token_key'));
@@ -39,9 +40,11 @@ export class CustomerAddInfoDialogComponent implements OnInit {
   }
 
 public onSubmit(){
+  this.sppiner.show();
   this.customerInfo.code_em_support = this.user['sub'];
   this.customerService.addCustomerInfo(this.customerInfo).subscribe((data => {
-    this.customerService.invokeRefreshTableFun(); 
+    this.customerService.invokeRefreshTableFun();
+    this.sppiner.hide();
   }))
 }
 

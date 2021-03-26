@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CustomerInfo } from 'src/app/model/CustomerInfo';
-import { EmployeeInfo } from 'src/app/model/EmployeeInfo';
 import { CommonService } from 'src/app/services/common/common.service';
 import { CustomerService } from 'src/app/services/customer/customer.service';
 import { NgxSpinnerService } from 'ngx-spinner'
@@ -19,14 +18,15 @@ export class ViewDetailCustomerComponent implements OnInit {
 
   constructor(private spinner : NgxSpinnerService,private common : CommonService,private customerService: CustomerService,private activateRoute: ActivatedRoute,private dialog : MatDialog,private router:Router) { }
 
-  customerInfo: CustomerInfo;
+  customerInfo = new CustomerInfo(0,new Date(),0,'','','','','','','','','','','','','',0,0,0,0,0,'','','',0,'','','','','','','','','','','','','','','','','','',false,'',0,0,'',new Date(),false,new Date(),'');
 
 
   
   ngOnInit(): void {
     this.spinner.show();
-  this.customerService.getOneAccCustomer(this.activateRoute.snapshot.params['id'],this.common.getCookie("token_key")).subscribe((data =>{
+    this.customerService.getOneAccCustomer(this.activateRoute.snapshot.params['id'],this.common.getCookie("token_key")).subscribe((data =>{
     this.customerInfo = data;
+    console.log(data)
     this.spinner.hide();
   }))
 }

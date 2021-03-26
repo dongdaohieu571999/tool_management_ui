@@ -138,7 +138,7 @@ import { EmployeeEditInfoDialogComponent } from './view/dialog/employee-edit-inf
     ContractPauseDialogComponent,
     ConfirmChangePassComponent,
     ViewDetailCustomerAdminComponent,
-    EmployeeEditInfoDialogComponent
+    EmployeeEditInfoDialogComponent,
   ],
   imports: [
     ReactiveFormsModule,
