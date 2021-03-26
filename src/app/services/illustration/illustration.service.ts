@@ -41,6 +41,20 @@ export class IllustrationService {
     .pipe(catchError(this.handleError));
   }
 
+  public getIllustrationContractCreate(id:number): Observable<any>{
+    const url = this.common.makeUrl('/illustration/get_illustration_contract_create/'+id);
+    return this.httpClient
+    .get<any>(url,this.httpOptions)
+    .pipe(catchError(this.handleError));
+  }
+
+  public getAllIllustration(): Observable<any>{
+    const url = this.common.makeUrl('/illustration/get_all_illustration');
+    return this.httpClient
+    .get<any>(url,this.httpOptions)
+    .pipe(catchError(this.handleError));
+  }
+
   public addOneCustomerOwnIllustration(code:string): Observable<any>{
     const url = this.common.makeUrl('/illustration/add_one_customer_own_illustration/');
     return this.httpClient
