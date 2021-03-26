@@ -9,53 +9,64 @@
                           <input type="password" class="form-control" name="customerId" ngModel>
                         </div> -->
                         <div class="form-group">
+                            <label for="exampleInputEmail1">Mã Bảng Minh Họa</label>
+                            <!-- <input type="email" class="form-control" name="illustrationId" (change)="onchangeValue()" ngModel > -->
+                            <select class="form-control disabled" [(ngModel)]="illustrationId" id="illustrationId" name="illustrationId" (change)="onchangeValue()">
+                                <option *ngFor="let illustration of illustrations" [value]="illustration.id" >{{illustration.id}}</option>
+                            </select>
+                        </div>  
+                        <div class="form-group">
                             <label for="exampleInputPassword1">Mã Khách Hàng</label>
-                            <select class="form-control disabled" id="customerID" name="customerId">
+                            <!-- <select class="form-control disabled" id="customerID" name="customerId">
                             <option *ngFor="let customerinfo of customerinfos" value="customerinfo.id">{{customerinfo.id}}</option>
-                          </select>
+                          </select> -->
+                          <input type="email" class="form-control" name="customerID" name="customerId" [(ngModel)]="customerId" readonly>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Tên Chủ Hợp Đồng</label>
-                            <input type="email" class="form-control" name="contractOwnerName" ngModel>
+                            <input type="email" class="form-control" name="contractOwnerName" [(ngModel)]="contractOwnerName" readonly>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Kỳ Hạn</label>
-                            <input type="email" class="form-control" name="period" ngModel>
+                            <!-- <input type="email" class="form-control" name="period" ngModel readonly> -->
+                            <select class="form-control disabled" id="period" name="period" ngModel>
+                            <option  value="20 năm">20 năm</option>
+                            <option  value="40 năm">40 năm</option>
+                            <option  value="60 năm">60 năm</option>
+                            <option  value="80 năm">80 năm</option>
+                          </select>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Loại Bảo Hiểm</label>
-                            <!-- <input type="email" class="form-control" name="insuranceType" ngModel> -->
-                            <select class="form-control disabled" id="insuranceType" name="insuranceType">
+                            <input type="email" class="form-control" name="insuranceType" id="insuranceType" [(ngModel)]="insuranceType" readonly>
+                            <!-- <select class="form-control disabled" id="insuranceType" name="insuranceType" readonly>
                                 <option *ngFor="let customerinfo of customerinfos" value="customerinfo.id">{{customerinfo.id}}</option>
-                            </select>
+                            </select> -->
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Mã Quyền lợi chính</label>
-                            <input type="email" class="form-control" name="insuranceId" ngModel>
+                            <input type="email" class="form-control" name="insuranceId" [(ngModel)]="insuranceId" readonly>
                         </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Mã Bảng Minh Họa</label>
-                            <input type="email" class="form-control" name="illustrationId" ngModel>
-                        </div>
+                        
                         <div class="form-group">
                             <label for="exampleInputEmail1">Tổng Số Tiền Phải Trả</label>
-                            <input type="email" class="form-control" name="totalPayment" ngModel>
+                            <input type="email" class="form-control" name="totalPayment" ngModel >
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Ngày Đăng Ký</label>
-                            <input type="date" class="form-control" name="signDate" ngModel>
-                        </div>
+                            <input type="date" class="form-control" name="signDate" ngModel >
+                        </div>  
                         <div class="form-group">
                             <label for="exampleInputEmail1">Ngày Hết Hạn</label>
-                            <input type="date" class="form-control" name="outOfDate" ngModel>
+                            <input type="date" class="form-control" name="outOfDate" ngModel >
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Tình trạng hoạt động</label>
-                            <input type="email" class="form-control" name="status" ngModel>
+                            <input type="email" class="form-control" name="status"  [(ngModel)]="status" readonly> 
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Tình trạng xét duyệt</label>
-                            <input type="email" class="form-control" name="approval_status" ngModel>
+                            <input type="email" class="form-control" name="approval_status" [(ngModel)]="approval_status" readonly>
                         </div>
                     </div>
                 </form>

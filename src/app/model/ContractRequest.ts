@@ -7,4 +7,6 @@ export class ContractRequest{
     name_contract_owner:String;
     start_time:Date;
     approval_status:String;
+    status:String;
+    description:String;
 }

@@ -6,6 +6,7 @@ import { ContractChangeHistory } from 'src/app/model/ContractChangeHistory';
 import { ContractDTO } from 'src/app/model/ContractDTO';
 import { FeePaymentHistory } from 'src/app/model/FeePaymentHistory';
 import { IntersetPaymentHistory } from 'src/app/model/IntersetPaymentHistory';
+import { AuthenService } from 'src/app/services/authen/authen.service';
 import { ContractService } from 'src/app/services/contract/contract.service';
 import { ContractChangeInfoDialogComponent } from '../dialog/contract-change-info-dialog/contract-change-info-dialog.component';
 import { ContractPauseDialogComponent } from '../dialog/contract-pause-dialog/contract-pause-dialog.component';
@@ -31,7 +32,7 @@ export class ViewDetailContractComponent implements OnInit {
   feepayments:FeePaymentHistory;
   contractchanges:ContractChangeHistory;
 
-  constructor(private route : ActivatedRoute , private router : Router,private contractService : ContractService,private dialog:MatDialog) { }
+  constructor(public authenService: AuthenService,private  route : ActivatedRoute , private router : Router,private contractService : ContractService,private dialog:MatDialog) { }
 
   ngOnInit(): void {
     this.contract = new ContractDTO();

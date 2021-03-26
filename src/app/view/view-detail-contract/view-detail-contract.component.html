@@ -15,85 +15,112 @@
         <div class="content-wrapper">
 
             <!-- Main content -->
-            <div class="col-12">
+            <!-- <div class="col-12">
                 <section class="content">
                     <div class="row">
                         <div style="width: 60%; margin: 0 auto; text-align: center;">
-                            <canvas baseChart [chartType]="'bar'" [datasets]="chartData" [labels]="chartLabels" [options]="chartOptions" [legend]="true">
+                            <canvas baseChart [chartType]="'bar'" [datasets]="chartData" [labels]="chartLabels"
+                                [options]="chartOptions" [legend]="true">
                             </canvas>
                             <p>Đồ Thị Lịch Sử Thanh Toán Quyền Lợi</p>
                         </div>
                     </div>
 
                 </section>
-            </div>
-            <div class="content col-12">
-                <table class=" table table-bordered ">
-                    <thead>
-                        <tr>
-                            <th>Tiêu Đề</th>
-                            <th>Thông tin</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Mã Hợp Đồng</td>
-                            <td>{{contract.id}}</td>
-                        </tr>
-                        <tr>
-                            <td>Mã Khách Hàng</td>
-                            <td>{{contract.id_customer}}</td>
-                        </tr>
-                        <tr>
-                            <td>Chủ Hợp Đồng</td>
-                            <td>{{contract.name_contract_owner}}</td>
-                        </tr>
-                        <tr>
-                            <td>Kỳ Hạn</td>
-                            <td>{{contract.payment_period}}</td>
-                        </tr>
-                        <tr>
-                            <td>Loại Bảo Hiểm</td>
-                            <td>{{contract.insurance_type}}</td>
-                        </tr>
-                        <tr>
-                            <td>Mã Gói Bảo Hiểm</td>
-                            <td>{{contract.id_main_interest}}</td>
-                        </tr>
-                        <tr>
-                            <td>Mã Bản Minh Họa</td>
-                            <td>{{contract.id_illustration}}</td>
-                        </tr>
-                        <tr>
-                            <td>Ngày Đăng Ký</td>
-                            <td>{{contract.start_time}}</td>
-                        </tr>
-                        <tr>
-                            <td>Ngày Hết Hạn</td>
-                            <td>{{contract.end_time}}</td>
-                        </tr>
-                        <tr>
-                            <td>Ngày Đóng Tiền Kế Tiếp</td>
-                            <td>{{contract.date_next_payment}}</td>
-                        </tr>
-                        <tr>
-                            <td>Trạng Thái</td>
-                            <td>{{contract.status}}</td>
-                        </tr>
-                        <tr>
-                            <td>Trạng Thái Phê Duyệt</td>
-                            <td>{{contract.approval_status}}</td>
-                        </tr>
-                        <tr>
-                            <td>Kỳ Hạn Đóng Phí</td>
-                            <td>{{contract.payment_period}}</td>
-                        </tr>
-
-                    </tbody>
-                </table>
-
+            </div> -->
+            <div class="content col-12">                       
                 <div class="card">
                     <mat-tab-group>
+                        <mat-tab label="Thông Tin Chi tiết Hợp Đồng">
+                            
+                            <!-- table -->
+                            <div class="card" style="height: 700px; background-color: #b8ceff;">
+                                
+                                <div class="card-body" style="overflow: auto; ">
+                                    <!-- chart -->
+                            <div class="col-12" >
+                                <section class="content">
+                                    <div class="row">
+                                        <div style="width: 60%; margin: 0 auto; text-align: left; ">
+                                            <canvas baseChart [chartType]="'bar'" [datasets]="chartData" [labels]="chartLabels"
+                                                [options]="chartOptions" [legend]="true">
+                                            </canvas>
+                                            <p>Đồ Thị Lịch Sử Thanh Toán Quyền Lợi</p>
+                                        </div>
+                                    </div>
+                
+                                </section>
+                            </div>
+                            <!-- chart -->
+                                    <table class=" table table-bordered " style="width: 400px;float: right;">
+                                        <thead>
+                                            <tr>
+                                                <th>Tiêu Đề</th>
+                                                <th>Thông tin</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Mã Hợp Đồng</td>
+                                                <td>{{contract.id}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Mã Khách Hàng</td>
+                                                <td>{{contract.id_customer}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Chủ Hợp Đồng</td>
+                                                <td>{{contract.name_contract_owner}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Kỳ Hạn</td>
+                                                <td>{{contract.payment_period}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Loại Bảo Hiểm</td>
+                                                <td>{{contract.insurance_type}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Mã Gói Bảo Hiểm</td>
+                                                <td>{{contract.id_main_interest}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Mã Bản Minh Họa</td>
+                                                <td>{{contract.id_illustration}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ngày Đăng Ký</td>
+                                                <td>{{contract.start_time}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ngày Hết Hạn</td>
+                                                <td>{{contract.end_time}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ngày Đóng Tiền Kế Tiếp</td>
+                                                <td>{{contract.date_next_payment}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Trạng Thái</td>
+                                                <td>{{contract.status}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Trạng Thái Phê Duyệt</td>
+                                                <td>{{contract.approval_status}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Kỳ Hạn Đóng Phí</td>
+                                                <td>{{contract.payment_period}}</td>
+                                            </tr>
+                    
+                                        </tbody>
+                    
+                                    </table>  
+                                </div>
+                            </div>
+                            <!-- table -->
+                        </mat-tab>
+                        
                         <mat-tab label="Lịch Sử Thanh Toán Quyền Lợi">
                             <div class="card" style="height: 700px; background-color: #b8ceff; ">
                                 <div class="card-header">
@@ -147,7 +174,7 @@
                             </div>
                         </mat-tab>
                         <mat-tab label="Lịch Sử Đóng Phí Của Khách Hàng">
-                            <div class="card" style="height: 700px; background-color: #ff8484d1;">
+                            <div class="card" style="height: 700px; background-color: #b8ceff;">
                                 <div class="card-header">
                                     <div class="row" style="float: right;">
                                         <div class="card" style="padding: 10px;
@@ -198,7 +225,7 @@
                             </div>
                         </mat-tab>
                         <mat-tab label="Lịch Sử Thay Đổi Thông Tin">
-                            <div class="card" style="height: 700px; background-color: #ff8484d1;">
+                            <div class="card" style="height: 700px; background-color: #b8ceff;">
                                 <div class="card-header">
                                     <div class="row" style="float: right;">
                                         <div class="card" style="padding: 10px;
@@ -236,7 +263,9 @@
                                                 <td>{{contractchange.date | date}}</td>
                                                 <td>{{contractchange.id_request}}</td>
                                                 <td>{{contractchange.approval_status}}</td>
-                                                <button (click)="contractChangeDetail(contractchange.id)" class="btn btn-info" style="height: 30px;color: white;">Chi Tiết</button>
+                                                <button (click)="contractChangeDetail(contractchange.id)"
+                                                    class="btn btn-info" style="height: 30px;color: white;">Chi
+                                                    Tiết</button>
                                             </tr>
                                             <!-- <tr>
                                                 <td>19/01/2021</td>
@@ -274,10 +303,13 @@
                             </div>
                         </mat-tab>
                     </mat-tab-group>
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger" (click)="openDialogPause()">Tạm
-                            Ngưng</button>
-                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" (click)="openDialogChange()">Sửa
-                            Đổi</button>
+                    <button *ngIf="authenService.id_role=='2'" type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger"
+                        (click)="openDialogPause()">Tạm
+                        Ngưng</button>
+                        <button *ngIf="authenService.id_role=='2'" type="button" style="margin-left: 200px;" class="btn btn-default" data-toggle="modal" data-target="#myModal"
+                        (click)="openDialogChange()">Sửa
+                        Đổi</button>
+
                 </div>
             </div>
 

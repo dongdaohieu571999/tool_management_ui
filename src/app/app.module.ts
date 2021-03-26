@@ -79,6 +79,7 @@ import { ContractChangeInfoDialogComponent } from './view/dialog/contract-change
 import { ContractPauseDialogComponent } from './view/dialog/contract-pause-dialog/contract-pause-dialog.component';
 import { ViewDetailCustomerAdminComponent } from './view/admin-customer-manage/view-customer-table/view-detail-customer-admin/view-detail-customer-admin.component';
 import { EmployeeEditInfoDialogComponent } from './view/dialog/employee-edit-info-dialog/employee-edit-info-dialog.component';
+import { AppraiserReviewFormComponent } from './view/dialog/appraiser-review-form/appraiser-review-form.component';
 
 
 @NgModule({
@@ -139,6 +140,7 @@ import { EmployeeEditInfoDialogComponent } from './view/dialog/employee-edit-inf
     ConfirmChangePassComponent,
     ViewDetailCustomerAdminComponent,
     EmployeeEditInfoDialogComponent,
+    AppraiserReviewFormComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -164,7 +166,7 @@ import { EmployeeEditInfoDialogComponent } from './view/dialog/employee-edit-inf
     MatSnackBarModule,
     MatSelectModule
   ],
-  entryComponents: [EmployeeEditInfoDialogComponent,ContractPauseDialogComponent,ContractChangeInfoDialogComponent,ReportCustomerDialogComponent,CustomerEditInfoComponent,AdminAddAccCustomerComponent,AdminAddEmployeeInfoComponent,AdminAddAccountEmployeeComponent,AddCustomerIllustrationDialogComponent,CustomerAddInfoDialogComponent,ContractAddDialogComponent,NotificationConfirmDialogComponent,PauseCustomerDialogComponent],
+  entryComponents: [AppraiserReviewFormComponent,EmployeeEditInfoDialogComponent,ContractPauseDialogComponent,ContractChangeInfoDialogComponent,ReportCustomerDialogComponent,CustomerEditInfoComponent,AdminAddAccCustomerComponent,AdminAddEmployeeInfoComponent,AdminAddAccountEmployeeComponent,AddCustomerIllustrationDialogComponent,CustomerAddInfoDialogComponent,ContractAddDialogComponent,NotificationConfirmDialogComponent,PauseCustomerDialogComponent],
   providers: [AdminDataServiceService],
   bootstrap: [AppComponent]
 })

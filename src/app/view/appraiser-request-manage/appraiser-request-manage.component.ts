@@ -13,11 +13,17 @@ export class AppraiserRequestManageComponent implements OnInit {
   constructor(private contractRequestService:ContractrequestService,private router : Router) { }
 
   contractRequests : Array<ContractRequest>
+  contractRequestsApprovals : Array<ContractRequest>
   ngOnInit(): void {
     this.contractRequestService.getAllContractRequest().subscribe((data => {
       this.contractRequests = data;
       console.log(this.contractRequests);
  }))
+    this.contractRequestService.getAllContractRequestApproval().subscribe((data =>{
+      this.contractRequestsApprovals = data;
+      console.log(this.contractRequestsApprovals);
+    }))
+
   }
 
 public requestDetail(id_request:number){

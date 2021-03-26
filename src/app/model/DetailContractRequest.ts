@@ -1,6 +1,7 @@
 export class DetailContractRequest{
     id_request:number;
     id_employee:number;
+    request_status:String;
     id_contract:number;
     id_illustration:number;
     start_time:Date;

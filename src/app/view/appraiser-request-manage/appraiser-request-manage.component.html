@@ -88,8 +88,8 @@
                 <thead>
                   <tr>
                     <th>Mã Hợp Đồng</th>
-                    <th>Tên Người Mua</th>
-                    <!-- <th>Tên Người Được Bảo Hiểm</th> -->
+                    <th>Tên Người Mua</th> 
+                    <th>Ghi chú</th>     
                     <th>Ngày Gửi</th>
                     <th>Người Gửi</th>
                     <th>Trạng Thái</th>
@@ -97,39 +97,21 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>#JHBVJHJHV798</td>
-                    <td>Nguyễn Văn A</td>
-                    <!-- <td>Nguyễn Thị B</td> -->
-                    <td>20-11-2020</td>
-                    <td>anv001</td>
-                    <th>Chấp Nhận</th>
-                    <td><a [routerLink]="['/appraiser-request-detail']">Chi Tiết</a></td>
-                  </tr>
-                  <tr>
-                    <td>#JHBVJHJHV798</td>
-                    <td>Nguyễn Văn A</td>
-                    <!-- <td>Nguyễn Thị B</td> -->
-                    <td>20-11-2020</td>
-                    <td>anv001</td>
-                    <th>Từ Chối</th>
-                    <td><a [routerLink]="['/appraiser-request-detail']">Chi Tiết</a></td>
-                  </tr>
-                  <tr>
-                    <td>#JHBVJHJHV798</td>
-                    <td>Nguyễn Văn A</td>
-                    <!-- <td>Nguyễn Thị B</td> -->
-                    <td>20-11-2020</td>
-                    <td>anv001</td>
-                    <th>Yêu Cầu Bổ Sung</th>
-                    <td><a [routerLink]="['/appraiser-request-detail']">Chi Tiết</a></td>
-                  </tr>
+                  <tr *ngFor="let contractRequestsApproval of contractRequestsApprovals">
+                    <td>{{contractRequestsApproval.id_contract}}</td>
+                    <td>{{contractRequestsApproval.name_contract_owner}}</td>
+                    <td>{{contractRequestsApproval.description}}</td>
+                    <td>{{contractRequestsApproval.start_time}}</td>
+                    <td>{{contractRequestsApproval.employee_name}}</td>
+                    <td>{{contractRequestsApproval.status}}</td>
+                    <td><button (click)="requestDetail(contractRequestsApproval.id_request)" class="btn btn-info" style="height: 40px; width: 100px; margin: 10px; color: white;">Chi Tiết</button></td>
+                  </tr>                  
                 </tbody>
                 <tfoot>
                   <tr>
                     <th>Mã Hợp Đồng</th>
                     <th>Tên Người Mua</th>
-                    <!-- <th>Tên Người Được Bảo Hiểm</th> -->
+                    <th>Ghi chú</th>
                     <th>Ngày Gửi</th>
                     <th>Người Gửi</th>
                     <th>Trạng Thái</th>
