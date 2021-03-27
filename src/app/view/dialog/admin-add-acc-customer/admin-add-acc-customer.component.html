@@ -9,15 +9,29 @@
                         </div>
                         <div class="form-group">
                             <label>Tên Đăng Nhập</label>
-                            <input type="text" class="form-control" name="code" required ngModel>
+                            <input type="text" class="form-control" id="code" name="code" #code = "ngModel"
+                            ngModel
+                            required pattern="[a-zA-Z0-9\s]+"
+                            >
+                            <span id="errorMessageUsername" style="color: red;" *ngIf="code.errors?.required && code.touched">Tên đăng nhập không được để trống</span>
+                            <span id="errorMessageUsername" style="color: red;" *ngIf="code.errors?.pattern && code.touched">Tên đăng nhập không được để kí tự đặc biệt hoặc chữ số</span>
                         </div>
                         <div class="form-group">
                             <label>Mật Khẩu</label>
-                            <input type="password" class="form-control" name="pass" required ngModel>
+                            <input type="password" class="form-control" name="pass" id="pass" #pass= "ngModel" [(ngModel)]="passwordEnter"
+                            required pattern="[a-zA-Z0-9\s]+"
+                            ngModel>
+                            <span id="errorMessageUsername" style="color: red;" *ngIf="pass.errors?.required && pass.touched">Mật khẩu không được để trống</span>
+                            <span id="errorMessageUsername" style="color: red;" *ngIf="pass.errors?.pattern && pass.touched">Mật khẩu không được để kí tự đặc biệt hoặc chữ số</span>
                         </div>
                         <div class="form-group">
                             <label>Mật Khẩu Xác Nhận</label>
-                            <input type="password" class="form-control" name="confirmPassword" required ngModel>
+                            <input type="password" class="form-control" name="confirmPassword" id="confirmPassword" #confirmPassword="ngModel" [(ngModel)]="confirmPassWordEnter" (keyup)="ConfirmPassword()"
+                            required pattern="[a-zA-Z0-9\s]+"
+                            ngModel>
+                            <span id="errorMessageUsername" style="color: red;" *ngIf="confirmPassword.errors?.required && confirmPassword.touched">Mật khẩu nhập lại không được để trống</span>
+                            <span id="errorMessageUsername" style="color: red;" *ngIf="confirmPassword.errors?.pattern && confirmPassword.touched">Mật khẩu nhập lại không được để kí tự đặc biệt hoặc chữ số</span>
+                            <span id="errorMessageUsername" style="color: red;" *ngIf="!checkPassword && confirmPassword.touched && !confirmPassword.errors?.required">Mật khẩu nhập lại không trùng với mật khẩu nhập</span>
                         </div>
                     </div>
                 </form>
@@ -27,5 +41,6 @@
 </mat-dialog-content>
 <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>Hủy</button>
-    <button mat-button type="submit" (click)="onSubmit(addAccCustomerForm,data)" cdkFocusInitial>Lưu</button>
+    <button mat-button [disabled]="addAccCustomerForm.invalid" type="submit" (click)="onSubmit(addAccCustomerForm,data)" cdkFocusInitial >Lưu</button>
+    
 </mat-dialog-actions>
