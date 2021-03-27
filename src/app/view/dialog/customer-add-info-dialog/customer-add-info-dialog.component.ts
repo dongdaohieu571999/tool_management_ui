@@ -6,6 +6,7 @@ import { CustomerInfo } from 'src/app/model/CustomerInfo';
 import { CustomerService } from 'src/app/services/customer/customer.service';
 import { SnackbarService } from 'src/app/services/snackbar/snackbar.service';
 import { CommonService } from 'src/app/services/common/common.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-customer-add-info-dialog',

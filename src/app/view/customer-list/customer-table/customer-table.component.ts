@@ -16,18 +16,18 @@ import { CommonService } from 'src/app/services/common/common.service';
 })
 export class CustomerTableComponent implements OnInit {
 
-  constructor(private changeDetectorRefs: ChangeDetectorRef,private common:CommonService,private dialog : MatDialog,public customerService : CustomerService, private router : Router,private spinner:NgxSpinnerService) { }
+  constructor(private changeDetectorRefs: ChangeDetectorRef,private common:CommonService,private dialog : MatDialog,public customerService : CustomerService, private router : Router,private spinner:NgxSpinnerService) { 
+    
+  }
   customerinfos : Array<CustomerInfo>;
   page:number = 1;
   totalRecords:number;
 
   ngOnInit(): void {
-    if (this.customerService.subsVar==undefined) {    
       this.customerService.subsVar = this.customerService.    
-      callRefreshTable.subscribe((name:string) => {    
+      callRefreshTable.subscribe((name:string) => {
         this.refresh();
-      });    
-    }  
+      });
     this.refresh();
   }
 

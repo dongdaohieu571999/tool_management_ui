@@ -11,5 +11,5 @@ export class Interest {
 
     carrier_group_extra_insured_person:number;
     denominations:number;
-    fee_value:number;
+    fee_value:string;
 }

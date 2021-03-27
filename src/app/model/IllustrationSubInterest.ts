@@ -8,7 +8,7 @@ export class IllustrationSubInterest{
     gender_extra_insured_person:boolean;
     carrier_group_extra_insured_person:number;
     denominations:number;
-    fee_value:number;
+    fee_value:string;
     is_extra_insured_person:boolean;
 
 
@@ -21,7 +21,7 @@ export class IllustrationSubInterest{
         gender_extra_insured_person:boolean,
         carrier_group_extra_insured_person:number,
         denominations:number,
-        fee_value:number,
+        fee_value:string,
         is_extra_insured_person:boolean,){
             this.id_illustration = id_illustration;
             this.id_sub_interest = id_sub_interest;

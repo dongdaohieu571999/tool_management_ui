@@ -1,16 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { CustomerInfo } from 'src/app/model/CustomerInfo';
 import { Illustration } from 'src/app/model/Illustration';
 import { IllustrationMainInterest } from 'src/app/model/IllustrationMainInterest';
 import { IllustrationSubInterest } from 'src/app/model/IllustrationSubInterest';
 import { Interest } from 'src/app/model/Interest';
+import { MultiplierForPaymentPeriod } from 'src/app/model/MultiplierForPaymentPeriod';
+import { Referencetable } from 'src/app/model/Referencetable';
 import { RelatedPerson } from 'src/app/model/RelatedPerson';
 import { CommonService } from 'src/app/services/common/common.service';
 import { CustomerService } from 'src/app/services/customer/customer.service';
 import { IllustrationService } from 'src/app/services/illustration/illustration.service';
 import { InterestService } from 'src/app/services/interest/interest.service';
+import { RefertableService } from 'src/app/services/refertable/refertable.service';
+import { SnackbarService } from 'src/app/services/snackbar/snackbar.service';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas'; 
 
 @Component({
   selector: 'app-create-illustration',
@@ -19,8 +25,11 @@ import { InterestService } from 'src/app/services/interest/interest.service';
 })
 export class CreateIllustrationComponent implements OnInit {
 
-  constructor(private illustService : IllustrationService,private interest:InterestService,private activeRoute:ActivatedRoute,private common:CommonService,private customerService:CustomerService) { 
+  constructor(private snackBar:SnackbarService,private spinner:NgxSpinnerService,private referenceTable:RefertableService,private illustService : IllustrationService,private interest:InterestService,private activeRoute:ActivatedRoute,private common:CommonService,private customerService:CustomerService) { 
   }
+
+  // biến dùng để xuất pdf
+  @ViewChild('content') content:ElementRef;
 
   relatedPerson = new Array<RelatedPerson>();
   customerInfo = new CustomerInfo(0,new Date(),0,'','','','','','','','','','','','','',0,0,0,0,0,'','','',0,'','','','','','','','','','','','','','','','','','',false,'',0,0,'',new Date(),false,new Date(),'');
@@ -28,6 +37,19 @@ export class CreateIllustrationComponent implements OnInit {
   subInterestList: Array<Interest>;
   subInterestListCopy:Array<Interest>;
   mainInterestSelect= new Interest;
+  reference=new Referencetable();
+
+  // disable button lưu bảng minh họa
+  checkedTick = false;
+
+  // disble button tính phí
+  checkCountPayment = false;
+
+  //hệ số định kỳ hàng năm
+  mulPeriod:MultiplierForPaymentPeriod;
+
+  //tổng số tiền bảo hiểm cuối cùng
+  totalPayment=0;
   
 
 
@@ -35,9 +57,9 @@ export class CreateIllustrationComponent implements OnInit {
 
   create_time_ill = new Date();
   
-  illustrationMainInterest=new IllustrationMainInterest(0,this.mainInterestSelect.id,'',new Date(),0,false,0,'','',0,0);
+  illustrationMainInterest=new IllustrationMainInterest(0,this.mainInterestSelect.id,'',new Date(),0,false,0,'','','',0);
 
-  illustration = new Illustration(0,0,new Date(),this.mainInterestSelect.interest_name,this.illustrationMainInterest,[]);
+  illustration = new Illustration(0,0,new Date(),this.mainInterestSelect.interest_name,0,0,this.illustrationMainInterest,[]);
 
 
   //Them cac bien thuoc bang minh hoa o day
@@ -47,7 +69,80 @@ export class CreateIllustrationComponent implements OnInit {
     this.getAllSubInterest();
     this.getAllMainInterest();
     this.getInfoCustomer();
+    this.referenceTable.getAllReference().subscribe((data => {
+      this.reference = data;
+    }))
+  }
+
+  onCalculate(){
+    this.spinner.show();
+    if(this.reference.multiplierForAge.length != 0){
+      this.CalculateFee(this.reference,this.illustration);
+    } else {
+      this.snackBar.openSnackBar("Vui Lòng Tải Lại Trang",'Đóng');
+    }
+    this.spinner.hide();
+    this.checkedTick = true;
+  }
+
+  CalculateFee(ref:Referencetable,illustration:Illustration){
+    this.totalPayment=0;
+    // phí của gói quyền lợi chính
+    this.illustrationMainInterest.fee_value = Math.round(ref.multiplierForMainInterest.find(i => i.main_interest_id == this.mainInterestSelect.id)['multiplier']*
+    this.illustrationMainInterest.denominations*ref.multiplierForGenders.find(i => i.gender == this.illustrationMainInterest.gender_insured_person? '1':'0')['multiplier']*
+    (1+this.calculateAge(this.illustrationMainInterest.birth_date_insured_person)*ref.multiplierForAge.find(i => i.age == this.calculateAge(this.illustrationMainInterest.birth_date_insured_person))['multiplier'])*
+    ref.multiplierForCareerGroup.find(i => i.group_number == this.illustrationMainInterest.carrier_group_insured_person)['multiplier']).toLocaleString();
+
+    // cộng vào tổng giá trị
+    this.totalPayment += this.convertStringToNum(this.illustrationMainInterest.fee_value);
+
+    // phí của gói quyền lợi phụ của người được bảo hiểm
+    if(this.subInterestListCopy.find(i => i.isDisable == false)){// kiểm tra xem người được bảo hiểm có quyền lợi phụ hay không
+      for(let item of this.subInterestListCopy){
+        if(!item.isDisable){// tìm kiếm những trường đã được tích chọn
+        item.fee_value = Math.round(item.denominations * ref.multiplierForSubInterests.find(i => i.sub_interest_id == item.id)['multiplier'] *
+                          ref.multiplierForGenders.find(i => i.gender == this.illustrationMainInterest.gender_insured_person ? '1':'0')['multiplier'] *
+                          (1 + this.calculateAge(this.illustrationMainInterest.birth_date_insured_person) * ref.multiplierForAge.find(i => i.age == this.calculateAge(this.illustrationMainInterest.birth_date_insured_person))['multiplier']) *
+                          ref.multiplierForCareerGroup.find(i => i.group_number == this.illustrationMainInterest.carrier_group_insured_person)['multiplier']).toLocaleString();
+        
+      // cộng vào tổng giá trị
+      this.totalPayment += this.convertStringToNum(item.fee_value);
+
+        } else {
+          item.fee_value = '';
+        }
+        }
+    }
     
+
+    // phí của gói quyền lợi phụ của những người liên quan
+for(let relate of this.relatedPerson){
+    for(let interest of relate.listSubInterest){
+      if(!interest.isDisable){
+      interest.fee_value = Math.round(interest.denominations * ref.multiplierForSubInterests.find(i => i.sub_interest_id == interest.id)['multiplier'] *
+                        ref.multiplierForGenders.find(i => i.gender == relate.gender? '1':'0')['multiplier'] *
+                        (1 + this.calculateAge(relate.date_of_birth) * ref.multiplierForAge.find(i => i.age == this.calculateAge(relate.date_of_birth))['multiplier']) *
+                        ref.multiplierForCareerGroup.find(i => i.group_number == relate.carreer_group)['multiplier']).toLocaleString(); 
+      
+      // cộng vào tổng giá trị
+      this.totalPayment += this.convertStringToNum(interest.fee_value);
+      
+      } else {
+        interest.fee_value ='';
+      }
+    }
+  }
+
+  // tổng kết totalPayment
+  this.totalPayment = Math.round(this.totalPayment*this.mulPeriod.multiplier);
+
+  this.illustration.total_fee = this.totalPayment;
+  this.illustration.payment_period_id = this.mulPeriod.priod_id;
+
+  }
+
+  convertStringToNum(numberString:string):number{
+    return parseInt(numberString.replace(/\D/g,''));
   }
 
   addField(){
@@ -109,6 +204,17 @@ export class CreateIllustrationComponent implements OnInit {
 
   }
 
+  calculateAge(birthday:Date){
+    var diff_ms = Date.now() - new Date(birthday).getTime();
+    var age_dt = new Date(diff_ms); 
+  
+    return Math.abs(age_dt.getUTCFullYear() - 1970);
+  }
+
+  dowloadPDF(){
+    window.print();
+  }
+
   save(){
     this.illustration.illustrationSubInterestList = [];
     for(let interest of this.subInterestListCopy){
@@ -116,7 +222,7 @@ export class CreateIllustrationComponent implements OnInit {
       this.activeRoute.queryParams.subscribe(params => {
 
         let subInterest = new IllustrationSubInterest(params['id'],interest.id,this.illustrationMainInterest.full_name_insured_person
-        ,this.illustrationMainInterest.insurance_buyer_relation_insured_person,this.illustrationMainInterest.birth_date_insured_person,0,
+        ,this.illustrationMainInterest.insurance_buyer_relation_insured_person,this.illustrationMainInterest.birth_date_insured_person,this.calculateAge(this.illustrationMainInterest.birth_date_insured_person),
         this.illustrationMainInterest.gender_insured_person,this.illustrationMainInterest.carrier_group_insured_person,interest.denominations,
         interest.fee_value,false);
 
@@ -131,7 +237,7 @@ export class CreateIllustrationComponent implements OnInit {
         if(!interest.isDisable){
         this.activeRoute.queryParams.subscribe(params => {
           this.illustration.illustrationSubInterestList.push(new IllustrationSubInterest(params['id'],interest.id,relatePer.full_name
-          ,relatePer.relation,relatePer.date_of_birth,0,relatePer.gender,relatePer.carreer_group,interest.denominations,interest.fee_value
+          ,relatePer.relation,relatePer.date_of_birth,this.calculateAge(relatePer.date_of_birth),relatePer.gender,relatePer.carreer_group,interest.denominations,interest.fee_value
           ,true));
         })
       }
@@ -139,9 +245,15 @@ export class CreateIllustrationComponent implements OnInit {
     }
     this.illustration.illustrationMainInterest.id_main_interest = this.mainInterestSelect.id;
     this.illustration.id_customer_info = this.customerInfo.id;
-    // console.log(this.illustration);
+    this.illustration.illustrationMainInterest.age_insured_person = this.calculateAge(this.illustrationMainInterest.birth_date_insured_person);
+    
+    this.spinner.show();
+
     this.illustService.saveOneIllustration(this.illustration).subscribe((data => {
-      console.log('ok');
+      this.snackBar.openSnackBar("Lưu Bảng Minh Họa Thành Công","Đóng");
+      this.spinner.hide();
+      this.checkedTick = false;
+      this.checkCountPayment = true;
     }))
   }
 
