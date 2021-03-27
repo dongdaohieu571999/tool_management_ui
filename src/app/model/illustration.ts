@@ -7,7 +7,7 @@ export class Illustration{
     create_time:Date;
     interest_name:String;
     total_fee:number;
-    payment_period:string;
+    payment_period_id:number;
 
     illustrationMainInterest:IllustrationMainInterest;
     illustrationSubInterestList:Array<IllustrationSubInterest>;
@@ -18,7 +18,7 @@ export class Illustration{
         create_time:Date,
         interest_name:String,
         total_fee:number,
-        payment_period:string,
+        payment_period_id:number,
         illustrationMainInterest:IllustrationMainInterest,
         illustrationSubInterestList:Array<IllustrationSubInterest>,){
 
@@ -27,7 +27,7 @@ export class Illustration{
             this.create_time = create_time;
             this.interest_name = interest_name;
             this.total_fee = total_fee;
-            this.payment_period = payment_period;
+            this.payment_period_id = payment_period_id;
             this.illustrationMainInterest = illustrationMainInterest;
             this.illustrationSubInterestList = illustrationSubInterestList;
     }

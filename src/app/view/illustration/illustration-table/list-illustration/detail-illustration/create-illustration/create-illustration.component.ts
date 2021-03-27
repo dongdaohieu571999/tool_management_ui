@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { CustomerInfo } from 'src/app/model/CustomerInfo';
@@ -15,6 +15,8 @@ import { IllustrationService } from 'src/app/services/illustration/illustration.
 import { InterestService } from 'src/app/services/interest/interest.service';
 import { RefertableService } from 'src/app/services/refertable/refertable.service';
 import { SnackbarService } from 'src/app/services/snackbar/snackbar.service';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas'; 
 
 @Component({
   selector: 'app-create-illustration',
@@ -26,6 +28,9 @@ export class CreateIllustrationComponent implements OnInit {
   constructor(private snackBar:SnackbarService,private spinner:NgxSpinnerService,private referenceTable:RefertableService,private illustService : IllustrationService,private interest:InterestService,private activeRoute:ActivatedRoute,private common:CommonService,private customerService:CustomerService) { 
   }
 
+  // biến dùng để xuất pdf
+  @ViewChild('content') content:ElementRef;
+
   relatedPerson = new Array<RelatedPerson>();
   customerInfo = new CustomerInfo(0,new Date(),0,'','','','','','','','','','','','','',0,0,0,0,0,'','','',0,'','','','','','','','','','','','','','','','','','',false,'',0,0,'',new Date(),false,new Date(),'');
   mainInterestList: Array<Interest>;
@@ -33,6 +38,12 @@ export class CreateIllustrationComponent implements OnInit {
   subInterestListCopy:Array<Interest>;
   mainInterestSelect= new Interest;
   reference=new Referencetable();
+
+  // disable button lưu bảng minh họa
+  checkedTick = false;
+
+  // disble button tính phí
+  checkCountPayment = false;
 
   //hệ số định kỳ hàng năm
   mulPeriod:MultiplierForPaymentPeriod;
@@ -48,7 +59,7 @@ export class CreateIllustrationComponent implements OnInit {
   
   illustrationMainInterest=new IllustrationMainInterest(0,this.mainInterestSelect.id,'',new Date(),0,false,0,'','','',0);
 
-  illustration = new Illustration(0,0,new Date(),this.mainInterestSelect.interest_name,0,'',this.illustrationMainInterest,[]);
+  illustration = new Illustration(0,0,new Date(),this.mainInterestSelect.interest_name,0,0,this.illustrationMainInterest,[]);
 
 
   //Them cac bien thuoc bang minh hoa o day
@@ -71,6 +82,7 @@ export class CreateIllustrationComponent implements OnInit {
       this.snackBar.openSnackBar("Vui Lòng Tải Lại Trang",'Đóng');
     }
     this.spinner.hide();
+    this.checkedTick = true;
   }
 
   CalculateFee(ref:Referencetable,illustration:Illustration){
@@ -111,7 +123,7 @@ for(let relate of this.relatedPerson){
                         ref.multiplierForGenders.find(i => i.gender == relate.gender? '1':'0')['multiplier'] *
                         (1 + this.calculateAge(relate.date_of_birth) * ref.multiplierForAge.find(i => i.age == this.calculateAge(relate.date_of_birth))['multiplier']) *
                         ref.multiplierForCareerGroup.find(i => i.group_number == relate.carreer_group)['multiplier']).toLocaleString(); 
-        
+      
       // cộng vào tổng giá trị
       this.totalPayment += this.convertStringToNum(interest.fee_value);
       
@@ -125,7 +137,7 @@ for(let relate of this.relatedPerson){
   this.totalPayment = Math.round(this.totalPayment*this.mulPeriod.multiplier);
 
   this.illustration.total_fee = this.totalPayment;
-  this.illustration.payment_period = this.mulPeriod.description;
+  this.illustration.payment_period_id = this.mulPeriod.priod_id;
 
   }
 
@@ -199,6 +211,10 @@ for(let relate of this.relatedPerson){
     return Math.abs(age_dt.getUTCFullYear() - 1970);
   }
 
+  dowloadPDF(){
+    window.print();
+  }
+
   save(){
     this.illustration.illustrationSubInterestList = [];
     for(let interest of this.subInterestListCopy){
@@ -206,7 +222,7 @@ for(let relate of this.relatedPerson){
       this.activeRoute.queryParams.subscribe(params => {
 
         let subInterest = new IllustrationSubInterest(params['id'],interest.id,this.illustrationMainInterest.full_name_insured_person
-        ,this.illustrationMainInterest.insurance_buyer_relation_insured_person,this.illustrationMainInterest.birth_date_insured_person,0,
+        ,this.illustrationMainInterest.insurance_buyer_relation_insured_person,this.illustrationMainInterest.birth_date_insured_person,this.calculateAge(this.illustrationMainInterest.birth_date_insured_person),
         this.illustrationMainInterest.gender_insured_person,this.illustrationMainInterest.carrier_group_insured_person,interest.denominations,
         interest.fee_value,false);
 
@@ -230,8 +246,14 @@ for(let relate of this.relatedPerson){
     this.illustration.illustrationMainInterest.id_main_interest = this.mainInterestSelect.id;
     this.illustration.id_customer_info = this.customerInfo.id;
     this.illustration.illustrationMainInterest.age_insured_person = this.calculateAge(this.illustrationMainInterest.birth_date_insured_person);
+    
+    this.spinner.show();
+
     this.illustService.saveOneIllustration(this.illustration).subscribe((data => {
-      console.log('ok');
+      this.snackBar.openSnackBar("Lưu Bảng Minh Họa Thành Công","Đóng");
+      this.spinner.hide();
+      this.checkedTick = false;
+      this.checkCountPayment = true;
     }))
   }
 

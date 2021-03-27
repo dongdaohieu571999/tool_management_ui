@@ -74,3 +74,10 @@ p {
 legend .customPlusButton {
     float: right;
 }
+
+@media print {
+    /* style sheet for print goes here */
+    .noprint {
+        visibility: hidden;
+    }
+}

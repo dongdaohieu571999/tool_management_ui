@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html>
 
-<header>
 
+
+<header>
 </header>
 
 <body>
-    <div class="container">
-        <div class="headerContent">
+    <div class="container" id="content" #content>
+        <div class="headerContent noprint">
             <span>Tạo Bảng minh họa</span>
         </div>
-        <div class="title">
+        <div class="title" class="noprint">
             <br>
             <h1><b>Bảng Minh Họa - Tạo Bảng Minh Họa</b></h1>
         </div>
-        <div class="infoUser">
+        <div class="infoUser noprint">
             UserID {{ customerInfo.id }}/{{ customerInfo.full_name }}
         </div>
 
@@ -139,7 +140,7 @@
                                     <input class="form-control" value="{{ illustrationMainInterest.carrier_group_insured_person }}" name="carrier_group_extra_insured_person" readonly>
                                 </td>
                                 <td>
-                                    <input class="form-control" type="number" name="denominations" [(ngModel)]="interest.denominations" [attr.disabled]="interest.isDisable?'':null">
+                                    <input class="form-control" type="number" name="denominations" [(ngModel)]="interest.denominations" [attr.disabled]="interest.isDisable?'':null" min="50000000">
                                 </td>
                                 <td>
                                     <input class="form-control" value="{{ interest.fee_value }}" name="fee_value" readonly>
@@ -197,7 +198,7 @@
                         <input class="form-control" value="{{ item.carreer_group }}" [(ngModel)]="interest.carrier_group_extra_insured_person" name="carrier_group_extra_insured_person" readonly>
                     </td>
                     <td>
-                        <input class="form-control" type="number" name="denominations" [(ngModel)]="interest.denominations" [attr.disabled]="interest.isDisable?'':null">
+                        <input class="form-control" type="number" name="denominations" [(ngModel)]="interest.denominations" [attr.disabled]="interest.isDisable?'':null" min="50000000">
                     </td>
                     <td>
                         <input class="form-control" value="{{ interest.fee_value }}" name="fee_value" readonly>
@@ -205,7 +206,7 @@
                 </tr>
             </table>
         </div>
-        <div class="formButtonP">
+        <div class="formButtonP noprint">
             <button class="w3-button w3-xlarge w3-circle w3-red w3-card-4 customPlusButton" (click)="addField()">+</button>
             <p>Thêm Người Được Bảo Hiểm Bổ Sung</p>
         </div>
@@ -218,7 +219,7 @@
                         <select class="form-control" [(ngModel)]="mulPeriod">
                             <option [ngValue]="item" *ngFor = "let item of reference.multiplierForPaymentPeriod">{{item.description}} (Hệ Số: {{item.multiplier}})</option>
                         </select>
-                        <button class="form-control" (click)="onCalculate()">Tính Phí</button>
+                        <button class="form-control noprint" (click)="onCalculate()" [disabled]="checkCountPayment">Tính Phí</button>
                     </div>
                 </div>
                 <div class="col-4">
@@ -229,7 +230,8 @@
                 </div>
             </div>
         </div>
-        <button class="form-control" style="margin-top: 20px; margin-bottom: 20px;" (click)="save()">LƯU BẢNG MINH HỌA</button>
+        <button class="form-control noprint" style="margin-top: 20px; margin-bottom: 20px;" (click)="save()" [disabled]="!checkedTick">LƯU BẢNG MINH HỌA</button>
+        <button class="form-control noprint" (click)="dowloadPDF()">XUẤT PDF</button>
     </div>
 
 
