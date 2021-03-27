@@ -20,9 +20,23 @@ export class AdminAddAccCustomerComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: CustomerInfo,private customerService:CustomerService,private notiService: SnackbarService) {}
 
 
+
+
   onNoClick(): void {
     this.dialogRef.close();
   }
+ passwordEnter : String;
+ confirmPassWordEnter:String;
+ checkPassword : boolean;
+  ConfirmPassword(){
+    if(this.passwordEnter == this.confirmPassWordEnter){
+      this.checkPassword = true;
+    }
+    else{
+      this.checkPassword = false;
+    }
+  }
+
 
   onSubmit(addAccCustomerForm : NgForm,customerInfo:CustomerInfo){
     if(addAccCustomerForm.value.code != '' && addAccCustomerForm.value.pass != ''){

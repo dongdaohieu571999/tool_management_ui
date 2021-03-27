@@ -23,6 +23,18 @@ export class AdminAddAccountEmployeeComponent implements OnInit {
     this.dialogRef.close();
   }
 
+  passwordEnter : String;
+ confirmPassWordEnter:String;
+ checkPassword : boolean;
+  ConfirmPassword(){
+    if(this.passwordEnter == this.confirmPassWordEnter){
+      this.checkPassword = true;
+    }
+    else{
+      this.checkPassword = false;
+    }
+  }
+  
   onSubmit(addAccEmployeeForm : NgForm,employeeInfo:EmployeeInfo){
 
     if(addAccEmployeeForm.value.code != '' && addAccEmployeeForm.value.pass != ''){
