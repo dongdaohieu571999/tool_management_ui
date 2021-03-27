@@ -48,7 +48,7 @@
                         </tr>
                         <tr>
                             <td>Ngày Sinh</td>
-                            <td><input type="date" class="form-control" [(ngModel)]="illustrationMainInterest.birth_date_insured_person"></td>
+                            <td><input type="date" class="form-control" [(ngModel)]="illustrationMainInterest.birth_date_insured_person" max="2019-12-31"></td>
                         </tr>
                         <tr>
                             <td>Giới Tính</td>
@@ -142,7 +142,7 @@
                                     <input class="form-control" type="number" name="denominations" [(ngModel)]="interest.denominations" [attr.disabled]="interest.isDisable?'':null">
                                 </td>
                                 <td>
-                                    <input class="form-control" [(ngModel)]="interest.fee_value" name="fee_value" readonly>
+                                    <input class="form-control" value="{{ interest.fee_value }}" name="fee_value" readonly>
                                 </td>
                             </tr>
                         </table>
@@ -166,7 +166,7 @@
                             <option>Bản Thân</option>
                         </select>
                 <p>Ngày Sinh</p>
-                <input class="form-control" type="date" [(ngModel)]="item.date_of_birth">
+                <input class="form-control" type="date" [(ngModel)]="item.date_of_birth" max="2019-12-31">
                 <p>Giới Tính</p>
                 <td><select class="form-control" [(ngModel)]="item.gender">
                     <option [value] = true >Nam</option>
@@ -200,7 +200,7 @@
                         <input class="form-control" type="number" name="denominations" [(ngModel)]="interest.denominations" [attr.disabled]="interest.isDisable?'':null">
                     </td>
                     <td>
-                        <input class="form-control" [(ngModel)]="interest.fee_value" name="fee_value" readonly>
+                        <input class="form-control" value="{{ interest.fee_value }}" name="fee_value" readonly>
                     </td>
                 </tr>
             </table>
@@ -214,16 +214,18 @@
             <div class="row">
                 <div class="col-4">
                     <div class="row">
-                        <p>Định Kỳ Trả Phí (Năm)</p>
-                        <input class="form-control" type="number">
-                        <button class="form-control">Tính Phí</button>
+                        <p>Định Kỳ Trả Phí</p>
+                        <select class="form-control" [(ngModel)]="mulPeriod">
+                            <option [ngValue]="item" *ngFor = "let item of reference.multiplierForPaymentPeriod">{{item.description}} (Hệ Số: {{item.multiplier}})</option>
+                        </select>
+                        <button class="form-control" (click)="onCalculate()">Tính Phí</button>
                     </div>
                 </div>
                 <div class="col-4">
                     <p>Tổng Phí Bảo Hiểm</p>
                 </div>
                 <div style="color: red;">
-                    <p>21.000.000 VNĐ</p>
+                    <p>{{ totalPayment.toLocaleString() }} VNĐ</p>
                 </div>
             </div>
         </div>
