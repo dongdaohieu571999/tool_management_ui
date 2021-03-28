@@ -1,14 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import jwt_decode from "jwt-decode";
+import { NgxSpinnerService } from 'ngx-spinner';
 import { Contract } from 'src/app/model/Contract';
 import { CustomerInfo } from 'src/app/model/CustomerInfo';
 import { Illustration } from 'src/app/model/Illustration';
-import { IllustrationContractCreate } from 'src/app/model/IllustrationContractCreate';
+import { Referencetable } from 'src/app/model/Referencetable';
 import { CommonService } from 'src/app/services/common/common.service';
 import { ContractService } from 'src/app/services/contract/contract.service';
 import { CustomerService } from 'src/app/services/customer/customer.service';
 import { IllustrationService } from 'src/app/services/illustration/illustration.service';
+import { RefertableService } from 'src/app/services/refertable/refertable.service';
+import { SnackbarService } from 'src/app/services/snackbar/snackbar.service';
 
 @Component({
   selector: 'app-contract-add-dialog',
@@ -17,65 +19,52 @@ import { IllustrationService } from 'src/app/services/illustration/illustration.
 })
 export class ContractAddDialogComponent implements OnInit {
 
-  constructor(private IllustrationService:IllustrationService,private contractService:ContractService,private common:CommonService,private customerService : CustomerService) { }
+  constructor(private spinner:NgxSpinnerService,private snackBar:SnackbarService,private referenceTable:RefertableService,private IllustrationService:IllustrationService,private contractService:ContractService,private common:CommonService,private customerService : CustomerService) { }
   customerinfos : Array<CustomerInfo>;
   illustrations : Array<Illustration>;
+  contract=new Contract(0,0,'',0,'',0,0,new Date(),new Date(),false,'CXD',0,new Date(),jwt_decode(this.common.getCookie('token_key'))['sub']);
 
 
   ngOnInit(): void {
     this.customerService.getAllCustomerInfo(jwt_decode(this.common.getCookie('token_key'))['sub']).subscribe((data => {
       this.customerinfos = data;
-      console.log(this.customerinfos);
     }))
-    this.IllustrationService.getAllIllustration().subscribe((data =>{
-      this.illustrations = data;
-      console.log(this.illustrations);
-    }))
-
-      
   }
   illustrationId:number;
-  IllustrationContract : IllustrationContractCreate;
+  IllustrationContract:Illustration;
+  payment_period:string;
 
-  contractOwnerName:String;
-  customerId:number;
-  insuranceType:String;
-  insuranceId:number;
+  getAllIllustByCustID(id:number){
+    this.IllustrationService.getAllIllustrationBelongCustomer(id).subscribe((data => {
+      this.illustrations = data;
+    }))
+  }
 
   onchangeValue(){
     this.IllustrationService.getIllustrationContractCreate(this.illustrationId).subscribe((data =>{
       this.IllustrationContract = data;
-      this.contractOwnerName = this.IllustrationContract.full_name_insured_person;
-      this.customerId = this.IllustrationContract.id_customer_info;
-      this.insuranceType = this.IllustrationContract.interest_name;
-      this.insuranceId = this.IllustrationContract.insurance_id;
+      this.contract.id_illustration = this.illustrationId;
+      this.contract.id_customer = this.IllustrationContract.id_customer_info;
+      this.contract.name_contract_owner = this.IllustrationContract.illustrationMainInterest.full_name_insurance_buyer;
+      this.contract.insurance_type = this.IllustrationContract.interest_name;
+      this.contract.id_main_interest = this.IllustrationContract.illustrationMainInterest.id_main_interest;
+      this.contract.contract_total_value = this.IllustrationContract.total_fee;
+      this.contract.payment_period_id = this.IllustrationContract.payment_period_id;
+      this.referenceTable.getAllReference().subscribe((data => {
+        let ref = new Referencetable();
+        ref = data;
+        this.payment_period = ref.multiplierForPaymentPeriod.find(i => i.priod_id == this.contract.payment_period_id).description;
+      }))
     }))
   }
-  status:boolean = false;
-  approval_status:String = "CXD";
 
 
-  onSubmit(contractForm : NgForm){
-    let contract = new Contract(
-      contractForm.value.contractId,
-      contractForm.value.customerId,
-      contractForm.value.contractOwnerName,
-      contractForm.value.period,
-      contractForm.value.insuranceType,
-      contractForm.value.insuranceId,
-      contractForm.value.illustrationId,
-      contractForm.value.signDate,
-      contractForm.value.outOfDate,
-      contractForm.value.status,
-      contractForm.value.approval_status,
-      contractForm.value.totalPayment,
-      contractForm.value.signDate,
-      1
-      );
-      console.log(contract);
-      this.contractService.addContract(contract).subscribe((data => {
-        console.log(data);
-        console.log(contract);
+  onSubmit(){
+      this.spinner.show();
+      this.contractService.addContract(this.contract).subscribe((data => {
+        this.spinner.hide();
+        this.contractService.invokeRefreshTableFun();
+        this.snackBar.openSnackBar("Lưu Hợp Đồng Thành Công","Đóng");
       }))
   }
  

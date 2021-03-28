@@ -1,11 +1,11 @@
 export class ContractChangeHistory{
     id:number;
     id_contract:number;
-    date:Date;
+    create_time:Date;
     id_request:number;
     id_customer:number;
     name_contract_owner:String;
-    payment_period:String;
+    payment_period_id:number;
     insurance_type:String;
     id_main_interest:number;
     id_illustration:number;
@@ -13,7 +13,6 @@ export class ContractChangeHistory{
     end_time:Date;
     status:String;
     approval_status:String;
-    contract_total_value:number;
-    date_next_payment:Date;   
-    id_employee:number;
+    contract_total_value:number; 
+    code_em_support:number;
 }
