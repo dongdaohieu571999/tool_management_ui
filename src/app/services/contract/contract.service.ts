@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, throwError } from 'rxjs';
+import { Observable, Subscription, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Contract } from 'src/app/model/Contract';
 import { CommonService } from '../common/common.service';
@@ -13,6 +13,13 @@ export class ContractService {
 
   constructor(private httpClient: HttpClient, private common: CommonService, private route: Router) { }
 
+  callRefreshTable = new EventEmitter();
+  subsVar: Subscription;
+
+  invokeRefreshTableFun() { 
+    this.callRefreshTable.emit();
+  }
+
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -20,17 +27,17 @@ export class ContractService {
     }),
   }
 
-  public getAllContract(): Observable<any> {
-    const url = this.common.makeUrl("/contract/get_all_contract");
+  public getAllContract(code_em_support:string): Observable<any> {
+    const url = this.common.makeUrl("/contract/get_all_contract_of_employee");
     return this.httpClient
-      .get<any>(url, this.httpOptions)
+      .post<any>(url,code_em_support,this.httpOptions)
       .pipe(catchError(this.handleError));
   }
 
   public getDetailContract(id: number): Observable<any> {
-    const url = this.common.makeUrl("/contract/get_detail_contract/" + id);
+    const url = this.common.makeUrl("/contract/get_detail_contract/");
     return this.httpClient
-      .get<any>(url, this.httpOptions)
+      .post<any>(url,id,this.httpOptions)
       .pipe(catchError(this.handleError));
   }
   public setStatusContract(id_contract: number,id_request:number,description:String): Observable<any> {
