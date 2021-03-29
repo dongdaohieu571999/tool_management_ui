@@ -11,6 +11,7 @@ import { Referencetable } from 'src/app/model/Referencetable';
 import { AuthenService } from 'src/app/services/authen/authen.service';
 import { ContractService } from 'src/app/services/contract/contract.service';
 import { RefertableService } from 'src/app/services/refertable/refertable.service';
+import { AddRequestComponent } from '../dialog/add-request/add-request/add-request.component';
 import { ContractChangeInfoDialogComponent } from '../dialog/contract-change-info-dialog/contract-change-info-dialog.component';
 import { ContractPauseDialogComponent } from '../dialog/contract-pause-dialog/contract-pause-dialog.component';
 
@@ -53,6 +54,13 @@ export class ViewDetailContractComponent implements OnInit {
     let dialogRef = this.dialog.open(ContractChangeInfoDialogComponent,{data:this.contracts});
     
     dialogRef.afterClosed().subscribe(result => {
+      
+    })
+  }
+  openDialogSendRequest(){
+    let dialogRef = this.dialog.open(AddRequestComponent,{data:this.contracts});
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
       
     })
   }

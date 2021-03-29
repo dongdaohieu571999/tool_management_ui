@@ -18,9 +18,9 @@ export class AddCustomerIllustrationDialogComponent implements OnInit {
   constructor(private snackBar: SnackbarService,private customerOwnIllustration:IllustrationService,private common:CommonService,private customerService:CustomerService) { }
 
   private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
+    const filterValue = value?.toLowerCase();
 
-    return this.options.filter(option => option.toLowerCase().includes(filterValue));
+    return this.options.filter(option => option?.toLowerCase().includes(filterValue));
   }
 
   myControl = new FormControl();

@@ -40,17 +40,9 @@ export class ContractService {
       .post<any>(url,id,this.httpOptions)
       .pipe(catchError(this.handleError));
   }
-  public setStatusContract(id_contract: number,id_request:number,description:String): Observable<any> {
+  public setStatusContract(id_contract: number,id_request:number,description:String,approval_status:string): Observable<any> {
     const url = this.common.makeUrl("/contract/set_active_contract");
-    let data = {id_contract:id_contract,id_request:id_request,description:description};
-    return this.httpClient
-      .post<any>(url,data,this.httpOptions)
-      .pipe(catchError(this.handleError));
-  }
-
-  public setStatusContractDecline(id_contract: number,id_request:number,description:String): Observable<any> {
-    const url = this.common.makeUrl("/contract/set_decline_contract");
-    let data = {id_contract:id_contract,id_request:id_request,description:description};
+    let data = {id_contract:id_contract,id_request:id_request,description:description,approval_status};
     return this.httpClient
       .post<any>(url,data,this.httpOptions)
       .pipe(catchError(this.handleError));

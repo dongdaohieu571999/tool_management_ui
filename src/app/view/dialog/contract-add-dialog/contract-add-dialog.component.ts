@@ -35,12 +35,19 @@ export class ContractAddDialogComponent implements OnInit {
   payment_period:string;
 
   getAllIllustByCustID(id:number){
-    this.IllustrationService.getAllIllustrationBelongCustomer(id).subscribe((data => {
-      this.illustrations = data;
-    }))
+    if(id === -1){
+      return;
+    }else {
+      this.IllustrationService.getAllIllustrationBelongCustomer(id).subscribe((data => {
+        this.illustrations = data;
+      }))
+    }
+
+    
   }
 
   onchangeValue(){
+    if(this.illustrationId != -1){
     this.IllustrationService.getIllustrationContractCreate(this.illustrationId).subscribe((data =>{
       this.IllustrationContract = data;
       this.contract.id_illustration = this.illustrationId;
@@ -56,6 +63,9 @@ export class ContractAddDialogComponent implements OnInit {
         this.payment_period = ref.multiplierForPaymentPeriod.find(i => i.priod_id == this.contract.payment_period_id).description;
       }))
     }))
+  } else {
+    return;
+  }
   }
 
 

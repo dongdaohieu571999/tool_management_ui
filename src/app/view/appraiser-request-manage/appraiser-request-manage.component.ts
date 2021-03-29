@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ContractRequest } from 'src/app/model/ContractRequest';
+import { Request } from 'src/app/model/Request';
 import { ContractrequestService } from 'src/app/services/contractRequest/contractrequest.service';
 
 @Component({
@@ -12,16 +12,14 @@ export class AppraiserRequestManageComponent implements OnInit {
 
   constructor(private contractRequestService:ContractrequestService,private router : Router) { }
 
-  contractRequests : Array<ContractRequest>
-  contractRequestsApprovals : Array<ContractRequest>
+  contractRequests : Array<Request>
+  contractRequestsApprovals : Array<Request>
   ngOnInit(): void {
     this.contractRequestService.getAllContractRequest().subscribe((data => {
       this.contractRequests = data;
-      console.log(this.contractRequests);
  }))
     this.contractRequestService.getAllContractRequestApproval().subscribe((data =>{
       this.contractRequestsApprovals = data;
-      console.log(this.contractRequestsApprovals);
     }))
 
   }

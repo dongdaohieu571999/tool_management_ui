@@ -1,38 +1,34 @@
-<div class="col-12">
-    <div class="card">
+<mat-dialog-content class="mat-typography">
+    <div class="col-12">
         <div class="card-header">
             <h2><b>Form Xét Duyệt</b></h2>
         </div>
         <form>
-            <table class=" table table-bordered ">
+            <table class="table">
 
                 <tr>
                     <th>Quyết Định Xét Duyệt</th>
                     <td>
                         <select class="custom-select" [(ngModel)]="approveStatus" name="approveStatus">
-                            <option value="Chấp Nhận">Chấp Nhận</option>
-                            <option value="Yêu CẦu Bổ Sung">Yêu CẦu Bổ Sung</option>
-                            <option value="Từ Chối">Từ Chối</option>
+                            <option value="DD">Chấp Nhận</option>
+                            <option value="YCT">Yêu Cầu Bổ Sung</option>
+                            <option value="TC">Từ Chối</option>
                         </select>
                     </td>
                 </tr>
                 <tr>
                     <th>Ghi Chú</th>
-                    <td><textarea class="form-control" rows="3" placeholder="Enter ..." name="description" [(ngModel)]="description">
+                    <td><textarea class="form-control" rows="3" maxlength="2000" placeholder="Enter ..." name="description" [(ngModel)]="description">
 
                     </textarea>
-                </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <button type="button" class="btn btn-block btn-success btn-sm" (click)="Review()">Lưu</button>
-                        <button type="button" class="btn btn-block btn-success btn-sm" (click)="CloseReview()">Đóng</button>
-
                     </td>
-
                 </tr>
 
             </table>
         </form>
     </div>
-</div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Hủy</button>
+    <button mat-button mat-dialog-close type="submit" (click)="Review()">Lưu</button>
+</mat-dialog-actions>

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { Request } from 'src/app/model/Request';
 import { CommonService } from '../common/common.service';
 
 @Injectable({
@@ -35,10 +36,15 @@ export class ContractrequestService {
 
   public getOneContractRequest(id:number){
     const url = this.common.makeUrl("/request/get_detail_request");
-    let data = {id:id};
-    console.log(data);
     return this.httpClient
-    .post<any>(url,data,this.httpOptions)
+    .post<any>(url,id,this.httpOptions)
+    .pipe(catchError(this.handleError));
+  }
+
+  public addOneRequest(req:Request){
+    const url = this.common.makeUrl("/request/add_one_request");
+    return this.httpClient
+    .post<any>(url,req,this.httpOptions)
     .pipe(catchError(this.handleError));
   }
 

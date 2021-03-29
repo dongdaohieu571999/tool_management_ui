@@ -1,8 +1,10 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { DetailContractRequest } from 'src/app/model/DetailContractRequest';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { Request } from 'src/app/model/Request';
 import { ContractService } from 'src/app/services/contract/contract.service';
+import { SnackbarService } from 'src/app/services/snackbar/snackbar.service';
 
 @Component({
   selector: 'app-appraiser-review-form',
@@ -11,29 +13,27 @@ import { ContractService } from 'src/app/services/contract/contract.service';
 })
 export class AppraiserReviewFormComponent implements OnInit {
 
-  constructor( @Inject(MAT_DIALOG_DATA) public detailContractRequest:DetailContractRequest,
-    public dialogRef: MatDialogRef<AppraiserReviewFormComponent>,public contractService : ContractService,private router:Router) { }
+  constructor(@Inject(MAT_DIALOG_DATA) 
+    public req: Request,public contractService : ContractService,private snackBar:SnackbarService,private spinner:NgxSpinnerService,private router:Router) { }
     description:String;
   ngOnInit(): void {
   }
- approveStatus:String;
+ approveStatus:string;
  Review(){
-   if(this.approveStatus == "Chấp Nhận"){
-    this.contractService.setStatusContract(this.detailContractRequest.id_contract,this.detailContractRequest.id_request,this.description).subscribe((data =>{
-      console.log(data);
-      this.CloseReview();
+   this.spinner.show();
+   if(this.approveStatus == "DD"){
+    this.contractService.setStatusContract(this.req.id_contract,this.req.id,this.description,this.approveStatus).subscribe((data =>{
+      this.spinner.hide();
+      this.snackBar.openSnackBar("Xử Lý Yêu Cầu Thành Công","Đóng");
       this.router.navigate(['appraiser-request-manage']);
     }))
    }
-   if(this.approveStatus == "Từ chối"){
-    this.contractService.setStatusContractDecline(this.detailContractRequest.id_contract,this.detailContractRequest.id_request,this.description).subscribe((data =>{
-      console.log(data);
-      this.CloseReview();
+   else{
+    this.contractService.setStatusContract(this.req.id_contract,this.req.id,this.description,this.approveStatus).subscribe((data =>{
+      this.spinner.hide();
+      this.snackBar.openSnackBar("Xử Lý Yêu Cầu Thành Công","Đóng");
       this.router.navigate(['appraiser-request-manage']);
     }))
    }
- }
- CloseReview(){
-  this.dialogRef.close(); 
  }
 }

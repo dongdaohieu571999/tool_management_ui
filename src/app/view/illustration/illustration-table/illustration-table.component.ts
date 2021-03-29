@@ -15,13 +15,11 @@ export class IllustrationTableComponent implements OnInit {
 
   listCustomerOwnIllustration:Array<CustomerOwnIllustration>
 
-  ngOnInit(): void {
-    if (this.illustrationService.subsVar==undefined) {    
+  ngOnInit(): void {   
       this.illustrationService.subsVar = this.illustrationService.
       callRefreshTable.subscribe((name:string) => {    
         this.refresh();
       });
-    }
     this.refresh();
   }
 

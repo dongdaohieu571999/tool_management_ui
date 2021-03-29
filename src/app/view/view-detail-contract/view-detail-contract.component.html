@@ -231,10 +231,11 @@
                             </div>
                         </mat-tab>
                     </mat-tab-group>
-                    <button *ngIf="authenService.id_role=='2'" type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger" (click)="openDialogPause()">Tạm
+                    <button *ngIf="authenService.id_role=='2'" type="button" class="btn btn-danger" (click)="openDialogPause()">Tạm
                         Ngưng</button>
-                    <button *ngIf="authenService.id_role=='2'" type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" (click)="openDialogChange()">Sửa
+                    <button *ngIf="authenService.id_role=='2'" type="button" class="btn btn-default" (click)="openDialogChange()">Sửa
                         Đổi</button>
+                    <button *ngIf="authenService.id_role=='2'" type="button" class="btn btn-success" (click)="openDialogSendRequest()">Gửi Yêu Cầu Xét Duyệt</button>
 
                 </div>
             </div>

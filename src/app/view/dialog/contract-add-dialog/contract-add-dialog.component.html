@@ -7,12 +7,14 @@
                         <div class="form-group">
                             <label for="exampleInputPassword1">Mã Khách Hàng</label>
                             <select class="form-control" name="customerinfos" (change)="getAllIllustByCustID(cust.value)" #cust>
+                                <option [value]=-1>Lựa Chọn Khách Hàng</option>
                                 <option *ngFor="let custInfo of customerinfos"  [value]="custInfo.id">{{custInfo.full_name}} ({{custInfo.id}})</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Mã Bảng Minh Họa</label>
                             <select class="form-control disabled" [(ngModel)]="illustrationId" id="illustrationId" name="illustrationId" (change)="onchangeValue()">
+                                <option [value]=-1>Lựa Chọn Bảng Minh Họa</option>
                                 <option *ngFor="let illustration of illustrations" [value]="illustration.id" >{{illustration.id}}</option>
                             </select>
                         </div>

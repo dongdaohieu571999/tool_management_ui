@@ -80,6 +80,7 @@ import { ContractPauseDialogComponent } from './view/dialog/contract-pause-dialo
 import { ViewDetailCustomerAdminComponent } from './view/admin-customer-manage/view-customer-table/view-detail-customer-admin/view-detail-customer-admin.component';
 import { EmployeeEditInfoDialogComponent } from './view/dialog/employee-edit-info-dialog/employee-edit-info-dialog.component';
 import { AppraiserReviewFormComponent } from './view/dialog/appraiser-review-form/appraiser-review-form.component';
+import { AddRequestComponent } from './view/dialog/add-request/add-request/add-request.component';
 
 
 @NgModule({
@@ -140,7 +141,8 @@ import { AppraiserReviewFormComponent } from './view/dialog/appraiser-review-for
     ConfirmChangePassComponent,
     ViewDetailCustomerAdminComponent,
     EmployeeEditInfoDialogComponent,
-    AppraiserReviewFormComponent
+    AppraiserReviewFormComponent,
+    AddRequestComponent
   ],
   imports: [
     ReactiveFormsModule,
