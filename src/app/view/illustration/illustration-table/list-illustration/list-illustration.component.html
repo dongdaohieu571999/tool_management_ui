@@ -46,7 +46,7 @@
                                                 <td>{{illustration.id}}</td>
                                                 <td>{{illustration.create_time | date}}</td>
                                                 <td>{{illustration.interest_name}}</td>
-                                                <td><a [routerLink]="['/detail-illustration']">View</a></td>
+                                                <button  (click)="illustrationDetail(illustration.id)" class="btn btn-info" style="height: 40px; width: 100px; margin: 10px; color: white;">Chi Tiết</button>
                                             </tr>
                                         </tbody>
                                     </table>

@@ -24,11 +24,12 @@
                         <table id="example1" class="table table-bordered table-striped">
                             <tr>
                                 <th>Họ Và Tên</th>
-                                <td>Nguyễn Văn A</td>
+                                <td>{{illustration.illustrationMainInterest.full_name_insurance_buyer}}</td>
                             </tr>
                             <tr>
                                 <th>Mối Quan Hệ Với NĐBH Sản Phẩm Chính</th>
-                                <td>Bản Thân</td>
+                                <td>{{illustration.illustrationMainInterest.insurance_buyer_relation_insured_person}}
+                                </td>
                             </tr>
                         </table>
                     </div>
@@ -42,19 +43,23 @@
                         <table id="example1" class="table table-bordered table-striped">
                             <tr>
                                 <th>Họ Và Tên</th>
-                                <td>Nguyễn Văn A</td>
+                                <td>{{illustration.illustrationMainInterest.full_name_insured_person}}</td>
                             </tr>
                             <tr>
                                 <th>Nhóm Nghề</th>
-                                <td>Nguyễn Văn A</td>
+                                <td>{{illustration.illustrationMainInterest.carrier_group_insured_person}}</td>
                             </tr>
                             <tr>
                                 <th>Ngày Sinh</th>
-                                <td>Nguyễn Văn A</td>
+                                <td>{{illustration.illustrationMainInterest.birth_date_insured_person | date}}</td>
                             </tr>
                             <tr>
                                 <th>Giới Tính</th>
-                                <td>Nguyễn Văn A</td>
+                                <td>
+                                    <span *ngIf="illustration.illustrationMainInterest.gender_insured_person">Nam</span>
+                                    <span *ngIf="!illustration.illustrationMainInterest.gender_insured_person">Nữ</span>
+                                </td>
+
                             </tr>
                         </table>
                     </div>
@@ -68,36 +73,36 @@
                         <table id="example1" class="table table-bordered table-striped">
                             <tr>
                                 <th>Chương Trình</th>
-                                <td>001</td>
+                                <td>{{illustration.interest_name}}</td>
                             </tr>
-                            <tr>
+                            <!-- <tr>
                                 <th>Chọn Lựa</th>
                                 <td>001</td>
                             </tr>
                             <tr>
                                 <th>Lựa Chọn Sản Phẩm</th>
                                 <td>001</td>
-                            </tr>
+                            </tr> -->
                             <tr>
                                 <th>Thời Hạn</th>
-
+                                <td></td>
                             </tr>
                             <tr>
                                 <th>Số Tiền Bảo Hiểm (VNĐ)</th>
-                                <td>123456</td>
+                                <td>{{illustration.total_fee | currency : "VND"}}</td>
                             </tr>
                             <tr>
                                 <th>Phí Bảo Hiểm (VNĐ)</th>
-                                <td>123</td>
+                                <td>{{illustration.illustrationMainInterest.fee_value | currency : "VND"}}</td>
                             </tr>
                         </table>
                     </div>
                 </div>
 
-                <div class="col-12">
+                <div class="col-12" *ngFor="let item of illustration.illustrationSubInterestList,index as i">
                     <div class="card">
-                        <div class="card-header">
-                            <h2><b>Thông Tin Quyền Lợi Bảo Hiểm Bổ Sung</b></h2>
+                        <div class="card-header" >
+                            <h2><b>Thông Tin Quyền Lợi Bảo Hiểm Bổ Sung của {{item.full_name_insured_persion_extra}}</b></h2>
                         </div>
                         <table id="example1" class="table table-bordered table-striped">
                             <tr>
@@ -106,158 +111,45 @@
                                 <th>Số Tiền Bảo Hiểm</th>
                                 <th>Phí Bảo Hiểm</th>
                             </tr>
-                            <tr>
-                                <td>BH Tai nạn Toàn Diện nâng cao</td>
-                                <td>Kỹ Sư</td>
-
-                                <td>123456</td>
-
+                            <tr >
+                                <td>{{item.id_sub_interest}}</td>
+                                <td>{{item.carrier_group_extra_insured_person}}</td>
                             </tr>
-                            <tr>
-                                <td>BH Chăm Sóc Sức Khỏe</td>
-                                <td>Kỹ Sư</td>
-
-                                <td>123456</td>
-                            </tr>
-                            <tr>
-                                <td>Quyền Lợi Điều Trị nội trú</td>
-                                <td></td>
-                                <td></td>
-                                <td>123456</td>
-                            </tr>
-                            <tr>
-                                <td>Quyền Lợi Điều Trị ngoại trú</td>
-                                <td></td>
-                                <td></td>
-                                <td>123456</td>
-                            </tr>
-                            <tr>
-                                <td>Quyền Lợi Chăm sóc răng</td>
-                                <td></td>
-                                <td></td>
-                                <td>123456</td>
-                            </tr>
-                            <tr>
-                                <td>BH Hỗ Trợ Chi phí chữa bệnh nan y</td>
-                                <td>Kỹ Sư</td>
-
-                                <td>123456</td>
-                            </tr>
-                            <tr>
-                                <td>BH Hỗ Trợ điều trị bệnh ung thư</td>
-                                <td>Kỹ Sư</td>
-
-                                <td>123456</td>
-                            </tr>
-                            <tr>
-                                <td>BH bệnh hiểm nghèo cao cấp toàn diện trả trước</td>
-                                <td>Kỹ Sư</td>
-
-                                <td>123456</td>
-                            </tr>
-                            <tr>
-                                <td>BH bệnh hiểm nghèo cao cấp toàn diện</td>
-                                <td>Kỹ Sư</td>
-
-                                <td>123456</td>
-                            </tr>
+                            
                         </table>
                     </div>
                 </div>
 
-                <div class="col-12">
+                <div class="col-12" *ngFor="let item of illustration.illustrationSubInterestList,index as i">
                     <div class="card">
                         <div class="card-header">
-                            <h2><b>Người Được Bảo Hiểm Bổ Sung</b></h2>
+                            <h2><b>Bảo Hiểm Bổ Sung của {{item.full_name_insured_persion_extra}}</b></h2>
                         </div>
                         <table id="example1" class="table table-bordered table-striped">
                             <tr>
                                 <th>Họ Và Tên</th>
-                                <td>Nguyễn Văn A</td>
+                                <td>{{item.full_name_insured_persion_extra}}</td>
                             </tr>
                             <tr>
                                 <th>Mối Quan hệ với NĐBH sản phẩm chính</th>
-                                <td>Bản Thân</td>
+                                <td>{{item.insurance_buyer_relation_extra_insured_person}}</td>
                             </tr>
                             <tr>
                                 <th>Ngày Sinh</th>
-                                <td>01/01/1992</td>
+                                <td>{{item.dob_extra_insured_person | date}}</td>
                             </tr>
                             <tr>
                                 <th>Giới Tính</th>
-                                <td>Nam</td>
+                                <td>
+                                    <span *ngIf="item.gender_extra_insured_person">Nam</span>
+                                    <span *ngIf="!item.gender_extra_insured_person">Nữ</span>
+                                </td>
                             </tr>
                             <tr>
                                 <th>Nhóm Nghề</th>
-                                <td>Kỹ Sư</td>
+                                <td>{{item.carrier_group_extra_insured_person}}</td>
                             </tr>
-                        </table>
-                        <div class="card-header">
-                            <h3><b>Thông Tin Quyền Lợi Bảo Hiểm Bổ Sung</b></h3>
-                        </div>
-                        <table id="example1" class="table table-bordered table-striped">
-                            <tr>
-                                <th>Tên Quyền Lợi</th>
-                                <th>Nhóm Nghề Nghiệp</th>
-                                <th>Số Tiền Bảo Hiểm</th>
-                                <th>Phí Bảo Hiểm</th>
-                            </tr>
-                            <tr>
-                                <td>BH Tai nạn Toàn Diện nâng cao</td>
-                                <td>Kỹ Sư</td>
-
-                                <td>123456</td>
-
-                            </tr>
-                            <tr>
-                                <td>BH Chăm Sóc Sức Khỏe</td>
-                                <td>Kỹ Sư</td>
-
-                                <td>123456</td>
-                            </tr>
-                            <tr>
-                                <td>Quyền Lợi Điều Trị nội trú</td>
-                                <td></td>
-                                <td></td>
-                                <td>123456</td>
-                            </tr>
-                            <tr>
-                                <td>Quyền Lợi Điều Trị ngoại trú</td>
-                                <td></td>
-                                <td></td>
-                                <td>123456</td>
-                            </tr>
-                            <tr>
-                                <td>Quyền Lợi Chăm sóc răng</td>
-                                <td></td>
-                                <td></td>
-                                <td>123456</td>
-                            </tr>
-                            <tr>
-                                <td>BH Hỗ Trợ Chi phí chữa bệnh nan y</td>
-                                <td>Kỹ Sư</td>
-
-                                <td>123456</td>
-                            </tr>
-                            <tr>
-                                <td>BH Hỗ Trợ điều trị bệnh ung thư</td>
-                                <td>Kỹ Sư</td>
-
-                                <td>123456</td>
-                            </tr>
-                            <tr>
-                                <td>BH bệnh hiểm nghèo cao cấp toàn diện trả trước</td>
-                                <td>Kỹ Sư</td>
-
-                                <td>123456</td>
-                            </tr>
-                            <tr>
-                                <td>BH bệnh hiểm nghèo cao cấp toàn diện</td>
-                                <td>Kỹ Sư</td>
-
-                                <td>123456</td>
-                            </tr>
-                        </table>
+                        </table>                     
                     </div>
 
                 </div>
@@ -269,7 +161,7 @@
                         </div>
                         <table id="example1" class="table table-bordered table-striped">
                             <tr>
-                                <th>123456</th>
+                                <th>{{illustration.total_fee | currency : "VND"}}</th>
                             </tr>
                         </table>
                     </div>
@@ -283,7 +175,9 @@
                         <table id="example1" class="table table-bordered table-striped">
                             <tr>
                                 <td>Giấy Tờ Liên Quan</td>
-                                <td><img src="https://img.topbank.vn/2020/02/24/b8awMTJx/minh-hoa-bao-hiem-nhan-tho-4b46.jpg" /></td>
+                                <td><img
+                                        src="https://img.topbank.vn/2020/02/24/b8awMTJx/minh-hoa-bao-hiem-nhan-tho-4b46.jpg" />
+                                </td>
                             </tr>
                         </table>
                     </div>

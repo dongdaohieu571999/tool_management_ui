@@ -58,7 +58,7 @@ const routes: Routes = [
   {path: "appraiser-request-detail/:id", component: DetailRequestComponent},
   {path: "customer-detail/:id", component: ViewDetailCustomerComponent},
   {path: "create-illustration", component: CreateIllustrationComponent},
-  {path: "detail-illustration", component: DetailIllustrationComponent},
+  {path: "detail-illustration/:id", component: DetailIllustrationComponent},
   {path: "list-illustration/:id", component: ListIllustrationComponent},
   {path: "confirm-change-pass", component: ConfirmChangePassComponent},
   {path: "detai-history-change/:id", component: DetailInfoChangeHistoryComponent},
