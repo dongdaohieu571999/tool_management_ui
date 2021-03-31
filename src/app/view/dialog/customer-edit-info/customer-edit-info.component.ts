@@ -14,13 +14,13 @@ export class CustomerEditInfoComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public customerInfo:any,private customerService:CustomerService,private snackbar: SnackbarService) { }
   selectedDeal:Date;
   genders= Array[2] = [
-    {value: 'true', viewValue: 'Nam'},
-    {value: 'false', viewValue: 'Nữ'},
+    {value: 1, viewValue: 'Nam'},
+    {value: 0, viewValue: 'Nữ'},
   ];
 
   marital_statuss = Array[2] = [
-    {value: 'true', viewValue: 'Đã Kết Hôn'},
-    {value: 'false', viewValue: 'Chưa Kết Hôn'},
+    {value: 1, viewValue: 'Đã Kết Hôn'},
+    {value: 0, viewValue: 'Chưa Kết Hôn'},
   ];
 
   public dateChanged(newDate:any){

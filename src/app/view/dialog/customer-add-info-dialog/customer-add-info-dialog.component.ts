@@ -22,13 +22,13 @@ export class CustomerAddInfoDialogComponent implements OnInit {
   user = jwt_decode(this.common.getCookie('token_key'));
 
   genders = Array[2] = [
-    { value: 'true', viewValue: 'Nam' },
-    { value: 'false', viewValue: 'Nữ' },
+    { value: 1, viewValue: 'Nam' },
+    { value: 0, viewValue: 'Nữ' },
   ];
 
   marital_statuss = Array[2] = [
-    { value: 'true', viewValue: 'Đã Kết Hôn' },
-    { value: 'false', viewValue: 'Chưa Kết Hôn' },
+    { value: 1, viewValue: 'Đã Kết Hôn' },
+    { value: 0, viewValue: 'Chưa Kết Hôn' },
   ];
 
   public dateChanged(newDate: any) {

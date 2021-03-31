@@ -10,14 +10,14 @@ export class EmployeeInfoDTO {
     id_certificate: String;
     start_time: Date;
     end_time: Date;
-    gender: boolean;
+    gender: number;
     dept_id: number;
     id_acc: number;
     id_labour_contract: number;
     id_current_address: number;
     id_permanent_address: number;
     id_contact_address: number;
-    marital_status: boolean;
+    marital_status: number;
     national: String;
     conadd_city: String;
     conadd_district: String;
@@ -43,14 +43,14 @@ export class EmployeeInfoDTO {
         id_certificate: String,
         start_time: Date,
         end_time: Date,
-        gender: boolean,
+        gender: number,
         dept_id: number,
         id_acc: number,
         id_labour_contract: number,
         id_current_address: number,
         id_permanent_address: number,
         id_contact_address: number,
-        marital_status: boolean,
+        marital_status: number,
         national: String,
         conadd_city: String,
         conadd_district: String,

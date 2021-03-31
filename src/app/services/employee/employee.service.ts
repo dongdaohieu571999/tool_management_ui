@@ -72,6 +72,13 @@ export class EmployeeService {
     .get<any>(url,this.httpOptions)
     .pipe(catchError(this.handleError));
   }
+
+  public getDetailEmployebyCode(code:string): Observable<any>{
+    const url = this.common.makeUrl("/employee/get_detail_employee_info_by_code/");
+    return this.httpClient
+    .post<any>(url,code,this.httpOptions)
+    .pipe(catchError(this.handleError));
+  }
   public UpdateEmployeeInfo(employeeInfoDTO :EmployeeInfoDTO): Observable<any>{
     const url = this.common.makeUrl("/employee/update_employee_info");
     return this.httpClient

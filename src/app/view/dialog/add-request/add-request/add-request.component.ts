@@ -32,17 +32,15 @@ export class AddRequestComponent implements OnInit {
     this.req.id_type = 1;
     this.req.requestcol = 1;
     this.req.code_sender =  jwt_decode(this.common.getCookie('token_key'))['sub'];
-    this.req.description = '';
     this.req.id_contract = this.contract.id;
     this.req.status = 'CXD';
-    this.spinner.show();
 
     this.reqService.addOneRequest(this.req).subscribe((data => {
     }))
 
     this.contractService.setStatusContract(this.contract.id,-1,'','DXD').subscribe((data => {
-      this.spinner.hide();
       this.snackBar.openSnackBar("Gửi Yêu Cầu Thành Công","Đóng");
+      this.contractService.invokeRefreshTableFun();
     }))
   }
 

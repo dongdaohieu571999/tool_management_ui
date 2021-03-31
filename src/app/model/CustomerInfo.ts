@@ -17,7 +17,7 @@ export class CustomerInfo {
     specific_work: string;
     monthly_income: number;
     code: string;
-    gender:boolean;
+    gender:number;
     id_contract:number;
     id_illustration:number;
     code_em_support:string;
@@ -43,9 +43,10 @@ export class CustomerInfo {
     id_account: number
     full_name: string;
     updated_time:Date;
-    marital_status:boolean;
+    marital_status:number;
     created_time:Date;
     source:string;
+    status:number;
 
 
     
@@ -55,8 +56,8 @@ export class CustomerInfo {
         id_current_address: number, id_permanent_address: number, id_contact_address: number, id_workplace_address: number, email: string, phone_1: string, phone_2: string, id_account: number, full_name: string
         , conadd_no_street: string, conadd_city: string, conadd_district: string, conadd_wards: string, curadd_no_street: string, curadd_city: string,
         curadd_district: string, curadd_wards: string, peradd_no_street: string, peradd_city: string, peradd_district: string, peradd_wards: string,
-        workadd_no_street: string, workadd_city: string, workadd_district: string, workadd_wards: string, code: string,gender:boolean,
-        ethnic:string,id_contract:number,id_illustration:number,code_em_support : string,updated_time:Date,marital_status:boolean,created_time:Date,source:string) {
+        workadd_no_street: string, workadd_city: string, workadd_district: string, workadd_wards: string, code: string,gender:number,
+        ethnic:string,id_contract:number,id_illustration:number,code_em_support : string,updated_time:Date,marital_status:number,created_time:Date,source:string,status:number) {
 
         this.id = id;
         this.birth_date = birth_date;
@@ -105,6 +106,7 @@ export class CustomerInfo {
         this.marital_status = marital_status;
         this.created_time = created_time;
         this.source = source;
+        this.status = status;
     }
     getCode(): string {
         return this.code;

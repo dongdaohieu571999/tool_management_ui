@@ -2,6 +2,7 @@
     <thead>
         <tr>
             <th>Mã Khách Hàng</th>
+            <th>Tài Khoản Khách Hàng</th>
             <th>Mã Hợp Đồng</th>
             <th>Họ và Tên</th>
             <th>Ngày Sinh</th>
@@ -17,6 +18,7 @@
     <tbody>
         <tr *ngFor="let customerinfo of customerinfos | paginate: { id: 'listing_pagination' ,itemsPerPage: 8, currentPage: page, totalItems: totalRecords}">
             <td>{{customerinfo.id}}</td>
+            <td>{{customerinfo.code}}</td>
             <td><a href="#">{{customerinfo.id_contract}}</a></td>
             <td>{{customerinfo.full_name}}</td>
             <td>{{customerinfo.birth_date | date}}</td>
@@ -33,6 +35,7 @@
     <tfoot>
         <tr>
             <th>Mã Khách Hàng</th>
+            <th>Tài Khoản Khách Hàng</th>
             <th>Mã Hợp Đồng</th>
             <th>Họ và Tên</th>
             <th>Ngày Sinh</th>

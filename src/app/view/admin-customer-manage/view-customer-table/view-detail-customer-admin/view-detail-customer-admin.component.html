@@ -26,19 +26,19 @@
                                                     <h3>Thông tin Cơ Bản</h3>
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Nguồn</label>
-                                                        <p style="color: red; ">Không Có</p>
+                                                        <p style="color: red; ">{{ customerInfo.source }}</p>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputPassword1 ">Ngày Cập Nhật</label>
-                                                        <p style="color: red; ">20/11/2021</p>
+                                                        <p style="color: red; ">{{ customerInfo.updated_time | date: 'MM-dd-yyyy' }}</p>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputPassword1 ">Mã Hợp Đồng</label>
-                                                        <p style="color: red; "><a href="# ">#128462364</a></p>
+                                                        <p style="color: red; "><a href="# ">{{ customerInfo.id_contract }}</a></p>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputPassword1 ">Mã Bản Minh Họa</label>
-                                                        <p style="color: red; "><a href="# ">#128462364</a></p>
+                                                        <p style="color: red; "><a href="# ">{{ customerInfo.id_illustration }}</a></p>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputPassword1 ">Mã Khách Hàng</label>
@@ -50,7 +50,7 @@
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Giới Tính</label>
-                                                        <p style="color: red; ">{{ customerInfo.gender }}</p>
+                                                        <p style="color: red; ">{{ customerInfo.gender==1? "Nam":"Nữ" }}</p>
                                                     </div>
                                                 </div>
                                                 <div class="col-6">
@@ -262,25 +262,6 @@
                 </div>
             </section>
         </div>
-
-        <!-- <div class="modal modal-danger fade in " id="tamNgung">
-            <div class="modal-dialog ">
-                <div class="modal-content ">
-                    <div class="card">
-                        <div class="card-body">
-                            <h3>Gửi yêu cầu tạm ngưng khách hàng này</h3>
-                            <i style="color: red;">Lý Do Tạm Ngưng</i>
-                            <textarea style="width: 100%;"></textarea>
-                        </div>
-                        <div class="card-footer">
-                            <button type="button " class="btn btn-success">Gửi Yêu Cầu</button>
-                            <button type="button " class="btn btn-danger" data-dismiss="modal">Hủy</button>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div> -->
 
 
 

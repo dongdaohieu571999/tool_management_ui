@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { CustomerOwnIllustration } from 'src/app/model/CustomerOwnIllustration';
 import { IllustrationService } from 'src/app/services/illustration/illustration.service';
+import jwt_decode from 'jwt-decode';
+import { CommonService } from 'src/app/services/common/common.service';
 
 @Component({
   selector: 'app-illustration-table',
@@ -11,7 +13,7 @@ import { IllustrationService } from 'src/app/services/illustration/illustration.
 })
 export class IllustrationTableComponent implements OnInit {
 
-  constructor(private router : Router,private illustration:IllustrationService,private spinner:NgxSpinnerService,private illustrationService:IllustrationService) { }
+  constructor(private common:CommonService,private router : Router,private illustration:IllustrationService,private spinner:NgxSpinnerService,private illustrationService:IllustrationService) { }
 
   listCustomerOwnIllustration:Array<CustomerOwnIllustration>
 
@@ -25,7 +27,7 @@ export class IllustrationTableComponent implements OnInit {
 
   public refresh(){
     this.spinner.show();
-    this.illustrationService.getAllCustomerOwnIllustration().subscribe((data => {
+    this.illustrationService.getAllCustomerOwnIllustration(jwt_decode(this.common.getCookie('token_key'))['sub']).subscribe((data => {
       this.listCustomerOwnIllustration = data;
       console.log(this.listCustomerOwnIllustration);;
       this.spinner.hide();

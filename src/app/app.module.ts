@@ -81,7 +81,7 @@ import { ViewDetailCustomerAdminComponent } from './view/admin-customer-manage/v
 import { EmployeeEditInfoDialogComponent } from './view/dialog/employee-edit-info-dialog/employee-edit-info-dialog.component';
 import { AppraiserReviewFormComponent } from './view/dialog/appraiser-review-form/appraiser-review-form.component';
 import { AddRequestComponent } from './view/dialog/add-request/add-request/add-request.component';
-
+import { AdminEditAccCustomerComponentComponent } from './view/dialog/admin-edit-acc-customer-component/admin-edit-acc-customer-component/admin-edit-acc-customer-component.component';
 
 @NgModule({
   declarations: [
@@ -142,7 +142,8 @@ import { AddRequestComponent } from './view/dialog/add-request/add-request/add-r
     ViewDetailCustomerAdminComponent,
     EmployeeEditInfoDialogComponent,
     AppraiserReviewFormComponent,
-    AddRequestComponent
+    AddRequestComponent,
+    AdminEditAccCustomerComponentComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -168,7 +169,7 @@ import { AddRequestComponent } from './view/dialog/add-request/add-request/add-r
     MatSnackBarModule,
     MatSelectModule
   ],
-  entryComponents: [AppraiserReviewFormComponent,EmployeeEditInfoDialogComponent,ContractPauseDialogComponent,ContractChangeInfoDialogComponent,ReportCustomerDialogComponent,CustomerEditInfoComponent,AdminAddAccCustomerComponent,AdminAddEmployeeInfoComponent,AdminAddAccountEmployeeComponent,AddCustomerIllustrationDialogComponent,CustomerAddInfoDialogComponent,ContractAddDialogComponent,NotificationConfirmDialogComponent,PauseCustomerDialogComponent],
+  entryComponents: [AdminEditAccCustomerComponentComponent,AppraiserReviewFormComponent,EmployeeEditInfoDialogComponent,ContractPauseDialogComponent,ContractChangeInfoDialogComponent,ReportCustomerDialogComponent,CustomerEditInfoComponent,AdminAddAccCustomerComponent,AdminAddEmployeeInfoComponent,AdminAddAccountEmployeeComponent,AddCustomerIllustrationDialogComponent,CustomerAddInfoDialogComponent,ContractAddDialogComponent,NotificationConfirmDialogComponent,PauseCustomerDialogComponent],
   providers: [AdminDataServiceService],
   bootstrap: [AppComponent]
 })

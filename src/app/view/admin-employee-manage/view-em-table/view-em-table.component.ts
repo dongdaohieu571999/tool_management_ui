@@ -25,13 +25,11 @@ export class ViewEmTableComponent implements OnInit {
   totalRecords: number;
   data: Array<EmployeeInfo>;
 
-  ngOnInit(): void {
-    if (this.employeeService.subsVar==undefined) {    
+  ngOnInit(): void {  
       this.employeeService.subsVar = this.employeeService.    
       callRefreshTable.subscribe((name:string) => {    
         this.refresh();
-      });    
-    }  
+      });   
     this.refresh();
   }
 

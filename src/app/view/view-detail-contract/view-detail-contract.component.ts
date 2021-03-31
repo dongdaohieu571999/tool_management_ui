@@ -31,20 +31,11 @@ export class ViewDetailContractComponent implements OnInit {
   constructor(private spinner:NgxSpinnerService,private referTable:RefertableService,public authenService: AuthenService,private  route : ActivatedRoute , private router : Router,private contractService : ContractService,private dialog:MatDialog) { }
 
   ngOnInit(): void {
-    this.spinner.show();
-    this.id = this.route.snapshot.params['id'];
-    this.contractService.getDetailContract(this.id).subscribe((data =>{
-      this.contracts = data;
-      this.referTable.getAllReference().subscribe((data => {
-        this.ref=data;
-        this.payment_period = this.ref.multiplierForPaymentPeriod.find(i => i.priod_id = this.contracts.payment_period_id)['description'];
-        this.spinner.hide();
-      }))
-    }))
-
-    this.contractService.getAllContractChangeHistory(this.id).subscribe((data => {
-      this.contractchanges = data;
-    }))
+    this.contractService.subsVar = this.contractService.    
+      callRefreshTable.subscribe((name:string) => {
+        this.refresh();
+      });
+    this.refresh();
   }
 
   public contractChangeDetail(id:number){
@@ -60,7 +51,6 @@ export class ViewDetailContractComponent implements OnInit {
   openDialogSendRequest(){
     let dialogRef = this.dialog.open(AddRequestComponent,{data:this.contracts});
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
       
     })
   }
@@ -70,5 +60,22 @@ export class ViewDetailContractComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       
     })
+  }
+
+  public refresh(){
+    this.spinner.show();
+    this.id = this.route.snapshot.params['id'];
+    this.contractService.getDetailContract(this.id).subscribe((data =>{
+      this.contracts = data;
+      this.referTable.getAllReference().subscribe((data => {
+        this.ref=data;
+        this.payment_period = this.ref.multiplierForPaymentPeriod.find(i => i.priod_id = this.contracts.payment_period_id)['description'];
+        this.spinner.hide();
+      }))
+    }))
+
+    this.contractService.getAllContractChangeHistory(this.id).subscribe((data => {
+      this.contractchanges = data;
+    }))
   }
 }

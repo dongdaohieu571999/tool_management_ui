@@ -19,7 +19,7 @@ export class ContractTableComponent implements OnInit {
   totalRecords:number;
   contracts : Array<ContractDTO>;
   ngOnInit(): void {
-    this.contractService.subsVar = this.contractService.    
+    this.contractService.subsVar = this.contractService.
       callRefreshTable.subscribe((name:string) => {
         this.refresh();
       });

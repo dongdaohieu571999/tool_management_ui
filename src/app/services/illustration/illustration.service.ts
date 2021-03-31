@@ -27,10 +27,10 @@ export class IllustrationService {
 
   constructor(private httpClient: HttpClient,private common: CommonService) { }
 
-  public getAllCustomerOwnIllustration(): Observable<any>{
+  public getAllCustomerOwnIllustration(code_em_support:string): Observable<any>{
     const url = this.common.makeUrl('/illustration/get_all_customer_own_illustration/');
     return this.httpClient
-    .get<any>(url,this.httpOptions)
+    .post<any>(url,code_em_support,this.httpOptions)
     .pipe(catchError(this.handleError));
   }
 

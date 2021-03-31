@@ -7,6 +7,7 @@ import { CustomerService } from 'src/app/services/customer/customer.service';
 import { CommonService } from 'src/app/services/common/common.service';
 import { IllustrationService } from 'src/app/services/illustration/illustration.service';
 import { SnackbarService } from 'src/app/services/snackbar/snackbar.service';
+import { CustomerAcc } from 'src/app/model/CustomerAcc';
 
 @Component({
   selector: 'app-add-customer-illustration-dialog',
@@ -23,6 +24,7 @@ export class AddCustomerIllustrationDialogComponent implements OnInit {
     return this.options.filter(option => option?.toLowerCase().includes(filterValue));
   }
 
+  listCust:Array<CustomerAcc>;
   myControl = new FormControl();
   codeValue:string;
   options= new Array();
@@ -45,7 +47,12 @@ export class AddCustomerIllustrationDialogComponent implements OnInit {
   }
 
   onSubmit(){
-    this.customerOwnIllustration.getAllCustomerOwnIllustration().subscribe((data1 => {
+    this.customerOwnIllustration.getAllCustomerOwnIllustration(jwt_decode(this.common.getCookie('token_key'))['sub']).subscribe((data1 => {
+      this.listCust = data1;
+      if(!this.listCust.find(i => i.code == this.codeValue)){
+        this.snackBar.openSnackBar('Bạn Không Có Khách Hàng Này! ','Đóng');
+        return;
+      }
       var checkDup = false;
       for(let el of data1){
         if(el['code'] == this.codeValue){

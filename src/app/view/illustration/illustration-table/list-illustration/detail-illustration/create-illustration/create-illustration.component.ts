@@ -32,7 +32,7 @@ export class CreateIllustrationComponent implements OnInit {
   @ViewChild('content') content:ElementRef;
 
   relatedPerson = new Array<RelatedPerson>();
-  customerInfo = new CustomerInfo(0,new Date(),0,'','','','','','','','','','','','','',0,0,0,0,0,'','','',0,'','','','','','','','','','','','','','','','','','',false,'',0,0,'',new Date(),false,new Date(),'');
+  customerInfo = new CustomerInfo(0,new Date(),0,'','','','','','','','','','','','','',0,0,0,0,0,'','','',0,'','','','','','','','','','','','','','','','','','',0,'',0,0,'',new Date(),0,new Date(),'',0);
   mainInterestList: Array<Interest>;
   subInterestList: Array<Interest>;
   subInterestListCopy:Array<Interest>;

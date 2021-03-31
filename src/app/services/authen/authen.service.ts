@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { EmployeeInfo } from 'src/app/model/EmployeeInfo';
 import { SigInData } from 'src/app/model/SigInData';
 import { CommonService } from '../common/common.service';
 import { EmployeeService } from '../employee/employee.service';
 import { ServerHttpService } from '../http/server-http.service';
 import { SnackbarService } from '../snackbar/snackbar.service';
+import jwt_decode from 'jwt-decode';
+import { EmployeeInfoDTO } from 'src/app/model/EmployeeInfoDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +16,7 @@ import { SnackbarService } from '../snackbar/snackbar.service';
 export class AuthenService {
   id_role = "";
   isAuthen = false;
+  empolyeeInfo:EmployeeInfoDTO;
 
   constructor(private spinner: NgxSpinnerService,public snackBar:SnackbarService,private router: Router, private serverhttpService:ServerHttpService,private employee:EmployeeService,private common:CommonService) { }
 
@@ -27,6 +31,9 @@ export class AuthenService {
           if(data['status_code'] !== 'not ok'){
             this.isAuthen = true;
             this.common.setCookie('token_key',data['token_key'],3);
+            this.employee.getDetailEmployebyCode(jwt_decode(data['token_key'])['sub']).subscribe((data => {
+              this.empolyeeInfo = data;
+            }))
             this.router.navigate(['dashboard']);
             this.getRoleID();
             this.spinner.hide();

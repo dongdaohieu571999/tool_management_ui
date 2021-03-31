@@ -183,7 +183,7 @@
                                 </div>
                             </div>
                         </mat-tab> -->
-                        <mat-tab label="Lịch Sử Thay Đổi Thông Tin">
+                        <!-- <mat-tab label="Lịch Sử Thay Đổi Thông Tin">
                             <div class="card" style="height: 700px; background-color: #b8ceff;">
                                 <div class="card-header">
                                     <div class="row" style="float: right;">
@@ -229,13 +229,11 @@
                                     </table>
                                 </div>
                             </div>
-                        </mat-tab>
+                        </mat-tab> -->
                     </mat-tab-group>
-                    <button *ngIf="authenService.id_role=='2'" type="button" class="btn btn-danger" (click)="openDialogPause()">Tạm
-                        Ngưng</button>
-                    <button *ngIf="authenService.id_role=='2'" type="button" class="btn btn-default" (click)="openDialogChange()">Sửa
+                    <button *ngIf="authenService.id_role=='2' && (contracts.approval_status == 'CXD' || contracts.approval_status == 'YCT')" type="button" class="btn btn-default" (click)="openDialogChange()">Sửa
                         Đổi</button>
-                    <button *ngIf="authenService.id_role=='2'" type="button" class="btn btn-success" (click)="openDialogSendRequest()">Gửi Yêu Cầu Xét Duyệt</button>
+                    <button *ngIf="authenService.id_role=='2' && contracts.approval_status == 'CXD'" type="button" class="btn btn-success" (click)="openDialogSendRequest()">Gửi Yêu Cầu Xét Duyệt</button>
 
                 </div>
             </div>

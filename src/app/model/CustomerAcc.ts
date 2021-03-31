@@ -1,19 +1,19 @@
 export class CustomerAcc {
-    //  id :number;
+     id :number;
      code :string;
      pass :string;
      status: boolean;
 
-    constructor(code :string,pass :string,status :boolean){
+    constructor(id:number,code :string,pass :string,status :boolean){
         this.code = code;
         this.status = status;
         this.pass = pass;
-        // this.id = id;
+        this.id = id;
     }
 
-    // getId(){
-    //     return this.id;
-    // }
+    getId(){
+        return this.id;
+    }
 
     getCode(){
         return this.code;
