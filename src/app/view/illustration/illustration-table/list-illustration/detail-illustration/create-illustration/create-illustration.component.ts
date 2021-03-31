@@ -43,7 +43,7 @@ export class CreateIllustrationComponent implements OnInit {
   checkedTick = false;
 
   // disble button tính phí
-  checkCountPayment = false;
+  checkCountPayment = true;
 
   //hệ số định kỳ hàng năm
   mulPeriod:MultiplierForPaymentPeriod;
@@ -74,7 +74,10 @@ export class CreateIllustrationComponent implements OnInit {
     }))
   }
 
+
+
   onCalculate(){
+    
     this.spinner.show();
     if(this.reference.multiplierForAge.length != 0){
       this.CalculateFee(this.reference,this.illustration);
@@ -201,13 +204,11 @@ for(let relate of this.relatedPerson){
   activeSubIllustrationRelatedPerson(indexParent:number,indexChild:number){
     this.relatedPerson[indexParent].listSubInterest[indexChild].isDisable = !this.relatedPerson[indexParent].listSubInterest[indexChild].isDisable;
         return;
-
   }
 
   calculateAge(birthday:Date){
     var diff_ms = Date.now() - new Date(birthday).getTime();
     var age_dt = new Date(diff_ms); 
-  
     return Math.abs(age_dt.getUTCFullYear() - 1970);
   }
 

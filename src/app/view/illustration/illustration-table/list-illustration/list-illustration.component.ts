@@ -24,4 +24,7 @@ illustrations : Array<Illustration>;
     this.router.navigate(['create-illustration'],{ queryParams: { id: this.activateRoute.snapshot.params['id'] } });
   }
 
+  public illustrationDetail(id:number){
+    this.router.navigate(['detail-illustration',id]);
+  }
 }

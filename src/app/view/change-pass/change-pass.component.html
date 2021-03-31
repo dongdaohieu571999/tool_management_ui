@@ -15,16 +15,25 @@
 
                 <form (ngSubmit)="onSubmit(changePassForm)" #changePassForm="ngForm">
                     <div class="input-group mb-3">
-                        <input type="email" class="form-control" placeholder="Email" name="mail" ngModel>
+                        <input type="email" class="form-control" placeholder="Email" name="mail" ngModel
+                            #email="ngModel" required
+                            pattern="^[a-z][a-z0-9_\.]{5,32}@[a-z0-9]{2,}(\.[a-z0-9]{2,4}){1,2}$">
+
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
                             </div>
-                        </div>
+                        </div>                   
                     </div>
+                    <span id="errorMessagename" style="color: red;"
+                            *ngIf="email.errors?.required && email.touched">Email không được để trống</span>
+                        <span id="errorMessagename" style="color: red;"
+                            *ngIf="email.errors?.pattern && email.touched">Email không đúng định dạng. Ví dụ :
+                            abc@gmail.com</span>
                     <div class="row">
                         <div class="col-12">
-                            <button type="submit" class="btn btn-primary btn-block">Yêu Cầu Mật Khẩu Mới</button>
+                            <button type="submit" [disabled]="changePassForm.invalid"
+                                class="btn btn-primary btn-block">Yêu Cầu Mật Khẩu Mới</button>
                         </div>
                         <!-- /.col -->
                     </div>
