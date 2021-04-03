@@ -43,9 +43,9 @@ export class IllustrationService {
   }
 
   public getIllustrationContractCreate(id:number): Observable<any>{
-    const url = this.common.makeUrl('/illustration/get_illustration_contract_create/');
+    const url = this.common.makeUrl('/illustration/get_illustration_contract_create/'+id);
     return this.httpClient
-    .post<any>(url,id,this.httpOptions)
+    .get<any>(url,this.httpOptions)
     .pipe(catchError(this.handleError));
   }
 
