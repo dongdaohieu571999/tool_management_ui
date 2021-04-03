@@ -34,7 +34,6 @@ export class AuthenService {
             this.employee.getDetailEmployebyCode(jwt_decode(data['token_key'])['sub']).subscribe((data => {
               this.empolyeeInfo = data;
             }))
-            this.router.navigate(['dashboard']);
             this.getRoleID();
             this.spinner.hide();
             return true;
@@ -56,6 +55,16 @@ export class AuthenService {
   getRoleID(){
     this.employee.getIdRole().subscribe((data1 => {
       this.id_role = data1['id_role'];
+      var url =window.location.href;
+      if(url.substring(22,url.length) === 'login'){
+      if(this.id_role == '2'){
+        this.router.navigate(['dashboard']);
+      } else if (this.id_role == '1'){
+        this.router.navigate(['employee-manage']);
+      } else if (this.id_role == '3'){
+        this.router.navigate(['appraiser-request-manage']);
+      }
+    }
      }));
   }
 

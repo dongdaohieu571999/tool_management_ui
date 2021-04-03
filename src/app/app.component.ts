@@ -26,9 +26,16 @@ export class AppComponent {
     }
 
     if(this.authenticationService.isAuthen){
-      
+      console.log(this.authenticationService.id_role);
       if(url.substring(22,url.length) === 'login'){
-        this.router.navigate(['dashboard']);
+        if(this.authenticationService.id_role == '2'){
+          this.router.navigate(['dashboard']);
+        } else if (this.authenticationService.id_role == '1'){
+          this.router.navigate(['employee-manage']);
+        } else if (this.authenticationService.id_role == '3'){
+          this.router.navigate(['appraiser-request-manage']);
+        }
+        
         return;
       }
       

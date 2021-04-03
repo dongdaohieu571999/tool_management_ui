@@ -22,7 +22,8 @@ export class IllustrationSubInterest{
         carrier_group_extra_insured_person:number,
         denominations:number,
         fee_value:string,
-        is_extra_insured_person:boolean,){
+        is_extra_insured_person:boolean,
+        id_related_person:number,){
             this.id_illustration = id_illustration;
             this.id_sub_interest = id_sub_interest;
             this.full_name_insured_persion_extra = full_name_insured_persion_extra;
@@ -34,5 +35,6 @@ export class IllustrationSubInterest{
             this.denominations = denominations;
             this.fee_value = fee_value;
             this.is_extra_insured_person = is_extra_insured_person;
+            this.id_related_person = id_related_person;
         }
 }

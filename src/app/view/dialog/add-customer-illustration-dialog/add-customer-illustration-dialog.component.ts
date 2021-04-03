@@ -26,7 +26,7 @@ export class AddCustomerIllustrationDialogComponent implements OnInit {
 
   listCust:Array<CustomerAcc>;
   myControl = new FormControl();
-  codeValue:string;
+  codeValue='';
   options= new Array();
   filteredOptions: Observable<string[]>;
 
@@ -49,10 +49,18 @@ export class AddCustomerIllustrationDialogComponent implements OnInit {
   onSubmit(){
     this.customerOwnIllustration.getAllCustomerOwnIllustration(jwt_decode(this.common.getCookie('token_key'))['sub']).subscribe((data1 => {
       this.listCust = data1;
-      if(!this.listCust.find(i => i.code == this.codeValue)){
-        this.snackBar.openSnackBar('Bạn Không Có Khách Hàng Này! ','Đóng');
-        return;
-      }
+      // var check = false;
+      // for(let item of this.listCust)
+      // {
+      //   if(item.code == this.codeValue){
+      //     check = true;
+      //     break;
+      //   }
+      // }
+      // if(!check){
+      //   this.snackBar.openSnackBar('Bạn Không Có Khách Hàng Này! ','Đóng');
+      //   return;
+      // }
       var checkDup = false;
       for(let el of data1){
         if(el['code'] == this.codeValue){
