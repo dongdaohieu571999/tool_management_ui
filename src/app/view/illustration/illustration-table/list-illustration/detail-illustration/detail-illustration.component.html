@@ -75,14 +75,6 @@
                                 <th>Chương Trình</th>
                                 <td>{{illustration.interest_name}}</td>
                             </tr>
-                            <!-- <tr>
-                                <th>Chọn Lựa</th>
-                                <td>001</td>
-                            </tr>
-                            <tr>
-                                <th>Lựa Chọn Sản Phẩm</th>
-                                <td>001</td>
-                            </tr> -->
                             <tr>
                                 <th>Thời Hạn</th>
                                 <td *ngIf="illustration.payment_period_id==1">Tháng</td>
@@ -102,10 +94,12 @@
                     </div>
                 </div>
 
-                <div class="col-12" *ngFor="let item of illustration.illustrationSubInterestList,index as i">
+                <!-- <div class="col-12" *ngFor="let SubRelatedPerSon of listSubRelatedPerSonBig" >
                     <div class="card">
-                        <div class="card-header" >
-                            <h2><b>Thông Tin Quyền Lợi Bảo Hiểm Bổ Sung của {{item.full_name_insured_persion_extra}}</b></h2>
+                        <div class="card-header">
+                            <h2>
+                                <b>Thông Tin Quyền Lợi Bảo Hiểm Bổ Sung </b>   
+                            </h2>
                         </div>
                         <table id="example1" class="table table-bordered table-striped">
                             <tr>
@@ -114,48 +108,69 @@
                                 <th>Số Tiền Bảo Hiểm</th>
                                 <th>Phí Bảo Hiểm</th>
                             </tr>
-                            <tr >
-                                <td>{{item.id_sub_interest}}</td>
-                                <td>{{item.carrier_group_extra_insured_person}}</td>
-                                <td>{{item.denominations | currency : "VND"}}</td>
-                                <td>{{item.fee_value | currency : "VND"}}</td>
-                                
-                            </tr>
-                            
+                            <tr *ngFor="let detail of SubRelatedPerSon">
+                                <td>{{detail.id_sub_interest}}</td>
+                                <td>{{detail.carrier_group_extra_insured_person}}</td>
+                                <td>{{detail.denominations | currency : "VND"}}</td>
+                                <td>{{detail.fee_value | currency : "VND"}}</td>                                
+                            </tr>                       
                         </table>
-                    </div>
-                </div>
 
-                <div class="col-12" *ngFor="let item of illustration.illustrationSubInterestList,index as i">
-                    <div class="card">
+                    </div>
+                </div> -->
+
+                <div class="col-12" *ngFor="let RelatedPerSonInfo of listRelatedPerSonInfo">
+                    <div class="card" >
                         <div class="card-header">
-                            <h2><b>Bảo Hiểm Bổ Sung của {{item.full_name_insured_persion_extra}}</b></h2>
+                            <h2><b>Bảo Hiểm Bổ Sung của {{RelatedPerSonInfo.full_name_insured_persion_extra}}</b></h2>
                         </div>
                         <table id="example1" class="table table-bordered table-striped">
                             <tr>
                                 <th>Họ Và Tên</th>
-                                <td>{{item.full_name_insured_persion_extra}}</td>
+                                <td>{{RelatedPerSonInfo.full_name_insured_persion_extra}}</td>
                             </tr>
                             <tr>
                                 <th>Mối Quan hệ với NĐBH sản phẩm chính</th>
-                                <td>{{item.insurance_buyer_relation_extra_insured_person}}</td>
+                                <td>{{RelatedPerSonInfo.insurance_buyer_relation_extra_insured_person}}</td>
                             </tr>
                             <tr>
                                 <th>Ngày Sinh</th>
-                                <td>{{item.dob_extra_insured_person | date}}</td>
+                                <td>{{RelatedPerSonInfo.dob_extra_insured_person | date}}</td>
                             </tr>
                             <tr>
                                 <th>Giới Tính</th>
                                 <td>
-                                    <span *ngIf="item.gender_extra_insured_person">Nam</span>
-                                    <span *ngIf="!item.gender_extra_insured_person">Nữ</span>
+                                    <span *ngIf="RelatedPerSonInfo.gender_extra_insured_person">Nam</span>
+                                    <span *ngIf="!RelatedPerSonInfo.gender_extra_insured_person">Nữ</span>
                                 </td>
                             </tr>
                             <tr>
                                 <th>Nhóm Nghề</th>
-                                <td>{{item.carrier_group_extra_insured_person}}</td>
+                                <td>{{RelatedPerSonInfo.carrier_group_extra_insured_person}}</td>
                             </tr>
-                        </table>                     
+                        </table>
+                        
+
+                        <div class="card-header">
+                            <h2>
+                                <b>Thông Tin Quyền Lợi Bảo Hiểm Bổ Sung </b>   
+                            </h2>
+                        </div>
+                        <table id="example1" class="table table-bordered table-striped">
+                            <tr>
+                                <th>Tên Quyền Lợi</th>
+                                <th>Nhóm Nghề Nghiệp</th>
+                                <th>Số Tiền Bảo Hiểm</th>
+                                <th>Phí Bảo Hiểm</th>
+                            </tr>
+                            <tr *ngFor="let detail of RelatedPerSonInfo.listSubInterset">
+                                <td>{{detail.id_sub_interest}}</td>
+                                <td>{{detail.carrier_group_extra_insured_person}}</td>
+                                <td>{{detail.denominations | currency : "VND"}}</td>
+                                <td>{{detail.fee_value | currency : "VND"}}</td>                                
+                            </tr>                       
+                        </table>
+
                     </div>
 
                 </div>
