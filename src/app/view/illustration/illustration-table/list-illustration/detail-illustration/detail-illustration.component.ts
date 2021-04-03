@@ -69,11 +69,11 @@ export class DetailIllustrationComponent implements OnInit {
         this.illustrationCopy.illustrationSubInterestList = this.illustrationCopy.illustrationSubInterestList.slice(count, this.illustrationCopy.illustrationSubInterestList.length);
       }
 
-      console.log("danh sach nguoi bo sung :");
-      console.log(this.listSubRelatedPerSonBig);
+      // console.log("danh sach nguoi bo sung :");
+      // console.log(this.listSubRelatedPerSonBig);
 
-      console.log("danh sach nguoi bo sung chi tiet :");
-      console.log(this.listRelatedPerSonInfo);
+      // console.log("danh sach nguoi bo sung chi tiet :");
+      // console.log(this.listRelatedPerSonInfo);
     }))
   }
 
