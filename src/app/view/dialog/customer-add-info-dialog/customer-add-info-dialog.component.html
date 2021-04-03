@@ -77,10 +77,6 @@
                             <div class="form-group ">
                                 <label for="exampleInputEmail1 ">Loại Giấy Tờ Tùy Thân</label>
                                 <!-- <p style="color: black; ">{{ customerInfo.types_identification }}</p> -->
-                                <input type="text" class="form-control" name="types_identification" [(ngModel)]="customerInfo.types_identification">
-                            </div>
-                            <div class="form-group ">
-                                <label for="exampleInputEmail1 ">Giấy Tờ Nhân Thân Số</label>
                                 <input type="text" class="form-control" name="types_identification" [(ngModel)]="customerInfo.types_identification" required #types_identification="ngModel" pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s]+$">
                                 <span id="errorMessagename" style="color: red;" *ngIf="types_identification.errors?.required && types_identification.touched">Loại
                                     Giấy Tờ Tùy Thân không được để trống</span>

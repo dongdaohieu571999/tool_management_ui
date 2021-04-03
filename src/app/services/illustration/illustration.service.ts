@@ -1,4 +1,5 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { identifierModuleUrl } from '@angular/compiler';
 import { EventEmitter, Injectable } from '@angular/core';
 import { Observable, Subscription, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -42,9 +43,9 @@ export class IllustrationService {
   }
 
   public getIllustrationContractCreate(id:number): Observable<any>{
-    const url = this.common.makeUrl('/illustration/get_illustration_contract_create/'+id);
+    const url = this.common.makeUrl('/illustration/get_illustration_contract_create/');
     return this.httpClient
-    .get<any>(url,this.httpOptions)
+    .post<any>(url,id,this.httpOptions)
     .pipe(catchError(this.handleError));
   }
 

@@ -36,8 +36,17 @@ export class CustomerService {
     .pipe(catchError(this.handleError))
   }
 
+  // lấy các khách hàng bao gồm thông tin illustration và contract
   public getAllCustomerInfo(code_em_support:string): Observable<any>{
     const url = this.common.makeUrl("/customer/get_all_customer_info");
+    return this.httpClient
+    .post<any>(url,code_em_support,this.httpOptions)
+    .pipe(catchError(this.handleError));
+  }
+
+  // lấy các khách hàng KHÔNG bao gồm thông tin illustration và contract
+  public getAllCustomer(code_em_support:string): Observable<any>{
+    const url = this.common.makeUrl("/customer/get_all_customer");
     return this.httpClient
     .post<any>(url,code_em_support,this.httpOptions)
     .pipe(catchError(this.handleError));

@@ -46,7 +46,6 @@ export class CustomerTableComponent implements OnInit {
     this.spinner.show();
     this.customerService.getAllCustomerInfo(jwt_decode(this.common.getCookie('token_key'))['sub']).subscribe((data => {
          this.customerinfos = data;
-         console.log(data);
          this.totalRecords = data.length;
          this.spinner.hide();
     }))

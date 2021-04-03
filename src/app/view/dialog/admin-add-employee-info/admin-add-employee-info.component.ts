@@ -23,13 +23,13 @@ export class AdminAddEmployeeInfoComponent implements OnInit {
   }
 
   genders = Array[2] = [
-    { value: 1, viewValue: 'Nam' },
-    { value: 0, viewValue: 'Nữ' },
+    { value: 'true', viewValue: 'Nam' },
+    { value: 'false', viewValue: 'Nữ' },
   ];
 
   marital_statuss = Array[2] = [
-    { value: 1, viewValue: 'Đã Kết Hôn' },
-    { value: 0, viewValue: 'Chưa Kết Hôn' },
+    { value: 'true', viewValue: 'Đã Kết Hôn' },
+    { value: 'false', viewValue: 'Chưa Kết Hôn' },
   ];
 
   public onSubmit() {
