@@ -82,6 +82,7 @@ import { EmployeeEditInfoDialogComponent } from './view/dialog/employee-edit-inf
 import { AppraiserReviewFormComponent } from './view/dialog/appraiser-review-form/appraiser-review-form.component';
 import { AddRequestComponent } from './view/dialog/add-request/add-request/add-request.component';
 import { AdminEditAccCustomerComponentComponent } from './view/dialog/admin-edit-acc-customer-component/admin-edit-acc-customer-component/admin-edit-acc-customer-component.component';
+import { DetailIncomeComponent } from './view/income/detail-income/detail-income.component';
 
 @NgModule({
   declarations: [
@@ -143,7 +144,8 @@ import { AdminEditAccCustomerComponentComponent } from './view/dialog/admin-edit
     EmployeeEditInfoDialogComponent,
     AppraiserReviewFormComponent,
     AddRequestComponent,
-    AdminEditAccCustomerComponentComponent
+    AdminEditAccCustomerComponentComponent,
+    DetailIncomeComponent
   ],
   imports: [
     ReactiveFormsModule,

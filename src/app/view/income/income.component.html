@@ -16,7 +16,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Theo Dõi Doanh Thu</h3>
+                                <h1 class="card-title">Theo Dõi Doanh Thu</h1>
                             </div>
                             <table class=" table table-bordered ">
                                 <thead>
@@ -27,24 +27,20 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>Tổng Thu Nhập Tháng Trước (12/2020)</td>
-                                        <td>120.000.000</td>
+                                        <td>Tổng Thu Nhập Tháng Trước ({{month-1}}/{{year}})</td>
+                                        <td>{{RevenueLastMonth}}</td>
                                     </tr>
                                     <tr>
-                                        <td>Số Tiền Đã Thanh Toán Tháng Trước (12/2020)</td>
-                                        <td>70.000.000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Số Lượng Hợp Đồng Mới Tháng Trước (12/2020)</td>
-                                        <td>9</td>
+                                        <td>Số Lượng Hợp Đồng Mới Tháng Trước ({{month-1}}/{{year}})</td>
+                                        <td>{{ContractCount}}</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Thu Nhập Theo Hợp Đồng</h3>
-                                <div class="row" style="float: right;">
+                                <h1 class="card-title">Thu Nhập Theo Hợp Đồng</h1>
+                                <!-- <div class="row" style="float: right;">
                                     <div class="card" style="padding: 10px;
                                         background: #28a745; color: white;">
                                         <div>
@@ -55,9 +51,9 @@
                                             <button type="button" class="btn btn-info">Tìm Kiếm</button>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
-                            <div class="card-body" style="height: 1200px; overflow: auto;">
+                            <div class="card-body" style=" overflow: auto;">
                                 <table class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
@@ -68,55 +64,19 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td><a href="#">#109384JHBMNB</a></td>
-                                            <td>2.000.000 đ</td>
-                                            <td>300.000.000</td>
-                                            <td>20/11/2021 8:30 SA</td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#">#109384JHBMNB</a></td>
-                                            <td>2.000.000 đ</td>
-                                            <td>300.000.000</td>
-                                            <td>20/11/2021 8:30 SA</td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#">#109384JHBMNB</a></td>
-                                            <td>2.000.000 đ</td>
-                                            <td>300.000.000</td>
-                                            <td>20/11/2021 8:30 SA</td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#">#109384JHBMNB</a></td>
-                                            <td>2.000.000 đ</td>
-                                            <td>300.000.000</td>
-                                            <td>20/11/2021 8:30 SA</td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#">#109384JHBMNB</a></td>
-                                            <td>2.000.000 đ</td>
-                                            <td>300.000.000</td>
-                                            <td>20/11/2021 8:30 SA</td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#">#109384JHBMNB</a></td>
-                                            <td>2.000.000 đ</td>
-                                            <td>300.000.000</td>
-                                            <td>20/11/2021 8:30 SA</td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#">#109384JHBMNB</a></td>
-                                            <td>2.000.000 đ</td>
-                                            <td>300.000.000</td>
-                                            <td>20/11/2021 8:30 SA</td>
-                                        </tr>
+                                        <tr *ngFor="let revenue of listRevenueEmployee">
+                                            <td>{{revenue.id_contract}}</td>
+                                            <td>{{revenue.income}}</td>
+                                            <td>{{revenue.revenue_val}}</td>
+                                            <td>{{revenue.create_time | date}}</td>
+                                        </tr>                                   
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Thu Nhập Năm Qua</h3>
+                                <h1 class="card-title">Thu Nhập Năm Qua</h1>
                             </div>
                             <div class="card-body">
                                 <table class=" table table-bordered ">
@@ -128,66 +88,13 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>Tháng 1</td>
-                                            <td>150.000.000</td>
-                                            <td><a href="detailMoney.html">Chi Tiết</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Tháng 2</td>
-                                            <td>30.000.000</td>
-                                            <td><a href="detailMoney.html">Chi Tiết</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Tháng 3</td>
-                                            <td>70.000.000</td>
-                                            <td><a href="detailMoney.html">Chi Tiết</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Tháng 4</td>
-                                            <td>70.000.000</td>
-                                            <td><a href="detailMoney.html">Chi Tiết</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Tháng 5</td>
-                                            <td>293.000.000</td>
-                                            <td><a href="detailMoney.html">Chi Tiết</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Tháng 6</td>
-                                            <td>170.000.000</td>
-                                            <td><a href="detailMoney.html">Chi Tiết</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Tháng 7</td>
-                                            <td>450.000.000</td>
-                                            <td><a href="detailMoney.html">Chi Tiết</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Tháng 8</td>
-                                            <td>70.000.000</td>
-                                            <td><a href="detailMoney.html">Chi Tiết</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Tháng 9</td>
-                                            <td>320.000.000</td>
-                                            <td><a href="detailMoney.html">Chi Tiết</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Tháng 10</td>
-                                            <td>230.000.000</td>
-                                            <td><a href="detailMoney.html">Chi Tiết</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Tháng 11</td>
-                                            <td>300.000.000</td>
-                                            <td><a href="detailMoney.html">Chi Tiết</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Tháng 12</td>
-                                            <td>120.000.000</td>
-                                            <td><a href="detailMoney.html">Chi Tiết</a></td>
-                                        </tr>
+                                        <tr *ngFor="let month of monthRevenueList,index as i">
+                                            <td>Tháng {{i+1}}</td>
+                                            <td>{{month}}</td>
+                                            <td>
+                                                <span (click)="IncomeDetailLastYear(i+1)" class="btn btn-info" style="height: 40px; width: 100px; margin: 10px; color: white;">Chi Tiết</span>
+                                            </td>
+                                        </tr>                                        
                                     </tbody>
                                 </table>
                             </div>
