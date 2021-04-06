@@ -5,6 +5,8 @@ import { CommonService } from 'src/app/services/common/common.service';
 import { Revenue } from 'src/app/model/Revenue';
 import { ContractService } from 'src/app/services/contract/contract.service';
 import { Contract } from 'src/app/model/Contract';
+import { assertInteger } from 'pdf-lib';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -34,7 +36,7 @@ export class DashboardComponent implements OnInit {
   ];
   chartLabels = ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'];
 
-  constructor(private revenueService: RevenueService, private common: CommonService, private contractService: ContractService) { }
+  constructor(private router:Router,private revenueService: RevenueService, private common: CommonService, private contractService: ContractService) { }
   dateNow: Date = new Date();
   month: number = this.dateNow.getMonth() + 1;
   year: number = this.dateNow.getFullYear() + 1;
@@ -48,6 +50,7 @@ export class DashboardComponent implements OnInit {
   listRevenueEmployeeMonthBefore: Array<Revenue> = [];
   listRevenueEmployeeMonthNow: Array<Revenue> = [];
   percentBetweenRevenue : String;
+  revenueStatus : String;
 
   ngOnInit(): void {
     // this.revenueService.getAllRevenueYearBefore(jwt_decode(this.common.getCookie('token_key'))['sub'],this.year).subscribe((data =>{
@@ -73,10 +76,10 @@ export class DashboardComponent implements OnInit {
     this.contractService.getAllContract(jwt_decode(this.common.getCookie('token_key'))['sub']).subscribe((data => {
       this.listContract = data;
       for (let i = 0; i < this.listContract.length; i++) {
-        if (this.listContract[i].approval_status == "CXD") {
+        if (this.listContract[i].approval_status == "DXD") {
           this.ContractNotApproved += 1;
         }
-        if (this.listContract[i].approval_status == "DXD") {
+        if (this.listContract[i].approval_status == "DD") {
           this.ContractApproved += 1;
         }
       }
@@ -97,12 +100,29 @@ export class DashboardComponent implements OnInit {
         for (let i = 0; i < this.listRevenueEmployeeMonthNow.length; i++) {
           this.RevenueThisMonth += this.listRevenueEmployeeMonthNow[i].income;
         }
+        if(this.RevenueThisMonth > this.RevenueLastMonth){
+          this.revenueStatus = 'Tăng';
+        }
+        else{
+          this.revenueStatus = 'Giảm';
+        }
+        if(this.revenueStatus == "Tăng"){
+          this.percentBetweenRevenue = Math.round(((this.RevenueThisMonth/this.RevenueLastMonth)*100)).toString()+"%";
+        }
+        else{
+          this.percentBetweenRevenue = Math.round(((this.RevenueLastMonth/this.RevenueThisMonth)*100)).toString()+"%";
+        }
+        
       }))
-      this.percentBetweenRevenue = ((this.RevenueThisMonth/this.RevenueLastMonth)*100).toString()+"%";
-      console.log(this.RevenueLastMonth);
     }))
    
 
   }
+ContractPage(){
+  this.router.navigate["contract"];
+}
+RevenuePage(){
+  this.router.navigate["income"];
+}
 
 }
