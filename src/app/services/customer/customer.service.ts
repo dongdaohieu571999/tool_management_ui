@@ -66,13 +66,6 @@ export class CustomerService {
     .pipe(catchError(this.handleError));
   }
 
-  public addOneAccCustomer(customerAcc :CustomerAcc): Observable<any>{
-    const url = this.common.makeUrl("/customer/add_customer_acc");
-    return this.httpClient
-    .post<any>(url,customerAcc,this.httpOptions)
-    .pipe(catchError(this.handleError));
-  }
-
   public updateOneAccCustomer(customerAcc :CustomerAcc): Observable<any>{
     const url = this.common.makeUrl("/customer/update_customer_acc");
     return this.httpClient
@@ -87,11 +80,18 @@ export class CustomerService {
     .pipe(catchError(this.handleError));
   }
 
-  public getOneAccCustomer(id:number,token_key:String){
+  public getOneCustomerInfo(id:number,token_key:String){
     const url = this.common.makeUrl("/customer/get_one_customer_info");
     let data = {id:id,token_key:token_key};
     return this.httpClient
     .post<any>(url,data,this.httpOptions)
+    .pipe(catchError(this.handleError));
+  }
+
+  public sendOneAccCustomer(id:number){
+    const url = this.common.makeUrl("/customer/send_acc_for_customer");
+    return this.httpClient
+    .post<any>(url,id,this.httpOptions)
     .pipe(catchError(this.handleError));
   }
   

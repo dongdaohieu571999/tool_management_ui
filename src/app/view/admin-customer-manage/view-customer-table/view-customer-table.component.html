@@ -15,18 +15,16 @@
         </thead>
         <tbody>
             <tr *ngFor="let customer of data | paginate: { id: 'listing_pagination' ,itemsPerPage: 3, currentPage: page, totalItems: totalRecords};let i = index">
-                <td>{{ customer.id }}</td>
+                <td>{{ customer.code }}</td>
                 <td>{{ customer.code }}</td>
                 <td>{{ customer.full_name }}</td>
-                <td>{{ customer.birth_date | date:'dd/MM/yyyy'}}</td>
+                <td>{{ customer.birth_date | date:'dd-MM-yyyy'}}</td>
                 <td>{{ customer.phone_1 }}</td>
                 <td>{{ customer.email }}</td>
                 <td>{{ customer.status==1? "Hoạt Động" : "Không Hoạt Động" }}</td>
                 <td>
                     <button (click)="customerDetail(customer.id)" class="btn btn-info" style="height: 40px; width: 100px; margin: 10px; color: white;">Chi Tiết</button></td>
-                <td><button *ngIf="customer.code" class="btn btn-block btn-success" (click)="updateAcc(customer)">Chỉnh Sửa Tài Khoản</button>
-                    <button *ngIf="!customer.code" (click)="openDialog(customer)" class="btn btn-block btn-primary">Thêm Tài Khoản</button></td>
-            </tr>
+                <td><button *ngIf="customer.code" class="btn btn-block btn-success" (click)="updateAcc(customer)">Chỉnh Sửa Tài Khoản</button></tr>
         </tbody>
         <tfoot>
             <tr>

@@ -8,7 +8,7 @@
                             <label for="exampleInputPassword1">Mã Khách Hàng</label>
                             <select class="form-control" name="customerinfos" (change)="getAllIllustByCustID(cust.value)" #cust>
                                 <option [value]=-1>Lựa Chọn Khách Hàng</option>
-                                <option *ngFor="let custInfo of customerinfos"  [value]="custInfo.id">{{custInfo.full_name}} ({{custInfo.id}})</option>
+                                <option *ngFor="let custInfo of customerinfos"  [value]="custInfo.id">{{custInfo.full_name}} ({{custInfo.code}})</option>
                             </select>
                         </div>
                         <div class="form-group">

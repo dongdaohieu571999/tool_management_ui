@@ -26,19 +26,23 @@
                                                     <h3>Thông tin Cơ Bản</h3>
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Nguồn</label>
-                                                        <p style="color: red; ">Không Có</p>
+                                                        <p style="color: red; ">{{ customerInfo.source }}</p>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputPassword1 ">Ngày Cập Nhật</label>
-                                                        <p style="color: red; ">20/11/2021</p>
+                                                        <p style="color: red; ">{{ customerInfo.updated_time | date:'dd-MM-yyyy'}}</p>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputPassword1 ">Mã Hợp Đồng</label>
-                                                        <p style="color: red; "><a href="# ">#128462364</a></p>
+                                                        <p style="color: red; ">
+                                                            <a href="# " *ngFor="let item of custInfoList"> {{ item.id_contract }},&nbsp;&nbsp;</a>
+                                                        </p>
                                                     </div>
                                                     <div class="form-group ">
-                                                        <label for="exampleInputPassword1 ">Mã Bản Minh Họa</label>
-                                                        <p style="color: red; "><a href="# ">#128462364</a></p>
+                                                        <label for="exampleInputPassword1 ">Mã Bản Minh Họa Tương Ứng</label>
+                                                        <p style="color: red; ">
+                                                            <a href="# " *ngFor="let item of custInfoList"> {{ item.id_illustration }},&nbsp;&nbsp;</a>
+                                                        </p>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputPassword1 ">Mã Khách Hàng</label>
@@ -60,7 +64,7 @@
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Ngày Sinh</label>
-                                                        <p style="color: red; ">{{ customerInfo.birth_address }}</p>
+                                                        <p style="color: red; ">{{ customerInfo.birth_address | date: 'dd-MM-yyyy'}}</p>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Tuổi</label>

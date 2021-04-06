@@ -26,8 +26,6 @@ export class DetailIllustrationComponent implements OnInit {
     this.illustrationService.getIllustrationContractCreate(this.activateRoute.snapshot.params['id']).subscribe((data => {
       this.illustration = data;
       this.illustrationCopy = data;
-      console.log("ban minh hoa chi tiet :");
-      console.log(this.illustration);
 
       //Biến đếm số lượng người 
       var default_number: number = this.illustration.illustrationSubInterestList[0].id_related_person;
@@ -68,12 +66,6 @@ export class DetailIllustrationComponent implements OnInit {
         //tìm mảng với những giá trị của người liên quan còn lại
         this.illustrationCopy.illustrationSubInterestList = this.illustrationCopy.illustrationSubInterestList.slice(count, this.illustrationCopy.illustrationSubInterestList.length);
       }
-
-      console.log("danh sach nguoi bo sung :");
-      console.log(this.listSubRelatedPerSonBig);
-
-      console.log("danh sach nguoi bo sung chi tiet :");
-      console.log(this.listRelatedPerSonInfo);
     }))
   }
 

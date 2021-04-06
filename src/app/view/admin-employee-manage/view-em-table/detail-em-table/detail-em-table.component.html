@@ -24,8 +24,8 @@
                                             <div class="row">
                                                 <div class=" col-6 ">
                                                     <h3>Thông tin Cơ Bản</h3>
-                                          
-                                                
+
+
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Họ Tên</label>
                                                         <p style="color: red; ">{{ employeinfoDTO.name }}</p>
@@ -44,19 +44,19 @@
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Ngày Sinh</label>
-                                                        <p style="color: red; ">{{ employeinfoDTO.date_of_birth | date:'yyyy-MM-dd'}}</p>
+                                                        <p style="color: red; ">{{ employeinfoDTO.date_of_birth | date: 'dd-MM-yyyy'}}</p>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Tuổi</label>
                                                         <p style="color: red; ">{{ employeinfoDTO.age }}</p>
                                                     </div>
-                                                   
-                                                    
+
+
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Giấy Tờ Nhân Thân Số</label>
                                                         <p style="color: red; ">{{ employeinfoDTO.id_card }}</p>
                                                     </div>
-                                                    
+
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Dân Tộc</label>
                                                         <p style="color: red; ">{{ employeinfoDTO.national }}</p>
@@ -64,7 +64,7 @@
                                                 </div>
                                             </div>
                                         </mat-tab>
-                                        
+
                                         <mat-tab label="Địa Chỉ ">
                                             <div class="row">
                                                 <div class="col-6 ">
@@ -126,7 +126,7 @@
                                                         <p style="color: red; ">{{ employeinfoDTO.conadd_wards }}</p>
                                                     </div>
                                                 </div>
-                                                
+
                                             </div>
                                         </mat-tab>
                                         <mat-tab label="Thông Tin Liên Lạc">
@@ -141,15 +141,15 @@
                                                         <label for="exampleInputEmail1 ">Điện Thoại Cố Định:</label>
                                                         <p style="color: red; ">{{ employeinfoDTO.phone }}</p>
                                                     </div>
-                                                
+
                                                 </div>
-                                      
+
                                             </div>
                                         </mat-tab>
                                     </mat-tab-group>
                                 </div>
                                 <button type="button " class="btn btn-success" data-toggle="modal" data-target="#myModal" (click)="openDialogEdit()">Chỉnh Sửa Thông Tin</button>
-                               
+
                             </div>
                         </div>
                     </div>

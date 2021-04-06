@@ -27,6 +27,7 @@ export class AddCustomerIllustrationDialogComponent implements OnInit {
   listCust:Array<CustomerAcc>;
   myControl = new FormControl();
   codeValue='';
+  end_time= new Date();
   options= new Array();
   filteredOptions: Observable<string[]>;
 
@@ -69,7 +70,7 @@ export class AddCustomerIllustrationDialogComponent implements OnInit {
         }
       }
       if(!checkDup){
-        this.customerOwnIllustration.addOneCustomerOwnIllustration(this.codeValue).subscribe((data => {
+        this.customerOwnIllustration.addOneCustomerOwnIllustration(this.codeValue,this.end_time).subscribe((data => {
           this.customerOwnIllustration.invokeRefreshTableFun();
         }))
       } else {

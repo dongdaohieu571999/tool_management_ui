@@ -19,7 +19,7 @@ export class IllustrationTableComponent implements OnInit {
 
   ngOnInit(): void {   
       this.illustrationService.subsVar = this.illustrationService.
-      callRefreshTable.subscribe((name:string) => {    
+      callRefreshTable.subscribe((name:string) => {  
         this.refresh();
       });
     this.refresh();

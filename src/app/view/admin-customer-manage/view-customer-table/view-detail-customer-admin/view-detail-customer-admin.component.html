@@ -30,15 +30,19 @@
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputPassword1 ">Ngày Cập Nhật</label>
-                                                        <p style="color: red; ">{{ customerInfo.updated_time | date: 'MM-dd-yyyy' }}</p>
+                                                        <p style="color: red; ">{{ customerInfo.updated_time | date: 'dd-MM-yyyy' }}</p>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputPassword1 ">Mã Hợp Đồng</label>
-                                                        <p style="color: red; "><a href="# ">{{ customerInfo.id_contract }}</a></p>
+                                                        <p style="color: red; ">
+                                                            <a href="# " *ngFor="let item of custInfoList"> {{ item.id_contract }}&nbsp;,</a>
+                                                        </p>
                                                     </div>
                                                     <div class="form-group ">
-                                                        <label for="exampleInputPassword1 ">Mã Bản Minh Họa</label>
-                                                        <p style="color: red; "><a href="# ">{{ customerInfo.id_illustration }}</a></p>
+                                                        <label for="exampleInputPassword1 ">Mã Bản Minh Họa Tương Ứng</label>
+                                                        <p style="color: red; ">
+                                                            <a href="# " *ngFor="let item of custInfoList"> {{ item.id_illustration }}&nbsp;,</a>
+                                                        </p>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputPassword1 ">Mã Khách Hàng</label>

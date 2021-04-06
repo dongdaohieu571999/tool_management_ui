@@ -2,20 +2,26 @@
     <div>
         <div>
             <div>
-                <div class="card-body">
-                    <div style="display: inline; ">
-                        <h3>Thêm Tài Khoản Khách Hàng</h3>
+                <form>
+                    <div class="card-body">
+                        <div style="display: inline; ">
+                            <h3>Thêm Tài Khoản Khách Hàng</h3>
+                        </div>
+                        <div class="form-group ">
+                            <label>Mã Khách Hàng</label>
+                            <input type="email" class="form-control" name="code" placeholder="Code Khách Hàng" [formControl]="myControl" [matAutocomplete]="auto" [(ngModel)]="codeValue">
+                            <mat-autocomplete #auto="matAutocomplete">
+                                <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                                    {{option}}
+                                </mat-option>
+                            </mat-autocomplete>
+                        </div>
+                        <div class="form-group">
+                            <label>Ngày Dự Kiến Kết Thúc Chiến Dịch</label>
+                            <input class="form-control" type="date" name="end_time" [(ngModel)]="end_time">
+                        </div>
                     </div>
-                    <div class="form-group ">
-                        <label>Mã Khách Hàng</label>
-                        <input type="email" class="form-control" name="code" placeholder="Code Khách Hàng" [formControl]="myControl" [matAutocomplete]="auto" [(ngModel)]="codeValue">
-                        <mat-autocomplete #auto="matAutocomplete">
-                            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                                {{option}}
-                            </mat-option>
-                        </mat-autocomplete>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>

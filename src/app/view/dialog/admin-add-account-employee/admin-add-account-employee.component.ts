@@ -9,7 +9,6 @@ import { EmployeeInfoDTO } from 'src/app/model/EmployeeInfoDTO';
 import { CustomerService } from 'src/app/services/customer/customer.service';
 import { EmployeeService } from 'src/app/services/employee/employee.service';
 import { SnackbarService } from 'src/app/services/snackbar/snackbar.service';
-import { AdminAddAccCustomerComponent } from '../admin-add-acc-customer/admin-add-acc-customer.component';
 
 @Component({
   selector: 'app-admin-add-account-employee',
@@ -18,11 +17,7 @@ import { AdminAddAccCustomerComponent } from '../admin-add-acc-customer/admin-ad
 })
 export class AdminAddAccountEmployeeComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<AdminAddAccCustomerComponent>,@Inject(MAT_DIALOG_DATA) public data: EmployeeInfo,private spinner:NgxSpinnerService,private employeeService:EmployeeService,private notiService: SnackbarService,) { }
-
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: EmployeeInfo,private spinner:NgxSpinnerService,private employeeService:EmployeeService,private notiService: SnackbarService,) { }
 
   role:number;
   passwordEnter : String;
@@ -47,7 +42,6 @@ export class AdminAddAccountEmployeeComponent implements OnInit {
           employeeInfoDTO.id_acc = dataid;
           employeeInfoDTO.dept_id=this.role;
         this.employeeService.UpdateEmployeeInfo(employeeInfoDTO).subscribe((data1 => {
-          this.onNoClick();
           this.notiService.openSnackBar("Thêm Data Thành Công!",'Đóng');
           this.employeeService.invokeRefreshTableFun();
           this.spinner.hide();

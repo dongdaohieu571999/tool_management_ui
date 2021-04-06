@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 import { CustomerAcc } from 'src/app/model/CustomerAcc';
 import { CustomerInfo } from 'src/app/model/CustomerInfo';
 import { CustomerService } from 'src/app/services/customer/customer.service';
-import { AdminAddAccCustomerComponent } from 'src/app/view/dialog/admin-add-acc-customer/admin-add-acc-customer.component'
 import { CommonService } from 'src/app/services/common/common.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { AdminEditAccCustomerComponentComponent } from '../../dialog/admin-edit-acc-customer-component/admin-edit-acc-customer-component/admin-edit-acc-customer-component.component';
@@ -35,15 +34,6 @@ export class ViewCustomerTableComponent implements OnInit {
   
   public customerDetail(id:number){
     this.router.navigate(['customer-detail-admin',id]);
-  }
-
-  openDialog(customerinfo : CustomerInfo) {
-    const dialogRef = this.dialog.open(AdminAddAccCustomerComponent,({
-      data:customerinfo
-    }));
-
-    dialogRef.afterClosed().subscribe(result => {
-    });
   }
 
   updateAcc(customerinfo : CustomerInfo){

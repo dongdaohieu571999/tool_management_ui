@@ -19,14 +19,14 @@ export class ViewDetailCustomerComponent implements OnInit {
   constructor(private spinner : NgxSpinnerService,private common : CommonService,private customerService: CustomerService,private activateRoute: ActivatedRoute,private dialog : MatDialog,private router:Router) { }
 
   customerInfo = new CustomerInfo(0,new Date(),0,'','','','','','','','','','','','','',0,0,0,0,0,'','','',0,'','','','','','','','','','','','','','','','','','',0,'',0,0,'',new Date(),0,new Date(),'',0);
-
+  custInfoList:Array<CustomerInfo>;
 
   
   ngOnInit(): void {
     this.spinner.show();
-    this.customerService.getOneAccCustomer(this.activateRoute.snapshot.params['id'],this.common.getCookie("token_key")).subscribe((data =>{
-    this.customerInfo = data;
-    console.log(data)
+    this.customerService.getOneCustomerInfo(this.activateRoute.snapshot.params['id'],this.common.getCookie("token_key")).subscribe((data =>{
+    this.customerInfo = data[0];
+    this.custInfoList = data;
     this.spinner.hide();
   }))
 }

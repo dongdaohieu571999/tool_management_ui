@@ -15,11 +15,13 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class CustomerAddInfoDialogComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<CustomerAddInfoDialogComponent>, public snackbar: SnackbarService,
+  constructor(public dialogRef: MatDialogRef<CustomerAddInfoDialogComponent>, public snackbar: SnackbarService,private spinner:NgxSpinnerService,
     @Inject(MAT_DIALOG_DATA) public customerInfo: CustomerInfo, private common: CommonService, private router: Router, private customerService: CustomerService, private notiService: SnackbarService) { }
   selectedDeal: Date;
 
   user = jwt_decode(this.common.getCookie('token_key'));
+
+  
 
   genders = Array[2] = [
     { value: 1, viewValue: 'Nam' },
@@ -36,12 +38,15 @@ export class CustomerAddInfoDialogComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.customerInfo.types_identification = "Chứng Minh Thư";
   }
   listErrors = [];
   public onSubmit() {
+    this.spinner.show();
     this.customerInfo.code_em_support = this.user['sub'];
     this.customerService.addCustomerInfo(this.customerInfo).subscribe((data => {
       this.customerService.invokeRefreshTableFun(); 
+      this.spinner.hide();
     }))
   }
 }

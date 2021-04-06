@@ -17,11 +17,12 @@ export class ViewDetailCustomerAdminComponent implements OnInit {
   constructor(private spinner : NgxSpinnerService,private common : CommonService,private customerService: CustomerService,private activateRoute: ActivatedRoute,private dialog : MatDialog,private router:Router ) { }
 
   customerInfo:CustomerInfo;
+  custInfoList:Array<CustomerInfo>;
   ngOnInit(): void {
     this.spinner.show();
   this.customerService.getDetailCustomerInfoAdmin(this.activateRoute.snapshot.params['id']).subscribe((data =>{
-    this.customerInfo = data;
-    console.log(this.customerInfo);
+    this.customerInfo = data[0];
+    this.custInfoList = data;
     this.spinner.hide();
   }))
   }

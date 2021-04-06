@@ -4,4 +4,5 @@ export class CustomerOwnIllustration{
     full_name:string;
     create_time:Date;
     id_customer:number;
+    end_time:Date;
 } 

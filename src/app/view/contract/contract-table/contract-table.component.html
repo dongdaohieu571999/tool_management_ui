@@ -21,7 +21,7 @@
             <td>{{contract.id_main_interest}}</td>
             <td>{{contract.id_illustration}}</td>
             <td>{{contract.status==false?"Chưa Được Xét Duyệt":"Đã Được Xét Duyệt"}}</td>
-            <td>{{contract.start_time}}</td>
+            <td>{{contract.start_time | date: 'dd-MM-yyyy'}}</td>
             <td>
                 <button (click)="contractDetail(contract.id)" class="btn btn-info" style="height: 30px;color: white;">Chi Tiết</button>
             </td>

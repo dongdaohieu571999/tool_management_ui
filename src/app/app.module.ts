@@ -50,7 +50,6 @@ import { SolutionRequestTableComponent } from '././view/admin-solution-manage/so
 import { DetailSolutionRequestComponent } from '././view/admin-solution-manage/solution-request-table/detail-solution-request/detail-solution-request.component';
 import { SolutionHistoryComponent } from '././view/admin-solution-manage/solution-history/solution-history.component';
 import { SolutionHistoryTableComponent } from '././view/admin-solution-manage/solution-history/solution-history-table/solution-history-table.component';
-import { AdminAddAccCustomerComponent } from '././view/dialog/admin-add-acc-customer/admin-add-acc-customer.component';
 import { AppraiserContractManageComponent } from '././view/appraiser-contract-manage/appraiser-contract-manage.component';
 import { ViewDetailContractComponent } from './view/view-detail-contract/view-detail-contract.component';
 import { AppraiserRequestManageComponent } from '././view/appraiser-request-manage/appraiser-request-manage.component';
@@ -112,7 +111,6 @@ import { AdminEditAccCustomerComponentComponent } from './view/dialog/admin-edit
     DetailSolutionRequestComponent,
     SolutionHistoryComponent,
     SolutionHistoryTableComponent,
-    AdminAddAccCustomerComponent,
     AdminAddEmployeeInfoComponent,
     AdminAddAccountEmployeeComponent,
     AppraiserContractManageComponent,
@@ -169,7 +167,7 @@ import { AdminEditAccCustomerComponentComponent } from './view/dialog/admin-edit
     MatSnackBarModule,
     MatSelectModule
   ],
-  entryComponents: [AdminEditAccCustomerComponentComponent,AppraiserReviewFormComponent,EmployeeEditInfoDialogComponent,ContractPauseDialogComponent,ContractChangeInfoDialogComponent,ReportCustomerDialogComponent,CustomerEditInfoComponent,AdminAddAccCustomerComponent,AdminAddEmployeeInfoComponent,AdminAddAccountEmployeeComponent,AddCustomerIllustrationDialogComponent,CustomerAddInfoDialogComponent,ContractAddDialogComponent,NotificationConfirmDialogComponent,PauseCustomerDialogComponent],
+  entryComponents: [AdminEditAccCustomerComponentComponent,AppraiserReviewFormComponent,EmployeeEditInfoDialogComponent,ContractPauseDialogComponent,ContractChangeInfoDialogComponent,ReportCustomerDialogComponent,CustomerEditInfoComponent,AdminAddEmployeeInfoComponent,AdminAddAccountEmployeeComponent,AddCustomerIllustrationDialogComponent,CustomerAddInfoDialogComponent,ContractAddDialogComponent,NotificationConfirmDialogComponent,PauseCustomerDialogComponent],
   providers: [AdminDataServiceService],
   bootstrap: [AppComponent]
 })

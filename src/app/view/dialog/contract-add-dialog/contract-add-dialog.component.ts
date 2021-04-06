@@ -28,6 +28,7 @@ export class ContractAddDialogComponent implements OnInit {
   ngOnInit(): void {
     this.customerService.getAllCustomer(jwt_decode(this.common.getCookie('token_key'))['sub']).subscribe((data => {
       this.customerinfos = data;
+      console.log(data)
     }))
   }
   illustrationId:number;

@@ -56,10 +56,11 @@ export class IllustrationService {
     .pipe(catchError(this.handleError));
   }
 
-  public addOneCustomerOwnIllustration(code:string): Observable<any>{
+  public addOneCustomerOwnIllustration(code:string,end_time:Date): Observable<any>{
     const url = this.common.makeUrl('/illustration/add_one_customer_own_illustration/');
+    let data = {code:code,end_time:end_time};
     return this.httpClient
-    .post<any>(url,code,this.httpOptions)
+    .post<any>(url,data,this.httpOptions)
     .pipe(catchError(this.handleError));
   }
 
