@@ -25,23 +25,15 @@ export class AdminAddAccountEmployeeComponent implements OnInit {
   }
 
   role:number;
-  passwordEnter : String;
- confirmPassWordEnter:String;
- checkPassword : boolean;
-  ConfirmPassword(){
-    if(this.passwordEnter == this.confirmPassWordEnter){
-      this.checkPassword = true;
-    }
-    else{
-      this.checkPassword = false;
-    }
-  }
+  code_suppervisor:string;
+ employeeAccList:Array<EmployeeAcc>;
   
   onSubmit(addAccEmployeeForm : NgForm,employeeInfo:EmployeeInfo){
     this.spinner.show();
-    if(addAccEmployeeForm.value.code != '' && addAccEmployeeForm.value.pass != ''){
-    let employeeAcc = new EmployeeAcc(addAccEmployeeForm.value.code,addAccEmployeeForm.value.pass,this.role,true);
-    this.employeeService.addOneAccEmployee(employeeAcc).subscribe((dataid => {
+    let employeeAcc = new EmployeeAcc(addAccEmployeeForm.value.code,'',this.role,true);
+    let emAccWithEmail = {email:this.data.email,emAcc:employeeAcc,code_suppervisor:this.code_suppervisor,id_custInfo:this.data.id};
+    console.log(emAccWithEmail)
+    this.employeeService.addOneAccEmployee(emAccWithEmail).subscribe((dataid => {
       if(dataid != null){
         this.employeeService.getDetailEmployebyID(employeeInfo.id).subscribe((employeeInfoDTO =>{
           employeeInfoDTO.id_acc = dataid;
@@ -58,13 +50,17 @@ export class AdminAddAccountEmployeeComponent implements OnInit {
         this.spinner.hide();
       }
     }));
-  } else {
-    this.notiService.openSnackBar("Vui Lòng Điền Đủ Thông Tin",'Đóng');
-  }
 
   }
 
   ngOnInit(): void {
+    this.employeeService.getAllAccByIDRole(3).subscribe((data => {
+      // kiểm tra nếu role != 2 thì code_suppervisor là admin
+      if(this.role!=2){
+        this.code_suppervisor = "admin";
+      }
+      this.employeeAccList = data;
+    }))
   }
 
 }

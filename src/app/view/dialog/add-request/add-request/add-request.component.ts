@@ -10,6 +10,8 @@ import { ContractrequestService } from 'src/app/services/contractRequest/contrac
 import { NgxSpinnerService } from 'ngx-spinner';
 import { SnackbarService } from 'src/app/services/snackbar/snackbar.service';
 import { ContractService } from 'src/app/services/contract/contract.service';
+import { EmployeeInfo } from 'src/app/model/EmployeeInfo';
+import { EmployeeInfoDTO } from 'src/app/model/EmployeeInfoDTO';
 
 @Component({
   selector: 'app-add-request',
@@ -21,9 +23,9 @@ export class AddRequestComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) public contract: Contract,private contractService:ContractService,private snackBar:SnackbarService,private spinner:NgxSpinnerService,private reqService:ContractrequestService,private common:CommonService,private EmAccService:EmployeeService) { }
 
   req=new Request(0,'',0,new Date(),0,'','','','',0,'');
-  EmAcc:Array<EmployeeAcc>;
+  EmAcc:EmployeeInfoDTO;
   ngOnInit(): void {
-    this.EmAccService.getAllAccByIDRole(3).subscribe((data => {
+    this.EmAccService.getDetailEmployebyCode(jwt_decode(this.common.getCookie('token_key'))['sub']).subscribe((data => {
       this.EmAcc = data;
     }))
   }
@@ -34,14 +36,16 @@ export class AddRequestComponent implements OnInit {
     this.req.code_sender =  jwt_decode(this.common.getCookie('token_key'))['sub'];
     this.req.id_contract = this.contract.id;
     this.req.status = 'CXD';
+    this.req.code_reciever = this.EmAcc.code_ap_support;
 
     this.reqService.addOneRequest(this.req).subscribe((data => {
+      this.contractService.setStatusContract(this.contract.id,-1,'','DXD').subscribe((data => {
+        this.snackBar.openSnackBar("Gửi Yêu Cầu Thành Công","Đóng");
+        this.contractService.invokeRefreshTableFun();
+      }))
     }))
 
-    this.contractService.setStatusContract(this.contract.id,-1,'','DXD').subscribe((data => {
-      this.snackBar.openSnackBar("Gửi Yêu Cầu Thành Công","Đóng");
-      this.contractService.invokeRefreshTableFun();
-    }))
+    
   }
 
 }

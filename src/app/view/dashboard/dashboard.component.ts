@@ -73,10 +73,10 @@ export class DashboardComponent implements OnInit {
     this.contractService.getAllContract(jwt_decode(this.common.getCookie('token_key'))['sub']).subscribe((data => {
       this.listContract = data;
       for (let i = 0; i < this.listContract.length; i++) {
-        if (this.listContract[i].approval_status == "CXD") {
+        if (this.listContract[i].approval_status == "DXD") {
           this.ContractNotApproved += 1;
         }
-        if (this.listContract[i].approval_status == "DXD") {
+        if (this.listContract[i].approval_status == "DD") {
           this.ContractApproved += 1;
         }
       }

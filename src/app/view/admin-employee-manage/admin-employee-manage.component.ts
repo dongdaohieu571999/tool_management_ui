@@ -28,7 +28,7 @@ export class AdminEmployeeManageComponent implements OnInit {
     this.status = !this.status;
   }
   
-  employeeinfo = new EmployeeInfoDTO(0,'','',new Date(),0,'','','','',new Date(),new Date(),false,null,1,1,1,1,1,false,'','','','','','','','','','','','','');
+  employeeinfo = new EmployeeInfoDTO(0,'','',new Date(),0,'','','','',new Date(),new Date(),false,null,1,1,1,1,1,false,'','','','','','','','','','','','','','');
 public openDialog(){
   let dialogRef = this.dialog.open(AdminAddEmployeeInfoComponent,{
     data : this.employeeinfo

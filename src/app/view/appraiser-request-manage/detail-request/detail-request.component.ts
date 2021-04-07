@@ -20,7 +20,7 @@ export class DetailRequestComponent implements OnInit {
   status: boolean = false;
   req:Request;
   contract:Contract;
-  custInfo:CustomerInfo;
+  custInfo:Array<CustomerInfo>;
   constructor(private common:CommonService,private custService:CustomerService,private contractService:ContractService,private dialog : MatDialog,private contractRequestService:ContractrequestService,private activateRoute:ActivatedRoute) { }
 
 
@@ -28,7 +28,6 @@ export class DetailRequestComponent implements OnInit {
   ngOnInit(): void {
     this.contractRequestService.getOneContractRequest(this.activateRoute.snapshot.params['id']).subscribe((data =>{
       this.req = data;
-      console.log(this.req);
       this.contractService.getDetailContract(this.req.id_contract).subscribe((data1 => {
         this.contract = data1;
         this.custService.getDetailCustomerInfoAdmin(this.contract.id_customer).subscribe((data2 => {
