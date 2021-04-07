@@ -26,6 +26,28 @@ export class RevenueService {
     .post<any>(url,data,this.httpOptions)
     .pipe(catchError(this.handleError))
   }
+  public getAllRevenue(code_em_support:String):Observable<any>{
+    const url = this.common.makeUrl("/revenue/get_all_revenue_employee");
+    return this.httpClient
+    .post<any>(url,code_em_support,this.httpOptions)
+    .pipe(catchError(this.handleError))
+  }
+
+  public getAllRevenueMonthBefore(code_em_support:String,monthDate:number,yearDate:number):Observable<any>{
+    const url = this.common.makeUrl("/revenue/get_all_revenue_employee_month_before");
+    let data = {code_em_support:code_em_support,monthDate:monthDate,yearDate:yearDate}
+    return this.httpClient
+    .post<any>(url,data,this.httpOptions)
+    .pipe(catchError(this.handleError))
+  }
+
+  public getAllRevenueYearBefore(code_em_support:String,yearDate:number):Observable<any>{
+    const url = this.common.makeUrl("/revenue/get_all_revenue_employee_year_before");
+    let data = {code_em_support:code_em_support,yearDate:yearDate}
+    return this.httpClient
+    .post<any>(url,data,this.httpOptions)
+    .pipe(catchError(this.handleError))
+  }
 
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {

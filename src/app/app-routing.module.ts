@@ -31,6 +31,7 @@ import { MailDetailComponent } from './view/mail/mail-detail/mail-detail.compone
 import { ConfirmChangePassComponent } from './view/change-pass/confirm-change-pass/confirm-change-pass.component'
 import { ViewDetailCustomerAdminComponent } from './view/admin-customer-manage/view-customer-table/view-detail-customer-admin/view-detail-customer-admin.component';
 import { DetailEmTableComponent } from './view/admin-employee-manage/view-em-table/detail-em-table/detail-em-table.component';
+import { DetailIncomeComponent } from './view/income/detail-income/detail-income.component';
 
 const routes: Routes = [
   {path : "dashboard", component: DashboardComponent},
@@ -64,6 +65,7 @@ const routes: Routes = [
   {path: "detai-history-change/:id", component: DetailInfoChangeHistoryComponent},
   {path: "customer-detail-admin/:id", component: ViewDetailCustomerAdminComponent},
   {path: "employee-detail-admin/:id", component: DetailEmTableComponent},
+  {path: "employee-detail-income/:month", component: DetailIncomeComponent},
 ];
 
 @NgModule({

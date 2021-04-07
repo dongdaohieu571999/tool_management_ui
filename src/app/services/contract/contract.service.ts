@@ -90,6 +90,14 @@ export class ContractService {
       .pipe(catchError(this.handleError));
   }
 
+  public getAllCountContract(code_em_support:String,monthDate:number):Observable<any>{
+    const url = this.common.makeUrl("/contract/get_all_count_contract");
+    let data = {code_em_support:code_em_support,monthDate:monthDate}
+    return this.httpClient
+    .post<any>(url,data,this.httpOptions)
+    .pipe(catchError(this.handleError))
+  }
+
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.

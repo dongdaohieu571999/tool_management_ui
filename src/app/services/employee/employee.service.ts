@@ -59,10 +59,10 @@ export class EmployeeService {
     .pipe(catchError(this.handleError));
   }
 
-  public addOneAccEmployee(employeeAcc :EmployeeAcc): Observable<any>{
+  public addOneAccEmployee(data:any): Observable<any>{
     const url = this.common.makeUrl("/employee/add_employee_acc");
     return this.httpClient
-    .post<any>(url,employeeAcc,this.httpOptions)
+    .post<any>(url,data,this.httpOptions)
     .pipe(catchError(this.handleError));
   }
 

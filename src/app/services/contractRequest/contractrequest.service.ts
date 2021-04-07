@@ -20,17 +20,17 @@ export class ContractrequestService {
     }),
   }
 
-  public getAllContractRequest(): Observable<any>{
+  public getAllContractRequest(code_appraiser:string): Observable<any>{
     const url = this.common.makeUrl("/request/get_all_request");
     return this.httpClient
-    .get<any>(url,this.httpOptions)
+    .post<any>(url,code_appraiser,this.httpOptions)
     .pipe(catchError(this.handleError));
   }
 
-  public getAllContractRequestApproval(): Observable<any>{
+  public getAllContractRequestApproval(code_appraiser:string): Observable<any>{
     const url = this.common.makeUrl("/request/get_all_request_approval");
     return this.httpClient
-    .get<any>(url,this.httpOptions)
+    .post<any>(url,code_appraiser,this.httpOptions)
     .pipe(catchError(this.handleError));
   }
 
