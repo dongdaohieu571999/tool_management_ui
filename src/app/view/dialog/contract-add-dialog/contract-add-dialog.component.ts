@@ -22,13 +22,12 @@ export class ContractAddDialogComponent implements OnInit {
   constructor(private spinner:NgxSpinnerService,private snackBar:SnackbarService,private referenceTable:RefertableService,private IllustrationService:IllustrationService,private contractService:ContractService,private common:CommonService,private customerService : CustomerService) { }
   customerinfos : Array<CustomerInfo>;
   illustrations : Array<Illustration>;
-  contract=new Contract(0,0,'',0,'',0,0,new Date(),new Date(),false,'CXD',0,new Date(),jwt_decode(this.common.getCookie('token_key'))['sub']);
+  contract=new Contract(0,0,'',0,'',0,0,new Date(),new Date(),false,'CXD',0,jwt_decode(this.common.getCookie('token_key'))['sub']);
 
 
   ngOnInit(): void {
     this.customerService.getAllCustomer(jwt_decode(this.common.getCookie('token_key'))['sub']).subscribe((data => {
       this.customerinfos = data;
-      console.log(data)
     }))
   }
   illustrationId:number;

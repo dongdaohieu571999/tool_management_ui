@@ -28,7 +28,8 @@ export class DetailRequestComponent implements OnInit {
   ngOnInit(): void {
     this.contractRequestService.getOneContractRequest(this.activateRoute.snapshot.params['id']).subscribe((data =>{
       this.req = data;
-      this.contractService.getDetailContract(this.req.id_contract).subscribe((data1 => {
+      let data1 = {id:this.req.id_contract,code:this.req.code_sender}
+      this.contractService.getDetailContract(data1).subscribe((data1 => {
         this.contract = data1;
         this.custService.getDetailCustomerInfoAdmin(this.contract.id_customer).subscribe((data2 => {
           this.custInfo = data2;

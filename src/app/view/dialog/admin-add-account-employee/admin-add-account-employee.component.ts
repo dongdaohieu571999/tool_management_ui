@@ -40,7 +40,7 @@ export class AdminAddAccountEmployeeComponent implements OnInit {
         }));
         }))        
       } else {
-        this.notiService.openSnackBar("Tài Khoản Khách Hàng Đã Tồn Tại!",'Đóng');
+        this.notiService.openSnackBar("Tài Khoản Nhân Viên Đã Tồn Tại!",'Đóng');
         this.spinner.hide();
       }
     }));

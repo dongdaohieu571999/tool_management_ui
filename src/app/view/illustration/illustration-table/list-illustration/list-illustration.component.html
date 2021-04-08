@@ -33,7 +33,6 @@
                                     <table id="illustration-table" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                                <th>Mã Khách Hàng</th>
                                                 <th>Mã bản nháp</th>
                                                 <th>Ngày Tạo</th>
                                                 <th>Sản phẩm chính</th>
@@ -42,11 +41,10 @@
                                         </thead>
                                         <tbody>
                                             <tr *ngFor="let illustration of illustrations">
-                                                <td><b>{{illustration.id_customer_info }}</b></td>
                                                 <td>{{illustration.id}}</td>
-                                                <td>{{illustration.create_time | date}}</td>
+                                                <td>{{illustration.create_time | date:'dd-MM-yyyy'}}</td>
                                                 <td>{{illustration.interest_name}}</td>
-                                                <button  (click)="illustrationDetail(illustration.id)" class="btn btn-info" style="height: 40px; width: 100px; margin: 10px; color: white;">Chi Tiết</button>
+                                                <button (click)="illustrationDetail(illustration.id)" class="btn btn-info" style="height: 40px; width: 100px; margin: 10px; color: white;">Chi Tiết</button>
                                             </tr>
                                         </tbody>
                                     </table>

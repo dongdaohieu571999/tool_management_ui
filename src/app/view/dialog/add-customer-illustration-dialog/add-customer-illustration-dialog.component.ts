@@ -8,6 +8,8 @@ import { CommonService } from 'src/app/services/common/common.service';
 import { IllustrationService } from 'src/app/services/illustration/illustration.service';
 import { SnackbarService } from 'src/app/services/snackbar/snackbar.service';
 import { CustomerAcc } from 'src/app/model/CustomerAcc';
+import { CustomerOwnIllustration } from 'src/app/model/CustomerOwnIllustration';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-add-customer-illustration-dialog',
@@ -16,7 +18,11 @@ import { CustomerAcc } from 'src/app/model/CustomerAcc';
 })
 export class AddCustomerIllustrationDialogComponent implements OnInit {
 
-  constructor(private snackBar: SnackbarService,private customerOwnIllustration:IllustrationService,private common:CommonService,private customerService:CustomerService) { }
+  constructor(
+    private spinner:NgxSpinnerService,
+    private illustrationService:IllustrationService,private snackBar: SnackbarService,
+    private customerOwnIllustration:IllustrationService,private common:CommonService,
+    private customerService:CustomerService) { }
 
   private _filter(value: string): string[] {
     const filterValue = value?.toLowerCase();
@@ -24,12 +30,14 @@ export class AddCustomerIllustrationDialogComponent implements OnInit {
     return this.options.filter(option => option?.toLowerCase().includes(filterValue));
   }
 
+  check=false;
   listCust:Array<CustomerAcc>;
   myControl = new FormControl();
   codeValue='';
   end_time= new Date();
   options= new Array();
   filteredOptions: Observable<string[]>;
+  listCustomerOwnIllustration:Array<CustomerOwnIllustration>;
 
   ngOnInit(): void {
     this.customerService.getAllCustomerInfo(jwt_decode(this.common.getCookie('token_key'))['sub']).subscribe((data => {
@@ -38,7 +46,6 @@ export class AddCustomerIllustrationDialogComponent implements OnInit {
         list.push(el.code);
       });
       this.options = list;
-      console.log(list);
     }))
     this.filteredOptions = this.myControl.valueChanges
       .pipe(
@@ -48,22 +55,26 @@ export class AddCustomerIllustrationDialogComponent implements OnInit {
   }
 
   onSubmit(){
-    this.customerOwnIllustration.getAllCustomerOwnIllustration(jwt_decode(this.common.getCookie('token_key'))['sub']).subscribe((data1 => {
+    this.customerService.getAllCustomerInfo(jwt_decode(this.common.getCookie('token_key'))['sub']).subscribe((data1 => {
       this.listCust = data1;
-      // var check = false;
-      // for(let item of this.listCust)
-      // {
-      //   if(item.code == this.codeValue){
-      //     check = true;
-      //     break;
-      //   }
-      // }
-      // if(!check){
-      //   this.snackBar.openSnackBar('Bạn Không Có Khách Hàng Này! ','Đóng');
-      //   return;
-      // }
-      var checkDup = false;
-      for(let el of data1){
+      //xét xem tên nhập vào có phải là nhân viên của mình hay không?
+      for(let item of this.listCust)
+      {
+        if(item.code == this.codeValue){
+          this.check = true;
+          break;
+        }
+      }
+      if(!this.check){
+        this.snackBar.openSnackBar('Bạn Không Có Khách Hàng Này! ','Đóng');
+        return;
+      }
+      // xét xem người này đã có chiên dịch hay chưa
+      this.spinner.hide();
+      this.illustrationService.getAllCustomerOwnIllustration(jwt_decode(this.common.getCookie('token_key'))['sub']).subscribe((data => {
+        this.listCustomerOwnIllustration = data;
+        var checkDup = false;
+      for(let el of this.listCustomerOwnIllustration){
         if(el['code'] == this.codeValue){
           checkDup = true;
           break;
@@ -76,6 +87,9 @@ export class AddCustomerIllustrationDialogComponent implements OnInit {
       } else {
         this.snackBar.openSnackBar('Khách Hàng Đã Có Danh Sách Bảng Minh Họa','Đóng');
       }
+        this.spinner.hide();
+      }))
+      
     }))
     
   }

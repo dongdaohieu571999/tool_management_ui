@@ -22,7 +22,7 @@ export class ServerHttpService {
   private REST_API_SERVER = 'http://localhost:8080/api';
 
   public getAcc(code: string,pass: string): Observable<any>{
-    const url = `${this.REST_API_SERVER}/login?code=`+code+'&pass='+pass;
+    const url = `${this.REST_API_SERVER}/login?code=`+btoa(code)+'&pass='+btoa(pass);
     return this.httpClient
     .get<any>(url,this.httpOptions)
     .pipe(catchError(this.handleError));

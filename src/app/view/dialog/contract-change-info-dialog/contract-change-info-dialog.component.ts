@@ -36,8 +36,7 @@ export class ContractChangeInfoDialogComponent implements OnInit {
     contractForm.value.status,
     contractForm.value.approval_status,
     contractForm.value.totalPayment,
-    contractForm.value.signDate,
-    this.contract.id_employee
+    contractForm.value.signDate
     );
       this.contractService.EditContract(contractinfo).subscribe((data => {
         console.log(data);      

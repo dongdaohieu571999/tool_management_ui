@@ -10,11 +10,10 @@ export class Contract{
     end_time:Date;
     status:boolean;
     approval_status:String;
-    contract_total_value:number;
-    date_next_payment:Date;   
+    contract_total_value:number; 
     code_em_support:string;
     
-    constructor(id:number,id_customer:number,name_contract_owner:String,payment_period_id:number,insurance_type:String,id_main_interest:number,id_illustration:number,start_time:Date,end_time:Date,status:boolean,approval_status:String,contract_total_value:number,date_next_payment:Date,code_em_support:string){
+    constructor(id:number,id_customer:number,name_contract_owner:String,payment_period_id:number,insurance_type:String,id_main_interest:number,id_illustration:number,start_time:Date,end_time:Date,status:boolean,approval_status:String,contract_total_value:number,code_em_support:string){
         this.id = id;
         this.id_customer = id_customer;
         this.name_contract_owner = name_contract_owner;
@@ -27,7 +26,6 @@ export class Contract{
         this.status = status;
         this.approval_status = approval_status;
         this.contract_total_value = contract_total_value; 
-        this.date_next_payment = date_next_payment;
         this.code_em_support = code_em_support;
     }
 }

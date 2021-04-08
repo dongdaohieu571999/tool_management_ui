@@ -34,10 +34,10 @@ export class ContractService {
       .pipe(catchError(this.handleError));
   }
 
-  public getDetailContract(id: number): Observable<any> {
+  public getDetailContract(data:any): Observable<any> {
     const url = this.common.makeUrl("/contract/get_detail_contract/");
     return this.httpClient
-      .post<any>(url,id,this.httpOptions)
+      .post<any>(url,data,this.httpOptions)
       .pipe(catchError(this.handleError));
   }
   public setStatusContract(id_contract: number,id_request:number,description:String,approval_status:string): Observable<any> {

@@ -38,7 +38,8 @@ export class AppraiserReviewFormComponent implements OnInit {
    if(this.approveStatus == "DD"){
     this.contractService.setStatusContract(this.req.id_contract,this.req.id,this.description,this.approveStatus).subscribe((data =>{
       // set trạng thái cho hợp đồng và request
-      this.contractService.getDetailContract(this.req.id_contract).subscribe((data => {
+      let data1 = {id:this.req.id_contract,code:this.req.code_sender};
+      this.contractService.getDetailContract(data1).subscribe((data => {
         // lấy tất cả thông tin của bảng minh họa
         this.illustSer.getIllustrationContractCreate(data['id_illustration']).subscribe((data => {
           this.illustration = data;

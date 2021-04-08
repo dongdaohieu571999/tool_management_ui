@@ -29,11 +29,11 @@
                                         <tbody>
                                             <tr>
                                                 <td>Mã Hợp Đồng</td>
-                                                <td>{{contracts?.id}}</td>
+                                                <td>#HD{{contracts?.id}}</td>
                                             </tr>
                                             <tr>
                                                 <td>Mã Khách Hàng</td>
-                                                <td>{{contracts?.id_customer}}</td>
+                                                <td>{{contracts?.code}}</td>
                                             </tr>
                                             <tr>
                                                 <td>Chủ Hợp Đồng</td>
@@ -49,7 +49,7 @@
                                             </tr>
                                             <tr>
                                                 <td>Mã Bản Minh Họa</td>
-                                                <td>{{contracts?.id_illustration}}</td>
+                                                <td>#BMH{{contracts?.id_illustration}}</td>
                                             </tr>
                                             <tr>
                                                 <td>Ngày Đăng Ký</td>
@@ -231,8 +231,6 @@
                             </div>
                         </mat-tab> -->
                     </mat-tab-group>
-                    <button *ngIf="authenService.id_role=='2' && (contracts.approval_status == 'CXD' || contracts.approval_status == 'YCT')" type="button" class="btn btn-default" (click)="openDialogChange()">Sửa
-                        Đổi</button>
                     <button *ngIf="authenService.id_role=='2' && contracts.approval_status == 'CXD'" type="button" class="btn btn-success" (click)="openDialogSendRequest()">Gửi Yêu Cầu Xét Duyệt</button>
 
                 </div>

@@ -19,11 +19,17 @@
         <tr *ngFor="let customerinfo of customerinfos | paginate: { id: 'listing_pagination' ,itemsPerPage: 8, currentPage: page, totalItems: totalRecords}">
             <td>{{customerinfo.code}}</td>
             <td>{{customerinfo.code}}</td>
-            <td><a href="#">{{customerinfo.id_contract}}</a></td>
+            <td>
+                <a href="#" *ngIf="customerinfo.id_contract">#BMH{{customerinfo.id_contract}}</a>
+                <a href="#" *ngIf="!customerinfo.id_contract"></a>
+            </td>
             <td>{{customerinfo.full_name}}</td>
             <td>{{customerinfo.birth_date | date: 'dd-MM-yyyy'}}</td>
             <td>{{customerinfo.conadd_city}}</td>
-            <td><a href="#">{{customerinfo.id_illustration}}</a></td>
+            <td>
+                <a href="#" *ngIf="customerinfo.id_illustration">#BMH{{customerinfo.id_illustration}}</a>
+                <a href="#" *ngIf="!customerinfo.id_illustration"></a>
+            </td>
             <td>{{customerinfo.phone_1}}</td>
             <td>{{customerinfo.status==true?'Hoạt Động' : 'Tạm Ngưng'}}</td>
             <td>{{customerinfo.workadd_no_street}} {{customerinfo.workadd_district}} {{customerinfo.workadd_city}}</td>

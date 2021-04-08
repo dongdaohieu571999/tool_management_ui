@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
+import jwt_decode from 'jwt-decode';
 import { Contract } from 'src/app/model/Contract';
 import { ContractChangeHistory } from 'src/app/model/ContractChangeHistory';
 import { ContractDTO } from 'src/app/model/ContractDTO';
@@ -14,6 +15,8 @@ import { RefertableService } from 'src/app/services/refertable/refertable.servic
 import { AddRequestComponent } from '../dialog/add-request/add-request/add-request.component';
 import { ContractChangeInfoDialogComponent } from '../dialog/contract-change-info-dialog/contract-change-info-dialog.component';
 import { ContractPauseDialogComponent } from '../dialog/contract-pause-dialog/contract-pause-dialog.component';
+import { CommonService } from 'src/app/services/common/common.service';
+import jwtDecode from 'jwt-decode';
 
 @Component({
   selector: 'app-view-detail-contract',
@@ -25,10 +28,10 @@ export class ViewDetailContractComponent implements OnInit {
   id:number;
   ref:Referencetable;
   payment_period:string;
-  contracts:Contract;
+  contracts:ContractDTO;
   contractchanges:Array<ContractChangeHistory>;
 
-  constructor(private spinner:NgxSpinnerService,private referTable:RefertableService,public authenService: AuthenService,private  route : ActivatedRoute , private router : Router,private contractService : ContractService,private dialog:MatDialog) { }
+  constructor(private common:CommonService,private spinner:NgxSpinnerService,private referTable:RefertableService,public authenService: AuthenService,private  route : ActivatedRoute , private router : Router,private contractService : ContractService,private dialog:MatDialog) { }
 
   ngOnInit(): void {
     this.contractService.subsVar = this.contractService.    
@@ -65,7 +68,8 @@ export class ViewDetailContractComponent implements OnInit {
   public refresh(){
     this.spinner.show();
     this.id = this.route.snapshot.params['id'];
-    this.contractService.getDetailContract(this.id).subscribe((data =>{
+    let data = {id:this.id,code:jwtDecode(this.common.getCookie('token_key'))['sub']}
+    this.contractService.getDetailContract(data).subscribe((data =>{
       this.contracts = data;
       this.referTable.getAllReference().subscribe((data => {
         this.ref=data;
@@ -74,8 +78,8 @@ export class ViewDetailContractComponent implements OnInit {
       }))
     }))
 
-    this.contractService.getAllContractChangeHistory(this.id).subscribe((data => {
-      this.contractchanges = data;
-    }))
+    // this.contractService.getAllContractChangeHistory(this.id).subscribe((data => {
+    //   this.contractchanges = data;
+    // }))
   }
 }

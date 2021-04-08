@@ -29,7 +29,6 @@ export class IllustrationTableComponent implements OnInit {
     this.spinner.show();
     this.illustrationService.getAllCustomerOwnIllustration(jwt_decode(this.common.getCookie('token_key'))['sub']).subscribe((data => {
       this.listCustomerOwnIllustration = data;
-      console.log(this.listCustomerOwnIllustration);;
       this.spinner.hide();
     }))
   }
