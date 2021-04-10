@@ -17,6 +17,10 @@ import { ContractChangeInfoDialogComponent } from '../dialog/contract-change-inf
 import { ContractPauseDialogComponent } from '../dialog/contract-pause-dialog/contract-pause-dialog.component';
 import { CommonService } from 'src/app/services/common/common.service';
 import jwtDecode from 'jwt-decode';
+import * as gcs from '@google-cloud/storage';
+import path from 'path';
+import { FileManagementService } from 'src/app/services/fileManagement/file-management.service';
+
 
 @Component({
   selector: 'app-view-detail-contract',
@@ -25,15 +29,27 @@ import jwtDecode from 'jwt-decode';
 })
 export class ViewDetailContractComponent implements OnInit {
 
+  
   id:number;
   ref:Referencetable;
   payment_period:string;
   contracts:ContractDTO;
   contractchanges:Array<ContractChangeHistory>;
 
-  constructor(private common:CommonService,private spinner:NgxSpinnerService,private referTable:RefertableService,public authenService: AuthenService,private  route : ActivatedRoute , private router : Router,private contractService : ContractService,private dialog:MatDialog) { }
+  constructor(
+    private fileService:FileManagementService,
+    private common:CommonService,private spinner:NgxSpinnerService,
+    private referTable:RefertableService,public authenService: AuthenService,
+    private  route : ActivatedRoute , private router : Router,private contractService : ContractService,
+    private dialog:MatDialog) { }
 
   ngOnInit(): void {
+    this.fileService.uploadFile("hieeus.pdf").subscribe((data => {
+      console.log('ok nhes')
+    }))
+
+
+
     this.contractService.subsVar = this.contractService.    
       callRefreshTable.subscribe((name:string) => {
         this.refresh();

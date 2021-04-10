@@ -32,6 +32,10 @@ export class AdminAddEmployeeInfoComponent implements OnInit {
     { value: 'false', viewValue: 'Chưa Kết Hôn' },
   ];
 
+  public dateChanged(newDate: any) {
+    this.employeinfoDTO.date_of_birth = new Date(newDate);
+  }
+
   public onSubmit() {
     this.employeeService.addEmployeeInfo(this.employeinfoDTO).subscribe((data => {
       this.employeeService.invokeRefreshTableFun();

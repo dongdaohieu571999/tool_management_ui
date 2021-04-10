@@ -33,7 +33,7 @@
                             </div>
                             <div class="form-group ">
                                 <label for="exampleInputEmail1 ">Ngày Sinh</label>
-                                <input type="date" class="form-control" name="birth_date" [ngModel]="employeinfoDTO.date_of_birth | date: 'dd-MM-yyyy'" required>
+                                <input type="date" class="form-control" name="birth_date" [ngModel]="employeinfoDTO.date_of_birth | date:'yyyy-MM-dd'" (ngModelChange)="dateChanged($event)" required>
                             </div>
                             <div class="form-group ">
                                 <label for="exampleInputEmail1 ">Tuổi</label>
