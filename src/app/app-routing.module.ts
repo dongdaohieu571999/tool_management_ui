@@ -32,6 +32,7 @@ import { ConfirmChangePassComponent } from './view/change-pass/confirm-change-pa
 import { ViewDetailCustomerAdminComponent } from './view/admin-customer-manage/view-customer-table/view-detail-customer-admin/view-detail-customer-admin.component';
 import { DetailEmTableComponent } from './view/admin-employee-manage/view-em-table/detail-em-table/detail-em-table.component';
 import { DetailIncomeComponent } from './view/income/detail-income/detail-income.component';
+import { ContractDetailDialogComponent } from './view/dialog/contract-detail-dialog/contract-detail-dialog.component';
 
 const routes: Routes = [
   {path : "dashboard", component: DashboardComponent},

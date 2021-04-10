@@ -28,6 +28,8 @@
         "jw-angular-pagination": "^1.2.0",
         "jwt-decode": "^3.1.2",
         "ng2-charts": "^2.4.2",
+        "ng2-order-pipe": "^0.1.5",
+        "ng2-search-filter": "^0.5.1",
         "ngx-pagination": "^5.0.0",
         "ngx-spinner": "^10.0.1",
         "pdf-lib": "^1.16.0",
