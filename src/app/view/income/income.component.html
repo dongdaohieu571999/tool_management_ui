@@ -28,7 +28,7 @@
                                 <tbody>
                                     <tr>
                                         <td>Tổng Thu Nhập Tháng Trước ({{month-1}}/{{year}})</td>
-                                        <td>{{RevenueLastMonth}}</td>
+                                        <td>{{RevenueLastMonth | currency :"VND"}}</td>
                                     </tr>
                                     <tr>
                                         <td>Số Lượng Hợp Đồng Mới Tháng Trước ({{month-1}}/{{year}})</td>
@@ -66,8 +66,8 @@
                                     <tbody>
                                         <tr *ngFor="let revenue of listRevenueEmployee">
                                             <td>{{revenue.id_contract}}</td>
-                                            <td>{{revenue.income}}</td>
-                                            <td>{{revenue.revenue_val}}</td>
+                                            <td>{{revenue.income | currency :"VND"}}</td>
+                                            <td>{{revenue.revenue_val | currency :"VND"}}</td>
                                             <td>{{revenue.create_time | date}}</td>
                                         </tr>                                   
                                     </tbody>
@@ -90,7 +90,7 @@
                                     <tbody>
                                         <tr *ngFor="let month of monthRevenueList,index as i">
                                             <td>Tháng {{i+1}}</td>
-                                            <td>{{month}}</td>
+                                            <td>{{month | currency :"VND"}}</td>
                                             <td>
                                                 <span (click)="IncomeDetailLastYear(i+1)" class="btn btn-info" style="height: 40px; width: 100px; margin: 10px; color: white;">Chi Tiết</span>
                                             </td>

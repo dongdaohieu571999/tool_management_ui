@@ -107,10 +107,10 @@ export class DashboardComponent implements OnInit {
           this.revenueStatus = 'Giảm';
         }
         if(this.revenueStatus == "Tăng"){
-          this.percentBetweenRevenue = Math.round(((this.RevenueThisMonth/this.RevenueLastMonth)*100)).toString()+"%";
+          this.percentBetweenRevenue = Math.round(((this.RevenueLastMonth/this.RevenueThisMonth)*100)).toString()+"%";
         }
         else{
-          this.percentBetweenRevenue = Math.round(((this.RevenueLastMonth/this.RevenueThisMonth)*100)).toString()+"%";
+          this.percentBetweenRevenue = Math.round(((this.RevenueThisMonth/this.RevenueLastMonth)*100)).toString()+"%";
         }
         
       }))
