@@ -52,6 +52,14 @@ export class CustomerService {
     .pipe(catchError(this.handleError));
   }
 
+  public searchAllCustomer(code_em_support:string,dateFrom : String,dateTo:String,searchValue:String): Observable<any>{
+    const url = this.common.makeUrl("/customer/search_all_customer_info");
+    let data = {code_em_support:code_em_support,dateFrom:dateFrom,dateTo:dateTo,searchValue:searchValue};
+    return this.httpClient
+    .post<any>(url,data,this.httpOptions)
+    .pipe(catchError(this.handleError));
+  } 
+
   public getAllCustomerInfoAdmin(): Observable<any>{
     const url = this.common.makeUrl("/customer/get_all_customer_info_admin");
     return this.httpClient

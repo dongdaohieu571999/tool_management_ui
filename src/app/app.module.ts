@@ -82,6 +82,10 @@ import { AppraiserReviewFormComponent } from './view/dialog/appraiser-review-for
 import { AddRequestComponent } from './view/dialog/add-request/add-request/add-request.component';
 import { AdminEditAccCustomerComponentComponent } from './view/dialog/admin-edit-acc-customer-component/admin-edit-acc-customer-component/admin-edit-acc-customer-component.component';
 import { DetailIncomeComponent } from './view/income/detail-income/detail-income.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { Ng2OrderModule } from 'ng2-order-pipe';
+import { ContractDetailDialogComponent } from './view/dialog/contract-detail-dialog/contract-detail-dialog.component';
+import { IllustrationDetailDialogComponent } from './view/dialog/illustration-detail-dialog/illustration-detail-dialog.component';
 
 @NgModule({
   declarations: [
@@ -143,7 +147,9 @@ import { DetailIncomeComponent } from './view/income/detail-income/detail-income
     AppraiserReviewFormComponent,
     AddRequestComponent,
     AdminEditAccCustomerComponentComponent,
-    DetailIncomeComponent
+    DetailIncomeComponent,
+    ContractDetailDialogComponent,
+    IllustrationDetailDialogComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -167,7 +173,9 @@ import { DetailIncomeComponent } from './view/income/detail-income/detail-income
     MatDialogModule,
     MatTabsModule,
     MatSnackBarModule,
-    MatSelectModule
+    MatSelectModule,
+    Ng2SearchPipeModule,
+    Ng2OrderModule
   ],
   entryComponents: [AdminEditAccCustomerComponentComponent,AppraiserReviewFormComponent,EmployeeEditInfoDialogComponent,ContractPauseDialogComponent,ContractChangeInfoDialogComponent,ReportCustomerDialogComponent,CustomerEditInfoComponent,AdminAddEmployeeInfoComponent,AdminAddAccountEmployeeComponent,AddCustomerIllustrationDialogComponent,CustomerAddInfoDialogComponent,ContractAddDialogComponent,NotificationConfirmDialogComponent,PauseCustomerDialogComponent],
   providers: [AdminDataServiceService],

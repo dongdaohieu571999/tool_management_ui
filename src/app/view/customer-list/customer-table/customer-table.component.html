@@ -1,3 +1,12 @@
+<div class="search-hero">
+    <input class="form-control" type="text" name="search" [(ngModel)]="searchValue" placeholder="&#61442;  Start searching for a customer by name ">
+</div>
+<label>From<input id="RfromSearch" type="date" name="dateFrom" [(ngModel)]="dateFrom" class="form-control form-control-sm" placeholder=""
+        aria-controls="example1"></label>
+<label>To<input id="RtoSearch" type="date" name="dateTo" [(ngModel)]="dateTo" class="form-control form-control-sm" placeholder=""
+        aria-controls="example1"></label>
+<button type="button" class="btn btn-info" (click)="Search()">Tìm Kiếm</button>
+
 <table id="customer-table" class="table table-bordered table-striped">
     <thead>
         <tr>
@@ -16,19 +25,19 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let customerinfo of customerinfos | paginate: { id: 'listing_pagination' ,itemsPerPage: 8, currentPage: page, totalItems: totalRecords}">
+        <tr *ngFor="let customerinfo of customerinfos | paginate: { id: 'listing_pagination' ,itemsPerPage: 8, currentPage: page, totalItems: totalRecords} ">
             <td>{{customerinfo.code}}</td>
             <td>{{customerinfo.code}}</td>
             <td>
-                <a href="#" *ngIf="customerinfo.id_contract">#BMH{{customerinfo.id_contract}}</a>
-                <a href="#" *ngIf="!customerinfo.id_contract"></a>
+                <a *ngIf="customerinfo.id_contract" (click)="openDialogContractDetail(customerinfo.id_contract)">#HD{{customerinfo.id_contract}}</a>
+                <a *ngIf="!customerinfo.id_contract"></a>
             </td>
             <td>{{customerinfo.full_name}}</td>
-            <td>{{customerinfo.birth_date | date: 'dd-MM-yyyy'}}</td>
+            <td>{{customerinfo.birth_date | date:'dd-MM-yyyy'}}</td>
             <td>{{customerinfo.conadd_city}}</td>
             <td>
-                <a href="#" *ngIf="customerinfo.id_illustration">#BMH{{customerinfo.id_illustration}}</a>
-                <a href="#" *ngIf="!customerinfo.id_illustration"></a>
+                <a *ngIf="customerinfo.id_illustration" (click)="openDialogIllustrationDetail(customerinfo.id_illustration)">#BMH{{customerinfo.id_illustration}}</a>
+                <a *ngIf="!customerinfo.id_illustration"></a>
             </td>
             <td>{{customerinfo.phone_1}}</td>
             <td>{{customerinfo.status==true?'Hoạt Động' : 'Tạm Ngưng'}}</td>

@@ -8,8 +8,8 @@ export class CommonService {
   constructor() { }
 
   makeUrl(path: string): string{
-    // return 'http://localhost:8080/api'+path+'?token_key='+this.getCookie("token_key");
-    return 'http://35.197.137.55/api'+path+'?token_key='+this.getCookie("token_key");
+    return 'http://localhost:8080/api'+path+'?token_key='+this.getCookie("token_key");
+    // return 'http://35.197.137.55/api'+path+'?token_key='+this.getCookie("token_key");
   }
 
   public deleteCookie(name) {
