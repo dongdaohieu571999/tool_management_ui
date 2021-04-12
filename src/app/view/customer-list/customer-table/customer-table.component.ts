@@ -29,8 +29,6 @@ export class CustomerTableComponent implements OnInit {
   searchValue: String = "";
   dateFrom: Date;
   dateTo: Date;
-  checkDateFrom: Boolean = false;
-  checkDateTo: Boolean = false;
 
   ngOnInit(): void {
     this.customerService.subsVar = this.customerService.
@@ -71,6 +69,11 @@ export class CustomerTableComponent implements OnInit {
     } catch (error) {
       console.log(error);
     }
+  }
+
+  ResetDate(){
+  this.dateFrom = null;
+  this.dateTo = null;
   }
 
 

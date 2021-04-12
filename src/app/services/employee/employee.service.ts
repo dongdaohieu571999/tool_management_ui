@@ -59,6 +59,14 @@ export class EmployeeService {
     .pipe(catchError(this.handleError));
   }
 
+  public searchAllInfoAcc(dateFrom:String,dateTo:String,searchValue:String): Observable<any>{
+    let data = {dateFrom:dateFrom,dateTo:dateTo,searchValue:searchValue};
+    const url = this.common.makeUrl("/employee/search_all_employee_info_acc");
+    return this.httpClient
+    .post<any>(url,data,this.httpOptions)
+    .pipe(catchError(this.handleError));
+  }
+  
   public addOneAccEmployee(data:any): Observable<any>{
     const url = this.common.makeUrl("/employee/add_employee_acc");
     return this.httpClient

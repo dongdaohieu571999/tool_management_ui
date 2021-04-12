@@ -60,4 +60,47 @@ export class ViewCustomerTableComponent implements OnInit {
   }
   
   
+
+  searchValue: String = "";
+  dateFrom: Date;
+  dateTo: Date;
+  Search() {
+    this.spinner.show();
+    try {
+      let dateTo1: String;
+      let dateFrom1: String;
+      let dateToValue = (<HTMLInputElement>document.getElementById('RtoSearch')).value;
+      let dateFromValue = (<HTMLInputElement>document.getElementById('RfromSearch')).value;
+      if (dateFromValue == "") {      
+        this.dateFrom = new Date('1990-01-01');
+        dateFrom1 = this.dateFrom.getFullYear() + "-" + (this.dateFrom.getMonth() + 1) + "-" + this.dateFrom.getDate()
+      } else {        
+        dateFrom1 = this.dateFrom.toString();
+      }
+
+      if (dateToValue == "") {
+        this.dateTo = new Date();
+        dateTo1 = this.dateTo.getFullYear() + "-" + (this.dateTo.getMonth() + 1) + "-" + this.dateTo.getDate()
+      }
+      else {
+        dateTo1 = this.dateTo.toString();
+      }
+      let searchText = "%" + this.searchValue + "%";
+      this.customerService.searchAllCustomerInfoAdmin(dateFrom1,dateTo1,searchText).subscribe((data => {
+        this.data = data;
+        this.totalRecords = data.length;
+        this.spinner.hide();
+      })) 
+     
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  ResetDate(){
+  this.dateFrom = null;
+  this.dateTo = null;
+  }
+
+
 }

@@ -30,6 +30,15 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
+                                    <div class="search-hero">
+                                        <input class="form-control" type="text" name="search" [(ngModel)]="searchValue" placeholder="&#61442;  Start searching illustration ">
+                                    </div>
+                                    <label>From<input id="RfromSearch" type="date" name="dateFrom" [(ngModel)]="dateFrom" class="form-control form-control-sm" placeholder=""
+                                            aria-controls="example1"></label>
+                                    <label>To<input id="RtoSearch" type="date" name="dateTo" [(ngModel)]="dateTo" class="form-control form-control-sm" placeholder=""
+                                            aria-controls="example1"></label>
+                                    <button type="button" class="btn btn-info" (click)="Search()">Tìm Kiếm</button>
+                                    <button type="button" class="btn btn-info" (click)="ResetDate()" style="margin-left:20px ;">Xóa ngày</button>
                                     <table id="illustration-table" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
@@ -40,14 +49,15 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr *ngFor="let illustration of illustrations">
-                                                <td>{{illustration.id}}</td>
+                                            <tr *ngFor="let illustration of illustrations | paginate: { id: 'listing_pagination' ,itemsPerPage: 8, currentPage: page, totalItems: totalRecords} ">
+                                                <td>#BMH{{illustration.id}}</td>
                                                 <td>{{illustration.create_time | date:'dd-MM-yyyy'}}</td>
                                                 <td>{{illustration.interest_name}}</td>
                                                 <button (click)="illustrationDetail(illustration.id)" class="btn btn-info" style="height: 40px; width: 100px; margin: 10px; color: white;">Chi Tiết</button>
                                             </tr>
                                         </tbody>
                                     </table>
+                                    <pagination-controls style="float: right;" id="listing_pagination" maxSize="5" directionLinks="true" (pageChange)="page = $event"></pagination-controls>
                                 </div>
                                 <!-- /.card-body -->
                             </div>

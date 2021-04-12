@@ -86,6 +86,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { Ng2OrderModule } from 'ng2-order-pipe';
 import { ContractDetailDialogComponent } from './view/dialog/contract-detail-dialog/contract-detail-dialog.component';
 import { IllustrationDetailDialogComponent } from './view/dialog/illustration-detail-dialog/illustration-detail-dialog.component';
+import { CustomerDetailDialogComponent } from './view/dialog/customer-detail-dialog/customer-detail-dialog.component';
 
 @NgModule({
   declarations: [
@@ -149,7 +150,8 @@ import { IllustrationDetailDialogComponent } from './view/dialog/illustration-de
     AdminEditAccCustomerComponentComponent,
     DetailIncomeComponent,
     ContractDetailDialogComponent,
-    IllustrationDetailDialogComponent
+    IllustrationDetailDialogComponent,
+    CustomerDetailDialogComponent
   ],
   imports: [
     ReactiveFormsModule,
