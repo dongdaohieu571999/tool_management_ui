@@ -67,6 +67,15 @@ export class CustomerService {
     .pipe(catchError(this.handleError));
   }
 
+  public searchAllCustomerInfoAdmin(dateFrom:String,dateTo:String,searchValue:String): Observable<any>{
+    let data = {dateFrom:dateFrom,dateTo:dateTo,searchValue:searchValue};
+    const url = this.common.makeUrl("/customer/search_all_customer_info_admin");
+    return this.httpClient
+    .post<any>(url,data,this.httpOptions)
+    .pipe(catchError(this.handleError));
+  }
+
+
   public getDetailCustomerInfoAdmin(id:number): Observable<any>{
     const url = this.common.makeUrl("/customer/get_detail_customer_info_admin/"+id);
     return this.httpClient

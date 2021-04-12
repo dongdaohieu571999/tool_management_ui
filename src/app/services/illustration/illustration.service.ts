@@ -34,6 +34,13 @@ export class IllustrationService {
     .post<any>(url,code_em_support,this.httpOptions)
     .pipe(catchError(this.handleError));
   }
+  public searchAllCustomerOwnIllustration(code_em_support:String,create_time:String,end_time:String,searchValue:String): Observable<any>{
+    let data = {code_em_support:code_em_support,create_time:create_time,end_time:end_time,searchValue:searchValue};
+    const url = this.common.makeUrl('/illustration/search_all_customer_own_illustration');
+    return this.httpClient
+    .post<any>(url,data,this.httpOptions)
+    .pipe(catchError(this.handleError));
+  }
 
   public getAllIllustrationBelongCustomer(id:number): Observable<any>{
     const url = this.common.makeUrl('/illustration/get_all_illustration_belong_customer/'+id);
@@ -41,6 +48,15 @@ export class IllustrationService {
     .get<any>(url,this.httpOptions)
     .pipe(catchError(this.handleError));
   }
+
+  public searchAllIllustrationBelongCustomer(id:number,dateFrom:String,dateTo:String,searchValue:String,): Observable<any>{
+    let data = {id:id,dateFrom:dateFrom,dateTo:dateTo,searchValue:searchValue};
+    const url = this.common.makeUrl('/illustration/search_all_illustration_belong_customer');
+    return this.httpClient
+    .post<any>(url,data,this.httpOptions)
+    .pipe(catchError(this.handleError));
+  }
+
 
   public getIllustrationContractCreate(id:number): Observable<any>{
     const url = this.common.makeUrl('/illustration/get_illustration_contract_create/');
