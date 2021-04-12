@@ -94,7 +94,7 @@ export class EmployeeService {
     .pipe(catchError(this.handleError));
   }
  
-  public getIdRole(): Observable<any>{
+  public getAccByCode(): Observable<any>{
     const url = this.common.makeUrl("/employee/get_one_employee_acc/"+this.common.getCookie('token_key'));
     return this.httpClient
     .get<any>(url,this.httpOptions)
@@ -103,6 +103,13 @@ export class EmployeeService {
 
   public addEmployeeAccount(data : EmployeeAcc) : Observable<any>{
     const url = this.common.makeUrl("/employee/add_employee_acc");
+    return this.httpClient
+    .post<any>(url,data,this.httpOptions) 
+    .pipe(catchError(this.handleError));
+  } 
+
+  public updateEmployeeAccount(data : EmployeeAcc) : Observable<any>{
+    const url = this.common.makeUrl("/employee/update_employee_acc");
     return this.httpClient
     .post<any>(url,data,this.httpOptions) 
     .pipe(catchError(this.handleError));

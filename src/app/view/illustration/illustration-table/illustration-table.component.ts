@@ -73,6 +73,7 @@ export class IllustrationTableComponent implements OnInit {
         this.listCustomerOwnIllustration = data;
         this.totalRecords = this.listCustomerOwnIllustration.length;
         this.spinner.hide();
+        this.page=1;
       }))
 
     } catch (error) {

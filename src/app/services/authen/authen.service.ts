@@ -53,7 +53,7 @@ export class AuthenService {
   }
 
   getRoleID(){
-    this.employee.getIdRole().subscribe((data1 => {
+    this.employee.getAccByCode().subscribe((data1 => {
       this.id_role = data1['id_role'];
       var url =window.location.href;
       if(url.substring(22,url.length) === 'login'){

@@ -74,6 +74,7 @@ illustrations : Array<Illustration>;
         console.log( this.illustrations);
         this.totalRecords = data.length;
         this.spinner.hide();
+        this.page=1;
       }))
 
     } catch (error) {
