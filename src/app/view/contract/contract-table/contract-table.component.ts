@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ContractDTO } from 'src/app/model/ContractDTO';
 import { ContractService } from 'src/app/services/contract/contract.service';
@@ -6,19 +6,26 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import jwt_decode from "jwt-decode";
 import { CommonService } from 'src/app/services/common/common.service';
 
+
 @Component({
   selector: 'app-contract-table',
   templateUrl: './contract-table.component.html',
   styleUrls: ['./contract-table.component.css']
 })
 export class ContractTableComponent implements OnInit {
-
-  constructor(private common:CommonService,private spinner:NgxSpinnerService,private contractService:ContractService,private router:Router) { }
-
+  
+  constructor(private common:CommonService,
+    private spinner:NgxSpinnerService,
+    private contractService:ContractService,private router:Router) { 
+      
+    }
+  dtOptions:any;
   page:number = 1;
   totalRecords:number;
   contracts : Array<ContractDTO>;
   ngOnInit(): void {
+    this.dtOptions = {searching:false,paging:false,bInfo: false,dom: 'Bfrtip',
+    buttons: [ 'print', 'csv','excel','pdf',]};
     this.contractService.subsVar = this.contractService.
       callRefreshTable.subscribe((name:string) => {
         this.refresh();

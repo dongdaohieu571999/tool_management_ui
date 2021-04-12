@@ -21,9 +21,25 @@ export class FileManagementService {
   public uploadFile(data:any): Observable<any>{
     const url = this.common.makeUrl('/file_management/upload_file/');
     return this.httpClient
+    .post<any>(url,data,{ observe: 'response' })
+    .pipe(catchError(this.handleError));
+  }
+
+  public saveFile(data:any): Observable<any>{
+    const url = this.common.makeUrl('/attachment/save_customer_attachment/');
+    return this.httpClient
     .post<any>(url,data,this.httpOptions)
     .pipe(catchError(this.handleError));
   }
+
+  public getFile(data:any): Observable<any>{
+    const url = this.common.makeUrl('/attachment/get_customer_attachment/');
+    return this.httpClient
+    .post<any>(url,data,this.httpOptions)
+    .pipe(catchError(this.handleError));
+  }
+
+  
 
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {

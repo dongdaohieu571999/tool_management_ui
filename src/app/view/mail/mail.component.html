@@ -16,7 +16,6 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>HỘP THƯ</h1>
                             <button type="button" class="btn btn-block btn-success btn-lg" style="width: auto;" (click)="displayDialog()">SOẠN THƯ</button>
                         </div>
                     </div>
@@ -46,13 +45,13 @@
                                         </thead>
                                         <tbody>
                                             <tr *ngFor="let mail of data">
-                                              <td>{{ mail.id }}</td>
-                                              <td>{{ mail.title }}</td>
-                                              <td>{{ mail.senderName }}</td>
-                                              <td>{{ mail.priority }}</td>
-                                              <td>{{ mail.status }}</td>
-                                              <td>{{ mail.time | date:'dd/MM/yyyy'}}</td>
-                                              <td><a [routerLink]="['/view_detail_mail']" (click)="detailMail(mail.id)">Chi Tiết</a></td>
+                                                <td>{{ mail.id }}</td>
+                                                <td>{{ mail.title }}</td>
+                                                <td>{{ mail.senderName }}</td>
+                                                <td>{{ mail.priority }}</td>
+                                                <td>{{ mail.status }}</td>
+                                                <td>{{ mail.time | date:'dd/MM/yyyy'}}</td>
+                                                <td><a [routerLink]="['/view_detail_mail']" (click)="detailMail(mail.id)">Chi Tiết</a></td>
                                             </tr>
                                         </tbody>
                                         <tfoot>

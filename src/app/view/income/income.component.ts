@@ -28,6 +28,7 @@ year:number = this.dateNow.getFullYear();
 
 
   ngOnInit(): void {
+    this.common.titlePage = "Theo Dõi Doanh Thu";
     this.contractService.getAllCountContract(jwt_decode(this.common.getCookie('token_key'))['sub'],this.month).subscribe((data =>{
       this.ContractCount = data;
     }))

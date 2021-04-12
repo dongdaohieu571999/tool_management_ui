@@ -7,235 +7,89 @@
 
 </head>
 
-<body class="hold-transition sidebar-mini">
+<body>
     <div class="wrapper">
-        <div class="content-wrapper">
-            <div class="content col-12">
-                <div class="card">
-                    <mat-tab-group>
-                        <mat-tab label="Thông Tin Chi tiết Hợp Đồng">
+        <div class="card">
+            <mat-tab-group>
+                <mat-tab label="Thông Tin Chi tiết Hợp Đồng">
 
-                            <!-- table -->
-                            <div class="card" style="height: 700px; background-color: #b8ceff;">
+                    <!-- table -->
+                    <div class="card" style="height: 700px;">
 
-                                <div class="card-body" style="overflow: auto; ">
-                                    <table class=" table table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th>Tiêu Đề</th>
-                                                <th>Thông tin</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Mã Hợp Đồng</td>
-                                                <td>#HD{{contracts?.id}}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Mã Khách Hàng</td>
-                                                <td>{{contracts?.code}}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Chủ Hợp Đồng</td>
-                                                <td>{{contracts?.name_contract_owner}}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Loại Bảo Hiểm</td>
-                                                <td>{{contracts?.insurance_type}}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Mã Gói Bảo Hiểm</td>
-                                                <td>{{contracts?.id_main_interest}}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Mã Bản Minh Họa</td>
-                                                <td>#BMH{{contracts?.id_illustration}}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Ngày Đăng Ký</td>
-                                                <td>{{contracts?.start_time | date: 'dd-MM-yyyy' }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Ngày Hết Hạn</td>
-                                                <td>{{contracts?.end_time}}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Trạng Thái</td>
-                                                <td>{{contracts?.status==false?'Chưa Hoạt Động':'Đang Hoạt Động'}}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Trạng Thái Phê Duyệt</td>
-                                                <td>{{contracts?.approval_status}}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Kỳ Hạn Đóng Phí</td>
-                                                <td>{{payment_period}}</td>
-                                            </tr>
+                        <div class="card-body" style="overflow: auto; ">
+                            <table class=" table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Tiêu Đề</th>
+                                        <th>Thông tin</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Mã Hợp Đồng</td>
+                                        <td>#HD{{contracts?.id}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mã Khách Hàng</td>
+                                        <td>{{contracts?.code}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Chủ Hợp Đồng</td>
+                                        <td>{{contracts?.name_contract_owner}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Loại Bảo Hiểm</td>
+                                        <td>{{contracts?.insurance_type}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mã Gói Bảo Hiểm</td>
+                                        <td>{{contracts?.id_main_interest}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mã Bản Minh Họa</td>
+                                        <td>#BMH{{contracts?.id_illustration}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ngày Đăng Ký</td>
+                                        <td>{{contracts?.start_time | date: 'dd-MM-yyyy' }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ngày Hết Hạn</td>
+                                        <td>{{contracts?.end_time}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Trạng Thái</td>
+                                        <td>{{contracts?.status==false?'Chưa Hoạt Động':'Đang Hoạt Động'}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Trạng Thái Phê Duyệt</td>
+                                        <td>{{contracts?.approval_status}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kỳ Hạn Đóng Phí</td>
+                                        <td>{{payment_period}}</td>
+                                    </tr>
 
-                                        </tbody>
+                                </tbody>
 
-                                    </table>
-                                    <input type="file" name="file" class="form-control">
-                                </div>
+                            </table>
+                            <div class="form-group">
+                                <h2>TẢI LÊN CÁC GIẤY TỜ CẦN THIẾT</h2>
+                                <p *ngFor="let file of selectedFile">{{ file.name }}</p>
+                                <input type="file" name="file" class="form-control" (change)="onChangeFile($event)">
+                                <button (click)="onUpload()" class="form-control">TẢI LÊN</button>
                             </div>
-                            <!-- table -->
-                        </mat-tab>
-
-                        <!-- <mat-tab label="Lịch Sử Thanh Toán Quyền Lợi">
-                            <div class="card" style="height: 700px; background-color: #b8ceff; ">
-                                <div class="card-header">
-                                    <h3 class="card-title"></h3>
-                                    <div class="row" style="float: right;">
-                                        <div class="card" style="padding: 10px;
-                              background: #28a745; color: white;">
-                                            <div>
-                                                <label>Search:<input id="Fsearch" type="search"
-                                                        class="form-control form-control-sm" placeholder=""
-                                                        aria-controls="example1"></label>
-                                                <label>From<input id="FfromSearch" type="date"
-                                                        class="form-control form-control-sm" placeholder=""
-                                                        aria-controls="example1"></label>
-                                                <label>To<input id="FtoSearch" type="date"
-                                                        class="form-control form-control-sm" placeholder=""
-                                                        aria-controls="example1"></label>
-                                                <button id="FdelBtn" type="button" class="btn btn-danger">XÓA</button>
-                                                <button type="button" class="btn btn-info">Tìm Kiếm</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-body" style="overflow: auto;">
-                                    <table class=" table table-bordered ">
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Mã Hợp Đồng</th>
-                                                <th>Thời Gian Thanh Toán</th>
-                                                <th>Số Tiền Thanh Toán</th>
-                                                <th>Mã Quyền Lợi</th>
-                                                <th>Trạng Thái</th>
-                                                <th>Người Xuất Hóa Đơn</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr *ngFor="let intersetpayment of intersetpayments">
-                                                <td>#1897234</td>
-                                                <td><a>{{intersetpayment.id}}</a></td>
-                                                <td>{{intersetpayment.created_time | date}}</td>
-                                                <td>{{intersetpayment.payment_amount}}</td>
-                                                <td><a href="#">{{intersetpayment.id_main_interest}}</a></td>
-                                                <td><a>{{intersetpayment.id_bill_issuer}}</a></td>
-                                                <td>{{intersetpayment.approve_status}}</td>
-                                            </tr>
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </mat-tab>
-                        <mat-tab label="Lịch Sử Đóng Phí Của Khách Hàng">
-                            <div class="card" style="height: 700px; background-color: #b8ceff;">
-                                <div class="card-header">
-                                    <div class="row" style="float: right;">
-                                        <div class="card" style="padding: 10px;
-                              background: #28a745; color: white;">
-                                            <div>
-                                                <label>Search:<input id="Rsearch" type="search"
-                                                        class="form-control form-control-sm" placeholder=""
-                                                        aria-controls="example1"></label>
-                                                <label>From<input id="RfromSearch" type="date"
-                                                        class="form-control form-control-sm" placeholder=""
-                                                        aria-controls="example1"></label>
-                                                <label>To<input id="RtoSearch" type="date"
-                                                        class="form-control form-control-sm" placeholder=""
-                                                        aria-controls="example1"></label>
-                                                <button id="RdelBtn" type="button" class="btn btn-danger">XÓA</button>
-                                                <button type="button" class="btn btn-info">Tìm Kiếm</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-body" style="overflow: auto;">
-                                    <table class=" table table-bordered ">
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Mã Hợp Đồng</th>
-                                                <th>Mã Hóa Đơn</th>
-                                                <th>Số Tiền</th>
-                                                <th>Phương Thức Thanh Toán</th>
-                                                <th>Mã Nhân Viên Thu Tiền</th>
-                                                <th>Ngày Thu</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr *ngFor="let feepayment of feepayments">
-                                                <td>#1897234</td>
-                                                <td><a>a{{feepayment.id}}</a></td>
-                                                <td><a>{{feepayment.id_invoice}}</a></td>
-                                                <td>{{feepayment.payment_amount}}</td>
-                                                <td>{{feepayment.payment_method}}</td>
-                                                <td><a>{{feepayment.id_collecter}}</a></td>
-                                                <td>{{feepayment.created_time | date}}</td>
-                                            </tr>
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </mat-tab> -->
-                        <!-- <mat-tab label="Lịch Sử Thay Đổi Thông Tin">
-                            <div class="card" style="height: 700px; background-color: #b8ceff;">
-                                <div class="card-header">
-                                    <div class="row" style="float: right;">
-                                        <div class="card" style="padding: 10px;
-                              background: #28a745; color: white;">
-                                            <div>
-                                                <label>Search:<input id="Rsearch" type="search"
-                                                        class="form-control form-control-sm" placeholder=""
-                                                        aria-controls="example1"></label>
-                                                <label>From<input id="RfromSearch" type="date"
-                                                        class="form-control form-control-sm" placeholder=""
-                                                        aria-controls="example1"></label>
-                                                <label>To<input id="RtoSearch" type="date"
-                                                        class="form-control form-control-sm" placeholder=""
-                                                        aria-controls="example1"></label>
-                                                <button id="RdelBtn" type="button" class="btn btn-danger">XÓA</button>
-                                                <button type="button" class="btn btn-info">Tìm Kiếm</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                    <table class=" table table-bordered ">
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Thời Gian Thay Đổi</th>
-                                                <th>Trạng Thái Xét Duyệt</th>
-                                                <th>Chi Tiết</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr *ngFor="let contractchange of contractchanges">
-                                                <td>{{contractchange?.id}}</td>
-                                                <td>{{contractchange?.create_time | date:'MM-dd-yyyy'}}</td>
-                                                <td>{{contractchange?.approval_status}}</td>
-                                                <td>
-                                                    <button (click)="contractChangeDetail(contractchange.id)" class="btn btn-info" style="height: 30px;color: white;">Chi
-                                                    Tiết</button>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </mat-tab> -->
-                    </mat-tab-group>
-                    <button *ngIf="authenService.id_role=='2' && contracts.approval_status == 'CXD'" type="button" class="btn btn-success" (click)="openDialogSendRequest()">Gửi Yêu Cầu Xét Duyệt</button>
-
-                </div>
-            </div>
+                        </div>
+                    </div>
+                    <!-- table -->
+                </mat-tab>
+                <mat-tab label="Tài Liệu Đính Kèm">
+                    <div>
+                        <p><a *ngFor="let doc of listDocument" class="form-control" href="{{doc.url}}">{{doc.name_document}}</a></p>
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+            <button *ngIf="authenService.id_role=='2' && contracts.approval_status == 'CXD'" type="button" class="btn btn-success" (click)="openDialogSendRequest()">Gửi Yêu Cầu Xét Duyệt</button>
 
         </div>
     </div>

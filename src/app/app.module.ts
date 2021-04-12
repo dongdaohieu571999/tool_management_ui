@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ChartsModule } from 'ng2-charts';
+import { DataTablesModule } from 'angular-datatables';
 import { NgxSpinnerModule } from 'ngx-spinner'
 
 // material
@@ -152,6 +153,7 @@ import { IllustrationDetailDialogComponent } from './view/dialog/illustration-de
     IllustrationDetailDialogComponent
   ],
   imports: [
+    DataTablesModule,
     ReactiveFormsModule,
     MatAutocompleteModule,
     NgxSpinnerModule,

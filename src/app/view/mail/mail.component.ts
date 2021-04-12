@@ -18,6 +18,7 @@ export class MailComponent implements OnInit {
   constructor(private mailService: MailService,private confirmMail:ServerHttpService ,public dialog: MatDialog, private router: Router, private common: CommonService) { }
 
   ngOnInit(): void {
+    this.common.titlePage = "Hộp Thư";
     this.mailService.getAllMail().subscribe((data => {
       this.data = data;
       this.totalRecord = data.length;

@@ -14,6 +14,7 @@ export class ChangePassComponent implements OnInit {
   constructor(private snackBar:SnackbarService,private common:CommonService,private httpService:ServerHttpService) { }
 
   ngOnInit(): void {
+    this.common.titlePage = "Đổi Mật Khẩu";
   }
 
   onSubmit(changePassForm:NgForm){

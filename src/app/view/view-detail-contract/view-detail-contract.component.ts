@@ -20,6 +20,9 @@ import jwtDecode from 'jwt-decode';
 import * as gcs from '@google-cloud/storage';
 import path from 'path';
 import { FileManagementService } from 'src/app/services/fileManagement/file-management.service';
+import { HttpClient } from '@angular/common/http';
+import { SnackbarService } from 'src/app/services/snackbar/snackbar.service';
+import { CustomerAttachment } from 'src/app/model/CustomerAttachment';
 
 
 @Component({
@@ -31,12 +34,16 @@ export class ViewDetailContractComponent implements OnInit {
 
   
   id:number;
+  listDocument=new Array<CustomerAttachment>();
   ref:Referencetable;
   payment_period:string;
   contracts:ContractDTO;
+  selectedFile=new Array<File>();
   contractchanges:Array<ContractChangeHistory>;
 
   constructor(
+    private snackBar:SnackbarService,
+    private httpClient: HttpClient,
     private fileService:FileManagementService,
     private common:CommonService,private spinner:NgxSpinnerService,
     private referTable:RefertableService,public authenService: AuthenService,
@@ -44,17 +51,44 @@ export class ViewDetailContractComponent implements OnInit {
     private dialog:MatDialog) { }
 
   ngOnInit(): void {
-    this.fileService.uploadFile("hieeus.pdf").subscribe((data => {
-      console.log('ok nhes')
-    }))
-
-
-
+    this.common.titlePage = "Thông Tin Chi Tiết Hợp Đồng";
     this.contractService.subsVar = this.contractService.    
       callRefreshTable.subscribe((name:string) => {
         this.refresh();
       });
     this.refresh();
+  }
+
+  onChangeFile(event){
+    if(event.target.files[0].size > 10485760){
+      this.snackBar.openSnackBar("Dung Lượng File Cần Nhỏ Hơn 10Mb","Đóng");
+      return;
+    }
+    this.selectedFile.push(event.target.files[0]);
+  }
+
+  onUpload(){
+    if(this.selectedFile.length!=0){
+      this.spinner.show();
+    const uploadImageData = new FormData();
+    this.selectedFile.forEach(file => {
+      uploadImageData.append('fileData', file, file.name);
+    });
+    this.fileService.uploadFile(uploadImageData).subscribe((data => {
+      if(data['body']!=null){
+        let listFileSave = Array<CustomerAttachment>();
+        for(let i=0;i<this.selectedFile.length;i++){
+          listFileSave.push(new CustomerAttachment(data['body'][i][1],this.selectedFile[i].name,data['body'][i][0],null,this.contracts.id));
+        }
+        this.fileService.saveFile(listFileSave).subscribe((data => {
+          this.refresh();
+        }))
+      }
+     
+    }))
+  } else {
+    this.snackBar.openSnackBar("Vui Lòng Chọn Ít Nhất 1 File Để Tải Lên","Đóng");
+  }
   }
 
   public contractChangeDetail(id:number){
@@ -90,12 +124,11 @@ export class ViewDetailContractComponent implements OnInit {
       this.referTable.getAllReference().subscribe((data => {
         this.ref=data;
         this.payment_period = this.ref.multiplierForPaymentPeriod.find(i => i.priod_id = this.contracts.payment_period_id)['description'];
-        this.spinner.hide();
+        this.fileService.getFile(this.contracts.id).subscribe((data => {
+          this.listDocument = data;
+          this.spinner.hide();
+        }))
       }))
     }))
-
-    // this.contractService.getAllContractChangeHistory(this.id).subscribe((data => {
-    //   this.contractchanges = data;
-    // }))
   }
 }

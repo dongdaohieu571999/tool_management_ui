@@ -53,9 +53,7 @@ export class DashboardComponent implements OnInit {
   revenueStatus : String;
 
   ngOnInit(): void {
-    // this.revenueService.getAllRevenueYearBefore(jwt_decode(this.common.getCookie('token_key'))['sub'],this.year).subscribe((data =>{
-
-    // }))
+    this.common.titlePage = "Tổng Quan";
     this.revenueService.getAllRevenueYearBefore(jwt_decode(this.common.getCookie('token_key'))['sub'], this.year).subscribe((data => {
       this.listRevenueEmployeeYearBefore = data;
 

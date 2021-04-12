@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonService } from 'src/app/services/common/common.service';
 
 @Component({
   selector: 'app-certificate',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CertificateComponent implements OnInit {
 
-  constructor() { }
+  constructor(private common:CommonService) { }
 
   ngOnInit(): void {
+    this.common.titlePage = "Chứng Chỉ";
   }
 
 }

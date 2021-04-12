@@ -44,11 +44,11 @@
     }
 }
 
-
-/* .fixed-toolbar {
-    position: fixed;
-    z-index: 1000;
-} */
+.fixed-toolbar {
+    z-index: 10000;
+    top: 0;
+    position: sticky;
+}
 
 
 /* .nav-list-fixed {

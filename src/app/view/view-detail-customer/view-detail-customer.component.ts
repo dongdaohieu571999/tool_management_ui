@@ -23,6 +23,7 @@ export class ViewDetailCustomerComponent implements OnInit {
 
   
   ngOnInit(): void {
+    this.common.titlePage = "Thông Tin Chi Tiết Khách Hàng";
     this.spinner.show();
     this.customerService.getOneCustomerInfo(this.activateRoute.snapshot.params['id'],this.common.getCookie("token_key")).subscribe((data =>{
     this.customerInfo = data[0];

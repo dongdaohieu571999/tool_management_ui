@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Illustration } from 'src/app/model/Illustration';
+import { CommonService } from 'src/app/services/common/common.service';
 import { IllustrationService } from 'src/app/services/illustration/illustration.service';
 
 @Component({
@@ -10,13 +11,13 @@ import { IllustrationService } from 'src/app/services/illustration/illustration.
 })
 export class ListIllustrationComponent implements OnInit {
 
-  constructor(private router:Router,private illustrationService : IllustrationService,private activateRoute:ActivatedRoute) { }
+  constructor(private common:CommonService,private router:Router,private illustrationService : IllustrationService,private activateRoute:ActivatedRoute) { }
 
 illustrations : Array<Illustration>;
   ngOnInit(): void {
+    this.common.titlePage = "Danh Sách Bản Minh Họa";
       this.illustrationService.getAllIllustrationBelongCustomer(this.activateRoute.snapshot.params['id']).subscribe((data =>{
         this.illustrations = data;
-        console.log(this.illustrations);
       }))
   }
 
