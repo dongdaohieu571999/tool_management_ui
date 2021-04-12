@@ -18,7 +18,7 @@ export class IllustrationTableComponent implements OnInit {
   constructor(private dialog: MatDialog,private common:CommonService,private router : Router,private illustration:IllustrationService,private spinner:NgxSpinnerService,private illustrationService:IllustrationService) { }
 
   listCustomerOwnIllustration:Array<CustomerOwnIllustration>
-
+  dtOptions:any;
   page: number = 1;
   totalRecords: number;
   searchValue: String = "";
@@ -26,6 +26,8 @@ export class IllustrationTableComponent implements OnInit {
   dateTo: Date;
 
   ngOnInit(): void {   
+    this.dtOptions = {searching:false,paging:false,bInfo: false,dom: 'Bfrtip',
+    buttons: [ 'print', 'csv','excel','pdf',]};
       this.illustrationService.subsVar = this.illustrationService.
       callRefreshTable.subscribe((name:string) => {  
         this.refresh();
@@ -36,7 +38,6 @@ export class IllustrationTableComponent implements OnInit {
     this.spinner.show();
     this.illustrationService.getAllCustomerOwnIllustration(jwt_decode(this.common.getCookie('token_key'))['sub']).subscribe((data => {
       this.listCustomerOwnIllustration = data;
-      console.log(this.listCustomerOwnIllustration);
       this.totalRecords = this.listCustomerOwnIllustration.length;
       this.spinner.hide();
     }))

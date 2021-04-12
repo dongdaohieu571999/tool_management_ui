@@ -3,8 +3,7 @@ import { Router } from '@angular/router';
 import jwt_decode from "jwt-decode";
 import { CustomerInfo } from 'src/app/model/CustomerInfo';
 import { CustomerService } from 'src/app/services/customer/customer.service';
-import { NgxSpinnerService } from 'ngx-spinner'
-
+import { NgxSpinnerService } from 'ngx-spinner';
 import { MatDialog } from '@angular/material/dialog';
 import { CustomerEditInfoComponent } from '../../dialog/customer-edit-info/customer-edit-info.component';
 import { CommonService } from 'src/app/services/common/common.service';
@@ -23,6 +22,8 @@ export class CustomerTableComponent implements OnInit {
   constructor(private contractService : ContractService,private changeDetectorRefs: ChangeDetectorRef, private common: CommonService, private dialog: MatDialog, public customerService: CustomerService, private router: Router, private spinner: NgxSpinnerService) {
 
   }
+  check = false;
+  dtOptions:any;
   customerinfos: Array<CustomerInfo>;
   page: number = 1;
   totalRecords: number;
@@ -112,5 +113,12 @@ export class CustomerTableComponent implements OnInit {
       this.totalRecords = data.length;
       this.spinner.hide();
     }))
+  }
+
+  key = 'id';
+  reverse: boolean = false;
+  sort(key){
+    this.key = key;
+    this.reverse = !this.reverse;
   }
 }
