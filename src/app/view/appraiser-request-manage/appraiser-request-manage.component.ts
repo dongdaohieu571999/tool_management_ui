@@ -41,6 +41,7 @@ public requestDetail(id_request:number){
 searchValueRequest: String = "";
   dateFromRequest: Date;
   dateToRequest: Date;
+  
   SearchRequest() {
     this.spinner.show();
     try {
@@ -68,6 +69,7 @@ searchValueRequest: String = "";
         this.contractRequests = data;
         this.totalRecordsRequest = this.contractRequests.length;
         this.spinner.hide();
+        this.pageRequest=1;
    }))
   
 
@@ -108,16 +110,12 @@ searchValueRequest: String = "";
       }
       let searchText = "%" + this.searchValueApproval + "%";
       
-      // this.contractService.searchAllContract(jwt_decode(this.common.getCookie('token_key'))['sub'],dateFrom1,dateTo1,searchText).subscribe((data => {
-      //   this.contracts = data;
-      //   console.log(this.contracts);
-      //   this.totalRecords = this.contracts.length;
-      //   this.spinner.hide();
-      // }))
+      
       this.contractRequestService.searchAllContractRequestApproval(jwtDecode(this.common.getCookie('token_key'))['sub'],dateFrom1,dateTo1,searchText).subscribe((data =>{
         this.contractRequestsApprovals = data;
         this.totalRecordsApprovals = this.contractRequestsApprovals.length;
         this.spinner.hide();
+        this.pageApprovals=1;
       }))
 
     } catch (error) {

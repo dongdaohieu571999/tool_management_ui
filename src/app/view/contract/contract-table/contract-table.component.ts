@@ -102,6 +102,7 @@ export class ContractTableComponent implements OnInit {
         console.log(this.contracts);
         this.totalRecords = this.contracts.length;
         this.spinner.hide();
+        this.page = 1;
       }))
 
     } catch (error) {

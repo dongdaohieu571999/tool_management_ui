@@ -80,6 +80,7 @@ export class ViewEmTableComponent implements OnInit {
         this.data = data;
         this.totalRecords = data.length;
         this.spinner.hide();
+        this.page=1;
       }))
 
     } catch (error) {

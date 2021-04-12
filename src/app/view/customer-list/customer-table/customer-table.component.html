@@ -8,7 +8,7 @@
 <button type="button" class="btn btn-info" (click)="Search()">Tìm Kiếm</button>
 <button type="button" class="btn btn-info" (click)="ResetDate()" style="margin-left:20px ;">Xóa ngày</button>
 
-<table id="customer-table" class="table table-bordered table-striped">
+<table id="customer-table" [dtOptions]="dtOptions" datatable="ng" *ngIf="customerinfos" class="table table-bordered table-striped">
     <thead>
         <tr>
             <th>Mã Khách Hàng</th>
