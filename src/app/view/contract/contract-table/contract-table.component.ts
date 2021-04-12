@@ -12,6 +12,7 @@ import { ContractDetailDialogComponent } from '../../dialog/contract-detail-dial
 import { IllustrationDetailDialogComponent } from '../../dialog/illustration-detail-dialog/illustration-detail-dialog.component';
 
 
+
 @Component({
   selector: 'app-contract-table',
   templateUrl: './contract-table.component.html',
@@ -20,13 +21,14 @@ import { IllustrationDetailDialogComponent } from '../../dialog/illustration-det
 export class ContractTableComponent implements OnInit {
 
   constructor(private dialog: MatDialog, private common: CommonService, private spinner: NgxSpinnerService, private contractService: ContractService, private router: Router) { }
+  dataTable:any;
   dtOptions:any;
   page: number = 1;
   totalRecords: number;
   contracts: Array<ContractDTO>;
   ngOnInit(): void {
-    this.dtOptions = {searching:false,paging:false,bInfo: false,dom: 'Bfrtip',
-    buttons: [ 'print', 'csv','excel','pdf',]};
+    // this.dtOptions = {searching:false,paging:false,bInfo: false,processing: true,dom: 'Bfrtip',
+    // buttons: [ 'print', 'csv','excel','pdf',]};
     this.contractService.subsVar = this.contractService.
       callRefreshTable.subscribe((name: string) => {
         this.refresh();
@@ -42,7 +44,7 @@ export class ContractTableComponent implements OnInit {
     this.spinner.show();
     this.contractService.getAllContract(jwt_decode(this.common.getCookie('token_key'))['sub']).subscribe((data => {
       this.contracts = data;
-      console.log(jwt_decode(this.common.getCookie('token_key'))['sub']);
+      
       this.totalRecords = this.contracts.length;
       this.spinner.hide();
     }))
@@ -99,7 +101,6 @@ export class ContractTableComponent implements OnInit {
       
       this.contractService.searchAllContract(jwt_decode(this.common.getCookie('token_key'))['sub'],dateFrom1,dateTo1,searchText).subscribe((data => {
         this.contracts = data;
-        console.log(this.contracts);
         this.totalRecords = this.contracts.length;
         this.spinner.hide();
         this.page = 1;

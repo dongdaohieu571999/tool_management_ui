@@ -81,13 +81,13 @@ import { ViewDetailCustomerAdminComponent } from './view/admin-customer-manage/v
 import { EmployeeEditInfoDialogComponent } from './view/dialog/employee-edit-info-dialog/employee-edit-info-dialog.component';
 import { AppraiserReviewFormComponent } from './view/dialog/appraiser-review-form/appraiser-review-form.component';
 import { AddRequestComponent } from './view/dialog/add-request/add-request/add-request.component';
-import { AdminEditAccCustomerComponentComponent } from './view/dialog/admin-edit-acc-customer-component/admin-edit-acc-customer-component/admin-edit-acc-customer-component.component';
 import { DetailIncomeComponent } from './view/income/detail-income/detail-income.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { Ng2OrderModule } from 'ng2-order-pipe';
 import { ContractDetailDialogComponent } from './view/dialog/contract-detail-dialog/contract-detail-dialog.component';
 import { IllustrationDetailDialogComponent } from './view/dialog/illustration-detail-dialog/illustration-detail-dialog.component';
 import { CustomerDetailDialogComponent } from './view/dialog/customer-detail-dialog/customer-detail-dialog.component';
+import { AdminResetPasswordComponent } from './view/dialog/admin-reset-password/admin-reset-password/admin-reset-password.component';
 
 @NgModule({
   declarations: [
@@ -148,11 +148,11 @@ import { CustomerDetailDialogComponent } from './view/dialog/customer-detail-dia
     EmployeeEditInfoDialogComponent,
     AppraiserReviewFormComponent,
     AddRequestComponent,
-    AdminEditAccCustomerComponentComponent,
     DetailIncomeComponent,
     ContractDetailDialogComponent,
     IllustrationDetailDialogComponent,
-    CustomerDetailDialogComponent
+    CustomerDetailDialogComponent,
+    AdminResetPasswordComponent
   ],
   imports: [
     DataTablesModule,
@@ -181,7 +181,7 @@ import { CustomerDetailDialogComponent } from './view/dialog/customer-detail-dia
     Ng2SearchPipeModule,
     Ng2OrderModule
   ],
-  entryComponents: [AdminEditAccCustomerComponentComponent,AppraiserReviewFormComponent,EmployeeEditInfoDialogComponent,ContractPauseDialogComponent,ContractChangeInfoDialogComponent,ReportCustomerDialogComponent,CustomerEditInfoComponent,AdminAddEmployeeInfoComponent,AdminAddAccountEmployeeComponent,AddCustomerIllustrationDialogComponent,CustomerAddInfoDialogComponent,ContractAddDialogComponent,NotificationConfirmDialogComponent,PauseCustomerDialogComponent],
+  entryComponents: [AdminResetPasswordComponent,AppraiserReviewFormComponent,EmployeeEditInfoDialogComponent,ContractPauseDialogComponent,ContractChangeInfoDialogComponent,ReportCustomerDialogComponent,CustomerEditInfoComponent,AdminAddEmployeeInfoComponent,AdminAddAccountEmployeeComponent,AddCustomerIllustrationDialogComponent,CustomerAddInfoDialogComponent,ContractAddDialogComponent,NotificationConfirmDialogComponent,PauseCustomerDialogComponent],
   providers: [AdminDataServiceService],
   bootstrap: [AppComponent]
 })

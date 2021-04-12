@@ -23,6 +23,7 @@ export class AppraiserRequestManageComponent implements OnInit {
   contractRequests : Array<Request>
   contractRequestsApprovals : Array<Request>
   ngOnInit(): void {
+    this.common.titlePage = "Danh Sách Hồ Sơ Yêu Cầu Bảo Hiểm";
     this.contractRequestService.getAllContractRequest(jwtDecode(this.common.getCookie('token_key'))['sub']).subscribe((data => {
       this.contractRequests = data;
       this.totalRecordsRequest = this.contractRequests.length;

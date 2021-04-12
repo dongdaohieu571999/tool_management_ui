@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonService } from 'src/app/services/common/common.service';
 
 @Component({
   selector: 'app-appraiser-contract-manage',
@@ -7,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppraiserContractManageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private common:CommonService) { }
 
   ngOnInit(): void {
-    
+    this.common.titlePage = "Danh Sách Hợp Đồng";
   }
 
 }

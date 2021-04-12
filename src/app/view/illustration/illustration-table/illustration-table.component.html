@@ -8,21 +8,21 @@
 <button type="button" class="btn btn-info" (click)="Search()">Tìm Kiếm</button>
 <button type="button" class="btn btn-info" (click)="ResetDate()" style="margin-left:20px ;">Xóa ngày</button>
 
-<table id="illustration-table" class="table table-bordered table-striped">
+<table id="illustration-table" [dtOptions]="dtOptions" datatable="ng" *ngIf="listCustomerOwnIllustration" class="table table-bordered table-striped">
     <thead>
         <tr>
             <th>Mã Khách Hàng</th>
             <th>Tên Khách Hàng</th>
             <th>Ngày Tạo</th>
             <th>Ngày Dự Kiến Kết Thúc Chiến Dịch</th>
-            <th>Danh Sách Bản Minh Hoạ</th> 
+            <th>Danh Sách Bản Minh Hoạ</th>
         </tr>
     </thead>
     <tbody *ngFor="let customerOwnIllustration of listCustomerOwnIllustration | paginate: { id: 'listing_pagination' ,itemsPerPage: 8, currentPage: page, totalItems: totalRecords} ">
         <tr>
-            <td >
+            <td>
                 <b></b>
-                <a *ngIf="customerOwnIllustration.id_customer" (click)="openDialogCustomerDetail(customerOwnIllustration.id_customer)">#KH{{customerOwnIllustration.id_customer}}</a>               
+                <a *ngIf="customerOwnIllustration.id_customer" (click)="openDialogCustomerDetail(customerOwnIllustration.id_customer)">#KH{{customerOwnIllustration.id_customer}}</a>
             </td>
             <td>{{ customerOwnIllustration.full_name }}</td>
             <td>{{ customerOwnIllustration.create_time | date : 'dd-MM-yyyy' }}</td>

@@ -7,7 +7,7 @@ import { CustomerInfo } from 'src/app/model/CustomerInfo';
 import { CustomerService } from 'src/app/services/customer/customer.service';
 import { CommonService } from 'src/app/services/common/common.service';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { AdminEditAccCustomerComponentComponent } from '../../dialog/admin-edit-acc-customer-component/admin-edit-acc-customer-component/admin-edit-acc-customer-component.component';
+import { AdminResetPasswordComponent } from '../../dialog/admin-reset-password/admin-reset-password/admin-reset-password.component';
 
 
 @Component({
@@ -36,8 +36,8 @@ export class ViewCustomerTableComponent implements OnInit {
     this.router.navigate(['customer-detail-admin',id]);
   }
 
-  updateAcc(customerinfo : CustomerInfo){
-    const dialogRef = this.dialog.open(AdminEditAccCustomerComponentComponent,({
+  resetAccPassword(customerinfo : CustomerInfo){
+    const dialogRef = this.dialog.open(AdminResetPasswordComponent,({
       data:customerinfo
     }));
 

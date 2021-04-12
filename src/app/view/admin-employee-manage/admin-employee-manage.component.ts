@@ -5,6 +5,7 @@ import { EmployeeService } from 'src/app/services/employee/employee.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AdminAddEmployeeInfoComponent } from '../dialog/admin-add-employee-info/admin-add-employee-info.component';
 import { EmployeeInfoDTO } from 'src/app/model/EmployeeInfoDTO';
+import { CommonService } from 'src/app/services/common/common.service';
 
 @Component({
   selector: 'app-admin-employee-manage',
@@ -18,10 +19,11 @@ export class AdminEmployeeManageComponent implements OnInit {
   status: boolean = false;
   namesearch:String;
 
-  constructor(private employeeService : EmployeeService,private dialog :MatDialog ) 
+  constructor(private common:CommonService,private employeeService : EmployeeService,private dialog :MatDialog ) 
   {}
 
   ngOnInit(): void {
+    this.common.titlePage = "Danh Sách Nhân Viên"
   }
 
   displayAddEmployeeDialog() {
