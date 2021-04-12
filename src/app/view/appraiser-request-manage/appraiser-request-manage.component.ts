@@ -15,14 +15,20 @@ export class AppraiserRequestManageComponent implements OnInit {
 
   constructor(private common:CommonService,private contractRequestService:ContractrequestService,private router : Router) { }
 
+  pageApprovals: number = 1;
+  pageRequest: number = 1;
+  totalRecordsApprovals: number;
+  totalRecordsRequest: number;
   contractRequests : Array<Request>
   contractRequestsApprovals : Array<Request>
   ngOnInit(): void {
     this.contractRequestService.getAllContractRequest(jwtDecode(this.common.getCookie('token_key'))['sub']).subscribe((data => {
       this.contractRequests = data;
+      this.totalRecordsRequest = this.contractRequests.length;
  }))
     this.contractRequestService.getAllContractRequestApproval(jwtDecode(this.common.getCookie('token_key'))['sub']).subscribe((data =>{
       this.contractRequestsApprovals = data;
+      this.totalRecordsApprovals = this.contractRequestsApprovals.length;
     }))
 
   }
