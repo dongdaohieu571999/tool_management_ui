@@ -27,12 +27,29 @@ export class ContractrequestService {
     .pipe(catchError(this.handleError));
   }
 
+  public searchAllContractRequest(code_appraiser:string,dateFrom:String,dateTo:String,searchValue:String): Observable<any>{
+  let data = {code_appraiser:code_appraiser,dateFrom:dateFrom,dateTo:dateTo,searchValue:searchValue};
+    const url = this.common.makeUrl("/request/search_all_request");
+    return this.httpClient
+    .post<any>(url,data,this.httpOptions)
+    .pipe(catchError(this.handleError));
+  }
+
   public getAllContractRequestApproval(code_appraiser:string): Observable<any>{
     const url = this.common.makeUrl("/request/get_all_request_approval");
     return this.httpClient
     .post<any>(url,code_appraiser,this.httpOptions)
     .pipe(catchError(this.handleError));
   }
+
+  public searchAllContractRequestApproval(code_appraiser:string,dateFrom:String,dateTo:String,searchValue:String): Observable<any>{
+    let data = {code_appraiser:code_appraiser,dateFrom:dateFrom,dateTo:dateTo,searchValue:searchValue};
+    const url = this.common.makeUrl("/request/search_all_request_approval");
+    return this.httpClient
+    .post<any>(url,data,this.httpOptions)
+    .pipe(catchError(this.handleError));
+  }
+
 
   public getOneContractRequest(id:number){
     const url = this.common.makeUrl("/request/get_detail_request");
