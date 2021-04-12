@@ -21,6 +21,15 @@
                         <!-- /.card-header -->
                         <div class="card-body">
                             <h2><b>Danh Sách Yêu Cầu Xét Duyệt BH</b></h2>
+                            <div class="search-hero">
+                                <input class="form-control" type="text" name="search" [(ngModel)]="searchValue" placeholder="&#61442;  Start searching for contract ">
+                            </div>
+                            <label>From<input id="RfromSearch" type="date" name="dateFrom" [(ngModel)]="dateFrom" class="form-control form-control-sm" placeholder=""
+                                    aria-controls="example1"></label>
+                            <label>To<input id="RtoSearch" type="date" name="dateTo" [(ngModel)]="dateTo" class="form-control form-control-sm" placeholder=""
+                                    aria-controls="example1"></label>
+                            <button type="button" class="btn btn-info" (click)="Search()">Tìm Kiếm</button>
+                            <button type="button" class="btn btn-info" (click)="ResetDate()" style="margin-left:20px ;">Xóa ngày</button>
                             <table class="table table-bordered table-striped" style="text-align: center;">
                                 <thead>
                                     <tr>
@@ -32,7 +41,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let contractRequest of contractRequests">
+                                    <tr *ngFor="let contractRequest of contractRequests | paginate: { id: 'listing_pagination_request' ,itemsPerPage: 8, currentPage: pageRequest, totalItems: totalRecordsRequest}">
                                         <td>{{contractRequest.id_contract}}</td>
                                         <td>{{contractRequest.priority}}</td>
                                         <td>{{contractRequest.date | date: 'dd-MM-yyyy'}}</td>
@@ -50,10 +59,20 @@
                                     </tr>
                                 </tfoot>
                             </table>
+                            <pagination-controls style="float: right;" id="listing_pagination_request" maxSize="5" directionLinks="true" (pageChange)="pageRequest = $event"></pagination-controls>
                         </div>
 
                         <div class="card-body">
                             <h2><b>Danh Sách Lịch Sử Yêu Cầu Xét Duyệt BH</b></h2>
+                            <div class="search-hero">
+                                <input class="form-control" type="text" name="search" [(ngModel)]="searchValue" placeholder="&#61442;  Start searching for contract ">
+                            </div>
+                            <label>From<input id="RfromSearch" type="date" name="dateFrom" [(ngModel)]="dateFrom" class="form-control form-control-sm" placeholder=""
+                                    aria-controls="example1"></label>
+                            <label>To<input id="RtoSearch" type="date" name="dateTo" [(ngModel)]="dateTo" class="form-control form-control-sm" placeholder=""
+                                    aria-controls="example1"></label>
+                            <button type="button" class="btn btn-info" (click)="Search()">Tìm Kiếm</button>
+                            <button type="button" class="btn btn-info" (click)="ResetDate()" style="margin-left:20px ;">Xóa ngày</button>
                             <table class="table table-bordered table-striped" style="text-align: center;">
                                 <thead>
                                     <tr>
@@ -66,7 +85,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let contractRequestsApproval of contractRequestsApprovals">
+                                    <tr *ngFor="let contractRequestsApproval of contractRequestsApprovals | paginate: { id: 'listing_pagination_approved' ,itemsPerPage: 8, currentPage: pageApprovals, totalItems: totalRecordsApprovals}">
                                         <td>{{contractRequestsApproval.id_contract}}</td>
                                         <td>
                                             <p class="description">{{contractRequestsApproval.description}}</p>
@@ -88,6 +107,7 @@
                                     </tr>
                                 </tfoot>
                             </table>
+                            <pagination-controls style="float: right;" id="listing_pagination_approved" maxSize="5" directionLinks="true" (pageChange)="pageApprovals = $event"></pagination-controls>
                         </div>
                         <!-- /.card-body -->
                     </div>
