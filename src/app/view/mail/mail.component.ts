@@ -21,8 +21,10 @@ export class MailComponent implements OnInit {
     this.common.titlePage = "Hộp Thư";
     this.mailService.getAllMail().subscribe((data => {
       this.data = data;
+      console.log(this.data);
       this.totalRecord = data.length;
     }));
+    
   }
 
   data: Array<MailDTO>;

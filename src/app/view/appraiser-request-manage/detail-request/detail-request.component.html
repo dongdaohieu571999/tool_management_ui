@@ -38,13 +38,13 @@
                                                     <div class="form-group ">
                                                         <label for="exampleInputPassword1 ">Mã Hợp Đồng</label>
                                                         <p style="color: red; ">
-                                                            <a  *ngFor="let item of custInfo" (click)="openDialogContractDetail(item.id_contract)">{{ item?.id_contract }},&nbsp;&nbsp;</a>
+                                                           <span><a *ngFor="let item of custInfo" (click)="openDialogContractDetail(item.id_contract)">{{ item?.id_contract }}&nbsp;</a></span> 
                                                         </p>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputPassword1 ">Mã Bản Minh Họa Tương Ứng</label>
                                                         <p style="color: red;">
-                                                            <a  *ngFor="let item of custInfo" (click)="openillustrationDetailDialog(item.id_illustration)"> {{ item?.id_illustration }},&nbsp;&nbsp;</a>
+                                                           <span><a *ngFor="let item of custInfo" (click)="openillustrationDetailDialog(item.id_illustration)"> {{ item?.id_illustration }}&nbsp;</a></span> 
                                                         </p>
                                                     </div>
                                                     <div class="form-group ">

@@ -11,19 +11,19 @@
     <table id="example1" class="table table-bordered table-striped">
         <thead>
             <tr>
-                <th>Mã Nhân Viên</th>
-                <th>Tên Account</th>
-                <th>Họ và Tên</th>
-                <th>Ngày Sinh</th>
-                <th>Số Điện Thoại</th>
-                <th>Email</th>
-                <th>Phòng Ban</th>
-                <th>Chi Tiết</th>
-                <th>Thao Tác</th>
+                <th (click)="sort('id')">Mã Nhân Viên&nbsp;<i class="fas fa-sort"></i></th>
+                <th (click)="sort('code')">Tên Account&nbsp;<i class="fas fa-sort"></i></th>
+                <th (click)="sort('name')">Họ và Tên&nbsp;<i class="fas fa-sort"></i></th>
+                <th (click)="sort('date_of_birth')">Ngày Sinh&nbsp;<i class="fas fa-sort"></i></th>
+                <th (click)="sort('phone')">Số Điện Thoại&nbsp;<i class="fas fa-sort"></i></th>
+                <th (click)="sort('email')">Email&nbsp;<i class="fas fa-sort"></i></th>
+                <th (click)="sort('in_dept')">Phòng Ban&nbsp;<i class="fas fa-sort"></i></th>
+                <th >Chi Tiết</th>
+                <th >Thao Tác</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let employeeinfo of data | paginate: { id: 'listing_pagination' ,itemsPerPage: 3, currentPage: page, totalItems: totalRecords};let i = index">
+            <tr *ngFor="let employeeinfo of data| orderBy: key:reverse | paginate: { id: 'listing_pagination' ,itemsPerPage: 3, currentPage: page, totalItems: totalRecords};let i = index">
                 <td>#NV{{employeeinfo.id}}</td>
                 <td>{{employeeinfo.code}}</td>
                 <td>{{employeeinfo.name}}</td>

@@ -24,6 +24,12 @@ illustrations : Array<Illustration>;
       });
     this.refresh();     
   }
+  key = 'id';
+  reverse: boolean = false;
+  sort(key){
+    this.key = key;
+    this.reverse = !this.reverse;
+  }
 
   public refresh(){
     this.spinner.show();

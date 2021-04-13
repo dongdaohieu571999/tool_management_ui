@@ -94,11 +94,12 @@ export class ViewEmTableComponent implements OnInit {
   }
 
 
-
-
-
-
-
+  key = 'id';
+  reverse: boolean = false;
+  sort(key){
+    this.key = key;
+    this.reverse = !this.reverse;
+  }
 
   displayAddAccDialog(): void {
     this.statusAddAcc = !this.statusAddAcc;

@@ -25,7 +25,8 @@ export class MailService {
   public getAllMail() : Observable<any> {
     const url = this.common.makeUrl("/mail/all_mail/" + this.common.getCookie("token_key"));
     console.log(url);
-    return this.httpClient.get<any>(url, this.httpOptions).pipe(catchError(this.handleError));
+    return this.httpClient.get<any>(url, this.httpOptions)
+    .pipe(catchError(this.handleError));
   }
 
   public getDetailMail(mailId: number) : Observable<any> {

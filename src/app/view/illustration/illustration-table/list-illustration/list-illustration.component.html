@@ -39,14 +39,14 @@
                                     <table id="illustration-table" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                                <th>Mã bản nháp</th>
-                                                <th>Ngày Tạo</th>
-                                                <th>Sản phẩm chính</th>
-                                                <th>Chi tiết</th>
+                                                <th (click)="sort('id')">Mã bản nháp&nbsp;<i class="fas fa-sort"></i></th>
+                                                <th (click)="sort('create_time')">Ngày Tạo&nbsp;<i class="fas fa-sort"></i></th>
+                                                <th (click)="sort('interest_name')">Sản phẩm chính&nbsp;<i class="fas fa-sort"></i></th>
+                                                <th >Chi tiết</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr *ngFor="let illustration of illustrations | paginate: { id: 'listing_pagination' ,itemsPerPage: 8, currentPage: page, totalItems: totalRecords} ">
+                                            <tr *ngFor="let illustration of illustrations | orderBy: key:reverse | paginate: { id: 'listing_pagination' ,itemsPerPage: 8, currentPage: page, totalItems: totalRecords} ">
                                                 <td>#BMH{{illustration.id}}</td>
                                                 <td>{{illustration.create_time | date:'dd-MM-yyyy'}}</td>
                                                 <td>{{illustration.interest_name}}</td>
