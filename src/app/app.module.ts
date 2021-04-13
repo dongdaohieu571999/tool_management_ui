@@ -88,6 +88,8 @@ import { ContractDetailDialogComponent } from './view/dialog/contract-detail-dia
 import { IllustrationDetailDialogComponent } from './view/dialog/illustration-detail-dialog/illustration-detail-dialog.component';
 import { CustomerDetailDialogComponent } from './view/dialog/customer-detail-dialog/customer-detail-dialog.component';
 import { AdminResetPasswordComponent } from './view/dialog/admin-reset-password/admin-reset-password/admin-reset-password.component';
+import { LoginCustomerComponent } from './customerwebsite/view/login-customer/login-customer.component';
+import { AdminPauseEmployeeDialogComponent } from './view/dialog/admin-pause-employee-dialog/admin-pause-employee-dialog.component';
 
 @NgModule({
   declarations: [
@@ -152,7 +154,9 @@ import { AdminResetPasswordComponent } from './view/dialog/admin-reset-password/
     ContractDetailDialogComponent,
     IllustrationDetailDialogComponent,
     CustomerDetailDialogComponent,
-    AdminResetPasswordComponent
+    AdminResetPasswordComponent,
+    LoginCustomerComponent,
+    AdminPauseEmployeeDialogComponent
   ],
   imports: [
     DataTablesModule,

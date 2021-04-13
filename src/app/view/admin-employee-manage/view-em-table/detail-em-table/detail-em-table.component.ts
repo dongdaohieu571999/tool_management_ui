@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { EmployeeInfoDTO } from 'src/app/model/EmployeeInfoDTO';
 import { EmployeeService } from 'src/app/services/employee/employee.service';
+import { AdminPauseEmployeeDialogComponent } from 'src/app/view/dialog/admin-pause-employee-dialog/admin-pause-employee-dialog.component';
 import { EmployeeEditInfoDialogComponent } from 'src/app/view/dialog/employee-edit-info-dialog/employee-edit-info-dialog.component';
 
 @Component({
@@ -30,5 +31,10 @@ export class DetailEmTableComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       
     })
+  }
+
+  public openDialogPauseEmployee(id:number){
+    let dialogRef = this.dialog.open(AdminPauseEmployeeDialogComponent,{data : id});
+    
   }
 }

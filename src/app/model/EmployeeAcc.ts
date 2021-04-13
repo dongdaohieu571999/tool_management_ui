@@ -1,4 +1,5 @@
 export class EmployeeAcc{
+    id:number;
     code:string;
     pass:string;
     id_role:number;

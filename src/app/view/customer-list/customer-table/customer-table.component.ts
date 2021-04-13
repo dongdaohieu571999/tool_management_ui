@@ -30,11 +30,10 @@ export class CustomerTableComponent implements OnInit {
   searchValue: String = "";
   dateFrom: Date;
   dateTo: Date;
-  dtOptions:any;
+  
 
   ngOnInit(): void {
-    this.dtOptions = {searching:true,paging:false,bInfo: false,dom: 'Bfrtip',
-    buttons: [ 'print', 'csv','excel','pdf']};
+    
     this.customerService.subsVar = this.customerService.
       callRefreshTable.subscribe((name: string) => {
         this.refresh();

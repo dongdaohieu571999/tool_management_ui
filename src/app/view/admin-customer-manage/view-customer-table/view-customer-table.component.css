@@ -5,3 +5,6 @@ a {
 .active {
   display: block;
 }
+th {
+  cursor: pointer;
+}

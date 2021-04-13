@@ -11,19 +11,19 @@
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
-                <th>Mã Khách Hàng</th>
-                <th>Tên Account</th>
-                <th>Họ và Tên</th>
-                <th>Ngày Sinh</th>
-                <th>Số Điện Thoại</th>
-                <th>Email</th>
-                <th>Trạng Thái Hoạt Động</th>
-                <th>Chi Tiết</th>
-                <th>Thao Tác</th>
+                <th (click)="sort('id')">Mã Khách Hàng&nbsp;<i class="fas fa-sort"></i></th>
+                <th (click)="sort('code')">Tên Account&nbsp;<i class="fas fa-sort"></i></th>
+                <th (click)="sort('full_name')">Họ và Tên&nbsp;<i class="fas fa-sort"></i></th>
+                <th (click)="sort('birth_date')">Ngày Sinh&nbsp;<i class="fas fa-sort"></i></th>
+                <th (click)="sort('phone_1')">Số Điện Thoại&nbsp;<i class="fas fa-sort"></i></th>
+                <th (click)="sort('email')">Email&nbsp;<i class="fas fa-sort"></i></th>
+                <th (click)="sort('status')">Trạng Thái Hoạt Động&nbsp;<i class="fas fa-sort"></i></th>
+                <th >Chi Tiết</th>
+                <th >Thao Tác</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let customer of data | paginate: { id: 'listing_pagination' ,itemsPerPage: 3, currentPage: page, totalItems: totalRecords};let i = index">
+            <tr *ngFor="let customer of data| orderBy: key:reverse | paginate: { id: 'listing_pagination' ,itemsPerPage: 3, currentPage: page, totalItems: totalRecords};let i = index">
                 <td>#KH{{ customer.id }}</td>
                 <td>{{ customer.code }}</td>
                 <td>{{ customer.full_name }}</td>

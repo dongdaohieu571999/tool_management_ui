@@ -10,19 +10,19 @@
 <table id="contract_table" [dtOptions]="dtOptions" datatable="ng" *ngIf="contracts" style="text-align: center;" class="table table-bordered table-striped">
     <thead>
         <tr>
-            <th>Mã Hợp Đồng</th>
-            <th>Mã Khách Hàng</th>
-            <th>Chủ Hợp Đồng</th>
-            <th>Loại Bảo Hiểm</th>
-            <th>Mã Gói Bảo Hiểm</th>
-            <th>Mã Bảng Minh Họa</th>
-            <th>Trạng Thái</th>
-            <th>Ngày Đăng Ký</th>
-            <th>Chi Tiết</th>
+            <th (click)="sort('id')">Mã Hợp Đồng&nbsp;<i class="fas fa-sort"></i></th>
+            <th (click)="sort('id_customer')">Mã Khách Hàng&nbsp;<i class="fas fa-sort"></i></th>
+            <th (click)="sort('name_contract_owner')">Chủ Hợp Đồng&nbsp;<i class="fas fa-sort"></i></th>
+            <th (click)="sort('insurance_type')">Loại Bảo Hiểm&nbsp;<i class="fas fa-sort"></i></th>
+            <th (click)="sort('id_main_interest')">Mã Gói Bảo Hiểm&nbsp;<i class="fas fa-sort"></i></th>
+            <th (click)="sort('id_illustration')">Mã Bảng Minh Họa&nbsp;<i class="fas fa-sort"></i></th>
+            <th (click)="sort('status')">Trạng Thái&nbsp;<i class="fas fa-sort"></i></th>
+            <th (click)="sort('start_time')">Ngày Đăng Ký&nbsp;<i class="fas fa-sort"></i></th>
+            <th (click)="sort('id')">Chi Tiết&nbsp;<i class="fas fa-sort"></i></th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let contract of contracts | paginate: { id: 'listing_pagination' ,itemsPerPage: 8, currentPage: page, totalItems: totalRecords}">
+        <tr *ngFor="let contract of contracts | orderBy: key:reverse | paginate: { id: 'listing_pagination' ,itemsPerPage: 8, currentPage: page, totalItems: totalRecords}">
             <td>#HD{{contract.id}}</td>
             <td>
                 <a *ngIf="contract.id_customer" (click)="openDialogCustomerDetail(contract.id_customer)">#KH{{contract.id_customer}}</a>

@@ -35,13 +35,13 @@
                                                     <div class="form-group ">
                                                         <label for="exampleInputPassword1 ">Mã Hợp Đồng</label>
                                                         <p style="color: red; ">
-                                                            <a href="# " *ngFor="let item of custInfoList"> {{ item.id_contract }}&nbsp;,</a>
+                                                            <a  *ngFor="let item of custInfoList" (click)="openDialogContractDetail(item.id_contract)"> {{ item.id_contract }}&nbsp;,</a>
                                                         </p>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputPassword1 ">Mã Bản Minh Họa Tương Ứng</label>
                                                         <p style="color: red; ">
-                                                            <a href="# " *ngFor="let item of custInfoList"> {{ item.id_illustration }}&nbsp;,</a>
+                                                            <a  *ngFor="let item of custInfoList" (click)="openDialogIllustrationDetail(item.id_illustration)"> {{ item.id_illustration }}&nbsp;,</a>
                                                         </p>
                                                     </div>
                                                     <div class="form-group ">

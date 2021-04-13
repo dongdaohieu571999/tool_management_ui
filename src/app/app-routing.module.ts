@@ -33,6 +33,7 @@ import { ViewDetailCustomerAdminComponent } from './view/admin-customer-manage/v
 import { DetailEmTableComponent } from './view/admin-employee-manage/view-em-table/detail-em-table/detail-em-table.component';
 import { DetailIncomeComponent } from './view/income/detail-income/detail-income.component';
 import { ContractDetailDialogComponent } from './view/dialog/contract-detail-dialog/contract-detail-dialog.component';
+import { LoginCustomerComponent } from './customerwebsite/view/login-customer/login-customer.component';
 
 const routes: Routes = [
   {path : "dashboard", component: DashboardComponent},
@@ -67,6 +68,8 @@ const routes: Routes = [
   {path: "customer-detail-admin/:id", component: ViewDetailCustomerAdminComponent},
   {path: "employee-detail-admin/:id", component: DetailEmTableComponent},
   {path: "employee-detail-income/:month", component: DetailIncomeComponent},
+  {path: "", component: LoginCustomerComponent},
+  
 ];
 
 @NgModule({

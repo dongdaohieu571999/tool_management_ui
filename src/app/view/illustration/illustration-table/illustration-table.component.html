@@ -11,14 +11,14 @@
 <table id="illustration-table" [dtOptions]="dtOptions" datatable="ng" *ngIf="listCustomerOwnIllustration" class="table table-bordered table-striped">
     <thead>
         <tr>
-            <th>Mã Khách Hàng</th>
-            <th>Tên Khách Hàng</th>
-            <th>Ngày Tạo</th>
-            <th>Ngày Dự Kiến Kết Thúc Chiến Dịch</th>
+            <th (click)="sort('id_customer')"> Mã Khách Hàng&nbsp;<i class="fas fa-sort"></i></th>
+            <th (click)="sort('full_name')">Tên Khách Hàng&nbsp;<i class="fas fa-sort"></i></th>
+            <th (click)="sort('create_time')">Ngày Tạo&nbsp;<i class="fas fa-sort"></i></th>
+            <th (click)="sort('end_time')">Ngày Dự Kiến Kết Thúc Chiến Dịch&nbsp;<i class="fas fa-sort"></i></th>
             <th>Danh Sách Bản Minh Hoạ</th>
         </tr>
     </thead>
-    <tbody *ngFor="let customerOwnIllustration of listCustomerOwnIllustration | paginate: { id: 'listing_pagination' ,itemsPerPage: 8, currentPage: page, totalItems: totalRecords} ">
+    <tbody *ngFor="let customerOwnIllustration of listCustomerOwnIllustration | orderBy: key:reverse | paginate: { id: 'listing_pagination' ,itemsPerPage: 8, currentPage: page, totalItems: totalRecords} ">
         <tr>
             <td>
                 <b></b>
