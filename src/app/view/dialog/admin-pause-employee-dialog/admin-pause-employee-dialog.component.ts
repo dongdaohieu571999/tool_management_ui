@@ -21,5 +21,8 @@ export class AdminPauseEmployeeDialogComponent implements OnInit {
       this.employeeAcc=this.employeeAcc.filter(x => !(x.id == this.id));
     }))
   }
-
+  
+  PauseEmployee(){
+    
+  }
 }
