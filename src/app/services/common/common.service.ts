@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -6,6 +7,13 @@ import { Injectable } from '@angular/core';
 export class CommonService {
 
   constructor() { }
+
+  callRefreshTable = new EventEmitter();
+  subsVar: Subscription;
+
+  invokeRefreshTableFun() { 
+    this.callRefreshTable.emit();
+  }
 
   titlePage:string;
 
