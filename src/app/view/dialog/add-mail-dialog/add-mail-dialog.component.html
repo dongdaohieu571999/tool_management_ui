@@ -6,7 +6,7 @@
         <div class="card-body">
             <div class="form-group">
                 <label>Người Nhận</label>
-                <input type="email" class="form-control" name="email" placeholder="Người Nhận" #name="ngModel" [(ngModel)]="mail.receiverNameCode" [matAutocomplete]="auto" required pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s0-9\/-]+$">
+                <input type="text" class="form-control" name="email" placeholder="Người Nhận" #name="ngModel" [(ngModel)]="recieverCode" [matAutocomplete]="auto" required pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s0-9\/-]+$">
                 <span id="errorMessagename" style="color: red;" *ngIf="name.errors?.required && name.touched">Người Nhận
                     không được để trống</span>
                 <br/>

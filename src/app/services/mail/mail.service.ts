@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Mail } from 'src/app/model/Mail';
-import { MailDTO } from 'src/app/model/MailDTO';
 import { CommonService } from '../common/common.service';
 
 @Injectable({
@@ -22,23 +21,39 @@ export class MailService {
     }),
   }
 
-  public getAllMail() : Observable<any> {
-    const url = this.common.makeUrl("/mail/all_mail/" + this.common.getCookie("token_key"));
-    console.log(url);
-    return this.httpClient.get<any>(url, this.httpOptions)
+  public getAllMail(data:any) : Observable<any> {
+    const url = this.common.makeUrl("/mail/all_mail/");
+    return this.httpClient.post<any>(url,data,this.httpOptions)
+    .pipe(catchError(this.handleError));
+  }
+  public getAllMailSent(data:any) : Observable<any> {
+    const url = this.common.makeUrl("/mail/all_mail_sent/");
+    return this.httpClient.post<any>(url,data,this.httpOptions)
+    .pipe(catchError(this.handleError));
+  }
+  public searchAllMailReceive(userCode:String,dateFrom:String,dateTo:String,searchValue:String) : Observable<any> {
+    let data = {userCode:userCode,dateFrom:dateFrom,dateTo:dateTo,searchValue:searchValue};
+    const url = this.common.makeUrl("/mail/search_mail_receive/");
+    return this.httpClient.post<any>(url,data,this.httpOptions)
+    .pipe(catchError(this.handleError));
+  }
+  public searchAllMailSent(userCode:String,dateFrom:String,dateTo:String,searchValue:String) : Observable<any> {
+    let data = {userCode:userCode,dateFrom:dateFrom,dateTo:dateTo,searchValue:searchValue};
+    const url = this.common.makeUrl("/mail/search_mail_sent/");
+    return this.httpClient.post<any>(url,data,this.httpOptions)
     .pipe(catchError(this.handleError));
   }
 
+  
   public getDetailMail(mailId: number) : Observable<any> {
     const url = this.common.makeUrl("/mail/view_detail_mail/" + mailId + "/" + this.common.getCookie("token_key"));
     // console.log(url);
     return this.httpClient.get<any>(url, this.httpOptions).pipe(catchError(this.handleError));
   }
 
-  public addNewMail(mail: MailDTO) : Observable<any> {
-    const url = this.common.makeUrl("/mail/add_mail/" + this.common.getCookie("token_key"));
-    console.log(mail);
-    return this.httpClient.post<any>(url, mail, this.httpOptions).pipe(catchError(this.handleError));
+  public addNewMail(data:any) : Observable<any> {
+    const url = this.common.makeUrl("/mail/add_mail/");
+    return this.httpClient.post<any>(url, data, this.httpOptions).pipe(catchError(this.handleError));
   }
 
   private handleError(error: HttpErrorResponse) {

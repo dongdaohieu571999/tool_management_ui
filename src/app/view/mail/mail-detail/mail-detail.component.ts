@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MailDTO } from 'src/app/model/MailDTO';
+import { Mail } from 'src/app/model/Mail';
 import { MailService } from 'src/app/services/mail/mail.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { MailService } from 'src/app/services/mail/mail.service';
 })
 export class MailDetailComponent implements OnInit {
 
-  data: MailDTO;
+  data: Mail;
   mailId : number;
   constructor(private mailService: MailService, private router: Router) {
     this.mailId = mailService.getMailId();
