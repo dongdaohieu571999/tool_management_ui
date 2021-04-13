@@ -94,8 +94,8 @@ export class EmployeeService {
     .pipe(catchError(this.handleError));
   }
  
-  public getAccByCode(): Observable<any>{
-    const url = this.common.makeUrl("/employee/get_one_employee_acc/"+this.common.getCookie('token_key'));
+  public getAccByCode(data:any): Observable<any>{
+    const url = this.common.makeUrl("/employee/get_one_employee_acc/"+data);
     return this.httpClient
     .get<any>(url,this.httpOptions)
     .pipe(catchError(this.handleError));

@@ -21,14 +21,10 @@ import { IllustrationDetailDialogComponent } from '../../dialog/illustration-det
 export class ContractTableComponent implements OnInit {
 
   constructor(private dialog: MatDialog, private common: CommonService, private spinner: NgxSpinnerService, private contractService: ContractService, private router: Router) { }
-  dataTable:any;
-  dtOptions:any;
   page: number = 1;
   totalRecords: number;
   contracts: Array<ContractDTO>;
   ngOnInit(): void {
-    // this.dtOptions = {searching:false,paging:false,bInfo: false,processing: true,dom: 'Bfrtip',
-    // buttons: [ 'print', 'csv','excel','pdf',]};
     this.contractService.subsVar = this.contractService.
       callRefreshTable.subscribe((name: string) => {
         this.refresh();

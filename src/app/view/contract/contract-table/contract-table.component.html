@@ -7,7 +7,7 @@
         aria-controls="example1"></label>
 <button type="button" class="btn btn-info" (click)="Search()">Tìm Kiếm</button>
 <button type="button" class="btn btn-info" (click)="ResetDate()" style="margin-left:20px ;">Xóa ngày</button>
-<table id="contract_table" [dtOptions]="dtOptions" datatable="ng" *ngIf="contracts" style="text-align: center;" class="table table-bordered table-striped">
+<table id="contract_table" style="text-align: center;" class="table table-bordered table-striped">
     <thead>
         <tr>
             <th (click)="sort('id')">Mã Hợp Đồng&nbsp;<i class="fas fa-sort"></i></th>
@@ -18,7 +18,7 @@
             <th (click)="sort('id_illustration')">Mã Bảng Minh Họa&nbsp;<i class="fas fa-sort"></i></th>
             <th (click)="sort('status')">Trạng Thái&nbsp;<i class="fas fa-sort"></i></th>
             <th (click)="sort('start_time')">Ngày Đăng Ký&nbsp;<i class="fas fa-sort"></i></th>
-            <th (click)="sort('id')">Chi Tiết&nbsp;<i class="fas fa-sort"></i></th>
+            <th>Chi Tiết</th>
         </tr>
     </thead>
     <tbody>

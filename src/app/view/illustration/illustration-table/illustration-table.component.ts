@@ -18,16 +18,13 @@ export class IllustrationTableComponent implements OnInit {
   constructor(private dialog: MatDialog,private common:CommonService,private router : Router,private illustration:IllustrationService,private spinner:NgxSpinnerService,private illustrationService:IllustrationService) { }
 
   listCustomerOwnIllustration:Array<CustomerOwnIllustration>
-  dtOptions:any;
   page: number = 1;
   totalRecords: number;
   searchValue: String = "";
   dateFrom: Date;
   dateTo: Date;
 
-  ngOnInit(): void {   
-    this.dtOptions = {searching:false,paging:false,bInfo: false,dom: 'Bfrtip',
-    buttons: [ 'print', 'csv','excel','pdf',]};
+  ngOnInit(): void {
       this.illustrationService.subsVar = this.illustrationService.
       callRefreshTable.subscribe((name:string) => {  
         this.refresh();

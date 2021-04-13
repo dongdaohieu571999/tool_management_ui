@@ -25,8 +25,7 @@ export class ChangePassComponent implements OnInit {
   onSubmit(changePassForm:NgForm){
     this.spinner.show();
     if(changePassForm.value.newPass == changePassForm.value.confirmNewPass){
-      this.employeeService.getAccByCode().subscribe((data => {
-        console.log(data)
+      this.employeeService.getAccByCode(this.common.getCookie('token_key')).subscribe((data => {
         if(data['pass'] == changePassForm.value.oldPass){
           this.employeeService.updateEmployeeAccount(new EmployeeAcc(jwtDecode(this.common.getCookie('token_key'))['sub'],
           changePassForm.value.newPass,0,true)).subscribe((data => {

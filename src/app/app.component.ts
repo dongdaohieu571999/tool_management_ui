@@ -3,6 +3,8 @@ import { MatSidenav } from '@angular/material/sidenav';
 import { Router } from '@angular/router';
 import { AuthenService } from './services/authen/authen.service';
 import { CommonService } from './services/common/common.service';
+import jwt_decode from 'jwt-decode';
+import { EmployeeService } from './services/employee/employee.service';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +16,8 @@ export class AppComponent {
   @ViewChild('sidenav') sidenav: MatSidenav;
   public isOpened = false;
 
-  constructor(public authenService: AuthenService, public router: Router,public common:CommonService,private authenticationService:AuthenService){
+  constructor(public authenService: AuthenService, public common:CommonService,private employeeSer:EmployeeService,
+    public router: Router,private authenSer:AuthenService,private authenticationService:AuthenService){
     
     var url =window.location.href;
     if(this.common.getCookie("token_key") === ''){
@@ -26,6 +29,9 @@ export class AppComponent {
     }
 
     if(this.authenticationService.isAuthen){
+      this.employeeSer.getDetailEmployebyCode(jwt_decode(this.common.getCookie('token_key'))['sub']).subscribe((data => {
+        this.authenSer.empolyeeInfo = data;
+      }))
       if(url.substring(22,url.length) === 'login'){
         if(this.authenticationService.id_role == '2'){
           this.router.navigate(['dashboard']);
