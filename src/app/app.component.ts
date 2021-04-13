@@ -26,7 +26,6 @@ export class AppComponent {
     }
 
     if(this.authenticationService.isAuthen){
-      console.log(this.authenticationService.id_role);
       if(url.substring(22,url.length) === 'login'){
         if(this.authenticationService.id_role == '2'){
           this.router.navigate(['dashboard']);
@@ -37,14 +36,11 @@ export class AppComponent {
         }
         
         return;
+      } else if(url.substring(22,url.length) === ''){
+        return;
       }
-      
-      
-    } else if (!this.authenticationService.isAuthen && url.substring(22,41) !== 'confirm-change-pass'){
-      console.log(url);
+    } else if (!this.authenticationService.isAuthen && (url.substring(22,41) === 'confirm-change-pass')|| url.substring(22,41) === 'forget-password'){
       this.router.navigate(['login']);
-      return;
-    } else if (!this.authenticationService.isAuthen && url.substring(22,41) === 'confirm-change-pass'){
       return;
     }
   }

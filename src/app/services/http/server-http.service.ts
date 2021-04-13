@@ -36,8 +36,8 @@ export class ServerHttpService {
     .pipe(catchError(this.handleError));
   }
 
-  public sendMailConfirm(data:any){
-    const url = this.common.makeUrl('/sendSimpleEmail/');
+  public sendMailResetPassWord(data:any){
+    const url = `${this.REST_API_SERVER}`+'/sendSimpleEmail/';
     return this.httpClient
     .post<any>(url,data,this.httpOptions)
     .pipe(catchError(this.handleError));
