@@ -88,8 +88,8 @@ export class IllustrationTableComponent implements OnInit {
         data:id_customer   
     });
   }
-  key = 'id';
-  reverse: boolean = false;
+  key = '';
+  reverse: boolean = true;
   sort(key){
     this.key = key;
     this.reverse = !this.reverse;

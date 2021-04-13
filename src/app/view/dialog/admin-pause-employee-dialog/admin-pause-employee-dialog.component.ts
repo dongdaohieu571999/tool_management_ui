@@ -17,8 +17,7 @@ export class AdminPauseEmployeeDialogComponent implements OnInit {
   ngOnInit(): void {
     this.employeeService.getAllAccByIDRole(2).subscribe((data => {
       this.employeeAcc = data;
-      this.employeeAcc=this.employeeAcc.filter(x => x.status == true);
-      this.employeeAcc=this.employeeAcc.filter(x => !(x.id == this.id));
+      this.employeeAcc=this.employeeAcc.filter(x => x.status == true && !(x.id == this.id));
     }))
   }
 
