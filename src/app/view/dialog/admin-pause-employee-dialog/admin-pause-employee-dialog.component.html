@@ -5,13 +5,13 @@
         <i style="color: red;">Lý Do Tạm Ngưng</i>
         <textarea style="width: 600px;height: 100px;"></textarea>
         <label for="saler">Nhân viên chuyển giao:</label>
-        <select name="saler" id="saler">
-            <option *ngFor="let item of employeeAcc" value="item.id">{{item.code}}</option>
+        <select name="salerId" id="saler" >
+            <option *ngFor="let item of employeeAcc" [value]="item.code">{{item.code}}</option>
         </select>
     </div>
 
 </mat-dialog-content>
 <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>Hủy</button>
-    <button mat-button>Gửi</button>
+    <button mat-button (click)="PauseEmployee()">Gửi</button>
 </mat-dialog-actions>
