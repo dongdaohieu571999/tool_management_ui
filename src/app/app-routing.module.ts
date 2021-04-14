@@ -34,7 +34,9 @@ import { DetailEmTableComponent } from './view/admin-employee-manage/view-em-tab
 import { DetailIncomeComponent } from './view/income/detail-income/detail-income.component';
 import { ContractDetailDialogComponent } from './view/dialog/contract-detail-dialog/contract-detail-dialog.component';
 import { ForgetPasswordComponent } from './view/forget-password/forget-password/forget-password.component';
-import { LoginCustomerComponent } from './customerwebsite/view/login-customer/login-customer.component';
+import { SignInCustomerComponent } from './customerwebsite/sign-in-customer/sign-in-customer.component';
+import { HomeCustomerComponent } from './customerwebsite/home-customer/home-customer.component';
+import { DetailPageComponent } from './customerwebsite/detail-page/detail-page.component';
 
 const routes: Routes = [
   {path : "dashboard", component: DashboardComponent},
@@ -70,8 +72,10 @@ const routes: Routes = [
   {path: "employee-detail-admin/:id", component: DetailEmTableComponent},
   {path: "employee-detail-income/:month", component: DetailIncomeComponent},
   {path: "forget-password", component: ForgetPasswordComponent},
-  {path: "", component: LoginCustomerComponent},
-  
+  {path: "", component: SignInCustomerComponent},
+  {path: "home-customer", component:  HomeCustomerComponent},
+  {path: "detail-page", component:  DetailPageComponent},
+ 
 ];
 
 @NgModule({

@@ -18,12 +18,12 @@
                     <div class="row" style="margin-top: 10px;">
                         <div class="col-12">
                             <div class="card">
-                                <div class="card-body">
+                                <div class="card-body" >
                                     <mat-tab-group>
-                                        <mat-tab label="Thông tin Cơ Bản">
+                                        <mat-tab label="Thông tin Cơ Bản" >
                                             <div class="row">
                                                 <div class=" col-6 ">
-                                                    <h3>Thông tin Cơ Bản</h3>
+                                                    
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Nguồn</label>
                                                         <p style="color: red; ">{{ customerInfo.source }}</p>
@@ -255,11 +255,12 @@
                                             </div>
                                         </mat-tab>
                                     </mat-tab-group>
+                                    <div style="text-align: center;">
+                                        <button type="button " class="btn btn-success btn-function" data-toggle="modal" data-target="#myModal" (click)="openDialogEdit()">Chỉnh Sửa Thông Tin</button>
+                                        <button type="button " class="btn btn-success btn-function" (click)="openDialogReport()">Báo Cáo</button>
+                                        </div>
                                 </div>
-
-                                <button type="button " class="btn btn-success" data-toggle="modal" data-target="#myModal" (click)="openDialogEdit()">Chỉnh Sửa Thông Tin</button>
-                                <button type="button " class="btn btn-success " (click)="openDialogReport()">Báo Cáo</button>
-                                <!-- <button type="button " class="btn btn-danger" data-toggle="modal" data-target="#tamNgung" (click)="openDialogPause()">Tạm Ngưng Khách Hàng</button> -->
+                                
                             </div>
                         </div>
                     </div>

@@ -1,0 +1,14 @@
+.section-padding-cust {
+    padding: 60px 0;
+}
+
+.bg-gray-cust {
+    background: #f9f9f9;
+}
+
+.khcn {
+    font-size: 38px;
+    color: #222;
+    font-weight: 700;
+    font-family: titillium web, sans-serif;
+}
