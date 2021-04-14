@@ -19,8 +19,8 @@ export class ServerHttpService {
 
   constructor(private httpClient: HttpClient, private common: CommonService) { }
 
-  private REST_API_SERVER = 'http://localhost:8080/api';
-  // private REST_API_SERVER = 'http://35.197.137.55/api';
+  // private REST_API_SERVER = 'http://localhost:8080/api';
+  private REST_API_SERVER = 'http://35.225.21.23/api';
 
   public getAcc(code: string,pass: string): Observable<any>{
     const url = `${this.REST_API_SERVER}/login?code=`+btoa(code)+'&pass='+btoa(pass);
@@ -36,8 +36,8 @@ export class ServerHttpService {
     .pipe(catchError(this.handleError));
   }
 
-  public sendMailConfirm(data:any){
-    const url = this.common.makeUrl('/sendSimpleEmail/');
+  public sendMailResetPassWord(data:any){
+    const url = `${this.REST_API_SERVER}`+'/sendSimpleEmail/';
     return this.httpClient
     .post<any>(url,data,this.httpOptions)
     .pipe(catchError(this.handleError));

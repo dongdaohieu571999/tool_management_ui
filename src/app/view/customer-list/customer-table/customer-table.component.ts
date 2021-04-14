@@ -30,7 +30,6 @@ export class CustomerTableComponent implements OnInit {
   searchValue: String = "";
   dateFrom: Date;
   dateTo: Date;
-  
 
   ngOnInit(): void {
     
@@ -118,8 +117,8 @@ export class CustomerTableComponent implements OnInit {
     }))
   }
 
-  key = 'id';
-  reverse: boolean = false;
+  key = '';
+  reverse: boolean = true;
   sort(key){
     this.key = key;
     this.reverse = !this.reverse;

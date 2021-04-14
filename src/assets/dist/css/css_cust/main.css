@@ -377,6 +377,7 @@
         }
         
         .services-item {
+            height: 250px;
             background: #fff;
             margin: 15px 0;
             padding: 30px;
@@ -472,7 +473,7 @@
             padding: 0
         }
         
-        .top-nav-collapse {
+        .top-nav-collapse-cust {
             background: #fff;
             z-index: 999999;
             top: 0!important;
@@ -772,6 +773,7 @@
         }
         
         .team-item .info-text {
+            height: 80px;
             padding: 15px 20px;
             background: #fff
         }

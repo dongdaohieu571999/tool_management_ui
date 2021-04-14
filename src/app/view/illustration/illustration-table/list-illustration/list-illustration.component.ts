@@ -24,8 +24,8 @@ illustrations : Array<Illustration>;
       });
     this.refresh();     
   }
-  key = 'id';
-  reverse: boolean = false;
+  key = '';
+  reverse: boolean = true;
   sort(key){
     this.key = key;
     this.reverse = !this.reverse;

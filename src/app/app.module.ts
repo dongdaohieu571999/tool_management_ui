@@ -88,10 +88,11 @@ import { ContractDetailDialogComponent } from './view/dialog/contract-detail-dia
 import { IllustrationDetailDialogComponent } from './view/dialog/illustration-detail-dialog/illustration-detail-dialog.component';
 import { CustomerDetailDialogComponent } from './view/dialog/customer-detail-dialog/customer-detail-dialog.component';
 import { AdminResetPasswordComponent } from './view/dialog/admin-reset-password/admin-reset-password/admin-reset-password.component';
-import { LoginCustomerComponent } from './customerwebsite/view/login-customer/login-customer.component';
+import { ForgetPasswordComponent } from './view/forget-password/forget-password/forget-password.component';
 import { AdminPauseEmployeeDialogComponent } from './view/dialog/admin-pause-employee-dialog/admin-pause-employee-dialog.component';
 import { SignInCustomerComponent } from './customerwebsite/sign-in-customer/sign-in-customer.component';
 import { HomeCustomerComponent } from './customerwebsite/home-customer/home-customer.component';
+import { DetailPageComponent } from './customerwebsite/detail-page/detail-page.component';
 
 
 @NgModule({
@@ -158,10 +159,12 @@ import { HomeCustomerComponent } from './customerwebsite/home-customer/home-cust
     IllustrationDetailDialogComponent,
     CustomerDetailDialogComponent,
     AdminResetPasswordComponent,
-    LoginCustomerComponent,
+    ForgetPasswordComponent,
+    SignInCustomerComponent,
     AdminPauseEmployeeDialogComponent,
     SignInCustomerComponent,
     HomeCustomerComponent,
+    DetailPageComponent,
   ],
   imports: [
     DataTablesModule,

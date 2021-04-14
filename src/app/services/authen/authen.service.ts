@@ -27,16 +27,31 @@ export class AuthenService {
     } else {
       try{
         this.spinner.show();
-        this.serverhttpService.getAcc(sigIndata.getCode(),sigIndata.getPass()).subscribe((data =>{
-          if(data['status_code'] !== 'not ok'){
-            this.isAuthen = true;
-            this.common.setCookie('token_key',data['token_key'],3);
-            this.employee.getDetailEmployebyCode(jwt_decode(data['token_key'])['sub']).subscribe((data => {
+        this.serverhttpService.getAcc(sigIndata.getCode(),sigIndata.getPass()).subscribe((data1 =>{
+          this.isAuthen = true;
+          this.common.setCookie('token_key',data1['token_key'],3);
+          if(data1['status_code'] !== 'not ok'){
+            this.employee.getDetailEmployebyCode(jwt_decode(data1['token_key'])['sub']).subscribe((data => {
               this.empolyeeInfo = data;
+              this.employee.getAccByCode(this.common.getCookie('token_key')).subscribe((data => {
+                this.id_role = data['id_role'];
+                var url =window.location.href;
+                if(url.includes('login')){
+                  console.log("IJIJIJIJIJOKKKKKKKK")
+                if(this.id_role == '2'){
+                  console.log("IJIJIJIJIJOKKKKKKKKshdvfjaygfknuadgb")
+                  this.router.navigate(['dashboard']);
+                } else if (this.id_role == '1'){
+                  this.router.navigate(['employee-manage']);
+                } else if (this.id_role == '3'){
+                  this.router.navigate(['appraiser-request-manage']);
+                }
+                this.spinner.hide();
+              }
+               }));
+              return true;
             }))
-            this.getRoleID();
-            this.spinner.hide();
-            return true;
+            
           } else {
             this.snackBar.openSnackBar("Vui Lòng Xem Lại Tài Khoản Và Mật Khẩu",'ĐÓNG');
             this.isAuthen = false;
@@ -50,22 +65,6 @@ export class AuthenService {
     
   }
     return false;
-  }
-
-  getRoleID(){
-    this.employee.getIdRole().subscribe((data1 => {
-      this.id_role = data1['id_role'];
-      var url =window.location.href;
-      if(url.substring(22,url.length) === 'login'){
-      if(this.id_role == '2'){
-        this.router.navigate(['dashboard']);
-      } else if (this.id_role == '1'){
-        this.router.navigate(['employee-manage']);
-      } else if (this.id_role == '3'){
-        this.router.navigate(['appraiser-request-manage']);
-      }
-    }
-     }));
   }
 
   

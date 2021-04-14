@@ -8,7 +8,7 @@ export class IllustrationMainInterest{
     carrier_group_insured_person:number;
     full_name_insurance_buyer:string; 
     insurance_buyer_relation_insured_person:string;
-    fee_value:string;
+    fee_value:number;
     denominations:number;
 
     constructor(
@@ -21,7 +21,7 @@ export class IllustrationMainInterest{
         carrier_group_insured_person:number,
         full_name_insurance_buyer:string, 
         insurance_buyer_relation_insured_person:string,
-        fee_value:string,
+        fee_value:number,
         denominations:number){
             this.id_illustration = id_illustration;
             this.id_main_interest = id_main_interest;

@@ -64,7 +64,7 @@ export class CreateIllustrationComponent implements OnInit {
 
   create_time_ill = new Date();
   
-  illustrationMainInterest=new IllustrationMainInterest(0,this.mainInterestSelect.id,'',new Date(),0,false,0,'','','',0);
+  illustrationMainInterest=new IllustrationMainInterest(0,this.mainInterestSelect.id,'',new Date(),0,false,0,'','',0,0);
 
   illustration = new Illustration(0,0,new Date(),this.mainInterestSelect.interest_name,0,0,this.illustrationMainInterest,[]);
 
@@ -101,10 +101,10 @@ export class CreateIllustrationComponent implements OnInit {
     this.illustrationMainInterest.fee_value = Math.round(ref.multiplierForMainInterest.find(i => i.main_interest_id == this.mainInterestSelect.id)['multiplier']*
     this.illustrationMainInterest.denominations*ref.multiplierForGenders.find(i => i.gender == this.illustrationMainInterest.gender_insured_person? '1':'0')['multiplier']*
     (1+this.calculateAge(this.illustrationMainInterest.birth_date_insured_person)*ref.multiplierForAge.find(i => i.age == this.calculateAge(this.illustrationMainInterest.birth_date_insured_person))['multiplier'])*
-    ref.multiplierForCareerGroup.find(i => i.group_number == this.illustrationMainInterest.carrier_group_insured_person)['multiplier']).toLocaleString();
+    ref.multiplierForCareerGroup.find(i => i.group_number == this.illustrationMainInterest.carrier_group_insured_person)['multiplier']);
 
     // cộng vào tổng giá trị
-    this.totalPayment += this.convertStringToNum(this.illustrationMainInterest.fee_value);
+    this.totalPayment += this.illustrationMainInterest.fee_value;
 
     // phí của gói quyền lợi phụ của người được bảo hiểm
     if(this.subInterestListCopy.find(i => i.isDisable == false)){// kiểm tra xem người được bảo hiểm có quyền lợi phụ hay không
@@ -113,13 +113,13 @@ export class CreateIllustrationComponent implements OnInit {
         item.fee_value = Math.round(item.denominations * ref.multiplierForSubInterests.find(i => i.sub_interest_id == item.id)['multiplier'] *
                           ref.multiplierForGenders.find(i => i.gender == this.illustrationMainInterest.gender_insured_person ? '1':'0')['multiplier'] *
                           (1 + this.calculateAge(this.illustrationMainInterest.birth_date_insured_person) * ref.multiplierForAge.find(i => i.age == this.calculateAge(this.illustrationMainInterest.birth_date_insured_person))['multiplier']) *
-                          ref.multiplierForCareerGroup.find(i => i.group_number == this.illustrationMainInterest.carrier_group_insured_person)['multiplier']).toLocaleString();
+                          ref.multiplierForCareerGroup.find(i => i.group_number == this.illustrationMainInterest.carrier_group_insured_person)['multiplier']);
         
       // cộng vào tổng giá trị
-      this.totalPayment += this.convertStringToNum(item.fee_value);
+      this.totalPayment += item.fee_value;
 
         } else {
-          item.fee_value = '';
+          item.fee_value = 0;
         }
         }
     }
@@ -132,13 +132,13 @@ for(let relate of this.relatedPerson){
       interest.fee_value = Math.round(interest.denominations * ref.multiplierForSubInterests.find(i => i.sub_interest_id == interest.id)['multiplier'] *
                         ref.multiplierForGenders.find(i => i.gender == relate.gender? '1':'0')['multiplier'] *
                         (1 + this.calculateAge(relate.date_of_birth) * ref.multiplierForAge.find(i => i.age == this.calculateAge(relate.date_of_birth))['multiplier']) *
-                        ref.multiplierForCareerGroup.find(i => i.group_number == relate.carreer_group)['multiplier']).toLocaleString(); 
+                        ref.multiplierForCareerGroup.find(i => i.group_number == relate.carreer_group)['multiplier']); 
       
       // cộng vào tổng giá trị
-      this.totalPayment += this.convertStringToNum(interest.fee_value);
+      this.totalPayment += interest.fee_value;
       
       } else {
-        interest.fee_value ='';
+        interest.fee_value =0;
       }
     }
   }
@@ -149,10 +149,6 @@ for(let relate of this.relatedPerson){
   this.illustration.total_fee = this.totalPayment;
   this.illustration.payment_period_id = this.mulPeriod.priod_id;
 
-  }
-
-  convertStringToNum(numberString:string):number{
-    return parseInt(numberString.replace(/\D/g,''));
   }
 
   addField(){

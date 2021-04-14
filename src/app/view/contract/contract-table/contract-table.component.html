@@ -29,7 +29,7 @@
     </div>
 </div>
 
-<table id="contract_table" [dtOptions]="dtOptions" datatable="ng" *ngIf="contracts" style="text-align: center;" class="table table-bordered table-striped">
+<table id="contract_table"  *ngIf="contracts" style="text-align: center;" class="table table-bordered table-striped">
     <thead>
         <tr>
             <th (click)="sort('id')">Mã Hợp Đồng&nbsp;<i class="fas fa-sort"></i></th>
@@ -40,7 +40,7 @@
             <th (click)="sort('id_illustration')">Mã Bảng Minh Họa&nbsp;<i class="fas fa-sort"></i></th>
             <th (click)="sort('status')">Trạng Thái&nbsp;<i class="fas fa-sort"></i></th>
             <th (click)="sort('start_time')">Ngày Đăng Ký&nbsp;<i class="fas fa-sort"></i></th>
-            <th (click)="sort('id')">Chi Tiết&nbsp;<i class="fas fa-sort"></i></th>
+            <th>Chi Tiết</th>
         </tr>
     </thead>
     <tbody>
