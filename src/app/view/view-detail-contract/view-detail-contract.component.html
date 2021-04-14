@@ -89,10 +89,10 @@
                     </div>
                 </mat-tab>
             </mat-tab-group>
-            <button *ngIf="authenService.id_role=='2' && contracts.approval_status == 'CXD'" type="button" class="btn btn-success" (click)="openDialogSendRequest()">Gửi Yêu Cầu Xét Duyệt</button>
-
         </div>
+        
     </div>
+    <button *ngIf="authenService.id_role=='2' && contracts.approval_status == 'CXD'" type="button" class="btn btn-success" style="position: fixed; bottom: 0%; left: 40%; width: 400px;" (click)="openDialogSendRequest()">Gửi Yêu Cầu Xét Duyệt</button>
     <!-- ./wrapper -->
 </body>
 

@@ -2,3 +2,8 @@ img {
   width: 50%;
   height: auto;
 }
+.btn-function{
+  margin: 10px;
+  width: 45%;
+  z-index: 100;
+}

@@ -90,6 +90,9 @@ import { CustomerDetailDialogComponent } from './view/dialog/customer-detail-dia
 import { AdminResetPasswordComponent } from './view/dialog/admin-reset-password/admin-reset-password/admin-reset-password.component';
 import { LoginCustomerComponent } from './customerwebsite/view/login-customer/login-customer.component';
 import { AdminPauseEmployeeDialogComponent } from './view/dialog/admin-pause-employee-dialog/admin-pause-employee-dialog.component';
+import { SignInCustomerComponent } from './customerwebsite/sign-in-customer/sign-in-customer.component';
+import { HomeCustomerComponent } from './customerwebsite/home-customer/home-customer.component';
+
 
 @NgModule({
   declarations: [
@@ -156,7 +159,9 @@ import { AdminPauseEmployeeDialogComponent } from './view/dialog/admin-pause-emp
     CustomerDetailDialogComponent,
     AdminResetPasswordComponent,
     LoginCustomerComponent,
-    AdminPauseEmployeeDialogComponent
+    AdminPauseEmployeeDialogComponent,
+    SignInCustomerComponent,
+    HomeCustomerComponent,
   ],
   imports: [
     DataTablesModule,
