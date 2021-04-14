@@ -33,7 +33,22 @@ export class AuthenService {
           if(data1['status_code'] !== 'not ok'){
             this.employee.getDetailEmployebyCode(jwt_decode(data1['token_key'])['sub']).subscribe((data => {
               this.empolyeeInfo = data;
-              this.getRoleID();
+              this.employee.getAccByCode(this.common.getCookie('token_key')).subscribe((data => {
+                this.id_role = data['id_role'];
+                var url =window.location.href;
+                if(url.includes('login')){
+                  console.log("IJIJIJIJIJOKKKKKKKK")
+                if(this.id_role == '2'){
+                  console.log("IJIJIJIJIJOKKKKKKKKshdvfjaygfknuadgb")
+                  this.router.navigate(['dashboard']);
+                } else if (this.id_role == '1'){
+                  this.router.navigate(['employee-manage']);
+                } else if (this.id_role == '3'){
+                  this.router.navigate(['appraiser-request-manage']);
+                }
+                this.spinner.hide();
+              }
+               }));
               return true;
             }))
             
@@ -50,23 +65,6 @@ export class AuthenService {
     
   }
     return false;
-  }
-
-  getRoleID(){
-    this.employee.getAccByCode(this.common.getCookie('token_key')).subscribe((data => {
-      this.id_role = data['id_role'];
-      var url =window.location.href;
-      if(url.substring(22,url.length) === 'login'){
-      if(this.id_role == '2'){
-        this.router.navigate(['dashboard']);
-      } else if (this.id_role == '1'){
-        this.router.navigate(['employee-manage']);
-      } else if (this.id_role == '3'){
-        this.router.navigate(['appraiser-request-manage']);
-      }
-      this.spinner.hide();
-    }
-     }));
   }
 
   

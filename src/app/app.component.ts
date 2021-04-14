@@ -17,37 +17,37 @@ export class AppComponent {
   public isOpened = false;
 
   constructor(public authenService: AuthenService, public common:CommonService,private employeeSer:EmployeeService,
-    public router: Router,private authenSer:AuthenService,private authenticationService:AuthenService){
+    public router: Router){
     
     var url =window.location.href;
     if(this.common.getCookie("token_key") === ''){
       this.authenService.isAuthen=false;
+      if (!this.authenService.isAuthen && (url.substring(22,41) === 'confirm-change-pass')|| url.substring(22,41) === 'forget-password'){
+        this.router.navigate(['login']);
+        return;
+      }
     }
     else {
       this.authenService.isAuthen = true;
-      this.authenService.getRoleID();
-    }
-
-    if(this.authenticationService.isAuthen){
-      this.employeeSer.getDetailEmployebyCode(jwt_decode(this.common.getCookie('token_key'))['sub']).subscribe((data => {
-        this.authenSer.empolyeeInfo = data;
-      }))
-      if(url.substring(22,url.length) === 'login'){
-        if(this.authenticationService.id_role == '2'){
-          this.router.navigate(['dashboard']);
-        } else if (this.authenticationService.id_role == '1'){
-          this.router.navigate(['employee-manage']);
-        } else if (this.authenticationService.id_role == '3'){
-          this.router.navigate(['appraiser-request-manage']);
+      this.employeeSer.getAccByCode(this.common.getCookie('token_key')).subscribe((data => {
+        this.authenService.id_role = data['id_role'];
+        this.employeeSer.getDetailEmployebyCode(jwt_decode(this.common.getCookie('token_key'))['sub']).subscribe((data => {
+          this.authenService.empolyeeInfo = data;
+        }))
+        if(url.includes('login')){
+          if(this.authenService.id_role == '2'){
+            this.router.navigate(['dashboard']);
+          } else if (this.authenService.id_role == '1'){
+            this.router.navigate(['employee-manage']);
+          } else if (this.authenService.id_role == '3'){
+            this.router.navigate(['appraiser-request-manage']);
+          }
+          
+          return;
+        } else if(url.substring(22,url.length) === ''){
+          return;
         }
-        
-        return;
-      } else if(url.substring(22,url.length) === ''){
-        return;
-      }
-    } else if (!this.authenticationService.isAuthen && (url.substring(22,41) === 'confirm-change-pass')|| url.substring(22,41) === 'forget-password'){
-      this.router.navigate(['login']);
-      return;
+       }));
     }
   }
 

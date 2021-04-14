@@ -30,6 +30,14 @@ export class EmployeeService {
   }
   
 
+  public PauseEmployee(codeEmployeeNew:String,id_employee_old:number): Observable<any>{
+    let data = {codeEmployeeNew:codeEmployeeNew,id_employee_old:id_employee_old};
+    const url = this.common.makeUrl("/employee/pause_employee_acc");
+    return this.httpClient
+    .post<any>(url,data,this.httpOptions)
+    .pipe(catchError(this.handleError));
+  }
+
 
   public getAllAcc(): Observable<any>{
     const url = this.common.makeUrl("/employee/get_all_employee_acc");
