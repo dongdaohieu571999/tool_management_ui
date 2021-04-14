@@ -1,4 +1,4 @@
-<div class="search-hero">
+<!-- <div class="search-hero">
     <input class="form-control" type="text" name="search" [(ngModel)]="searchValue" placeholder="&#61442;  Start searching for contract ">
 </div>
 <label>From<input id="RfromSearch" type="date" name="dateFrom" [(ngModel)]="dateFrom" class="form-control form-control-sm" placeholder=""
@@ -6,7 +6,29 @@
 <label>To<input id="RtoSearch" type="date" name="dateTo" [(ngModel)]="dateTo" class="form-control form-control-sm" placeholder=""
         aria-controls="example1"></label>
 <button type="button" class="btn btn-info" (click)="Search()">Tìm Kiếm</button>
-<button type="button" class="btn btn-info" (click)="ResetDate()" style="margin-left:20px ;">Xóa ngày</button>
+<button type="button" class="btn btn-info" (click)="ResetDate()" style="margin-left:20px ;">Xóa ngày</button> -->
+
+<div class="searchWithDateandValue">
+    <div class="left">
+    </div>
+    <div class="right">
+        <div class="input-group searchBar">
+            <input type="search" class="form-control form-control-lg" [(ngModel)]="searchValue"
+                placeholder="Type your keywords here">
+        </div>
+        <div class="date">
+            <label>From<input id="RfromSearch" type="date" name="dateFrom" [(ngModel)]="dateFrom"
+                    class="form-control form-control-sm" placeholder="" aria-controls="example1"></label>
+            <label style="margin-left: 2%;"> To<input id="RtoSearch" type="date" name="dateTo" [(ngModel)]="dateTo"
+                    class="form-control form-control-sm" placeholder="" aria-controls="example1"></label>
+            <button type="button" class="btn btn-info btn-date" (click)="ResetDate()">Xóa
+                ngày</button>
+            <button type="button" class="btn btn-info btn-date" (click)="Search()">Tìm kiếm
+            </button>
+        </div>
+    </div>
+</div>
+
 <table id="contract_table" [dtOptions]="dtOptions" datatable="ng" *ngIf="contracts" style="text-align: center;" class="table table-bordered table-striped">
     <thead>
         <tr>

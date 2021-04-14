@@ -18,30 +18,36 @@
                     <div class="row" style="margin-top: 10px;">
                         <div class="col-12">
                             <div class="card">
-                                <div class="card-body" >
+                                <div class="card-body">
                                     <mat-tab-group>
-                                        <mat-tab label="Thông tin Cơ Bản" >
+                                        <mat-tab label="Thông tin Cơ Bản">
                                             <div class="row">
                                                 <div class=" col-6 ">
-                                                    
+
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Nguồn</label>
                                                         <p style="color: red; ">{{ customerInfo.source }}</p>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputPassword1 ">Ngày Cập Nhật</label>
-                                                        <p style="color: red; ">{{ customerInfo.updated_time | date:'dd-MM-yyyy'}}</p>
+                                                        <p style="color: red; ">{{ customerInfo.updated_time |
+                                                            date:'dd-MM-yyyy'}}</p>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputPassword1 ">Mã Hợp Đồng</label>
                                                         <p style="color: red; ">
-                                                            <a  *ngFor="let item of custInfoList" (click)="openDialogContractDetail(item.id_contrac)"> {{ item.id_contract }},&nbsp;&nbsp;</a>
+                                                            <a *ngFor="let item of custInfoList"
+                                                                (click)="openDialogContractDetail(item.id_contrac)"> {{
+                                                                item.id_contract }},&nbsp;&nbsp;</a>
                                                         </p>
                                                     </div>
                                                     <div class="form-group ">
-                                                        <label for="exampleInputPassword1 ">Mã Bản Minh Họa Tương Ứng</label>
+                                                        <label for="exampleInputPassword1 ">Mã Bản Minh Họa Tương
+                                                            Ứng</label>
                                                         <p style="color: red; ">
-                                                            <a  *ngFor="let item of custInfoList" (click)="openDialogIllustrationDetail(item.id_illustration)"> {{ item.id_illustration }},&nbsp;&nbsp;</a>
+                                                            <a *ngFor="let item of custInfoList"
+                                                                (click)="openDialogIllustrationDetail(item.id_illustration)">
+                                                                {{ item.id_illustration }},&nbsp;&nbsp;</a>
                                                         </p>
                                                     </div>
                                                     <div class="form-group ">
@@ -64,7 +70,8 @@
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Ngày Sinh</label>
-                                                        <p style="color: red; ">{{ customerInfo.birth_date | date: 'dd-MM-yyyy'}}</p>
+                                                        <p style="color: red; ">{{ customerInfo.birth_date | date:
+                                                            'dd-MM-yyyy'}}</p>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Tuổi</label>
@@ -76,7 +83,8 @@
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Loại Giấy Tờ Tùy Thân</label>
-                                                        <p style="color: red; ">{{ customerInfo.types_identification }}</p>
+                                                        <p style="color: red; ">{{ customerInfo.types_identification }}
+                                                        </p>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Giấy Tờ Nhân Thân Số</label>
@@ -87,7 +95,8 @@
                                                         <p style="color: red; ">{{ customerInfo.nationality_1 }}</p>
                                                     </div>
                                                     <div class="form-group ">
-                                                        <label for="exampleInputEmail1 ">Quốc Tịch Khác Khác (Nếu Có)</label>
+                                                        <label for="exampleInputEmail1 ">Quốc Tịch Khác Khác (Nếu
+                                                            Có)</label>
                                                         <p style="color: red; ">{{ customerInfo.nationality_1 }}</p>
                                                     </div>
                                                     <div class="form-group ">
@@ -244,7 +253,8 @@
                                                         <p style="color: red; ">nguyenchingocminh</p>
                                                     </div>
                                                     <div class="form-group ">
-                                                        <label for="exampleInputEmail1 ">Chi Nhánh - Phòng Giao Dịch</label>
+                                                        <label for="exampleInputEmail1 ">Chi Nhánh - Phòng Giao
+                                                            Dịch</label>
                                                         <p style="color: red; ">APHA</p>
                                                     </div>
                                                     <div class="form-group ">
@@ -256,11 +266,14 @@
                                         </mat-tab>
                                     </mat-tab-group>
                                     <div style="text-align: center;">
-                                        <button type="button " class="btn btn-success btn-function" data-toggle="modal" data-target="#myModal" (click)="openDialogEdit()">Chỉnh Sửa Thông Tin</button>
-                                        <button type="button " class="btn btn-success btn-function" (click)="openDialogReport()">Báo Cáo</button>
-                                        </div>
+                                        <button type="button " class="btn btn-success btn-function" data-toggle="modal"
+                                            data-target="#myModal" (click)="openDialogEdit()">Chỉnh Sửa Thông
+                                            Tin</button>
+                                        <button type="button " class="btn btn-success btn-function"
+                                            (click)="openDialogReport()">Báo Cáo</button>
+                                    </div>
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>
