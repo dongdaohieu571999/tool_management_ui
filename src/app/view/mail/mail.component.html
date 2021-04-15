@@ -32,7 +32,7 @@
                                 <!-- /.card-header -->
                                 <div class="card-body">
                                     <h3>Thư nhận được</h3>
-                                    <div class="search-hero">
+                                    <!-- <div class="search-hero">
                                         <input class="form-control" type="text" name="search" [(ngModel)]="searchValueReceive" placeholder="&#61442;  Start searching for contract ">
                                     </div>
                                     <label>From<input id="RfromSearchReceive" type="date" name="dateFromReceive" [(ngModel)]="dateFromReceive" class="form-control form-control-sm" placeholder=""
@@ -40,7 +40,30 @@
                                     <label>To<input id="RtoSearchReceive" type="date" name="dateToReceive" [(ngModel)]="dateToReceive" class="form-control form-control-sm" placeholder=""
                                             aria-controls="example1"></label>
                                     <button type="button" class="btn btn-info" (click)="SearchReceive()">Tìm Kiếm</button>
-                                    <button type="button" class="btn btn-info" (click)="ResetDateReceive()" style="margin-left:20px ;">Xóa ngày</button>
+                                    <button type="button" class="btn btn-info" (click)="ResetDateReceive()" style="margin-left:20px ;">Xóa ngày</button> -->
+
+
+                                    <div class="searchWithDateandValue">
+                                        <div class="left">
+                                        </div>
+                                        <div class="right">
+                                            <div class="input-group searchBar">
+                                                <input type="search" class="form-control form-control-lg" [(ngModel)]="searchValueReceive"
+                                                    placeholder="Nhập từ khóa cần tìm">
+                                            </div>
+                                            <div class="date">
+                                                <label>From<input id="RfromSearchReceive" type="date" name="dateFromReceive" [(ngModel)]="dateFromReceive"
+                                                        class="form-control form-control-sm" placeholder="" aria-controls="example1"></label>
+                                                <label style="margin-left: 2%;"> To<input id="RtoSearchReceive" type="date" name="dateToReceive" [(ngModel)]="dateToReceive"
+                                                        class="form-control form-control-sm" placeholder="" aria-controls="example1"></label>
+                                                <button type="button" class="btn btn-info btn-date" (click)="ResetDateReceive()" style="background-color: #e53935;">Xóa
+                                                    ngày</button>
+                                                <button type="button" class="btn btn-info btn-date" (click)="SearchReceive()">Tìm kiếm
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>      
+
                                     <table id="example1" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
@@ -84,7 +107,8 @@
                                 <!-- /.card-body -->
                                 <div class="card-body">
                                 <h3>Thư đã gửi</h3>
-                                <div class="search-hero">
+
+                                <!-- <div class="search-hero">
                                     <input class="form-control" type="text" name="search" [(ngModel)]="searchValueSent" placeholder="&#61442;  Start searching for contract ">
                                 </div>
                                 <label>From<input id="RfromSearchSent" type="date" name="dateFromSent" [(ngModel)]="dateFromSent" class="form-control form-control-sm" placeholder=""
@@ -92,7 +116,29 @@
                                 <label>To<input id="RtoSearchSent" type="date" name="dateToSent" [(ngModel)]="dateToSent" class="form-control form-control-sm" placeholder=""
                                         aria-controls="example1"></label>
                                 <button type="button" class="btn btn-info" (click)="SearchSent()">Tìm Kiếm</button>
-                                <button type="button" class="btn btn-info" (click)="ResetDateSent()" style="margin-left:20px ;">Xóa ngày</button>
+                                <button type="button" class="btn btn-info" (click)="ResetDateSent()" style="margin-left:20px ;">Xóa ngày</button> -->
+
+                                <div class="searchWithDateandValue">
+                                    <div class="left">
+                                    </div>
+                                    <div class="right">
+                                        <div class="input-group searchBar">
+                                            <input type="search" class="form-control form-control-lg" [(ngModel)]="searchValueSent"
+                                                placeholder="Nhập từ khóa cần tìm">
+                                        </div>
+                                        <div class="date">
+                                            <label>From<input id="RfromSearchSent" type="date" name="dateFromSent" [(ngModel)]="dateFromSent"
+                                                    class="form-control form-control-sm" placeholder="" aria-controls="example1"></label>
+                                            <label style="margin-left: 2%;"> To<input id="RtoSearchSent" type="date" name="dateToSent" [(ngModel)]="dateToSent"
+                                                    class="form-control form-control-sm" placeholder="" aria-controls="example1"></label>
+                                            <button type="button" class="btn btn-info btn-date" (click)="ResetDateSent()" style="background-color: #e53935;">Xóa
+                                                ngày</button>
+                                            <button type="button" class="btn btn-info btn-date" (click)="SearchSent()">Tìm kiếm
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>  
+
                                     <table id="example1" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
