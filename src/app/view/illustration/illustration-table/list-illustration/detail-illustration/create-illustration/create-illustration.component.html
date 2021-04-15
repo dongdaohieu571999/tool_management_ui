@@ -124,12 +124,12 @@
                                 <input class="form-control" value="{{ mainInterestSelect.fee_period }}" readonly>
                             </td>
                             <td>
-                                <input class="form-control" type="text" id="menhgia" required #menhgia="ngModel" [(ngModel)]="illustrationMainInterest.denominations" min="{{ mainInterestSelect.minimum_value }}" pattern="^[^-a-zA-Z]+$">
-                                <span id="errorMessagename" style="color: red;" *ngIf="menhgia.errors?.required && menhgia.touched">Mệnh Giá không được để
+                                <input class="form-control" type="number" id="menhgia" required #menhgia="ngModel" [(ngModel)]="illustrationMainInterest.denominations" min="{{ mainInterestSelect.minimum_value }}" pattern="^[^-a-zA-Z]+$">
+                                <!-- <span id="errorMessagename" style="color: red;" *ngIf="menhgia.errors?.required && menhgia.touched">Mệnh Giá không được để
                                     trống</span>
                                 <span id="errorMessagename" style="color: red;" *ngIf="menhgia.errors?.pattern && menhgia.touched">Mệnh Giá không hợp
                                     lệ
-                                </span>
+                                </span> -->
                             </td>
                             <td>
                                 <input class="form-control" readonly [(ngModel)]="illustrationMainInterest.fee_value">
