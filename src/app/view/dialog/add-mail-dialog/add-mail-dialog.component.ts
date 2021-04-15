@@ -8,6 +8,7 @@ import { Mail } from 'src/app/model/Mail';
 import { CommonService } from 'src/app/services/common/common.service';
 import { EmployeeService } from 'src/app/services/employee/employee.service';
 import { MailService } from 'src/app/services/mail/mail.service';
+import { SnackbarService } from 'src/app/services/snackbar/snackbar.service';
 
 @Component({
   selector: 'app-add-mail-dialog',
@@ -16,18 +17,14 @@ import { MailService } from 'src/app/services/mail/mail.service';
 })
 export class AddMailDialogComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public mail: Mail,private common:CommonService,private emService: EmployeeService, private mailService: MailService) { }
+  constructor(private snackbar:SnackbarService,@Inject(MAT_DIALOG_DATA) public mail: Mail,private common:CommonService,private emService: EmployeeService, private mailService: MailService) { }
 
   myControl = new FormControl();
-  recieverCode:string;
+  recieverCode:string ;
   options= new Array();
   filteredOptions: Observable<string[]>;
 
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
-
-    return this.options.filter(option => option.toLowerCase().includes(filterValue));
-  }
+  
 
   ngOnInit(): void {
     this.emService.getAllAcc().subscribe((data => {
@@ -36,7 +33,9 @@ export class AddMailDialogComponent implements OnInit {
         list.push(el.code);
       });
       this.options = list;
+
     }))
+
     this.filteredOptions = this.myControl.valueChanges
       .pipe(
         startWith(''),
@@ -44,11 +43,30 @@ export class AddMailDialogComponent implements OnInit {
       );
   }
 
+  private _filter(value: string): string[] {
+    
+    
+    const filterValue = value.toLowerCase();
+    return this.options.filter(option => option!= null && option.toLowerCase().includes(filterValue));
+  }
+
+
+
   sendMail(): void {
-    let data = {title:this.mail.title,senderCode:jwtDecode(this.common.getCookie('token_key'))['sub'],recieverCode:this.recieverCode,
-    content:this.mail.content}
-    this.mailService.addNewMail(data).subscribe((data => {
-      this.common.invokeRefreshTableFun();
-    }));
+    if(this.options.filter(option => option!= null && option.toLowerCase().includes((<HTMLInputElement>document.getElementById('receiverName')).value)).length ==0){
+      this.snackbar.openSnackBar("Người nhận không tồn tại","Đóng");
+      (<HTMLInputElement>document.getElementById('receiverName')).value == "";
+      this.mail.title = "";
+      this.mail.content="";
+    }
+    else{
+      let data = {title:this.mail.title,senderCode:jwtDecode(this.common.getCookie('token_key'))['sub'],recieverCode:(<HTMLInputElement>document.getElementById('receiverName')).value,
+      content:this.mail.content}
+      this.mailService.addNewMail(data).subscribe((data => {
+        this.common.invokeRefreshTableFun();
+        this.snackbar.openSnackBar("Gửi thư thành công","Đóng");
+      }));
+    }
+    
   }
 }

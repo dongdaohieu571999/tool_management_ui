@@ -95,6 +95,7 @@ import { HomeCustomerComponent } from './customerwebsite/home-customer/home-cust
 import { DetailPageComponent } from './customerwebsite/detail-page/detail-page.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -165,6 +166,7 @@ import { DetailPageComponent } from './customerwebsite/detail-page/detail-page.c
     SignInCustomerComponent,
     HomeCustomerComponent,
     DetailPageComponent,
+   
   ],
   imports: [
     DataTablesModule,

@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <html>
-
-
-
 <header>
 </header>
 
@@ -24,7 +21,7 @@
                 <fieldset>
                     <legend>Ngày Dự Kiến Bắt Đầu Quyền Lợi Bảo Hiểm</legend>
                     <div class="form-group">
-                        <input type="date" class="form-control" [(ngModel)]="create_time_ill">
+                        <input id="create_time_ill" type="date" class="form-control" [(ngModel)]="create_time_ill">
                     </div>
                 </fieldset>
             </div>
@@ -49,7 +46,7 @@
                         <tr>
                             <td>Nhóm Nghề</td>
                             <td><select class="form-control" #jobType="ngModel" required [(ngModel)]="illustrationMainInterest.carrier_group_insured_person">
-                                    <option selected="selected">1</option>
+                                    <option >1</option>
                                     <option>2</option>
                                     <option>3</option>
                                 </select>
@@ -60,12 +57,12 @@
                         <tr>
                             <td>Ngày Sinh</td>
                             <td><input type="date" class="form-control" required #dateofbirth="ngModel" [(ngModel)]="illustrationMainInterest.birth_date_insured_person" max="2019-12-31">
-                                <span id="errorMessagename" style="color: red;" *ngIf="dateofbirth.errors?.required && dateofbirth.touched">Ngày Sinh không được
+                                <!-- <span id="errorMessagename" style="color: red;" *ngIf="dateofbirth.errors?.required && dateofbirth.touched">Ngày Sinh không được
                                     để
                                     trống</span>
                                 <span id="errorMessagename" style="color: red;" *ngIf="dateofbirth.errors?.max && dateofbirth.touched">Ngày Sinh vượt quá
                                     2019-12-31
-                                </span>
+                                </span> -->
                             </td>
                         </tr>
                         <tr>
@@ -91,10 +88,10 @@
                     <div class="row">
                         <p>Quan Hệ Với Người Được Bảo Hiểm</p>
                         <select class="form-control" [(ngModel)]="illustrationMainInterest.insurance_buyer_relation_insured_person">
-                            <option>Bố/Mẹ Đẻ</option>
+                            <option >Bố/Mẹ Đẻ</option>
                             <option>Con Cái</option>
                             <option>Vợ/Chồng</option>
-                            <option>Bản Thân</option>
+                            <option value="Bản Thân" selected>Bản Thân</option>
                         </select>
                     </div>
                 </fieldset>
@@ -114,6 +111,7 @@
                                     <option [ngValue]="interest" *ngFor="let interest of mainInterestList">{{
                                         interest.interest_name }}</option>
                                 </select>
+
                             </td>
                         </tr>
                         <tr>

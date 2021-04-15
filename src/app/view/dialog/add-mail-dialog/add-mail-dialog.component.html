@@ -6,14 +6,8 @@
         <div class="card-body">
             <div class="form-group">
                 <label>Người Nhận</label>
-                <input type="text" class="form-control" name="email" placeholder="Người Nhận" #name="ngModel" [(ngModel)]="recieverCode" [matAutocomplete]="auto" required pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s0-9\/-]+$">
-                <span id="errorMessagename" style="color: red;" *ngIf="name.errors?.required && name.touched">Người Nhận
-                    không được để trống</span>
-                <br/>
-                <span id="errorMessagename" style="color: red;" *ngIf="name.errors?.pattern && name.touched">Người Nhận
-                    không được để kí tự đặc biệt
-                    hoặc
-                    chữ số</span>
+                <input id="receiverName" type="text" class="form-control" name="email" placeholder="Người Nhận" [formControl]="myControl" [matAutocomplete]="auto" required>
+
                 <mat-autocomplete #auto="matAutocomplete">
                     <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
                         {{option}}
@@ -35,20 +29,8 @@
                     không được để trống</span>
 
             </div>
-            <div class="form-group">
-                <label>Độ Ưu Tiên</label>
-                <select class="custom-select rounded-0" name="priority" [(ngModel)]="mail.priority">
-                    <option>Value 1</option>
-                    <option>Value 2</option>
-                    <option>Value 3</option>
-                </select>
-            </div>
-            <div class="input-group">
-                <div class="custom-file">
-                    <input type="file" class="custom-file-input" name="file">
-                    <label class="custom-file-label">File đính kèm</label>
-                </div>
-            </div>
+
+
         </div>
     </form>`
 </mat-dialog-content>

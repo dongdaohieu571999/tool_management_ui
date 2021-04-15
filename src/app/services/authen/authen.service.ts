@@ -35,28 +35,24 @@ export class AuthenService {
               this.empolyeeInfo = data;
               this.employee.getAccByCode(this.common.getCookie('token_key')).subscribe((data => {
                 this.id_role = data['id_role'];
-                var url =window.location.href;
-                if(url.includes('login')){
-                  console.log("IJIJIJIJIJOKKKKKKKK")
                 if(this.id_role == '2'){
-                  console.log("IJIJIJIJIJOKKKKKKKKshdvfjaygfknuadgb")
+                  this.spinner.hide();
                   this.router.navigate(['dashboard']);
                 } else if (this.id_role == '1'){
+                  this.spinner.hide();
                   this.router.navigate(['employee-manage']);
                 } else if (this.id_role == '3'){
+                  this.spinner.hide();
                   this.router.navigate(['appraiser-request-manage']);
                 }
-                this.spinner.hide();
-              }
+                
                }));
-              return true;
             }))
             
           } else {
             this.snackBar.openSnackBar("Vui Lòng Xem Lại Tài Khoản Và Mật Khẩu",'ĐÓNG');
             this.isAuthen = false;
             this.spinner.hide();
-            return false;
           }
         }));
       } catch (error){

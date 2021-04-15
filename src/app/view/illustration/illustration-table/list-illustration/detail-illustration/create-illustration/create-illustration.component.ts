@@ -62,17 +62,20 @@ export class CreateIllustrationComponent implements OnInit {
 
   //Them cac bien thuoc bang minh hoa o day
 
-  create_time_ill = new Date();
+  create_time_ill = new Date('1990-01-01');
+  create_time_ill_value:String = "1990-01-01";
   
-  illustrationMainInterest=new IllustrationMainInterest(0,this.mainInterestSelect.id,'',new Date(),0,false,0,'','',0,0);
-
+  illustrationMainInterest =new IllustrationMainInterest(0,this.mainInterestSelect.id,'',new Date(),0,false,1,'',"Bản thân",0,0);
+  
   illustration = new Illustration(0,0,new Date(),this.mainInterestSelect.interest_name,0,0,this.illustrationMainInterest,[]);
 
+  
 
   //Them cac bien thuoc bang minh hoa o day
 
 
   ngOnInit(): void {
+    
     this.getAllSubInterest();
     this.getAllMainInterest();
     this.getInfoCustomer();
@@ -152,7 +155,7 @@ for(let relate of this.relatedPerson){
   }
 
   addField(){
-    var relatedPer1 = new RelatedPerson(0,'','',new Date(),true,0,[]);
+    var relatedPer1 = new RelatedPerson(0,'','',new Date(),true,1,[]);
     // deep copy this.subInterestList
     let list = this.subInterestList.map(x => Object.assign({},x));
     relatedPer1.listSubInterest = list
@@ -245,10 +248,10 @@ for(let relate of this.relatedPerson){
       if(this.i == this.relatedPerson.length -1){
         this.i=0;
         this.processSaveIntoDB();
-                  } else {
-                    this.i++;
-                    this.next();
-                  }
+        } else {
+          this.i++;
+          this.next();
+        }
 
 
     })) 
@@ -257,17 +260,17 @@ for(let relate of this.relatedPerson){
 
   processSaveIntoDB(){
     this.illustration.illustrationMainInterest.id_main_interest = this.mainInterestSelect.id;
-              this.illustration.id_customer_info = this.customerInfo.id;
-              this.illustration.illustrationMainInterest.age_insured_person = this.calculateAge(this.illustrationMainInterest.birth_date_insured_person);
+    this.illustration.id_customer_info = this.customerInfo.id;
+    this.illustration.illustrationMainInterest.age_insured_person = this.calculateAge(this.illustrationMainInterest.birth_date_insured_person);
               
               
           
-              this.illustService.saveOneIllustration(this.illustration).subscribe((data => {
-                this.snackBar.openSnackBar("Lưu Bảng Minh Họa Thành Công","Đóng");
-                this.spinner.hide();
-                this.checkedTick = false;
-                this.checkCountPayment = true;
-              }))
+    this.illustService.saveOneIllustration(this.illustration).subscribe((data => {
+      this.snackBar.openSnackBar("Lưu Bảng Minh Họa Thành Công","Đóng");
+      this.spinner.hide();
+      this.checkedTick = false;
+      this.checkCountPayment = true;
+    }))
   }
 
   save(){
