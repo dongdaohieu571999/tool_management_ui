@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Illustration } from 'src/app/model/Illustration';
 import { IllustrationSubInterest } from 'src/app/model/IllustrationSubInterest';
 import { RelatedPersonInfo } from 'src/app/model/RelatedPersonInfo';
+import { CommonService } from 'src/app/services/common/common.service';
 import { IllustrationService } from 'src/app/services/illustration/illustration.service';
 
 @Component({
@@ -14,7 +15,7 @@ import { IllustrationService } from 'src/app/services/illustration/illustration.
 export class IllustrationDetailDialogComponent implements OnInit {
   
   constructor(public dialogRef: MatDialogRef<IllustrationDetailDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public id: number,
+    @Inject(MAT_DIALOG_DATA) public id: number,private common:CommonService,
     private illustrationService: IllustrationService, private activateRoute: ActivatedRoute) { }
 
   illustration: Illustration;
@@ -25,8 +26,19 @@ export class IllustrationDetailDialogComponent implements OnInit {
   listRelatedPerSonInfo: Array<RelatedPersonInfo> = [];
 
   ngOnInit(): void {
+    if(this.common.getCookie('token_key')){
     this.illustrationService.getIllustrationContractCreate(this.id).subscribe((data => {
-      this.illustration = data;
+      this.process(data);
+    }))
+  } else{
+    this.illustrationService.getIllustContractCreateForCustomerWebsite(this.id).subscribe((data => {
+      this.process(data);
+    }))
+  }
+}
+
+  public process(data:any){
+    this.illustration = data;
       this.illustrationCopy = data;
       console.log("ban minh hoa chi tiet :");
       console.log(this.illustration);
@@ -76,7 +88,6 @@ export class IllustrationDetailDialogComponent implements OnInit {
 
       console.log("danh sach nguoi bo sung chi tiet :");
       console.log(this.listRelatedPerSonInfo);
-    }))
   }
 
 }

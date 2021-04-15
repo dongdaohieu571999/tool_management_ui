@@ -1,16 +1,3 @@
-<!-- <div class="searchArea">
-    <div class="search-hero">
-        <input class="form-control" type="text" name="search" [(ngModel)]="searchValue" placeholder="&#61442;  Start searching for a customer by name ">
-    </div>
-    <label>From<input id="RfromSearch" type="date" name="dateFrom" [(ngModel)]="dateFrom" class="form-control form-control-sm" placeholder=""
-            aria-controls="example1"></label>
-    <label style="margin-left: 10px;" >To<input id="RtoSearch" type="date" name="dateTo" [(ngModel)]="dateTo" class="form-control form-control-sm" placeholder=""
-            aria-controls="example1"></label>
-    <button type="button" class="btn btn-info" style="margin-left: 10px;" (click)="Search()">Tìm Kiếm</button>
-    <button type="button" class="btn btn-info" (click)="ResetDate()" style="margin-left:20px ;">Xóa ngày</button>
-</div> -->
-
-
 <div class="searchWithDateandValue">
     <div class="left">
     </div>
@@ -24,7 +11,7 @@
                     class="form-control form-control-sm" placeholder="" aria-controls="example1"></label>
             <label style="margin-left: 2%;"> To<input id="RtoSearch" type="date" name="dateTo" [(ngModel)]="dateTo"
                     class="form-control form-control-sm" placeholder="" aria-controls="example1"></label>
-            <button type="button" class="btn btn-info btn-date" (click)="ResetDate()" style="background-color: #e53935;">Xóa
+            <button type="button" class="btn btn-danger btn-date" (click)="ResetDate()">Xóa
                 ngày</button>
             <button type="button" class="btn btn-info btn-date" (click)="Search()">Tìm kiếm
             </button>

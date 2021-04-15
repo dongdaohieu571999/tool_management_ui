@@ -10,16 +10,6 @@
                         <!-- /.card-header -->
                         <div class="card-body">
                             <h2><b>Danh Sách Yêu Cầu Xét Duyệt BH</b></h2>
-                            <!-- <div class="search-hero">
-                                <input class="form-control" type="text" name="search" [(ngModel)]="searchValueRequest" placeholder="&#61442;  Start searching for contract ">
-                            </div>
-                            <label>From<input id="RfromSearchRequest" type="date" name="dateFromRequest" [(ngModel)]="dateFromRequest" class="form-control form-control-sm" placeholder=""
-                                    aria-controls="example1"></label>
-                            <label>To<input id="RtoSearchRequest" type="date" name="dateToRequest" [(ngModel)]="dateToRequest" class="form-control form-control-sm" placeholder=""
-                                    aria-controls="example1"></label>
-                            <button type="button" class="btn btn-info" (click)="SearchRequest()">Tìm Kiếm</button>
-                            <button type="button" class="btn btn-info" (click)="ResetDateRequest()" style="margin-left:20px ;">Xóa ngày</button> -->
-
                             <div class="searchWithDateandValue">
                                 <div class="left">
                                 </div>
@@ -33,7 +23,7 @@
                                                 class="form-control form-control-sm" placeholder="" aria-controls="example1"></label>
                                         <label style="margin-left: 2%;"> To<input id="RtoSearchRequest" type="date" name="dateToRequest" [(ngModel)]="dateToRequest"
                                                 class="form-control form-control-sm" placeholder="" aria-controls="example1"></label>
-                                        <button type="button" class="btn btn-info btn-date" (click)="ResetDateRequest()" style="background-color: #e53935;">Xóa
+                                        <button type="button" class="btn btn-danger btn-date" (click)="ResetDateRequest()">Xóa
                                             ngày</button>
                                         <button type="button" class="btn btn-info btn-date" (click)="SearchRequest()">Tìm kiếm
                                         </button>
@@ -77,17 +67,6 @@
 
                         <div class="card-body">
                             <h2><b>Danh Sách Lịch Sử Yêu Cầu Xét Duyệt BH</b></h2>
-                            <!-- <div class="search-hero">
-                                <input class="form-control" type="text" name="search" [(ngModel)]="searchValueApproval" placeholder="&#61442;  Start searching for contract ">
-                            </div>
-                            <label>From<input id="RfromSearchApproval" type="date" name="dateFromApproval" [(ngModel)]="dateFromApproval" class="form-control form-control-sm" placeholder=""
-                                    aria-controls="example1"></label>
-                            <label>To<input id="RtoSearchApproval" type="date" name="dateToApproval" [(ngModel)]="dateToApproval" class="form-control form-control-sm" placeholder=""
-                                    aria-controls="example1"></label>
-                            <button type="button" class="btn btn-info" (click)="SearchApproval()">Tìm Kiếm</button>
-                            <button type="button" class="btn btn-info" (click)="ResetDateApproval()" style="margin-left:20px ;">Xóa ngày</button> -->
-
-
                             <div class="searchWithDateandValue">
                                 <div class="left">
                                 </div>
@@ -101,7 +80,7 @@
                                                 class="form-control form-control-sm" placeholder="" aria-controls="example1"></label>
                                         <label style="margin-left: 2%;"> To<input id="RtoSearchApproval" type="date" name="dateToApproval" [(ngModel)]="dateToApproval"
                                                 class="form-control form-control-sm" placeholder="" aria-controls="example1"></label>
-                                        <button type="button" class="btn btn-info btn-date" (click)="ResetDateApproval()" style="background-color: #e53935;">Xóa
+                                        <button type="button" class="btn btn-danger btn-date" (click)="ResetDateApproval()">Xóa
                                             ngày</button>
                                         <button type="button" class="btn btn-info btn-date" (click)="SearchApproval()">Tìm kiếm
                                         </button>

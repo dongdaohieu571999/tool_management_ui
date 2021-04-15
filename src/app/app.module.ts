@@ -93,6 +93,10 @@ import { AdminPauseEmployeeDialogComponent } from './view/dialog/admin-pause-emp
 import { SignInCustomerComponent } from './customerwebsite/sign-in-customer/sign-in-customer.component';
 import { HomeCustomerComponent } from './customerwebsite/home-customer/home-customer.component';
 import { DetailPageComponent } from './customerwebsite/detail-page/detail-page.component';
+import { ListIllustrationCustomerComponent } from './customerwebsite/list-illustration-customer/list-illustration-customer.component';
+import { ListContractCustomerComponent } from './customerwebsite/list-contract-customer/list-contract-customer.component';
+import { ProfileCustomerComponent } from './customerwebsite/profile-customer/profile-customer.component';
+import { HeaderComponent } from './customerwebsite/header/header.component';
 
 
 
@@ -166,7 +170,10 @@ import { DetailPageComponent } from './customerwebsite/detail-page/detail-page.c
     SignInCustomerComponent,
     HomeCustomerComponent,
     DetailPageComponent,
-   
+    ListIllustrationCustomerComponent,
+    ListContractCustomerComponent,
+    ProfileCustomerComponent,
+    HeaderComponent,
   ],
   imports: [
     DataTablesModule,
