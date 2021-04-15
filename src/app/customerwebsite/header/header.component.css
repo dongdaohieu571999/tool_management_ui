@@ -1,22 +1,26 @@
-.exit{
+.exit {
     font-family: unset;
     /* color: tomato; */
     font-weight: bold;
     margin: 5%;
 }
 
-.img_customer{
-    margin: 3%;
-    width: 16%;
+.img_customer {
+    margin: 2%;
+    width: 18%;
     border-radius: 100%;
 }
 
-.wellcome{
+.wellcome {
     left: 24%;
     top: -32px;
     position: relative;
 }
 
-.container-image-cust{
-    height: 55px;
+.container-image-cust {
+    width: 21%;
+}
+
+.container-cust {
+    margin-right: 0px;
 }

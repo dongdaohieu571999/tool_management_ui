@@ -1,6 +1,6 @@
 <div id="header">
     <nav class="navbar navbar-expand-md bg-inverse fixed-top scrolling-navbar top-nav-collapse-cust">
-        <div class="container">
+        <div class="container container-cust">
             <!-- Brand and toggle get grouped for better mobile display -->
             <a href="index.html" class="navbar-brand"><img src="assets/img/logo.png" alt=""></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,7 +48,6 @@
                             <a class="nav-link" href="services">
                             </a><a class="dropdown-item" href="illustration-customer">Danh sách bản minh họa</a>
                             <a class="dropdown-item" href="contract-customer">Danh sách hợp đồng</a>
-                            <a class="dropdown-item" href="profile-customer">Thông tin cá nhân</a>
                         </div>
 
 
@@ -63,15 +62,13 @@
                             Đăng Nhập
                         </a>
                     </li>
-                    <div *ngIf="common.getCookie('token_customer')" class="nav-item dropdown container-image-cust">
+                    <li *ngIf="common.getCookie('token_customer')" class="nav-item dropdown container-image-cust">
                         <img src="../../assets/images/avatar5.png" class="img_customer">
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="illustration-customer">Danh sách bản minh họa</a>
-                            <a class="dropdown-item" href="contract-customer">Danh sách hợp đồng</a>
                             <a class="dropdown-item" href="profile-customer">Thông tin cá nhân</a>
+                            <a class="dropdown-item" (click)="exit()" style="cursor: pointer;">THOÁT</a>
                         </div>
-                        <p class="wellcome">Xin Chào</p>
-                    </div>
+                    </li>
                 </ul>
             </div>
         </div>
