@@ -1,0 +1,79 @@
+<div id="header">
+    <nav class="navbar navbar-expand-md bg-inverse fixed-top scrolling-navbar top-nav-collapse-cust">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <a href="index.html" class="navbar-brand"><img src="assets/img/logo.png" alt=""></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="lni-menu"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+
+                <ul class="navbar-nav mr-auto w-100 justify-content-end clearfix">
+                    <a class="nav-link" href="/">
+                        <li class="nav-item active">
+
+                            Trang Chủ
+
+                        </li>
+                    </a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="feature">
+                            Khách hàng cá nhân
+                            </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="nav-link" href="feature">
+                            </a><a class="dropdown-item" href="">Bảo Hiểm Trễ Chuyến Bay </a>
+                            <a class="dropdown-item" href="">Bảo Hiểm Du Lịch Quốc Tế</a>
+                            <a class="dropdown-item" href="">Bảo hiểm Du Lịch Việt Nam</a>
+                            <a class="dropdown-item" href="">Bảo Hiểm Bệnh Ung Thư</a>
+                            <a class="dropdown-item" href="">Bảo Hiểm Xe Máy</a>
+                            <a class="dropdown-item" href="">Bảo Hiểm Ô Tô</a>
+                            <a class="dropdown-item" href="">Bảo Hiểm Người Chơi Golf</a>
+                            <a class="dropdown-item" href="">Bảo Hiểm Nhà Tư Nhân</a>
+                            <a class="dropdown-item" href="">Bảo Hiểm Kết Hợp Con Người</a>
+                            <a class="dropdown-item" href="">Bảo Hiểm Tai Nạn Con Người</a>
+                            <a class="dropdown-item" href="">Bảo Hiểm Tâm An</a>
+                            <a class="dropdown-item" href="">Bảo Hiểm InterCare</a>
+                            <a class="dropdown-item" href="">Bảo Hiểm Bệnh Hiểm Nghèo</a>
+                            <a class="dropdown-item" href="">Bảo Việt An Gia</a>
+                        </div>
+
+
+                    </li>
+                    <li *ngIf="common.getCookie('token_customer')" class="nav-item dropdown">
+                        <a class="nav-link" href="services">
+                            Thông tin khách hàng
+                            </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="nav-link" href="services">
+                            </a><a class="dropdown-item" href="illustration-customer">Danh sách bản minh họa</a>
+                            <a class="dropdown-item" href="contract-customer">Danh sách hợp đồng</a>
+                            <a class="dropdown-item" href="profile-customer">Thông tin cá nhân</a>
+                        </div>
+
+
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="CompensationTreatment.html">
+                            Xử lý bồi thường
+                        </a>
+                    </li>
+                    <li *ngIf="!common.getCookie('token_customer')" class="nav-item">
+                        <a class="nav-link" href="login-customer">
+                            Đăng Nhập
+                        </a>
+                    </li>
+                    <div *ngIf="common.getCookie('token_customer')" class="nav-item dropdown container-image-cust">
+                        <img src="../../assets/images/avatar5.png" class="img_customer">
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="illustration-customer">Danh sách bản minh họa</a>
+                            <a class="dropdown-item" href="contract-customer">Danh sách hợp đồng</a>
+                            <a class="dropdown-item" href="profile-customer">Thông tin cá nhân</a>
+                        </div>
+                        <p class="wellcome">Xin Chào</p>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>

@@ -105,7 +105,7 @@ export class CustomerService {
     .pipe(catchError(this.handleError));
   }
 
-  public getOneCustomerInfo(id:number,token_key:String){
+  public getOneCustomerInfoBySaler(id:number,token_key:String){
     const url = this.common.makeUrl("/customer/get_one_customer_info");
     let data = {id:id,token_key:token_key};
     return this.httpClient
@@ -117,6 +117,20 @@ export class CustomerService {
     const url = this.common.makeUrl("/customer/send_acc_for_customer");
     return this.httpClient
     .post<any>(url,id,this.httpOptions)
+    .pipe(catchError(this.handleError));
+  }
+
+  public authenAccCustomer(data:any){
+    const url = this.common.makeUrlForCustomer("/customer-api/login/");
+    return this.httpClient
+    .post<any>(url,data,this.httpOptions)
+    .pipe(catchError(this.handleError));
+  }
+
+  public getOneInfoCustomer(data:any){
+    const url = this.common.makeUrlForCustomer("/customer-api/get_one_customer_info/");
+    return this.httpClient
+    .post<any>(url,data,this.httpOptions)
     .pipe(catchError(this.handleError));
   }
   

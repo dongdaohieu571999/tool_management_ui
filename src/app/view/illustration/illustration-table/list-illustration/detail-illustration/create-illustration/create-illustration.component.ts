@@ -184,7 +184,7 @@ for(let relate of this.relatedPerson){
 
   getInfoCustomer(){
     this.activeRoute.queryParams.subscribe(params => {
-      this.customerService.getOneCustomerInfo(params['id'],this.common.getCookie('token_key')).subscribe((data => {
+      this.customerService.getOneCustomerInfoBySaler(params['id'],this.common.getCookie('token_key')).subscribe((data => {
         this.customerInfo=data[0];
         this.illustrationMainInterest.full_name_insurance_buyer = this.customerInfo.full_name;
         this.illustrationMainInterest.id_illustration = params['id'];

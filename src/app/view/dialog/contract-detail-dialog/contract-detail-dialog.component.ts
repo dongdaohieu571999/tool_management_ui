@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Contract } from 'src/app/model/Contract';
 import { Referencetable } from 'src/app/model/Referencetable';
+import { CommonService } from 'src/app/services/common/common.service';
 import { RefertableService } from 'src/app/services/refertable/refertable.service';
 
 @Component({
@@ -11,16 +12,24 @@ import { RefertableService } from 'src/app/services/refertable/refertable.servic
 })
 export class ContractDetailDialogComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public contracts:Contract,
+  constructor(@Inject(MAT_DIALOG_DATA) public contracts:Contract,private common:CommonService,
   public dialogRef: MatDialogRef<ContractDetailDialogComponent>,private referTable:RefertableService ) { }
 
   ref:Referencetable;
   payment_period:string;
   ngOnInit(): void {
-    this.referTable.getAllReference().subscribe((data => {
-      this.ref=data;
-      this.payment_period = this.ref.multiplierForPaymentPeriod.find(i => i.priod_id = this.contracts.payment_period_id)['description'];    
-    }))
+    if(this.common.getCookie('token_key')){
+      this.referTable.getAllReference().subscribe((data => {
+        this.ref=data;
+        this.payment_period = this.ref.multiplierForPaymentPeriod.find(i => i.priod_id = this.contracts.payment_period_id)['description'];    
+      }))
+    }else {
+      this.referTable.getAllReferenceForCustomer(this.common.getCookie('token_customer')).subscribe((data => {
+        this.ref=data;
+        this.payment_period = this.ref.multiplierForPaymentPeriod.find(i => i.priod_id = this.contracts.payment_period_id)['description'];    
+      }))
+    }
+    
   }
 
 }

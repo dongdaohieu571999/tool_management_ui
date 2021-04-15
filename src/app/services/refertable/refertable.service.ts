@@ -24,6 +24,13 @@ export class RefertableService {
     .pipe(catchError(this.handleError));
   }
 
+  public getAllReferenceForCustomer(data:any): Observable<any>{
+    const url = this.common.makeUrlForCustomer('/customer-api/get_all_reference_table/');
+    return this.httpClient
+    .post<any>(url,data,this.httpOptions)
+    .pipe(catchError(this.handleError));
+  }
+
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.

@@ -1,5 +1,5 @@
 <!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper" style="overflow: scroll; height: 800px; width: 800px;">
+<div class="content-wrapper" style="height: fit-content; width: 800px;">
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="container-fluid">
@@ -94,31 +94,6 @@
                     </div>
                 </div>
 
-                <!-- <div class="col-12" *ngFor="let SubRelatedPerSon of listSubRelatedPerSonBig" >
-                    <div class="card">
-                        <div class="card-header">
-                            <h2>
-                                <b>Thông Tin Quyền Lợi Bảo Hiểm Bổ Sung </b>   
-                            </h2>
-                        </div>
-                        <table id="example1" class="table table-bordered table-striped">
-                            <tr>
-                                <th>Tên Quyền Lợi</th>
-                                <th>Nhóm Nghề Nghiệp</th>
-                                <th>Số Tiền Bảo Hiểm</th>
-                                <th>Phí Bảo Hiểm</th>
-                            </tr>
-                            <tr *ngFor="let detail of SubRelatedPerSon">
-                                <td>{{detail.id_sub_interest}}</td>
-                                <td>{{detail.carrier_group_extra_insured_person}}</td>
-                                <td>{{detail.denominations | currency : "VND"}}</td>
-                                <td>{{detail.fee_value | currency : "VND"}}</td>                                
-                            </tr>                       
-                        </table>
-
-                    </div>
-                </div> -->
-
                 <div class="col-12" *ngFor="let RelatedPerSonInfo of listRelatedPerSonInfo">
                     <div class="card" >
                         <div class="card-header">
@@ -188,21 +163,7 @@
                     </div>
                 </div>
 
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h2><b>Giấy Tờ Liên Quan</b></h2>
-                        </div>
-                        <table id="example1" class="table table-bordered table-striped">
-                            <tr>
-                                <td>Giấy Tờ Liên Quan</td>
-                                <td><img
-                                        src="https://img.topbank.vn/2020/02/24/b8awMTJx/minh-hoa-bao-hiem-nhan-tho-4b46.jpg" />
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
+                
             </div>
             <!-- /.row -->
         </div>

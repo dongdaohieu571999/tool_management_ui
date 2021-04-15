@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import { CommonService } from 'src/app/services/common/common.service';
 
 @Component({
-  selector: 'app-home-customer',
-  templateUrl: './home-customer.component.html',
-  styleUrls: ['./home-customer.component.css']
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.css']
 })
-export class HomeCustomerComponent implements OnInit {
+export class HeaderComponent implements OnInit {
 
   constructor(public common:CommonService,private route:Router) { }
 

@@ -18,8 +18,12 @@ export class CommonService {
   titlePage:string;
 
   makeUrl(path: string): string{
-    // return 'http://localhost:8080/api'+path+'?token_key='+this.getCookie("token_key");
-    return 'http://35.225.21.23/api'+path+'?token_key='+this.getCookie("token_key");
+    return 'http://localhost:8080/api'+path+'?token_key='+this.getCookie("token_key");
+    // return 'http://35.225.21.23/api'+path+'?token_key='+this.getCookie("token_key");
+  }
+  makeUrlForCustomer(path: string): string{
+    return 'http://localhost:8080/api'+path;
+    // return 'http://35.225.21.23/api'+path+'?token_key='+(this.getCookie("token_customer")?this.getCookie("token_customer"):"");
   }
 
   public deleteCookie(name) {

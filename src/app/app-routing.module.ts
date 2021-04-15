@@ -37,6 +37,9 @@ import { ForgetPasswordComponent } from './view/forget-password/forget-password/
 import { SignInCustomerComponent } from './customerwebsite/sign-in-customer/sign-in-customer.component';
 import { HomeCustomerComponent } from './customerwebsite/home-customer/home-customer.component';
 import { DetailPageComponent } from './customerwebsite/detail-page/detail-page.component';
+import { ListIllustrationCustomerComponent } from './customerwebsite/list-illustration-customer/list-illustration-customer.component';
+import { ListContractCustomerComponent } from './customerwebsite/list-contract-customer/list-contract-customer.component';
+import { ProfileCustomerComponent } from './customerwebsite/profile-customer/profile-customer.component';
 
 const routes: Routes = [
   {path : "dashboard", component: DashboardComponent},
@@ -72,10 +75,14 @@ const routes: Routes = [
   {path: "employee-detail-admin/:id", component: DetailEmTableComponent},
   {path: "employee-detail-income/:month", component: DetailIncomeComponent},
   {path: "forget-password", component: ForgetPasswordComponent},
-  {path: "", component: SignInCustomerComponent},
-  {path: "home-customer", component:  HomeCustomerComponent},
+  {path: "", component: HomeCustomerComponent},
+  {path: "login-customer", component:  SignInCustomerComponent},
   {path: "detail-page", component:  DetailPageComponent},
- 
+  {path: "illustration-customer", component:  ListIllustrationCustomerComponent},
+  {path: "contract-customer", component:  ListContractCustomerComponent},
+  {path: "profile-customer", component:  ProfileCustomerComponent},
+  
+  
 ];
 
 @NgModule({

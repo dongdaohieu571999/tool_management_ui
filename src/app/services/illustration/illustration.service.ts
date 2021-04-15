@@ -59,7 +59,14 @@ export class IllustrationService {
 
 
   public getIllustrationContractCreate(id:number): Observable<any>{
-    const url = this.common.makeUrl('/illustration/get_illustration_contract_create/');
+    const url = this.common.makeUrl('/illustration/get_detail_illustration/');
+    return this.httpClient
+    .post<any>(url,id,this.httpOptions)
+    .pipe(catchError(this.handleError));
+  }
+
+  public getIllustContractCreateForCustomerWebsite(id:number): Observable<any>{
+    const url = this.common.makeUrlForCustomer('/customer-api/get_detail_illustration/');
     return this.httpClient
     .post<any>(url,id,this.httpOptions)
     .pipe(catchError(this.handleError));
@@ -84,6 +91,14 @@ export class IllustrationService {
     const url = this.common.makeUrl('/illustration/add_one_illustration/');
     return this.httpClient
     .post<any>(url,illustration,this.httpOptions)
+    .pipe(catchError(this.handleError));
+  }
+
+  // lấy tất cả bảng minh họa cho customer tại web customerWebsite
+  public getAllIllustrationForCustomer(data:any): Observable<any>{
+    const url = this.common.makeUrlForCustomer('/customer-api/get_all_illustration_customer/');
+    return this.httpClient
+    .post<any>(url,data,this.httpOptions)
     .pipe(catchError(this.handleError));
   }
 
