@@ -1,4 +1,4 @@
-export class EmployeeInfo{
+export class EmployeeInfoDTO{
     id:number;
      code :string;
      name: string;

@@ -41,6 +41,14 @@ export class ContractService {
       .pipe(catchError(this.handleError));
   }
 
+  public searchAllContractForCustomer(id_customer:String,dateFrom:String,dateTo:String,searchValue:String): Observable<any> {
+    let data = {id_customer:id_customer,dateFrom:dateFrom,dateTo:dateTo,searchValue:searchValue};
+    const url = this.common.makeUrlForCustomer("/customer-api/search-contract-list");
+    return this.httpClient
+      .post<any>(url,data,this.httpOptions)
+      .pipe(catchError(this.handleError));
+  }
+
   public getOneContractDetailForCustomer(data:any): Observable<any> {
     const url = this.common.makeUrlForCustomer("/customer-api/get_detail_contract_for_customer");
     return this.httpClient

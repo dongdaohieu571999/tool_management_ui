@@ -3,7 +3,6 @@ import { NgForm } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { EmployeeInfoDTO } from 'src/app/model/EmployeeInfoDTO';
-import { EmployeeInfo } from 'src/app/model/EmployeeInfo';
 import { CommonService } from 'src/app/services/common/common.service';
 import { EmployeeService } from 'src/app/services/employee/employee.service';
 import { SnackbarService } from 'src/app/services/snackbar/snackbar.service';

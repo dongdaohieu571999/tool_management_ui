@@ -32,6 +32,9 @@ export class EmployeeInfoDTO {
     peradd_no_street: String;
     peradd_wards: String;
     code_ap_support:string;
+    in_dept : string;
+    code :string;
+    status:boolean;
 
     constructor(id: number,
         name: String,
@@ -64,7 +67,9 @@ export class EmployeeInfoDTO {
         peradd_city: String,
         peradd_district: String,
         peradd_no_street: String,
-        peradd_wards: String,code_ap_support:string) {
+        peradd_wards: String,code_ap_support:string,in_dept : string,
+        code :string,
+        status:boolean,) {
        this.id = id;
        this.address = address;
        this.name = name;
@@ -98,5 +103,8 @@ export class EmployeeInfoDTO {
        this.peradd_no_street = peradd_no_street;
        this.peradd_wards = peradd_wards;
        this.code_ap_support = code_ap_support;
+       this.code = code;
+       this.in_dept = in_dept;
+       this.status=status;
     }
 }

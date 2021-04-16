@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { EmployeeAcc } from 'src/app/model/EmployeeAcc';
-import { EmployeeInfo } from 'src/app/model/EmployeeInfo';
+import { EmployeeInfoDTO } from 'src/app/model/EmployeeInfoDTO';
 import { EmployeeService } from 'src/app/services/employee/employee.service';
 import { ServerHttpService } from 'src/app/services/http/server-http.service';
 import { AdminAddAccountEmployeeComponent } from '../../dialog/admin-add-account-employee/admin-add-account-employee.component';
@@ -23,7 +23,7 @@ export class ViewEmTableComponent implements OnInit {
 
   page: number = 1;
   totalRecords: number;
-  data: Array<EmployeeInfo>;
+  data: Array<EmployeeInfoDTO>;
 
   ngOnInit(): void {  
       this.employeeService.subsVar = this.employeeService.    
@@ -33,7 +33,7 @@ export class ViewEmTableComponent implements OnInit {
     this.refresh();
   }
 
-  public openDialog(employeeinfo: EmployeeInfo) {
+  public openDialog(employeeinfo: EmployeeInfoDTO) {
     this.dialog.open(AdminAddAccountEmployeeComponent, {
       data: employeeinfo
     });
@@ -94,8 +94,8 @@ export class ViewEmTableComponent implements OnInit {
   }
 
 
-  key = 'id';
-  reverse: boolean = false;
+  key = '';
+  reverse: boolean = true;
   sort(key){
     this.key = key;
     this.reverse = !this.reverse;

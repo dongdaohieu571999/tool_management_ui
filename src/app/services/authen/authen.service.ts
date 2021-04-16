@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { EmployeeInfo } from 'src/app/model/EmployeeInfo';
 import { SigInData } from 'src/app/model/SigInData';
 import { CommonService } from '../common/common.service';
 import { EmployeeService } from '../employee/employee.service';

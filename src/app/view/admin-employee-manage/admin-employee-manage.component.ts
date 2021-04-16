@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { EmployeeInfo } from 'src/app/model/EmployeeInfo';
 import { EmployeeService } from 'src/app/services/employee/employee.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AdminAddEmployeeInfoComponent } from '../dialog/admin-add-employee-info/admin-add-employee-info.component';
@@ -30,7 +28,7 @@ export class AdminEmployeeManageComponent implements OnInit {
     this.status = !this.status;
   }
   
-  employeeinfo = new EmployeeInfoDTO(0,'','',new Date(),0,'','','','',new Date(),new Date(),false,null,1,1,1,1,1,false,'','','','','','','','','','','','','','');
+  employeeinfo = new EmployeeInfoDTO(0,'','',new Date(),0,'','','','',new Date(),new Date(),false,null,1,1,1,1,1,false,'','','','','','','','','','','','','','','','',false);
 public openDialog(){
   let dialogRef = this.dialog.open(AdminAddEmployeeInfoComponent,{
     data : this.employeeinfo

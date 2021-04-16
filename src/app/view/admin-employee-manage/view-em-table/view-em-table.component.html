@@ -32,6 +32,7 @@
                 <th (click)="sort('phone')">Số Điện Thoại&nbsp;<i class="fas fa-sort"></i></th>
                 <th (click)="sort('email')">Email&nbsp;<i class="fas fa-sort"></i></th>
                 <th (click)="sort('in_dept')">Phòng Ban&nbsp;<i class="fas fa-sort"></i></th>
+                <th (click)="sort('status')">Trạng Thái&nbsp;<i class="fas fa-sort"></i></th>
                 <th >Chi Tiết</th>
                 <th >Thao Tác</th>
             </tr>
@@ -45,6 +46,10 @@
                 <td>{{employeeinfo.phone}}</td>
                 <td>{{employeeinfo.email}}</td>
                 <td>{{employeeinfo.in_dept}}</td>
+                <td>
+                    <p *ngIf="employeeinfo.status!=null">{{employeeinfo.status?"Đang Hoạt Động":"Tạm Ngưng"}}</p>
+                    <p *ngIf="employeeinfo.status==null"></p>
+                </td>
                 <td>
                     <button (click)="EmployeeDetail(employeeinfo.id)" class="btn btn-info" style="height: 40px; width: 100px; margin: 10px; color: white;">Chi Tiết</button>
                 </td>
@@ -64,6 +69,7 @@
                 <th>Số Điện Thoại</th>
                 <th>Email</th>
                 <th>Phòng Ban</th>
+                <th>Trạng Thái</th>
                 <th>Chi Tiết</th>
                 <th>Thao Tác</th>
             </tr>

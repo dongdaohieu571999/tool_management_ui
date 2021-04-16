@@ -10,7 +10,6 @@ import { ContractrequestService } from 'src/app/services/contractRequest/contrac
 import { NgxSpinnerService } from 'ngx-spinner';
 import { SnackbarService } from 'src/app/services/snackbar/snackbar.service';
 import { ContractService } from 'src/app/services/contract/contract.service';
-import { EmployeeInfo } from 'src/app/model/EmployeeInfo';
 import { EmployeeInfoDTO } from 'src/app/model/EmployeeInfoDTO';
 
 @Component({
