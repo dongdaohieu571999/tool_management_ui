@@ -19,21 +19,15 @@ export class DetailEmTableComponent implements OnInit {
   statusPasswordDialog: boolean = false;
   statusDeactiveAccDialog: boolean = false;
   listAcc : Array<EmployeeAcc>;
-  checkRole:boolean = true;
+  showDelayButton:boolean = true;
   constructor(private spinner: NgxSpinnerService,private employeeService : EmployeeService,private activateRoute:ActivatedRoute,private dialog:MatDialog) { }
   employeinfoDTO : EmployeeInfoDTO;
   ngOnInit(): void {
+    this.spinner.show();
     this.employeeService.getDetailEmployebyID(this.activateRoute.snapshot.params['id']).subscribe((data =>{
-      this.spinner.show();
       this.employeinfoDTO = data;
-      this.employeeService.getAllAcc().subscribe((data =>{
-         this.listAcc = data;
-         if(this.listAcc.filter(x => x.id == this.employeinfoDTO.id_acc)[0].id_role == 3 || this.listAcc.filter(x => x.id == this.employeinfoDTO.id_acc)[0].id_role == 1 || this.listAcc.filter(x => x.id == this.employeinfoDTO.id_acc)[0].status == false){
-          this.checkRole = false;
-         }
-         this.spinner.hide();
-      }))
-      
+      this.showDelayButton=this.employeinfoDTO.code_ap_support?true : false;
+      this.spinner.hide();
     }))
    
   }

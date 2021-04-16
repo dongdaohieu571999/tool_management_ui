@@ -148,7 +148,7 @@
                                         </mat-tab>
                                     </mat-tab-group>
                                 </div>
-                                <button *ngIf="checkRole" type="button " class="btn btn-danger btn-function" style="left: 30%;" (click)="openDialogPauseEmployee(employeinfoDTO.id_acc)">Tạm Ngưng</button>
+                                <button *ngIf="showDelayButton" type="button " class="btn btn-danger btn-function" style="left: 30%;" (click)="openDialogPauseEmployee(employeinfoDTO.id_acc)">Tạm Ngưng</button>
                                 <button type="button " class="btn btn-success btn-function" style="left: 50%;" (click)="openDialogEdit()">Chỉnh Sửa Thông Tin</button>
 
                             </div>
