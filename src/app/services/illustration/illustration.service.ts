@@ -102,6 +102,14 @@ export class IllustrationService {
     .pipe(catchError(this.handleError));
   }
 
+  public searchAllIllustrationForCustomer(id_customer:String,dateFrom:String,dateTo:String,searchValue:String): Observable<any>{
+    let data = {id_customer:id_customer,dateFrom:dateFrom,dateTo:dateTo,searchValue:searchValue};
+    const url = this.common.makeUrlForCustomer('/customer-api/search_all_illustration_customer/');
+    return this.httpClient
+    .post<any>(url,data,this.httpOptions)
+    .pipe(catchError(this.handleError));
+  }
+
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.

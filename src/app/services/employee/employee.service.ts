@@ -3,7 +3,6 @@ import { EventEmitter, Injectable } from '@angular/core';
 import { Observable, Subscription, throwError } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { EmployeeAcc } from 'src/app/model/EmployeeAcc';
-import { EmployeeInfo } from 'src/app/model/EmployeeInfo';
 import { EmployeeInfoDTO } from 'src/app/model/EmployeeInfoDTO';
 import { CommonService } from '../common/common.service';
 

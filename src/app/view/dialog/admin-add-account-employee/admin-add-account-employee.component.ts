@@ -4,9 +4,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { CustomerInfo } from 'src/app/model/CustomerInfo';
 import { EmployeeAcc } from 'src/app/model/EmployeeAcc';
-import { EmployeeInfo } from 'src/app/model/EmployeeInfo';
 import { EmployeeInfoDTO } from 'src/app/model/EmployeeInfoDTO';
-import { CustomerService } from 'src/app/services/customer/customer.service';
 import { EmployeeService } from 'src/app/services/employee/employee.service';
 import { SnackbarService } from 'src/app/services/snackbar/snackbar.service';
 
@@ -17,13 +15,13 @@ import { SnackbarService } from 'src/app/services/snackbar/snackbar.service';
 })
 export class AdminAddAccountEmployeeComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: EmployeeInfo,private spinner:NgxSpinnerService,private employeeService:EmployeeService,private notiService: SnackbarService,) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: EmployeeInfoDTO,private spinner:NgxSpinnerService,private employeeService:EmployeeService,private notiService: SnackbarService,) { }
 
   role:number;
   code_suppervisor:string;
  employeeAccList:Array<EmployeeAcc>;
   
-  onSubmit(addAccEmployeeForm : NgForm,employeeInfo:EmployeeInfo){
+  onSubmit(addAccEmployeeForm : NgForm,employeeInfo:EmployeeInfoDTO){
     this.spinner.show();
     let employeeAcc = new EmployeeAcc(addAccEmployeeForm.value.code,'',this.role,true);
     let emAccWithEmail = {email:this.data.email,emAcc:employeeAcc,code_suppervisor:this.code_suppervisor,id_custInfo:this.data.id};

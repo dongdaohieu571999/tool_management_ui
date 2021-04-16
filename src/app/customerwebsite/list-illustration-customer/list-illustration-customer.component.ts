@@ -71,12 +71,18 @@ export class ListIllustrationCustomerComponent implements OnInit {
         dateTo1 = this.dateTo.toString();
       }
       let searchText = "%" + this.searchValue + "%";
-      this.illustrationService.searchAllIllustrationBelongCustomer(this.activateRoute.snapshot.params['id'],dateFrom1,dateTo1,searchText).subscribe((data =>{
+      // this.illustrationService.searchAllIllustrationBelongCustomer(this.activateRoute.snapshot.params['id'],dateFrom1,dateTo1,searchText).subscribe((data =>{
+      //   this.illustrations = data;
+      //   console.log( this.illustrations);
+      //   this.totalRecords = data.length;
+      //   this.spinner.hide();
+      //   this.page=1;
+      // }))
+      this.illustrationService.searchAllIllustrationForCustomer(jwtDecode(this.common.getCookie('token_customer'))['sub'],dateFrom1,dateTo1,searchText).subscribe((data =>{
         this.illustrations = data;
-        console.log( this.illustrations);
         this.totalRecords = data.length;
-        this.spinner.hide();
         this.page=1;
+        this.spinner.hide();
       }))
 
     } catch (error) {

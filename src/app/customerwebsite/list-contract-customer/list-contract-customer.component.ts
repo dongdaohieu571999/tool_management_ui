@@ -83,11 +83,17 @@ export class ListContractCustomerComponent implements OnInit {
       }
       let searchText = "%" + this.searchValue + "%";
       
-      this.contractService.searchAllContract(jwt_decode(this.common.getCookie('token_key'))['sub'],dateFrom1,dateTo1,searchText).subscribe((data => {
+      // this.contractService.searchAllContract(jwt_decode(this.common.getCookie('token_key'))['sub'],dateFrom1,dateTo1,searchText).subscribe((data => {
+      //   this.contracts = data;
+      //   this.totalRecords = this.contracts.length;
+      //   this.spinner.hide();
+      //   this.page = 1;
+      // }))
+      this.contractService.searchAllContractForCustomer(jwt_decode(this.common.getCookie('token_customer'))['sub'],dateFrom1,dateTo1,searchText).subscribe((data => {
         this.contracts = data;
         this.totalRecords = this.contracts.length;
-        this.spinner.hide();
         this.page = 1;
+        this.spinner.hide();
       }))
 
     } catch (error) {

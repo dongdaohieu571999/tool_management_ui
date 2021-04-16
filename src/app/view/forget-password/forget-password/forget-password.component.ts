@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { EmployeeInfo } from 'src/app/model/EmployeeInfo';
+import { EmployeeInfoDTO } from 'src/app/model/EmployeeInfoDTO';
 import { EmployeeService } from 'src/app/services/employee/employee.service';
 import { ServerHttpService } from 'src/app/services/http/server-http.service';
 import { SnackbarService } from 'src/app/services/snackbar/snackbar.service';
