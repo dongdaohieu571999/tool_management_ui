@@ -82,9 +82,10 @@ export class ViewDetailContractComponent implements OnInit {
         }
         this.fileService.saveFile(listFileSave).subscribe((data => {
           this.refresh();
+          this.selectedFile = [];
+          this.snackBar.openSnackBar("Upload File Thành Công!","Đóng");
         }))
       }
-     
     }))
   } else {
     this.snackBar.openSnackBar("Vui Lòng Chọn Ít Nhất 1 File Để Tải Lên","Đóng");
@@ -113,6 +114,12 @@ export class ViewDetailContractComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       
     })
+  }
+
+  removeFile(index:number){
+    if(index>-1){
+      this.selectedFile.splice(index,1)
+    }
   }
 
   public refresh(){

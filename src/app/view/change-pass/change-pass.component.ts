@@ -26,7 +26,6 @@ export class ChangePassComponent implements OnInit {
     this.spinner.show();
     if(changePassForm.value.newPass == changePassForm.value.confirmNewPass){
       this.employeeService.getAccByCode(this.common.getCookie('token_key')).subscribe((data => {
-        console.log(data['pass'])
         if(data['pass'] == changePassForm.value.oldPass){
           this.employeeService.updateEmployeeAccount(new EmployeeAcc(jwtDecode(this.common.getCookie('token_key'))['sub'],
           changePassForm.value.newPass,0,true)).subscribe((data => {

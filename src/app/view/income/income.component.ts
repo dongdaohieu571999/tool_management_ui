@@ -24,6 +24,8 @@ ContractCount : number = 0;
 dateNow:Date = new Date(); 
 month:number = this.dateNow.getMonth()+1;
 year:number = this.dateNow.getFullYear();
+page: number = 1;
+totalRecords: number;
 
 
 
@@ -34,8 +36,7 @@ year:number = this.dateNow.getFullYear();
     }))
     this.revenueService.getAllRevenue(jwt_decode(this.common.getCookie('token_key'))['sub']).subscribe((data =>{
       this.listRevenueEmployee = data;
-      console.log("danh sach doanh thu tat ca ");
-      console.log(this.listRevenueEmployee);
+      this.totalRecords = this.listRevenueEmployee.length;
     }))
     this.revenueService.getAllRevenueMonthBefore(jwt_decode(this.common.getCookie('token_key'))['sub'],this.month,this.year).subscribe((data =>{
       this.listRevenueEmployeeMonthBefore = data;
@@ -47,8 +48,6 @@ year:number = this.dateNow.getFullYear();
     }))
     this.revenueService.getAllRevenueYearBefore(jwt_decode(this.common.getCookie('token_key'))['sub'],this.year).subscribe((data =>{
       this.listRevenueEmployeeYearBefore = data;
-      console.log("danh sach nam truoc");
-      console.log(this.listRevenueEmployeeYearBefore);
      
       for (let i = 1; i < 13; i++) {
         let sumRevenue:number = 0;
@@ -60,9 +59,6 @@ year:number = this.dateNow.getFullYear();
         this.monthRevenueList.push(sumRevenue);
       }
     }))
-    console.log("Doanh thu nam truoc");
-    console.log(this.monthRevenueList);
-
   }
   public IncomeDetailLastYear(month:number){
     this.router.navigate(['employee-detail-income',month]);

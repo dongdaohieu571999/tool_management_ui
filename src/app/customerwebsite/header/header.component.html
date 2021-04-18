@@ -41,9 +41,7 @@
 
                     </li>
                     <li *ngIf="common.getCookie('token_customer')" class="nav-item dropdown">
-                        <a class="nav-link" href="services">
-                            Thông tin khách hàng
-                            </a>
+                        <a class="nav-link" href="services">Tài Liệu Của Bạn</a>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="nav-link" href="services">
                             </a><a class="dropdown-item" href="illustration-customer">Danh sách bản minh họa</a>
@@ -66,6 +64,7 @@
                         <img src="../../assets/images/avatar5.png" class="img_customer">
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="profile-customer">Thông tin cá nhân</a>
+                            <a class="dropdown-item" href="change-pass-customer">Đổi Mật Khẩu</a>
                             <a class="dropdown-item" (click)="exit()" style="cursor: pointer;">THOÁT</a>
                         </div>
                     </li>

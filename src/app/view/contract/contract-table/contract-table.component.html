@@ -3,8 +3,7 @@
     </div>
     <div class="right">
         <div class="input-group searchBar">
-            <input type="search" class="form-control form-control-lg" [(ngModel)]="searchValue"
-                placeholder="Nhập từ khóa cần tìm">
+            <input type="search" class="form-control form-control-lg" [(ngModel)]="searchValue" placeholder="Nhập từ khóa cần tìm">
         </div>
         <div class="date">
             <label>From<input id="RfromSearch" type="date" name="dateFrom" [(ngModel)]="dateFrom"
@@ -19,7 +18,7 @@
     </div>
 </div>
 
-<table id="contract_table"  *ngIf="contracts" style="text-align: center;" class="table table-bordered table-striped">
+<table id="contract_table" *ngIf="contracts" style="text-align: center;" class="table table-bordered table-striped">
     <thead>
         <tr>
             <th (click)="sort('id')">Mã Hợp Đồng&nbsp;<i class="fas fa-sort"></i></th>
@@ -51,7 +50,7 @@
             <td>{{contract.status==false?"Chưa Được Xét Duyệt":"Đã Được Xét Duyệt"}}</td>
             <td>{{contract.start_time | date: 'dd-MM-yyyy'}}</td>
             <td>
-                <button (click)="contractDetail(contract.id)" class="btn btn-info" style="height: 30px;color: white;">Chi Tiết</button>
+                <button (click)="contractDetail(contract.id)" class="btn btn-info" style="color: white;">Chi Tiết</button>
             </td>
         </tr>
     </tbody>

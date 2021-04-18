@@ -6,100 +6,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
-<body class="hold-transition sidebar-mini">
-    <div class="wrapper">
+<body style="background: none;">
 
-        <!-- Main content -->
-        <section class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <table class=" table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th>Hạng Mục</th>
-                                        <th>Số Tiền</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Tổng Thu Nhập Tháng Trước ({{month-1}}/{{year}})</td>
-                                        <td>{{RevenueLastMonth | currency :"VND"}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Số Lượng Hợp Đồng Mới Tháng Trước ({{month-1}}/{{year}})</td>
-                                        <td>{{ContractCount}}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="card">
-                            <div class="card-header">
-                                <h1 class="card-title">Thu Nhập Theo Hợp Đồng</h1>
-                                <!-- <div class="row" style="float: right;">
-                                    <div class="card" style="padding: 10px;
-                                        background: #28a745; color: white;">
-                                        <div>
-                                            <label>Search:<input id="Rsearch" type="search" class="form-control form-control-sm" placeholder="" aria-controls="example1"></label>
-                                            <label>From<input id="RfromSearch" type="date" class="form-control form-control-sm" placeholder="" aria-controls="example1"></label>
-                                            <label>To<input id="RtoSearch" type="date" class="form-control form-control-sm" placeholder="" aria-controls="example1"></label>
-                                            <button id="RdelBtn" type="button" class="btn btn-danger">XÓA</button>
-                                            <button type="button" class="btn btn-info">Tìm Kiếm</button>
-                                        </div>
-                                    </div>
-                                </div> -->
-                            </div>
-                            <div class="card-body" style=" overflow: auto;">
-                                <table class="table table-bordered table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>Mã Hợp Đồng</th>
-                                            <th>Thu Nhập</th>
-                                            <th>Doanh Thu</th>
-                                            <th>Thời Gian</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr *ngFor="let revenue of listRevenueEmployee">
-                                            <td>{{revenue.id_contract}}</td>
-                                            <td>{{revenue.income | currency :"VND"}}</td>
-                                            <td>{{revenue.revenue_val | currency :"VND"}}</td>
-                                            <td>{{revenue.create_time | date}}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header">
-                                <h1 class="card-title">Thu Nhập Năm Qua</h1>
-                            </div>
-                            <div class="card-body">
-                                <table class=" table table-bordered ">
-                                    <thead>
-                                        <tr>
-                                            <th>Tháng</th>
-                                            <th>Số Tiền</th>
-                                            <th>Chi Tiết</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr *ngFor="let month of monthRevenueList,index as i">
-                                            <td>Tháng {{i+1}}</td>
-                                            <td>{{month | currency :"VND"}}</td>
-                                            <td>
-                                                <span (click)="IncomeDetailLastYear(i+1)" class="btn btn-info" style="height: 40px; width: 100px; margin: 10px; color: white;">Chi Tiết</span>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <div class="income">
+        <div class="card">
+            <div class="card-body">
+                <table class=" table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Hạng Mục</th>
+                            <th>Số Tiền</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Tổng Thu Nhập Tháng Trước ({{month-1}}/{{year}})</td>
+                            <td>{{RevenueLastMonth | currency :"VND"}}</td>
+                        </tr>
+                        <tr>
+                            <td>Số Lượng Hợp Đồng Mới Tháng Trước ({{month-1}}/{{year}})</td>
+                            <td>{{ContractCount | currency :"VND"}}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-        </section>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h1 class="card-title">Thu Nhập Theo Hợp Đồng</h1>
+            </div>
+            <div class="card-body" style=" overflow: auto;">
+
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Mã Hợp Đồng</th>
+                            <th>Thu Nhập</th>
+                            <th>Doanh Thu</th>
+                            <th>Thời Gian</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let revenue of listRevenueEmployee">
+                            <td>{{revenue.id_contract}}</td>
+                            <td>{{revenue.income | currency :"VND"}}</td>
+                            <td>{{revenue.revenue_val | currency :"VND"}}</td>
+                            <td>{{revenue.create_time | date:'dd/MM/yyyy'}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <pagination-controls style="float: right;" id="listing_pagination" maxSize="5" directionLinks="true" (pageChange)="page = $event"></pagination-controls>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h1 class="card-title">Thu Nhập Năm Qua</h1>
+            </div>
+            <div class="card-body">
+                <table class=" table table-bordered ">
+                    <thead>
+                        <tr>
+                            <th>Tháng</th>
+                            <th>Số Tiền</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let month of monthRevenueList,index as i">
+                            <td>Tháng {{i+1}}</td>
+                            <td>{{month | currency :"VND"}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </body>
 

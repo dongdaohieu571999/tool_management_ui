@@ -85,6 +85,8 @@ export class IllustrationTableComponent implements OnInit {
 
     public openDialogCustomerDetail(id_customer:number){
       let dialogRef = this.dialog.open(CustomerDetailDialogComponent,{
+        height:'80%',
+        width:'fit-content',
         data:id_customer   
     });
   }

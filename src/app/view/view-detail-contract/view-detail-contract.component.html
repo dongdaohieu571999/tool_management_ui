@@ -7,93 +7,85 @@
 
 </head>
 
-<body>
-    <div class="wrapper">
-        <div class="card">
-            <mat-tab-group>
-                <mat-tab label="Thông Tin Chi tiết Hợp Đồng">
+<body style="background: #fafafa;">
+    <div class="card custom-div-1">
+        <mat-tab-group>
+            <mat-tab label="Thông Tin Chi tiết Hợp Đồng">
+                <table class=" table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Tiêu Đề</th>
+                            <th>Thông tin</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Mã Hợp Đồng</td>
+                            <td>#HD{{contracts?.id}}</td>
+                        </tr>
+                        <tr>
+                            <td>Mã Khách Hàng</td>
+                            <td>{{contracts?.code}}</td>
+                        </tr>
+                        <tr>
+                            <td>Chủ Hợp Đồng</td>
+                            <td>{{contracts?.name_contract_owner}}</td>
+                        </tr>
+                        <tr>
+                            <td>Loại Bảo Hiểm</td>
+                            <td>{{contracts?.insurance_type}}</td>
+                        </tr>
+                        <tr>
+                            <td>Mã Gói Bảo Hiểm</td>
+                            <td>{{contracts?.id_main_interest}}</td>
+                        </tr>
+                        <tr>
+                            <td>Mã Bản Minh Họa</td>
+                            <td>#BMH{{contracts?.id_illustration}}</td>
+                        </tr>
+                        <tr>
+                            <td>Ngày Đăng Ký</td>
+                            <td>{{contracts?.start_time | date: 'dd-MM-yyyy' }}</td>
+                        </tr>
+                        <tr>
+                            <td>Ngày Hết Hạn</td>
+                            <td>{{contracts?.end_time}}</td>
+                        </tr>
+                        <tr>
+                            <td>Trạng Thái</td>
+                            <td>{{contracts?.status==false?'Chưa Hoạt Động':'Đang Hoạt Động'}}</td>
+                        </tr>
+                        <tr>
+                            <td>Trạng Thái Phê Duyệt</td>
+                            <td>{{contracts?.approval_status}}</td>
+                        </tr>
+                        <tr>
+                            <td>Kỳ Hạn Đóng Phí</td>
+                            <td>{{payment_period}}</td>
+                        </tr>
 
-                    <!-- table -->
-                    <div class="card" style="height: 700px;">
+                    </tbody>
 
-                        <div class="card-body" style="overflow: auto; ">
-                            <table class=" table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th>Tiêu Đề</th>
-                                        <th>Thông tin</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Mã Hợp Đồng</td>
-                                        <td>#HD{{contracts?.id}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Mã Khách Hàng</td>
-                                        <td>{{contracts?.code}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Chủ Hợp Đồng</td>
-                                        <td>{{contracts?.name_contract_owner}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Loại Bảo Hiểm</td>
-                                        <td>{{contracts?.insurance_type}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Mã Gói Bảo Hiểm</td>
-                                        <td>{{contracts?.id_main_interest}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Mã Bản Minh Họa</td>
-                                        <td>#BMH{{contracts?.id_illustration}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ngày Đăng Ký</td>
-                                        <td>{{contracts?.start_time | date: 'dd-MM-yyyy' }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ngày Hết Hạn</td>
-                                        <td>{{contracts?.end_time}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Trạng Thái</td>
-                                        <td>{{contracts?.status==false?'Chưa Hoạt Động':'Đang Hoạt Động'}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Trạng Thái Phê Duyệt</td>
-                                        <td>{{contracts?.approval_status}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Kỳ Hạn Đóng Phí</td>
-                                        <td>{{payment_period}}</td>
-                                    </tr>
-
-                                </tbody>
-
-                            </table>
-                            <div class="form-group">
-                                <h2>TẢI LÊN CÁC GIẤY TỜ CẦN THIẾT</h2>
-                                <p *ngFor="let file of selectedFile">{{ file.name }}</p>
-                                <input type="file" name="file" class="form-control" (change)="onChangeFile($event)">
-                                <button (click)="onUpload()" class="form-control">TẢI LÊN</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- table -->
-                </mat-tab>
-                <mat-tab label="Tài Liệu Đính Kèm">
-                    <div>
-                        <p><a *ngFor="let doc of listDocument" class="form-control" href="{{doc.url}}">{{doc.name_document}}</a></p>
-                    </div>
-                </mat-tab>
-            </mat-tab-group>
-        </div>
-        
+                </table>
+                <div class="custom-upload-div">
+                    <h2>TẢI LÊN CÁC GIẤY TỜ CẦN THIẾT</h2>
+                    <p *ngFor="let file of selectedFile ; index as i" class="list-file">{{ file.name }} &nbsp;&nbsp;
+                        <span (click)="removeFile(i)" style="padding: 5px;"><i class="fas fa-times" style="color: gray;"></i></span>
+                    </p>
+                    <input id="file" type="file" (change)="onChangeFile($event)" />
+                    <button (click)="onUpload()" class="form-control">TẢI LÊN</button>
+                </div>
+            </mat-tab>
+            <mat-tab label="Tài Liệu Đính Kèm">
+                <div>
+                    <p><a *ngFor="let doc of listDocument" class="form-control" href="{{doc.url}}">{{doc.name_document}}</a></p>
+                </div>
+            </mat-tab>
+        </mat-tab-group>
     </div>
-    <button *ngIf="authenService.id_role=='2' && contracts.approval_status == 'CXD'" type="button" class="btn btn-success" style="position: fixed; bottom: 0%; left: 40%; width: 400px; z-index: 1000;" (click)="openDialogSendRequest()">Gửi Yêu Cầu Xét Duyệt</button>
-    <!-- ./wrapper -->
+    <div class="custom-div">
+        <button *ngIf="authenService.id_role=='2' && contracts.approval_status == 'CXD'" type="button" class="btn btn-success" style="width: 100%;" (click)="openDialogSendRequest()">Gửi Yêu Cầu Xét Duyệt</button>
+    </div>
 </body>
 
 </html>

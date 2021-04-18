@@ -40,6 +40,7 @@ import { DetailPageComponent } from './customerwebsite/detail-page/detail-page.c
 import { ListIllustrationCustomerComponent } from './customerwebsite/list-illustration-customer/list-illustration-customer.component';
 import { ListContractCustomerComponent } from './customerwebsite/list-contract-customer/list-contract-customer.component';
 import { ProfileCustomerComponent } from './customerwebsite/profile-customer/profile-customer.component';
+import { ChangePassCustomerComponent } from './customerwebsite/change-pass-customer/change-pass-customer.component';
 
 const routes: Routes = [
   {path : "dashboard", component: DashboardComponent},
@@ -81,7 +82,7 @@ const routes: Routes = [
   {path: "illustration-customer", component:  ListIllustrationCustomerComponent},
   {path: "contract-customer", component:  ListContractCustomerComponent},
   {path: "profile-customer", component:  ProfileCustomerComponent},
-  
+  {path: "change-pass-customer", component:  ChangePassCustomerComponent},
   
 ];
 

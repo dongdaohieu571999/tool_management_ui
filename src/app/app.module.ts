@@ -97,6 +97,7 @@ import { ListIllustrationCustomerComponent } from './customerwebsite/list-illust
 import { ListContractCustomerComponent } from './customerwebsite/list-contract-customer/list-contract-customer.component';
 import { ProfileCustomerComponent } from './customerwebsite/profile-customer/profile-customer.component';
 import { HeaderComponent } from './customerwebsite/header/header.component';
+import { ChangePassCustomerComponent } from './customerwebsite/change-pass-customer/change-pass-customer.component';
 
 
 
@@ -174,6 +175,7 @@ import { HeaderComponent } from './customerwebsite/header/header.component';
     ListContractCustomerComponent,
     ProfileCustomerComponent,
     HeaderComponent,
+    ChangePassCustomerComponent,
   ],
   imports: [
     DataTablesModule,

@@ -47,6 +47,8 @@ export class ContractTableComponent implements OnInit {
   }
   public openDialogCustomerDetail(id_customer: number) {
     let dialogRef = this.dialog.open(CustomerDetailDialogComponent, {
+      height:'80%',
+      width:'fit-content',
       data: id_customer
     });
   }
@@ -65,6 +67,8 @@ export class ContractTableComponent implements OnInit {
 
   public openDialogIllustrationDetail(id_illustration: number) {
     let dialogRef = this.dialog.open(IllustrationDetailDialogComponent, {
+      height:'80%',
+      width:'fit-content',
       data: id_illustration
     });
   }

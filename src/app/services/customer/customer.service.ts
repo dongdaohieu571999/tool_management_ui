@@ -133,6 +133,13 @@ export class CustomerService {
     .post<any>(url,data,this.httpOptions)
     .pipe(catchError(this.handleError));
   }
+
+  public changePassCustomer(data:any){
+    const url = this.common.makeUrlForCustomer("/customer-api/change_pass/");
+    return this.httpClient
+    .post<any>(url,data,this.httpOptions)
+    .pipe(catchError(this.handleError));
+  }
   
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
