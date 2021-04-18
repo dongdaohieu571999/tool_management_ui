@@ -45,6 +45,7 @@ export class ViewEmTableComponent implements OnInit {
   public refresh() {
     this.spinner.show();
     this.employeeService.getAllInfoAcc().subscribe((data => {
+      console.log(data);
       this.data = data;
       this.totalRecords = data.length;
       this.spinner.hide();

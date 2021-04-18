@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { EmployeeAcc } from 'src/app/model/EmployeeAcc';
 import { EmployeeService } from 'src/app/services/employee/employee.service';
+import { SnackbarService } from 'src/app/services/snackbar/snackbar.service';
 
 @Component({
   selector: 'app-admin-pause-employee-dialog',
@@ -10,7 +11,7 @@ import { EmployeeService } from 'src/app/services/employee/employee.service';
 })
 export class AdminPauseEmployeeDialogComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public id_employee_acc:number,
+  constructor(private snackBar:SnackbarService,@Inject(MAT_DIALOG_DATA) public id_employee_acc:number,
   private employeeService:EmployeeService,public dialogRef: MatDialogRef<AdminPauseEmployeeDialogComponent>) { }
 
   employeeAcc : Array<EmployeeAcc>;
@@ -23,7 +24,7 @@ export class AdminPauseEmployeeDialogComponent implements OnInit {
   PauseEmployee(){
     let codeEmployeeNew = (<HTMLInputElement>document.getElementById('saler')).value;
     this.employeeService.PauseEmployee(codeEmployeeNew,this.id_employee_acc).subscribe((data =>{
-        
+        this.snackBar.openSnackBar("Ngưng nhân viên thành công","Đóng");
     }))
     this.dialogRef.close();
   }

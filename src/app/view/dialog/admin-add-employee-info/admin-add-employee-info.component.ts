@@ -37,7 +37,13 @@ export class AdminAddEmployeeInfoComponent implements OnInit {
 
   public onSubmit() {
     this.employeeService.addEmployeeInfo(this.employeinfoDTO).subscribe((data => {
-      this.employeeService.invokeRefreshTableFun();
+      if(data !=null){
+        this.employeeService.invokeRefreshTableFun();  
+        this.notiService.openSnackBar("Thêm thông tin nhân viên thành công","Đóng"); 
+      }else{
+        this.employeeService.invokeRefreshTableFun();  
+        this.notiService.openSnackBar("Thêm thông tin nhân viên không thành công","Đóng"); 
+      }    
     }))
 
   }

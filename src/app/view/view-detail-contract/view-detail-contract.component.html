@@ -92,7 +92,7 @@
         </div>
         
     </div>
-    <button *ngIf="authenService.id_role=='2' && contracts.approval_status == 'CXD'" type="button" class="btn btn-success" style="position: fixed; bottom: 0%; left: 40%; width: 400px;" (click)="openDialogSendRequest()">Gửi Yêu Cầu Xét Duyệt</button>
+    <button *ngIf="authenService.id_role=='2' && contracts.approval_status == 'CXD'" type="button" class="btn btn-success" style="position: fixed; bottom: 0%; left: 40%; width: 400px; z-index: 1000;" (click)="openDialogSendRequest()">Gửi Yêu Cầu Xét Duyệt</button>
     <!-- ./wrapper -->
 </body>
 
