@@ -88,7 +88,7 @@
                             </div>
                             <div class="form-group ">
                                 <label for="exampleInputEmail1 ">Giấy Tờ Nhân Thân Số</label>
-                                <input type="text" class="form-control" name="id_card" [(ngModel)]="customerInfo.id_card" required pattern="[0-9]{12}|[0-9]{7}" #id_card="ngModel">
+                                <input type="text" class="form-control" name="id_card" [(ngModel)]="customerInfo.id_card" required pattern="^[0-9]{12}$|^[0-9]{7}$" #id_card="ngModel">
                                 <span id="errorMessagename" style="color: red;" *ngIf="id_card.errors?.required && id_card.touched">Chứng minh nhân dân không được
                                     để trống</span>
                                 <span id="errorMessagename" style="color: red;" *ngIf="id_card.errors?.pattern && id_card.touched">Chứng minh nhân dân phải đủ 7 số
@@ -344,9 +344,9 @@
                             <div class="form-group ">
                                 <label for="exampleInputEmail1 ">Điện Thoại Cố Định:</label>
                                 <!-- <p style="color: black; ">{{ customerInfo.phone_1 }}</p> -->
-                                <input type="text" class="form-control" name="phone_1" required #phone_1="ngModel" pattern="((09|03|07|08|05)+([0-9]{8})\b)" [(ngModel)]="customerInfo.phone_1">
+                                <input type="text" class="form-control" name="phone_1" required #phone_1="ngModel" pattern="^((09|03|07|08|05)+([0-9]{8})\b)$" [(ngModel)]="customerInfo.phone_1">
                                 <span id="errorMessagename" style="color: red;" *ngIf="phone_1.errors?.required && phone_1.touched">Điện Thoại Cố Định không được để trống</span>
-                                <span id="errorMessagename" style="color: red;" *ngIf="phone_1.errors?.pattern && phone_1.touched">Điện Thoại Cố Định không được chứa kí tự đặc biệt </span>
+                                <span id="errorMessagename" style="color: red;" *ngIf="phone_1.errors?.pattern && phone_1.touched">Số điện thoại phải có 10 số và bắt đầu (09|03|07|08|05)  </span>
                             </div>
                             <!-- <div class="form-group ">
                                 <label for="exampleInputEmail1 ">Điện Thoại Di Động 1:</label> -->
