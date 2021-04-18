@@ -29,14 +29,14 @@ export class IllustrationService {
   constructor(private httpClient: HttpClient,private common: CommonService) { }
 
   public getAllCustomerOwnIllustration(code_em_support:string): Observable<any>{
-    const url = this.common.makeUrl('/illustration/get_all_customer_own_illustration/');
+    const url = this.common.makeUrl('/illustration/get_all_campaign/');
     return this.httpClient
     .post<any>(url,code_em_support,this.httpOptions)
     .pipe(catchError(this.handleError));
   }
   public searchAllCustomerOwnIllustration(code_em_support:String,create_time:String,end_time:String,searchValue:String): Observable<any>{
     let data = {code_em_support:code_em_support,create_time:create_time,end_time:end_time,searchValue:searchValue};
-    const url = this.common.makeUrl('/illustration/search_all_customer_own_illustration');
+    const url = this.common.makeUrl('/illustration/search_all_campaign');
     return this.httpClient
     .post<any>(url,data,this.httpOptions)
     .pipe(catchError(this.handleError));
@@ -80,7 +80,7 @@ export class IllustrationService {
   }
 
   public addOneCustomerOwnIllustration(code:string,end_time:Date): Observable<any>{
-    const url = this.common.makeUrl('/illustration/add_one_customer_own_illustration/');
+    const url = this.common.makeUrl('/illustration/add_one_campaign/');
     let data = {code:code,end_time:end_time};
     return this.httpClient
     .post<any>(url,data,this.httpOptions)
