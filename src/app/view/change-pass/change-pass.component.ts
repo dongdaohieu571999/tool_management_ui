@@ -7,6 +7,8 @@ import { EmployeeService } from 'src/app/services/employee/employee.service';
 import { EmployeeAcc } from 'src/app/model/EmployeeAcc';
 import jwtDecode from 'jwt-decode';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { AuthenService } from 'src/app/services/authen/authen.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-change-pass',
@@ -15,7 +17,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class ChangePassComponent implements OnInit {
 
-  constructor(private employeeService:EmployeeService,private snackBar:SnackbarService,private spinner:NgxSpinnerService,
+  constructor(public authenService: AuthenService,public router: Router,private employeeService:EmployeeService,private snackBar:SnackbarService,private spinner:NgxSpinnerService,
     private common:CommonService,private httpService:ServerHttpService) { }
 
   ngOnInit(): void {
@@ -33,6 +35,9 @@ export class ChangePassComponent implements OnInit {
             if(data != null){
               this.snackBar.openSnackBar('Cập Nhật Mật Khẩu Thành Công','Đóng');
               changePassForm.reset();
+              this.authenService.isAuthen = false;
+              this.common.deleteCookie("token_key");
+              this.router.navigate(['login']);
               this.spinner.hide();
             } else {
               this.snackBar.openSnackBar('Cập Nhật Mật Khẩu Không Thành Công','Đóng');

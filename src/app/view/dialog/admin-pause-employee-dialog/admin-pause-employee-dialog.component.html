@@ -3,11 +3,17 @@
     <div class="card-body" style="display:grid">
         <h3>Tạm ngưng nhân viên này</h3>
         <i style="color: red;">Lý Do Tạm Ngưng</i>
-        <textarea style="width: 600px;height: 100px;"></textarea>
+        <textarea style="width: 600px;height: 100px;" [(ngModel)]="description"></textarea>
         <label for="saler">Nhân viên chuyển giao:</label>
-        <select name="salerId" id="saler" >
+        <select name="salerId" id="saler">
             <option *ngFor="let item of employeeAcc" [value]="item.code">{{item.code}}</option>
         </select>
+        
+            <h3>Tải lên các giấy tờ cần thiết </h3>
+            <p *ngFor="let file of selectedFile">{{ file.name }}</p>
+            <input type="file" name="file" class="form-control" (change)="onChangeFile($event)">
+            <button class="form-control">TẢI LÊN</button>
+        
     </div>
 
 </mat-dialog-content>

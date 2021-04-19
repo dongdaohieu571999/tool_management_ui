@@ -83,8 +83,7 @@ export class ViewDetailContractComponent implements OnInit {
         this.fileService.saveFile(listFileSave).subscribe((data => {
           this.refresh();
         }))
-      }
-     
+      }    
     }))
   } else {
     this.snackBar.openSnackBar("Vui Lòng Chọn Ít Nhất 1 File Để Tải Lên","Đóng");

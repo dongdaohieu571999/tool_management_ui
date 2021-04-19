@@ -259,6 +259,20 @@ export class CreateIllustrationComponent implements OnInit {
     return;
   }
 
+  insuranceBuyerRelationValue(){
+    let value = (<HTMLInputElement>document.getElementById('buyerRelation')).value;
+    if(value == "Bản Thân"){
+      (<HTMLInputElement>document.getElementById('nameCustomer')).value = this.customerInfo.full_name;
+      (<HTMLInputElement>document.getElementById('genderInsuredPerson')).value = this.customerInfo.gender ==1?'true':'false';
+      (<HTMLInputElement>document.getElementById('birthDayInsuredPerson')).value =new Date(this.customerInfo.birth_date).getFullYear() +"-"+ (new Date(this.customerInfo.birth_date).getMonth() < 10 ? "0"+(new Date(this.customerInfo.birth_date).getMonth()+1):new Date(this.customerInfo.birth_date).getMonth()+1 )+"-"+ new Date(this.customerInfo.birth_date).getDate();
+      console.log(new Date(this.customerInfo.birth_date).getFullYear() +"-"+ (new Date(this.customerInfo.birth_date).getMonth() < 10 ? "0"+new Date(this.customerInfo.birth_date).getMonth():new Date(this.customerInfo.birth_date).getMonth()+1 )+"-"+ new Date(this.customerInfo.birth_date).getDate());
+    }
+  }
+
+  checkMoneyFormat(){
+    
+  }
+
 
   activeSubIllustrationRelatedPerson(indexParent: number, indexChild: number) {
     this.relatedPerson[indexParent].listSubInterest[indexChild].isDisable = !this.relatedPerson[indexParent].listSubInterest[indexChild].isDisable;
