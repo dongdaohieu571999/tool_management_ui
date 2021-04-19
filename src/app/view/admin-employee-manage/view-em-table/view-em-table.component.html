@@ -38,7 +38,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let employeeinfo of data| orderBy: key:reverse | paginate: { id: 'listing_pagination' ,itemsPerPage: 3, currentPage: page, totalItems: totalRecords};let i = index">
+            <tr *ngFor="let employeeinfo of data| orderBy: key:reverse | paginate: { id: 'listing_pagination' ,itemsPerPage: 6, currentPage: page, totalItems: totalRecords};let i = index">
                 <td>#NV{{employeeinfo.id}}</td>
                 <td>{{employeeinfo.code}}</td>
                 <td>{{employeeinfo.name}}</td>
@@ -47,7 +47,8 @@
                 <td>{{employeeinfo.email}}</td>
                 <td>{{employeeinfo.in_dept}}</td>
                 <td>
-                    <p *ngIf="employeeinfo.status!=null">{{employeeinfo.status?"Đang Hoạt Động":"Tạm Ngưng"}}</p>
+                    <!-- <p *ngIf="employeeinfo.status!=null">{{employeeinfo.status?"Đang Hoạt Động":"Tạm Ngưng"}}</p> -->
+                    <p *ngIf="employeeinfo.status!=null">{{employeeinfo.status==1?"Đang Hoạt Động":"Tạm Ngưng"}}</p>
                     <p *ngIf="employeeinfo.status==null"></p>
                 </td>
                 <td>

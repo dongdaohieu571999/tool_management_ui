@@ -11,13 +11,12 @@
         
             <h3>Tải lên các giấy tờ cần thiết </h3>
             <p *ngFor="let file of selectedFile">{{ file.name }}</p>
-            <input type="file" name="file" class="form-control" (change)="onChangeFile($event)">
-            <button class="form-control">TẢI LÊN</button>
+            <input type="file" name="file" class="form-control" (change)="onChangeFile($event)">          
         
     </div>
 
 </mat-dialog-content>
 <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>Hủy</button>
-    <button mat-button (click)="PauseEmployee()">Gửi</button>
+    <button mat-button (click)="onUpload()">Gửi</button>
 </mat-dialog-actions>

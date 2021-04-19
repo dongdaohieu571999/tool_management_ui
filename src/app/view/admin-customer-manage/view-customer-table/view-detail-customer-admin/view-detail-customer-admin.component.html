@@ -35,18 +35,18 @@
                                                     <div class="form-group ">
                                                         <label for="exampleInputPassword1 ">Mã Hợp Đồng</label>
                                                         <p style="color: red; ">
-                                                            <a  *ngFor="let item of custInfoList" (click)="openDialogContractDetail(item.id_contract)"> {{ item.id_contract }}&nbsp;,</a>
+                                                            <a  *ngFor="let item of custInfoList" (click)="openDialogContractDetail(item.id_contract)"> #HĐ{{ item.id_contract }}&nbsp;,</a>
                                                         </p>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputPassword1 ">Mã Bản Minh Họa Tương Ứng</label>
                                                         <p style="color: red; ">
-                                                            <a  *ngFor="let item of custInfoList" (click)="openDialogIllustrationDetail(item.id_illustration)"> {{ item.id_illustration }}&nbsp;,</a>
+                                                            <a  *ngFor="let item of custInfoList" (click)="openDialogIllustrationDetail(item.id_illustration)"> #BMH{{ item.id_illustration }}&nbsp;,</a>
                                                         </p>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputPassword1 ">Mã Khách Hàng</label>
-                                                        <p style="color: red; ">{{ customerInfo.id }}</p>
+                                                        <p style="color: red; ">#KH{{ customerInfo.id }}</p>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Họ Tên</label>

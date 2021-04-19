@@ -37,7 +37,7 @@
                                                         <label for="exampleInputPassword1 ">Mã Hợp Đồng</label>
                                                         <p style="color: red; ">
                                                             <a *ngFor="let item of custInfoList"
-                                                                (click)="openDialogContractDetail(item.id_contrac)"> {{
+                                                                (click)="openDialogContractDetail(item.id_contrac)">#HĐ {{
                                                                 item.id_contract }},&nbsp;&nbsp;</a>
                                                         </p>
                                                     </div>
@@ -47,7 +47,7 @@
                                                         <p style="color: red; ">
                                                             <a *ngFor="let item of custInfoList"
                                                                 (click)="openDialogIllustrationDetail(item.id_illustration)">
-                                                                {{ item.id_illustration }},&nbsp;&nbsp;</a>
+                                                                #BMH{{ item.id_illustration }},&nbsp;&nbsp;</a>
                                                         </p>
                                                     </div>
                                                     <div class="form-group ">

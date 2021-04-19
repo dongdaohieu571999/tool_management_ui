@@ -58,7 +58,7 @@
                             </div>
                             <div class="form-group ">
                                 <label for="exampleInputEmail1 ">Ngày Sinh</label>
-                                <input type="date" class="form-control" name="birth_date" [ngModel]="customerInfo.birth_date | date: 'dd-MM-yyyy'" (ngModelChange)="dateChanged($event)" required>
+                                <input type="date" class="form-control" name="birth_date" [ngModel]="customerInfo.birth_date | date: 'dd-MM-yyyy'"  required>
                             </div>
                             <div class="form-group ">
                                 <label for="exampleInputEmail1 ">Tuổi</label>
@@ -207,10 +207,10 @@
                             <div class="form-group ">
                                 <label for="exampleInputEmail1 ">Quận/Huyện</label>
                                 <!-- <p style="color: black; ">{{ customerInfo.curadd_district }}</p> -->
-                                <input type="text" class="form-control" name="curadd_district" required #position="ngModel" pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s0-9\/-]+$"
+                                <input type="text" class="form-control" name="curadd_district" #curadd_district="ngModel" required #position="ngModel" pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s0-9\/-]+$"
                                     [(ngModel)]="customerInfo.curadd_district">
-                                <span id="errorMessagename" style="color: red;" *ngIf="job.errors?.required && job.touched">Quận/Huyện không được để trống</span>
-                                <span id="errorMessagename" style="color: red;" *ngIf="job.errors?.pattern && job.touched">Quận/Huyện không được chứa kí tự đặc biệt </span>
+                                <span id="errorMessagename" style="color: red;" *ngIf="curadd_district.errors?.required && job.touched">Quận/Huyện không được để trống</span>
+                                <span id="errorMessagename" style="color: red;" *ngIf="curadd_district.errors?.pattern && job.touched">Quận/Huyện không được chứa kí tự đặc biệt </span>
                             </div>
                             <div class="form-group ">
                                 <label for="exampleInputEmail1 ">Phường/Xã/Thị Trấn:</label>

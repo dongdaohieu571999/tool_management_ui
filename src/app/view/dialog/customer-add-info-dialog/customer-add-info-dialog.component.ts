@@ -45,6 +45,13 @@ export class CustomerAddInfoDialogComponent implements OnInit {
     this.spinner.show();
     this.customerInfo.code_em_support = this.user['sub'];
     this.customerService.addCustomerInfo(this.customerInfo).subscribe((data => {
+      if(data == null){
+        this.snackbar.openSnackBar("Email hoặc CMND bị trùng","Đóng");
+        this.customerService.invokeRefreshTableFun();
+      }else{
+        this.customerService.invokeRefreshTableFun(); 
+        this.snackbar.openSnackBar("Thêm thông tin khách hàng thành công","Đóng");
+      }
       this.customerService.invokeRefreshTableFun(); 
       this.spinner.hide();
     }))

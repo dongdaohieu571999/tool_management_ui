@@ -1,9 +1,13 @@
 export class Attachment{
     id:number;
     url:string;
+    id_attachment:number;
+    name:String;
 
-    constructor(id:number,url:string){
-        this.id = id;
+    constructor(url:string, id_attachment:number,name:String){
+    
         this.url = url;
+        this.id_attachment = id_attachment;
+        this.name=name;
     }
 }
