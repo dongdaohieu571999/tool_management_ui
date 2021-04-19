@@ -14,25 +14,39 @@
 
                 <form (ngSubmit)="onSubmit(changePassForm)" #changePassForm="ngForm">
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Mật Khẩu Cũ" name="oldPass" ngModel #email="ngModel">
+                        <input type="password" class="form-control" placeholder="Mật Khẩu Cũ" name="oldPass" ngModel
+                            #oldPassword="ngModel" required>
 
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-key"></span>
                             </div>
                         </div>
+                        
                     </div>
+                    <span id="errorMessagename" style="color: red;"
+                        *ngIf="oldPassword.errors?.required && oldPassword.touched">Mật Khẩu Cũ không được để
+                        trống</span>
+                   
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Mật Khẩu Mới" name="newPass" ngModel #email="ngModel" required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$">
+                        <input type="password" class="form-control" placeholder="Mật Khẩu Mới" name="newPass" ngModel
+                            #newPassword="ngModel" required>
 
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-key"></span>
                             </div>
                         </div>
+                        
                     </div>
+                    <span id="errorMessagename" style="color: red;"
+                            *ngIf="newPassword.errors?.required && newPassword.touched">Mật Khẩu Mới không được để
+                            trống</span>
+                      
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Xác Nhận Mật Khẩu Mới" name="confirmNewPass" ngModel #email="ngModel" required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$">
+                        <input type="password" class="form-control" placeholder="Xác Nhận Mật Khẩu Mới"
+                            name="confirmNewPass" ngModel #confirmNewPassword="ngModel" required
+                            >
 
                         <div class="input-group-append">
                             <div class="input-group-text">
@@ -40,12 +54,13 @@
                             </div>
                         </div>
                     </div>
-                    <span id="errorMessagename" style="color: red;" *ngIf="email.errors?.required && email.touched">Password không được để trống</span>
-                    <span id="errorMessagename" style="color: red;" *ngIf="email.errors?.pattern && email.touched">Password Cần Ít Nhất 8 Ký Tự, Trong Đó Ít Nhất 1 số 
-                        Và 1 Chữ</span>
+                    <span id="errorMessagename" style="color: red;"
+                        *ngIf="confirmNewPassword.errors?.required && confirmNewPassword.touched">Mật Khẩu không được để trống</span>
+                   
                     <div class="row">
                         <div class="col-12">
-                            <button type="submit" [disabled]="changePassForm.invalid" class="btn btn-primary btn-block">Yêu Cầu Mật Khẩu Mới</button>
+                            <button type="submit" [disabled]="changePassForm.invalid"
+                                class="btn btn-primary btn-block">Yêu Cầu Mật Khẩu Mới</button>
                         </div>
                         <!-- /.col -->
                     </div>

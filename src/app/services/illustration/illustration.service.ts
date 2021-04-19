@@ -36,7 +36,7 @@ export class IllustrationService {
   }
   public searchAllCustomerOwnIllustration(code_em_support:String,create_time:String,end_time:String,searchValue:String): Observable<any>{
     let data = {code_em_support:code_em_support,create_time:create_time,end_time:end_time,searchValue:searchValue};
-    const url = this.common.makeUrl('/illustration/search_all_campaign');
+    const url = this.common.makeUrl('/illustration/search_all_campaign/');
     return this.httpClient
     .post<any>(url,data,this.httpOptions)
     .pipe(catchError(this.handleError));

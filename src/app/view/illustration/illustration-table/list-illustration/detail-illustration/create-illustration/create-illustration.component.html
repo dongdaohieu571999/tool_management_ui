@@ -31,7 +31,7 @@
                     <table style="display: block;">
                         <tr>
                             <td>Tên</td>
-                            <td><input class="form-control" [(ngModel)]="illustrationMainInterest.full_name_insured_person" required pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s]+$"
+                            <td><input id="nameCustomer" class="form-control" [(ngModel)]="illustrationMainInterest.full_name_insured_person" required pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s]+$"
                                     #name="ngModel">
                                 <span id="errorMessagename" style="color: red;" *ngIf="name.errors?.required && name.touched">Họ và tên không được để
                                     trống</span>
@@ -42,7 +42,7 @@
                         <tr>
                             <td>Nhóm Nghề</td>
                             <td><select class="form-control" #jobType="ngModel" required [(ngModel)]="illustrationMainInterest.carrier_group_insured_person">
-                                    <option >1</option>
+                                    <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
                                 </select>
@@ -52,7 +52,7 @@
                         </tr>
                         <tr>
                             <td>Ngày Sinh</td>
-                            <td><input type="date" class="form-control" required #dateofbirth="ngModel" [(ngModel)]="illustrationMainInterest.birth_date_insured_person" max="2019-12-31">
+                            <td><input type="date" id="birthDayInsuredPerson" class="form-control" required #dateofbirth="ngModel" [(ngModel)]="illustrationMainInterest.birth_date_insured_person" max="2019-12-31">
                                 <!-- <span id="errorMessagename" style="color: red;" *ngIf="dateofbirth.errors?.required && dateofbirth.touched">Ngày Sinh không được
                                     để
                                     trống</span>
@@ -63,7 +63,7 @@
                         </tr>
                         <tr>
                             <td>Giới Tính</td>
-                            <td><select class="form-control" required #gender="ngModel" [(ngModel)]="illustrationMainInterest.gender_insured_person">
+                            <td><select class="form-control" id="genderInsuredPerson" required #gender="ngModel" [(ngModel)]="illustrationMainInterest.gender_insured_person">
                                     <option [value]=true>Nam</option>
                                     <option [value]=false>Nữ</option>
                                 </select>
@@ -83,11 +83,11 @@
                     </div>
                     <div class="row">
                         <p>Quan Hệ Với Người Được Bảo Hiểm</p>
-                        <select class="form-control" [(ngModel)]="illustrationMainInterest.insurance_buyer_relation_insured_person">
-                            <option >Bố/Mẹ Đẻ</option>
-                            <option>Con Cái</option>
-                            <option>Vợ/Chồng</option>
-                            <option value="Bản Thân" selected>Bản Thân</option>
+                        <select class="form-control" id="buyerRelation" [(ngModel)]="illustrationMainInterest.insurance_buyer_relation_insured_person" (change) = "insuranceBuyerRelationValue()">
+                            <option value="Bố/Mẹ Đẻ">Bố/Mẹ Đẻ</option>
+                            <option value="Con Cái">Con Cái</option>
+                            <option value="Vợ/Chồng">Vợ/Chồng</option>
+                            <option value="Bản Thân">Bản Thân</option>
                         </select>
                     </div>
                 </fieldset>
@@ -120,7 +120,7 @@
                                 <input class="form-control" value="{{ mainInterestSelect.fee_period }}" readonly>
                             </td>
                             <td>
-                                <input class="form-control" type="number" id="menhgia" required #menhgia="ngModel" [(ngModel)]="illustrationMainInterest.denominations" min="{{ mainInterestSelect.minimum_value }}" pattern="^[^-a-zA-Z]+$">
+                                <input class="form-control" type="number" id="menhgia" (keydown)="checkMoneyFormat()" required #menhgia="ngModel" [(ngModel)]="illustrationMainInterest.denominations" min="{{ mainInterestSelect.minimum_value }}" pattern="^[^-a-zA-Z]+$">
                                 <!-- <span id="errorMessagename" style="color: red;" *ngIf="menhgia.errors?.required && menhgia.touched">Mệnh Giá không được để
                                     trống</span>
                                 <span id="errorMessagename" style="color: red;" *ngIf="menhgia.errors?.pattern && menhgia.touched">Mệnh Giá không hợp
