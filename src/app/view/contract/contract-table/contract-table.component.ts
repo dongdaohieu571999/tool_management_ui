@@ -40,7 +40,6 @@ export class ContractTableComponent implements OnInit {
     this.spinner.show();
     this.contractService.getAllContract(jwt_decode(this.common.getCookie('token_key'))['sub']).subscribe((data => {
       this.contracts = data;
-      
       this.totalRecords = this.contracts.length;
       this.spinner.hide();
     }))
