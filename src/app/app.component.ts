@@ -28,6 +28,11 @@ export class AppComponent {
       }
     }
     else {
+      // nếu token_key vẫn tồn tại và url chứa các ký tự của trang khách hàng thì redirect 
+      if(url.includes('customerweb')){
+        this.router.navigate(['dashboard'])
+        return;
+      }
       this.authenService.isAuthen = true;
       this.employeeSer.getAccByCode(this.common.getCookie('token_key')).subscribe((data => {
         this.authenService.id_role = data['id_role'];

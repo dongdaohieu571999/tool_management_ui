@@ -77,12 +77,12 @@ const routes: Routes = [
   {path: "employee-detail-income/:month", component: DetailIncomeComponent},
   {path: "forget-password", component: ForgetPasswordComponent},
   {path: "", component: HomeCustomerComponent},
-  {path: "login-customer", component:  SignInCustomerComponent},
-  {path: "detail-page", component:  DetailPageComponent},
-  {path: "illustration-customer", component:  ListIllustrationCustomerComponent},
-  {path: "contract-customer", component:  ListContractCustomerComponent},
-  {path: "profile-customer", component:  ProfileCustomerComponent},
-  {path: "change-pass-customer", component:  ChangePassCustomerComponent},
+  {path: "login-customerweb", component:  SignInCustomerComponent},
+  {path: "detail-page-customerweb", component:  DetailPageComponent},
+  {path: "illustration-customerweb", component:  ListIllustrationCustomerComponent},
+  {path: "contract-customerweb", component:  ListContractCustomerComponent},
+  {path: "profile-customerweb", component:  ProfileCustomerComponent},
+  {path: "change-pass-customerweb", component:  ChangePassCustomerComponent},
   
 ];
 

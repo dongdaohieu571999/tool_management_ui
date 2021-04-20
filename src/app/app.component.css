@@ -50,6 +50,10 @@
     position: sticky;
 }
 
+mat-sidenav-content {
+    overflow: hidden;
+}
+
 
 /* .nav-list-fixed {
     padding-top: 67px;

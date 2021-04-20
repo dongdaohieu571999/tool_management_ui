@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DetailPageComponent } from './detail-page.component';
+import { DetailPageComponent } from './detail-page-customerweb.component';
 
 describe('DetailPageComponent', () => {
   let component: DetailPageComponent;

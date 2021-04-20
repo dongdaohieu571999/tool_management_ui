@@ -36,3 +36,8 @@ img {
     margin: 1%;
     background: #fafafa;
 }
+
+.form-control-custom {
+    padding: 10px;
+    margin: 10px;
+}

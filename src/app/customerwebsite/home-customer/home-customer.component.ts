@@ -12,6 +12,9 @@ export class HomeCustomerComponent implements OnInit {
   constructor(public common:CommonService,private route:Router) { }
 
   ngOnInit(): void {
+    if(this.common.getCookie('token_key')){
+      this.route.navigate(['dashboard'])
+    }
   }
 
   exit(){

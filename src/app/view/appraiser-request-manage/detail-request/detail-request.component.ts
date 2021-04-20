@@ -16,6 +16,9 @@ import { IllustrationService } from 'src/app/services/illustration/illustration.
 import { RelatedPersonInfo } from 'src/app/model/RelatedPersonInfo';
 import { IllustrationSubInterest } from 'src/app/model/IllustrationSubInterest';
 import { Illustration } from 'src/app/model/Illustration';
+import { FileManagementService } from 'src/app/services/fileManagement/file-management.service';
+import { CustomerAttachment } from 'src/app/model/CustomerAttachment';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-detail-request',
@@ -24,6 +27,7 @@ import { Illustration } from 'src/app/model/Illustration';
 })
 export class DetailRequestComponent implements OnInit {
 
+  listDocument=new Array<CustomerAttachment>();
   illustration: Illustration;
   illustrationCopy: Illustration;
   listRelatedPersonNumber: Number[] = [];
@@ -36,7 +40,7 @@ export class DetailRequestComponent implements OnInit {
   contract:Contract;
   custInfo:Array<CustomerInfo>;
   constructor(private common:CommonService,private custService:CustomerService,private illustrationService:IllustrationService,
-    private contractService:ContractService,private dialog : MatDialog,
+    private contractService:ContractService,private dialog : MatDialog,private fileService:FileManagementService,private spinner:NgxSpinnerService,
     private contractRequestService:ContractrequestService,private activateRoute:ActivatedRoute) { }
 
 
@@ -92,6 +96,10 @@ export class DetailRequestComponent implements OnInit {
             //tìm mảng với những giá trị của người liên quan còn lại
             this.illustrationCopy.illustrationSubInterestList = this.illustrationCopy.illustrationSubInterestList.slice(count, this.illustrationCopy.illustrationSubInterestList.length);
           }
+          this.fileService.getFile(this.contract.id).subscribe((data => {
+            this.listDocument = data;
+            this.spinner.hide();
+          }))
         }))
         // End Lấy detail contract
 

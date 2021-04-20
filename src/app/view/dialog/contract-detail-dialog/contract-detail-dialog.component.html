@@ -29,11 +29,11 @@
                                         <tbody>
                                             <tr>
                                                 <td>Mã Hợp Đồng</td>
-                                                <td>{{contracts?.id}}</td>
+                                                <td>#HD{{contracts?.id}}</td>
                                             </tr>
                                             <tr>
                                                 <td>Mã Khách Hàng</td>
-                                                <td>{{contracts?.id_customer}}</td>
+                                                <td>#KH{{contracts?.id_customer}}</td>
                                             </tr>
                                             <tr>
                                                 <td>Chủ Hợp Đồng</td>
@@ -49,15 +49,15 @@
                                             </tr>
                                             <tr>
                                                 <td>Mã Bản Minh Họa</td>
-                                                <td>{{contracts?.id_illustration}}</td>
+                                                <td>#BMH{{contracts?.id_illustration}}</td>
                                             </tr>
                                             <tr>
                                                 <td>Ngày Đăng Ký</td>
-                                                <td>{{contracts?.start_time}}</td>
+                                                <td>{{contracts?.start_time | date: 'dd-MM-yyyy'}}</td>
                                             </tr>
                                             <tr>
                                                 <td>Ngày Hết Hạn</td>
-                                                <td>{{contracts?.end_time}}</td>
+                                                <td>{{contracts?.end_time | date: 'dd-MM-yyyy'}}</td>
                                             </tr>
                                             <tr>
                                                 <td>Trạng Thái</td>
@@ -78,7 +78,7 @@
                                 </div>
                             </div>
                             <!-- table -->
-                        </mat-tab>   
+                        </mat-tab>
                         <mat-tab label="Tài Liệu Đính Kèm">
                             <div>
                                 <p><a *ngFor="let doc of listDocument" class="form-control" href="{{doc.url}}">{{doc.name_document}}</a></p>

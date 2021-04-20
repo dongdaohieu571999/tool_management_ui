@@ -6,6 +6,10 @@ import { ContractrequestService } from 'src/app/services/contractRequest/contrac
 import { CommonService } from 'src/app/services/common/common.service';
 import jwtDecode from 'jwt-decode';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ContractService } from 'src/app/services/contract/contract.service';
+import { Contract } from 'src/app/model/Contract';
+import { MatDialog } from '@angular/material/dialog';
+import { ContractDetailDialogComponent } from '../dialog/contract-detail-dialog/contract-detail-dialog.component';
 
 @Component({
   selector: 'app-appraiser-request-manage',
@@ -14,7 +18,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class AppraiserRequestManageComponent implements OnInit {
 
-  constructor( private spinner: NgxSpinnerService,private common:CommonService,private contractRequestService:ContractrequestService,private router : Router) { }
+  constructor(private dialog:MatDialog,private contractService:ContractService, private spinner: NgxSpinnerService,private common:CommonService,private contractRequestService:ContractrequestService,private router : Router) { }
 
   pageApprovals: number = 1;
   pageRequest: number = 1;
@@ -37,6 +41,19 @@ export class AppraiserRequestManageComponent implements OnInit {
 
 public requestDetail(id_request:number){
   this.router.navigate(['appraiser-request-detail',id_request]);
+}
+
+contract : Contract;
+public openDialogContractDetail(id_contract:number,code1:string){
+  let data = {id:id_contract,code:code1}
+  this.contractService.getDetailContract(data).subscribe((dataReturn =>{
+    this.contract = dataReturn;
+    let dialogRef = this.dialog.open(ContractDetailDialogComponent,{
+      height:'80%',
+      width:'50%',
+      data:this.contract
+    });
+  }))
 }
 
 searchValueRequest: String = "";
@@ -129,8 +146,8 @@ searchValueRequest: String = "";
     this.dateToApproval = null;
   }
 
-  key = 'id';
-  reverse: boolean = false;
+  key = '';
+  reverse: boolean = true;
   sort(key){
     this.key = key;
     this.reverse = !this.reverse;

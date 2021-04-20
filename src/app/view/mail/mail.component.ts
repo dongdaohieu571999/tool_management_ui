@@ -46,7 +46,10 @@ export class MailComponent implements OnInit {
   }
 
   displayDialog(): void {
-    let dialogRef = this.dialog.open(AddMailDialogComponent, {data : this.mail});
+    let dialogRef = this.dialog.open(AddMailDialogComponent, {
+      width:'50%',
+      data : this.mail
+    });
   }
 
   searchValueReceive: String = "";

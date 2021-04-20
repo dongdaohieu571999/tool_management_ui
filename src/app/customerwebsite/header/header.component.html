@@ -44,8 +44,8 @@
                         <a class="nav-link" href="services">Tài Liệu Của Bạn</a>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="nav-link" href="services">
-                            </a><a class="dropdown-item" href="illustration-customer">Danh sách bản minh họa</a>
-                            <a class="dropdown-item" href="contract-customer">Danh sách hợp đồng</a>
+                            </a><a class="dropdown-item" href="illustration-customerweb">Danh sách bản minh họa</a>
+                            <a class="dropdown-item" href="contract-customerweb">Danh sách hợp đồng</a>
                         </div>
 
 
@@ -56,15 +56,15 @@
                         </a>
                     </li>
                     <li *ngIf="!common.getCookie('token_customer')" class="nav-item">
-                        <a class="nav-link" href="login-customer">
+                        <a class="nav-link" href="login-customerweb">
                             Đăng Nhập
                         </a>
                     </li>
                     <li *ngIf="common.getCookie('token_customer')" class="nav-item dropdown container-image-cust">
                         <img src="../../assets/images/avatar5.png" class="img_customer">
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="profile-customer">Thông tin cá nhân</a>
-                            <a class="dropdown-item" href="change-pass-customer">Đổi Mật Khẩu</a>
+                            <a class="dropdown-item" href="profile-customerweb">Thông tin cá nhân</a>
+                            <a class="dropdown-item" href="change-pass-customerweb">Đổi Mật Khẩu</a>
                             <a class="dropdown-item" (click)="exit()" style="cursor: pointer;">THOÁT</a>
                         </div>
                     </li>

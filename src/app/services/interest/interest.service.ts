@@ -19,14 +19,14 @@ export class InterestService {
   }
 
   public getAllMainInterest(){
-    const url =  this.common.makeUrl('/interest/get_all_main_interest/') ;
+    const url =  this.common.makeUrl('/benifit/get_all_main_benifit/') ;
     return this.httpClient
     .get<any>(url,this.httpOptions)
     .pipe(catchError(this.handleError));
   }
 
   public getAllSubInterest(){
-    const url =  this.common.makeUrl('/interest/get_all_sub_interest/') ;
+    const url =  this.common.makeUrl('/benifit/get_all_sub_benifit/') ;
     return this.httpClient
     .get<any>(url,this.httpOptions)
     .pipe(catchError(this.handleError));
