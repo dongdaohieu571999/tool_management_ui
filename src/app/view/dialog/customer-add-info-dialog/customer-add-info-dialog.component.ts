@@ -41,10 +41,12 @@ export class CustomerAddInfoDialogComponent implements OnInit {
   public onSubmit() {
     this.spinner.show();
     this.customerInfo.code_em_support = this.user['sub'];
-    this.customerService.addCustomerInfo(this.customerInfo).subscribe((data => {
-      this.customerService.invokeRefreshTableFun(); 
-      this.spinner.hide();
-    }))
+    this.customerInfo.monthly_income=this.customerInfo.monthly_income.toString();
+    // this.customerService.addCustomerInfo(this.customerInfo).subscribe((data => {
+    //   this.customerService.invokeRefreshTableFun(); 
+    //   this.spinner.hide();
+    // }))
+    console.log(  this.customerInfo.monthly_income);
   }
 
   caculateAge(date:any){
