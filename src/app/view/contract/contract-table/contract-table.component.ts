@@ -10,6 +10,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Contract } from 'src/app/model/Contract';
 import { ContractDetailDialogComponent } from '../../dialog/contract-detail-dialog/contract-detail-dialog.component';
 import { IllustrationDetailDialogComponent } from '../../dialog/illustration-detail-dialog/illustration-detail-dialog.component';
+import { forEach } from 'jszip';
 
 
 
@@ -40,14 +41,17 @@ export class ContractTableComponent implements OnInit {
     this.spinner.show();
     this.contractService.getAllContract(jwt_decode(this.common.getCookie('token_key'))['sub']).subscribe((data => {
       this.contracts = data;
+      this.contracts.forEach(element => {
+        element.approval_status = this.transformStatus(element.approval_status);
+      });
       this.totalRecords = this.contracts.length;
       this.spinner.hide();
     }))
   }
   public openDialogCustomerDetail(id_customer: number) {
     let dialogRef = this.dialog.open(CustomerDetailDialogComponent, {
-      height:'80%',
-      width:'fit-content',
+      height: '80%',
+      width: 'fit-content',
       data: id_customer
     });
   }
@@ -66,8 +70,8 @@ export class ContractTableComponent implements OnInit {
 
   public openDialogIllustrationDetail(id_illustration: number) {
     let dialogRef = this.dialog.open(IllustrationDetailDialogComponent, {
-      height:'80%',
-      width:'fit-content',
+      height: '80%',
+      width: 'fit-content',
       data: id_illustration
     });
   }
@@ -97,8 +101,8 @@ export class ContractTableComponent implements OnInit {
         dateTo1 = this.dateTo.toString();
       }
       let searchText = "%" + this.searchValue + "%";
-      
-      this.contractService.searchAllContract(jwt_decode(this.common.getCookie('token_key'))['sub'],dateFrom1,dateTo1,searchText).subscribe((data => {
+
+      this.contractService.searchAllContract(jwt_decode(this.common.getCookie('token_key'))['sub'], dateFrom1, dateTo1, searchText).subscribe((data => {
         this.contracts = data;
         this.totalRecords = this.contracts.length;
         this.spinner.hide();
@@ -117,9 +121,19 @@ export class ContractTableComponent implements OnInit {
 
   key = '';
   reverse: boolean = true;
-  sort(key){
+  sort(key) {
     this.key = key;
     this.reverse = !this.reverse;
+  }
+
+  transformStatus(data: String) {
+    switch (data) {
+      case "CXD": return "Chưa xét duyệt";
+      case "DXD": return "Đang chờ xét duyệt";
+      case "DD": return "Đã duyệt";
+      case "TC": return "Từ chối";
+      case "YCT": return "Yêu cầu thêm";
+    }
   }
 
 }
