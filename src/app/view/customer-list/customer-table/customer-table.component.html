@@ -3,8 +3,7 @@
     </div>
     <div class="right">
         <div class="input-group searchBar">
-            <input type="search" class="form-control form-control-lg" [(ngModel)]="searchValue"
-                placeholder="Nhập từ khóa cần tìm">
+            <input type="search" class="form-control form-control-lg" [(ngModel)]="searchValue" placeholder="Nhập từ khóa cần tìm">
         </div>
         <div class="date">
             <label>From<input id="RfromSearch" type="date" name="dateFrom" [(ngModel)]="dateFrom"
@@ -13,7 +12,7 @@
                     class="form-control form-control-sm" placeholder="" aria-controls="example1"></label>
             <button type="button" class="btn btn-danger btn-date" (click)="ResetDate()">Xóa
                 ngày</button>
-            <button type="button" class="btn btn-info btn-date" (click)="Search()" >Tìm kiếm
+            <button type="button" class="btn btn-info btn-date" (click)="Search()">Tìm kiếm
             </button>
         </div>
     </div>
@@ -31,11 +30,9 @@
         <tr>
             <th (click)="sort('id')">Mã Khách Hàng&nbsp;<i class="fas fa-sort"></i></th>
             <th (click)="sort('code')">Tài Khoản Khách Hàng&nbsp;<i class="fa fa-sort"></i></th>
-            <th (click)="sort('id_contract')">Mã Hợp Đồng&nbsp;<i class="fa fa-sort"></i></th>
             <th (click)="sort('full_name')">Họ và Tên&nbsp;<i class="fa fa-sort"></i></th>
             <th (click)="sort('birth_date')">Ngày Sinh&nbsp;<i class="fa fa-sort"></i></th>
             <th (click)="sort('conadd_city')">Địa Chỉ&nbsp;<i class="fa fa-sort"></i></th>
-            <th (click)="sort('id_illustration')">Mã Bản Minh Họa&nbsp;<i class="fa fa-sort"></i></th>
             <th (click)="sort('phone_1')">Số Điện Thoại&nbsp;<i class="fa fa-sort"></i></th>
             <th (click)="sort('status')">Trạng Thái&nbsp;<i class="fa fa-sort"></i></th>
             <th (click)="sort('workadd_no_street')">Nơi Làm Viêc&nbsp;<i class="fa fa-sort"></i></th>
@@ -44,42 +41,27 @@
         </tr>
     </thead>
     <tbody>
-        <tr
-            *ngFor="let customerinfo of customerinfos | orderBy: key:reverse | paginate: { id: 'listing_pagination' ,itemsPerPage: 4, currentPage: page, totalItems: totalRecords} ">
+        <tr *ngFor="let customerinfo of customerinfos | orderBy: key:reverse | paginate: { id: 'listing_pagination' ,itemsPerPage: 4, currentPage: page, totalItems: totalRecords} ">
             <td>#KH{{customerinfo.id}}</td>
             <td>{{customerinfo.code}}</td>
-            <td>
-                <a *ngIf="customerinfo.id_contract"
-                    (click)="openDialogContractDetail(customerinfo.id_contract)">#HD{{customerinfo.id_contract}}</a>
-                <a *ngIf="!customerinfo.id_contract"></a>
-            </td>
             <td>{{customerinfo.full_name}}</td>
             <td>{{customerinfo.birth_date | date:'dd-MM-yyyy'}}</td>
             <td>{{customerinfo.conadd_city}}</td>
-            <td>
-                <a *ngIf="customerinfo.id_illustration"
-                    (click)="openDialogIllustrationDetail(customerinfo.id_illustration)">#BMH{{customerinfo.id_illustration}}</a>
-                <a *ngIf="!customerinfo.id_illustration"></a>
-            </td>
             <td>{{customerinfo.phone_1}}</td>
             <td>{{customerinfo.status==true?'Hoạt Động' : 'Tạm Ngưng'}}</td>
             <td>{{customerinfo.workadd_no_street}} {{customerinfo.workadd_district}} {{customerinfo.workadd_city}}</td>
             <td>{{customerinfo.created_time | date: 'dd-MM-yyyy'}}</td>
-            <button *ngIf="customerinfo.status" (click)="customerDetail(customerinfo.id)" class="btn btn-info"
-                style="height: 40px; width: 100px; margin: 10px; color: white;">Chi Tiết</button>
-            <button *ngIf="!customerinfo.status" (click)="editDrafCustomerInfo(customerinfo)" class="btn btn-success"
-                style="height: 40px; width: 100px; margin: 10px; color: white;">Chỉnh Sửa</button>
+            <button *ngIf="customerinfo.status" (click)="customerDetail(customerinfo.id)" class="btn btn-info" style="height: 40px; width: 100px; margin: 10px; color: white;">Chi Tiết</button>
+            <button *ngIf="!customerinfo.status" (click)="editDrafCustomerInfo(customerinfo)" class="btn btn-success" style="height: 40px; width: 100px; margin: 10px; color: white;">Chỉnh Sửa</button>
         </tr>
     </tbody>
     <tfoot>
         <tr>
             <th>Mã Khách Hàng</th>
             <th>Tài Khoản Khách Hàng</th>
-            <th>Mã Hợp Đồng</th>
             <th>Họ và Tên</th>
             <th>Ngày Sinh</th>
             <th>Địa Chỉ</th>
-            <th>Mã Bản Minh Họa</th>
             <th>Số Điện Thoại</th>
             <th>Trạng Thái</th>
             <th>Nơi Làm Viêc</th>
@@ -88,5 +70,4 @@
         </tr>
     </tfoot>
 </table>
-<pagination-controls style="float: right;" id="listing_pagination" maxSize="5" directionLinks="true"
-    (pageChange)="page = $event"></pagination-controls>
+<pagination-controls style="float: right;" id="listing_pagination" maxSize="5" directionLinks="true" (pageChange)="page = $event"></pagination-controls>
