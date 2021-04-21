@@ -51,5 +51,8 @@ export class AdminAddEmployeeInfoComponent implements OnInit {
   ageCheck: number;
   checkAge: boolean;
   
+  caculateAge(date:any){
+    this.employeinfoDTO.age =this.common.calculateAge(new Date(date));
+  }
 
 }
