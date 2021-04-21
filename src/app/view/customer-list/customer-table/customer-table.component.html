@@ -45,7 +45,7 @@
     </thead>
     <tbody>
         <tr
-            *ngFor="let customerinfo of customerinfos | orderBy: key:reverse | paginate: { id: 'listing_pagination' ,itemsPerPage: 4, currentPage: page, totalItems: totalRecords} ">
+            *ngFor="let customerinfo of customerinfos | orderBy: key:reverse | paginate: { id: 'listing_pagination' ,itemsPerPage: 6, currentPage: page, totalItems: totalRecords} ">
             <td>#KH{{customerinfo.id}}</td>
             <td>{{customerinfo.code}}</td>
             <td>

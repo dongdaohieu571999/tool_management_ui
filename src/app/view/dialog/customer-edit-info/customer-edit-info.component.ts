@@ -29,8 +29,8 @@ export class CustomerEditInfoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.customerInfo.birth_date = new Date(this.customerInfo.birth_date).getFullYear() +"-"+ (new Date(this.customerInfo.birth_date).getMonth() < 10 ? "0"+(new Date(this.customerInfo.birth_date).getMonth()+1):new Date(this.customerInfo.birth_date).getMonth()+1 )+"-"+ new Date(this.customerInfo.birth_date).getDate();
-  
+    this.customerInfo.birth_date = new Date(this.customerInfo.birth_date).getFullYear() +"-"+ (new Date(this.customerInfo.birth_date).getMonth() < 10 ? "0"+(new Date(this.customerInfo.birth_date).getMonth()+1):new Date(this.customerInfo.birth_date).getMonth()+1 )+"-"+ (new Date(this.customerInfo.birth_date).getDate() < 10 ? "0"+(new Date(this.customerInfo.birth_date).getDate()):new Date(this.customerInfo.birth_date).getDate() );
+
   }
 
   public updateInfoCustomer(){
