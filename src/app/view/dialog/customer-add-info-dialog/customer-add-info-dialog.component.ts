@@ -42,8 +42,13 @@ export class CustomerAddInfoDialogComponent implements OnInit {
     this.spinner.show();
     this.customerInfo.code_em_support = this.user['sub'];
     this.customerService.addCustomerInfo(this.customerInfo).subscribe((data => {
-      this.customerService.invokeRefreshTableFun(); 
-      this.spinner.hide();
+      if(data){
+        this.customerService.invokeRefreshTableFun(); 
+        this.spinner.hide();
+      } else {
+        this.snackbar.openSnackBar("Email Hoặc CMT Bị Trùng","Đóng");
+      }
+      
     }))
   }
 
