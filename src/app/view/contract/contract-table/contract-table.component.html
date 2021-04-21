@@ -47,7 +47,7 @@
                 <a *ngIf="!contract.id_illustration"></a>
 
             </td>
-            <td>{{contract.status==false?"Chưa Được Xét Duyệt":"Đã Được Xét Duyệt"}}</td>
+            <td>{{contract.approval_status}}</td>
             <td>{{contract.start_time | date: 'dd-MM-yyyy'}}</td>
             <td>
                 <button (click)="contractDetail(contract.id)" class="btn btn-info" style="color: white;">Chi Tiết</button>

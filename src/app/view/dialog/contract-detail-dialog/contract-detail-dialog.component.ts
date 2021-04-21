@@ -21,6 +21,18 @@ export class ContractDetailDialogComponent implements OnInit {
   payment_period:string;
   listDocument=new Array<CustomerAttachment>();
   ngOnInit(): void {
+   
+    switch(this.contracts.approval_status){
+      case "CXD" : this.contracts.approval_status = "Chưa xét duyệt"; break;
+      case "DXD" : this.contracts.approval_status = "Đang chờ xét duyệt"; break;
+      case "DD" : this.contracts.approval_status = "Đã duyệt"; break;
+      case "TC" : this.contracts.approval_status = "Từ chối"; break;
+      case "YCT" : this.contracts.approval_status = "Yêu cầu thêm"; break;
+    }
+
+   
+
+
     if(this.common.getCookie('token_key')){
       this.referTable.getAllReference().subscribe((data => {
         this.ref=data;
@@ -41,5 +53,6 @@ export class ContractDetailDialogComponent implements OnInit {
     }
     
   }
+
 
 }

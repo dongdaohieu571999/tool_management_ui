@@ -57,6 +57,8 @@ export class ViewDetailContractComponent implements OnInit {
         this.refresh();
       });
     this.refresh();
+
+   
   }
 
   onChangeFile(event){
@@ -128,6 +130,13 @@ export class ViewDetailContractComponent implements OnInit {
     let data = {id:this.id,code:jwtDecode(this.common.getCookie('token_key'))['sub']}
     this.contractService.getDetailContract(data).subscribe((data =>{
       this.contracts = data;
+      switch(this.contracts.approval_status){
+        case "CXD" : this.contracts.approval_status = "Chưa xét duyệt"; break;
+        case "DXD" : this.contracts.approval_status = "Đang chờ xét duyệt"; break;
+        case "DD" : this.contracts.approval_status = "Đã duyệt"; break;
+        case "TC" : this.contracts.approval_status = "Từ chối"; break;
+        case "YCT" : this.contracts.approval_status = "Yêu cầu thêm"; break;
+      }
       this.referTable.getAllReference().subscribe((data => {
         this.ref=data;
         this.payment_period = this.ref.multiplierForPaymentPeriod.find(i => i.priod_id = this.contracts.payment_period_id)['description'];
