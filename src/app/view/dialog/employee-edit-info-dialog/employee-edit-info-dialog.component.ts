@@ -12,7 +12,7 @@ import { SnackbarService } from 'src/app/services/snackbar/snackbar.service';
 export class EmployeeEditInfoDialogComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<EmployeeEditInfoDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public employeinfoDTO:EmployeeInfoDTO,private employeeService:EmployeeService,private snackbar: SnackbarService) { }
+    @Inject(MAT_DIALOG_DATA) public employeinfoDTO:any,private employeeService:EmployeeService,private snackbar: SnackbarService) { }
 
 
   genders= Array[2] = [
@@ -26,6 +26,7 @@ export class EmployeeEditInfoDialogComponent implements OnInit {
   ];
 
   ngOnInit(): void {
+    this.employeinfoDTO.date_of_birth = new Date(this.employeinfoDTO.date_of_birth).getFullYear() +"-"+ (new Date(this.employeinfoDTO.date_of_birth).getMonth() < 10 ? "0"+(new Date(this.employeinfoDTO.date_of_birth).getMonth()+1):new Date(this.employeinfoDTO.date_of_birth).getMonth()+1 )+"-"+ new Date(this.employeinfoDTO.date_of_birth).getDate();
   }
 public onSubmit(employeinfoDTO:EmployeeInfoDTO){
   this.employeeService.UpdateEmployeeInfo(employeinfoDTO).subscribe((data =>{
