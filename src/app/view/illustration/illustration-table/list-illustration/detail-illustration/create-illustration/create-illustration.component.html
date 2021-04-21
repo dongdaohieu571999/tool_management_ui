@@ -31,7 +31,7 @@
                     <table style="display: block;">
                         <tr>
                             <td>Tên</td>
-                            <td><input id="nameCustomer" name="full_name" class="form-control" [(ngModel)]="illustrationMainInterest.full_name_insured_person" required pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s]+$"
+                            <td><input id="nameCustomer" name="full_name" class="form-control" [(ngModel)]="illustrationMainBenifit.full_name_insured_person" required pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s]+$"
                                     #name="ngModel">
                                 <span id="errorMessagename" style="color: red;" *ngIf="name.errors?.required && name.touched">Họ và tên không được để
                                     trống</span>
@@ -41,7 +41,7 @@
                         </tr>
                         <tr>
                             <td>Nhóm Nghề</td>
-                            <td><select class="form-control" #jobType="ngModel" required [(ngModel)]="illustrationMainInterest.carrier_group_insured_person">
+                            <td><select class="form-control" #jobType="ngModel" required [(ngModel)]="illustrationMainBenifit.carrier_group_insured_person">
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -52,7 +52,7 @@
                         </tr>
                         <tr>
                             <td>Ngày Sinh</td>
-                            <td><input type="date" id="birthDayInsuredPerson" class="form-control" required #dateofbirth="ngModel" [(ngModel)]="illustrationMainInterest.birth_date_insured_person" max="2019-12-31">
+                            <td><input type="date" id="birthDayInsuredPerson" class="form-control" required #dateofbirth="ngModel" [(ngModel)]="illustrationMainBenifit.birth_date_insured_person" max="2019-12-31">
                                 <!-- <span id="errorMessagename" style="color: red;" *ngIf="dateofbirth.errors?.required && dateofbirth.touched">Ngày Sinh không được
                                     để
                                     trống</span>
@@ -63,7 +63,7 @@
                         </tr>
                         <tr>
                             <td>Giới Tính</td>
-                            <td><select class="form-control" id="genderInsuredPerson" required #gender="ngModel" [(ngModel)]="illustrationMainInterest.gender_insured_person">
+                            <td><select class="form-control" id="genderInsuredPerson" required #gender="ngModel" [(ngModel)]="illustrationMainBenifit.gender_insured_person">
                                     <option [value]=true>Nam</option>
                                     <option [value]=false>Nữ</option>
                                 </select>
@@ -79,11 +79,11 @@
                     <legend>Bên Mua Bảo Hiểm</legend>
                     <div class="row">
                         <p>Tên</p>
-                        <input class="form-control" value="{{ customerInfo.full_name }}" name="ten" [(ngModel)]="illustrationMainInterest.full_name_insurance_buyer" readonly>
+                        <input class="form-control" value="{{ customerInfo.full_name }}" name="ten" [(ngModel)]="illustrationMainBenifit.full_name_insurance_buyer" readonly>
                     </div>
                     <div class="row">
                         <p>Quan Hệ Với Người Được Bảo Hiểm</p>
-                        <select class="form-control" id="buyerRelation" [(ngModel)]="illustrationMainInterest.insurance_buyer_relation_insured_person" (change)="insuranceBuyerRelationValue()">
+                        <select class="form-control" id="buyerRelation" [(ngModel)]="illustrationMainBenifit.insurance_buyer_relation_insured_person" (change)="insuranceBuyerRelationValue()">
                             <option value="Bố/Mẹ Đẻ">Bố/Mẹ Đẻ</option>
                             <option value="Con Cái">Con Cái</option>
                             <option value="Vợ/Chồng">Vợ/Chồng</option>
@@ -103,9 +103,9 @@
                         </tr>
                         <tr>
                             <td>
-                                <select class="form-control" [(ngModel)]="mainInterestSelect">
-                                    <option [ngValue]="interest" *ngFor="let interest of mainInterestList">{{
-                                        interest.interest_name }}</option>
+                                <select class="form-control" [(ngModel)]="mainBenifitSelect">
+                                    <option [ngValue]="benifit" *ngFor="let benifit of mainBenifitList">{{
+                                        benifit.benifit_name }}</option>
                                 </select>
 
                             </td>
@@ -117,10 +117,10 @@
                         </tr>
                         <tr>
                             <td>
-                                <input class="form-control" value="{{ mainInterestSelect.fee_period }}" readonly>
+                                <input class="form-control" value="{{ mainBenifitSelect.fee_period }}" readonly>
                             </td>
                             <td>
-                                <input class="form-control" type="number" id="menhgia" (keydown)="checkMoneyFormat()" required #menhgia="ngModel" [(ngModel)]="illustrationMainInterest.denominations" min="{{ mainInterestSelect.minimum_value }}" pattern="^[^-a-zA-Z]+$">
+                                <input class="form-control" type="number" id="menhgia" (keydown)="checkMoneyFormat()" required #menhgia="ngModel" [(ngModel)]="illustrationMainBenifit.denominations" min="{{ mainBenifitSelect.minimum_value }}" pattern="^[^-a-zA-Z]+$">
                                 <!-- <span id="errorMessagename" style="color: red;" *ngIf="menhgia.errors?.required && menhgia.touched">Mệnh Giá không được để
                                     trống</span>
                                 <span id="errorMessagename" style="color: red;" *ngIf="menhgia.errors?.pattern && menhgia.touched">Mệnh Giá không hợp
@@ -128,7 +128,7 @@
                                 </span> -->
                             </td>
                             <td>
-                                <input class="form-control" readonly [(ngModel)]="illustrationMainInterest.fee_value">
+                                <input class="form-control" readonly [(ngModel)]="illustrationMainBenifit.fee_value">
                             </td>
                         </tr>
                     </table>
@@ -149,18 +149,18 @@
                             <td>Mệnh Giá</td>
                             <td>Phí Bảo Hiểm</td>
                         </tr>
-                        <tr *ngFor="let interest of subInterestListCopy;index as i">
+                        <tr *ngFor="let benifit of subBenifitListCopy;index as i">
                             <td><input type="checkbox" (change)="activeSubIllustration(i)"></td>
                             <td></td>
-                            <td>{{ interest.interest_name }}</td>
+                            <td>{{ benifit.benifit_name }}</td>
                             <td>
-                                <input class="form-control" value="{{ illustrationMainInterest.carrier_group_insured_person }}" name="carrier_group_extra_insured_person" readonly>
+                                <input class="form-control" value="{{ illustrationMainBenifit.carrier_group_insured_person }}" name="carrier_group_extra_insured_person" readonly>
                             </td>
                             <td>
-                                <input class="form-control" type="number" name="denominations" [(ngModel)]="interest.denominations" [attr.disabled]="interest.isDisable?'':null" min="50000000">
+                                <input class="form-control" type="number" name="denominations" [(ngModel)]="benifit.denominations" [attr.disabled]="benifit.isDisable?'':null" min="50000000">
                             </td>
                             <td>
-                                <input class="form-control" value="{{ interest.fee_value }}" name="fee_value" readonly>
+                                <input class="form-control" value="{{ benifit.fee_value }}" name="fee_value" readonly>
                             </td>
                         </tr>
                     </table>
@@ -217,18 +217,18 @@
                     <td>Mệnh Giá</td>
                     <td>Phí Bảo Hiểm</td>
                 </tr>
-                <tr *ngFor="let interest of item.listSubInterest ; index as i2">
+                <tr *ngFor="let benifit of item.listSubBenifit ; index as i2">
                     <td><input type="checkbox" (change)="activeSubIllustrationRelatedPerson(i,i2)"></td>
                     <td></td>
-                    <td>{{ interest.interest_name }}</td>
+                    <td>{{ benifit.benifit_name }}</td>
                     <td>
-                        <input class="form-control" value="{{ item.carreer_group }}" [(ngModel)]="interest.carrier_group_extra_insured_person" name="carrier_group_extra_insured_person" readonly>
+                        <input class="form-control" value="{{ item.carreer_group }}" [(ngModel)]="benifit.carrier_group_extra_insured_person" name="carrier_group_extra_insured_person" readonly>
                     </td>
                     <td>
-                        <input class="form-control" type="number" name="denominations" [(ngModel)]="interest.denominations" [attr.disabled]="interest.isDisable?'':null" min="50000000">
+                        <input class="form-control" type="number" name="denominations" [(ngModel)]="benifit.denominations" [attr.disabled]="benifit.isDisable?'':null" min="50000000">
                     </td>
                     <td>
-                        <input class="form-control" value="{{ interest.fee_value }}" name="fee_value" readonly>
+                        <input class="form-control" value="{{ benifit.fee_value }}" name="fee_value" readonly>
                     </td>
                 </tr>
             </table>

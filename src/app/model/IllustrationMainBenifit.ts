@@ -1,6 +1,6 @@
-export class IllustrationMainInterest{
+export class IllustrationMainBenifit{
     id_illustration:number;
-    id_main_interest:number;
+    id_main_benifit:number;
     full_name_insured_person:string;
     birth_date_insured_person:Date;
     age_insured_person:number;
@@ -13,7 +13,7 @@ export class IllustrationMainInterest{
 
     constructor(
         id_illustration:number,
-        id_main_interest:number,
+        id_main_benifit:number,
         full_name_insured_person:string,
         birth_date_insured_person:Date,
         age_insured_person:number,
@@ -24,7 +24,7 @@ export class IllustrationMainInterest{
         fee_value:number,
         denominations:number){
             this.id_illustration = id_illustration;
-            this.id_main_interest = id_main_interest;
+            this.id_main_benifit = id_main_benifit;
             this.full_name_insured_person = full_name_insured_person;
             this.birth_date_insured_person = birth_date_insured_person;
             this.age_insured_person = age_insured_person;

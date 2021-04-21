@@ -1,6 +1,6 @@
-export class Interest {
+export class Benifit {
     id:number;
-    interest_name:string;
+    benifit_name:string;
     description:string;
     fee_period:number;
     maturity_time:number;

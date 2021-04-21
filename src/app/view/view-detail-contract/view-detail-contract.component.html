@@ -37,7 +37,7 @@
                         </tr>
                         <tr>
                             <td>Mã Gói Bảo Hiểm</td>
-                            <td>{{contracts?.id_main_interest}}</td>
+                            <td>{{contracts?.id_main_benifit}}</td>
                         </tr>
                         <tr>
                             <td>Mã Bản Minh Họa</td>
@@ -83,8 +83,8 @@
             </mat-tab>
         </mat-tab-group>
     </div>
-    <div class="custom-div">
-        <button *ngIf="authenService.id_role=='2' && contracts.approval_status == 'CXD'" type="button" class="btn btn-success" style="width: 100%;" (click)="openDialogSendRequest()">Gửi Yêu Cầu Xét Duyệt</button>
+    <div class="custom-div" *ngIf="authenService.id_role=='2' && contracts.approval_status == 'CXD'">
+        <button type="button" class="btn btn-success" style="width: 100%;" (click)="openDialogSendRequest()">Gửi Yêu Cầu Xét Duyệt</button>
     </div>
 </body>
 

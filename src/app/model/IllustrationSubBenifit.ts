@@ -1,6 +1,6 @@
-export class IllustrationSubInterest{
+export class IllustrationSubBenifit{
     id_illustration:number;
-    id_sub_interest:number; 
+    id_sub_benifit:number; 
     full_name_insured_persion_extra:string;
     insurance_buyer_relation_extra_insured_person:string;
     dob_extra_insured_person:Date; 
@@ -13,7 +13,7 @@ export class IllustrationSubInterest{
     id_related_person:number;
 
     constructor(id_illustration:number,
-        id_sub_interest:number,
+        id_sub_benifit:number,
         full_name_insured_persion_extra:string,
         insurance_buyer_relation_extra_insured_person:string,
         dob_extra_insured_person:Date,
@@ -25,7 +25,7 @@ export class IllustrationSubInterest{
         is_extra_insured_person:boolean,
         id_related_person:number,){
             this.id_illustration = id_illustration;
-            this.id_sub_interest = id_sub_interest;
+            this.id_sub_benifit = id_sub_benifit;
             this.full_name_insured_persion_extra = full_name_insured_persion_extra;
             this.insurance_buyer_relation_extra_insured_person = insurance_buyer_relation_extra_insured_person;
             this.dob_extra_insured_person = dob_extra_insured_person;

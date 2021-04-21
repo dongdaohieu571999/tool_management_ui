@@ -1,16 +1,5 @@
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>THÔNG TIN CHI TIẾT BẢN MINH HOẠ</h1>
-                </div>
-            </div>
-        </div>
-        <!-- /.container-fluid -->
-    </section>
 
     <!-- Main content -->
     <section class="content">
@@ -24,11 +13,11 @@
                         <table id="example1" class="table table-bordered table-striped">
                             <tr>
                                 <th>Họ Và Tên</th>
-                                <td>{{illustration?.illustrationMainInterest.full_name_insurance_buyer}}</td>
+                                <td>{{illustration?.illustrationMainBenifit.full_name_insurance_buyer}}</td>
                             </tr>
                             <tr>
                                 <th>Mối Quan Hệ Với NĐBH Sản Phẩm Chính</th>
-                                <td>{{illustration?.illustrationMainInterest.insurance_buyer_relation_insured_person}}
+                                <td>{{illustration?.illustrationMainBenifit.insurance_buyer_relation_insured_person}}
                                 </td>
                             </tr>
                         </table>
@@ -43,21 +32,21 @@
                         <table id="example1" class="table table-bordered table-striped">
                             <tr>
                                 <th>Họ Và Tên</th>
-                                <td>{{illustration?.illustrationMainInterest.full_name_insured_person}}</td>
+                                <td>{{illustration?.illustrationMainBenifit.full_name_insured_person}}</td>
                             </tr>
                             <tr>
                                 <th>Nhóm Nghề</th>
-                                <td>{{illustration?.illustrationMainInterest.carrier_group_insured_person}}</td>
+                                <td>{{illustration?.illustrationMainBenifit.carrier_group_insured_person}}</td>
                             </tr>
                             <tr>
                                 <th>Ngày Sinh</th>
-                                <td>{{illustration?.illustrationMainInterest.birth_date_insured_person | date: 'dd-MM-yyyy'}}</td>
+                                <td>{{illustration?.illustrationMainBenifit.birth_date_insured_person | date: 'dd-MM-yyyy'}}</td>
                             </tr>
                             <tr>
                                 <th>Giới Tính</th>
                                 <td>
-                                    <span *ngIf="illustration?.illustrationMainInterest.gender_insured_person">Nam</span>
-                                    <span *ngIf="!illustration?.illustrationMainInterest.gender_insured_person">Nữ</span>
+                                    <span *ngIf="illustration?.illustrationMainBenifit.gender_insured_person">Nam</span>
+                                    <span *ngIf="!illustration?.illustrationMainBenifit.gender_insured_person">Nữ</span>
                                 </td>
 
                             </tr>
@@ -73,7 +62,7 @@
                         <table id="example1" class="table table-bordered table-striped">
                             <tr>
                                 <th>Chương Trình</th>
-                                <td>{{illustration?.interest_name}}</td>
+                                <td>{{illustration?.benifit_name}}</td>
                             </tr>
                             <tr>
                                 <th>Thời Hạn</th>
@@ -84,40 +73,15 @@
                             </tr>
                             <tr>
                                 <th>Số Tiền Bảo Hiểm (VNĐ)</th>
-                                <td>{{illustration?.illustrationMainInterest.denominations | currency : "VND"}}</td>
+                                <td>{{illustration?.illustrationMainBenifit.denominations | currency : "VND"}}</td>
                             </tr>
                             <tr>
                                 <th>Phí Bảo Hiểm (VNĐ)</th>
-                                <td>{{illustration?.illustrationMainInterest.fee_value | currency : "VND"}}</td>
+                                <td>{{illustration?.illustrationMainBenifit.fee_value | currency : "VND"}}</td>
                             </tr>
                         </table>
                     </div>
                 </div>
-
-                <!-- <div class="col-12" *ngFor="let SubRelatedPerSon of listSubRelatedPerSonBig" >
-                    <div class="card">
-                        <div class="card-header">
-                            <h2>
-                                <b>Thông Tin Quyền Lợi Bảo Hiểm Bổ Sung </b>   
-                            </h2>
-                        </div>
-                        <table id="example1" class="table table-bordered table-striped">
-                            <tr>
-                                <th>Tên Quyền Lợi</th>
-                                <th>Nhóm Nghề Nghiệp</th>
-                                <th>Số Tiền Bảo Hiểm</th>
-                                <th>Phí Bảo Hiểm</th>
-                            </tr>
-                            <tr *ngFor="let detail of SubRelatedPerSon">
-                                <td>{{detail.id_sub_interest}}</td>
-                                <td>{{detail.carrier_group_extra_insured_person}}</td>
-                                <td>{{detail.denominations | currency : "VND"}}</td>
-                                <td>{{detail.fee_value | currency : "VND"}}</td>                                
-                            </tr>                       
-                        </table>
-
-                    </div>
-                </div> -->
 
                 <div class="col-12" *ngFor="let RelatedPerSonInfo of listRelatedPerSonInfo">
                     <div class="card">
@@ -164,7 +128,7 @@
                                 <th>Phí Bảo Hiểm</th>
                             </tr>
                             <tr *ngFor="let detail of RelatedPerSonInfo.listSubInterset">
-                                <td>{{detail?.id_sub_interest}}</td>
+                                <td>{{detail?.id_sub_benifit}}</td>
                                 <td>{{detail?.carrier_group_extra_insured_person}}</td>
                                 <td>{{detail?.denominations | currency : "VND"}}</td>
                                 <td>{{detail?.fee_value | currency : "VND"}}</td>
@@ -183,21 +147,6 @@
                         <table id="example1" class="table table-bordered table-striped">
                             <tr>
                                 <th>{{illustration?.total_fee | currency : "VND"}}</th>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h2><b>Giấy Tờ Liên Quan</b></h2>
-                        </div>
-                        <table id="example1" class="table table-bordered table-striped">
-                            <tr>
-                                <td>Giấy Tờ Liên Quan</td>
-                                <td><img src="https://img.topbank.vn/2020/02/24/b8awMTJx/minh-hoa-bao-hiem-nhan-tho-4b46.jpg" />
-                                </td>
                             </tr>
                         </table>
                     </div>

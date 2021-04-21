@@ -7,7 +7,7 @@ export class ContractChangeHistory{
     name_contract_owner:String;
     payment_period_id:number;
     insurance_type:String;
-    id_main_interest:number;
+    id_main_benifit:number;
     id_illustration:number;
     start_time:Date;
     end_time:Date;

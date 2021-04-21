@@ -7,7 +7,7 @@ import { CommonService } from '../common/common.service';
 @Injectable({
   providedIn: 'root'
 })
-export class InterestService {
+export class BenifitService {
 
   constructor(private httpClient: HttpClient, private common: CommonService) { }
 
@@ -18,14 +18,14 @@ export class InterestService {
     }),
   }
 
-  public getAllMainInterest(){
+  public getAllMainBenifit(){
     const url =  this.common.makeUrl('/benifit/get_all_main_benifit/') ;
     return this.httpClient
     .get<any>(url,this.httpOptions)
     .pipe(catchError(this.handleError));
   }
 
-  public getAllSubInterest(){
+  public getAllSubBenifit(){
     const url =  this.common.makeUrl('/benifit/get_all_sub_benifit/') ;
     return this.httpClient
     .get<any>(url,this.httpOptions)

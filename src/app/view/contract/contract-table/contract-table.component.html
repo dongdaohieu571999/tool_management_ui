@@ -25,7 +25,7 @@
             <th (click)="sort('id_customer')">Mã Khách Hàng&nbsp;<i class="fas fa-sort"></i></th>
             <th (click)="sort('name_contract_owner')">Chủ Hợp Đồng&nbsp;<i class="fas fa-sort"></i></th>
             <th (click)="sort('insurance_type')">Loại Bảo Hiểm&nbsp;<i class="fas fa-sort"></i></th>
-            <th (click)="sort('id_main_interest')">Mã Gói Bảo Hiểm&nbsp;<i class="fas fa-sort"></i></th>
+            <th (click)="sort('id_main_benifit')">Mã Gói Bảo Hiểm&nbsp;<i class="fas fa-sort"></i></th>
             <th (click)="sort('id_illustration')">Mã Bảng Minh Họa&nbsp;<i class="fas fa-sort"></i></th>
             <th (click)="sort('status')">Trạng Thái&nbsp;<i class="fas fa-sort"></i></th>
             <th (click)="sort('start_time')">Ngày Đăng Ký&nbsp;<i class="fas fa-sort"></i></th>
@@ -41,7 +41,7 @@
             </td>
             <td>{{contract.name_contract_owner}}</td>
             <td>{{contract.insurance_type}}</td>
-            <td>{{contract.id_main_interest}}</td>
+            <td>{{contract.id_main_benifit}}</td>
             <td>
                 <a *ngIf="contract.id_illustration" (click)="openDialogIllustrationDetail(contract.id_illustration)">#BMH{{contract.id_illustration}}</a>
                 <a *ngIf="!contract.id_illustration"></a>

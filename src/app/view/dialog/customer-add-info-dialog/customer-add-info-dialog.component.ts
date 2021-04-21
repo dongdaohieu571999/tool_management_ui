@@ -7,6 +7,7 @@ import { CustomerService } from 'src/app/services/customer/customer.service';
 import { SnackbarService } from 'src/app/services/snackbar/snackbar.service';
 import { CommonService } from 'src/app/services/common/common.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-customer-add-info-dialog',
@@ -15,7 +16,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class CustomerAddInfoDialogComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<CustomerAddInfoDialogComponent>, public snackbar: SnackbarService,private spinner:NgxSpinnerService,
+  constructor(private datepipe:DatePipe,public dialogRef: MatDialogRef<CustomerAddInfoDialogComponent>, public snackbar: SnackbarService,private spinner:NgxSpinnerService,
     @Inject(MAT_DIALOG_DATA) public customerInfo: CustomerInfo, private common: CommonService, private router: Router, private customerService: CustomerService, private notiService: SnackbarService) { }
   selectedDeal: Date;
 
@@ -45,6 +46,9 @@ export class CustomerAddInfoDialogComponent implements OnInit {
     this.spinner.show();
     this.customerInfo.code_em_support = this.user['sub'];
     this.customerService.addCustomerInfo(this.customerInfo).subscribe((data => {
+      if(data == null){
+          this.snackbar.openSnackBar("Email hoặc CMND bị trùng","Đóng");
+      }
       this.customerService.invokeRefreshTableFun(); 
       this.spinner.hide();
     }))

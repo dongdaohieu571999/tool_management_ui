@@ -1,4 +1,4 @@
-import { Interest } from "./Interest";
+import { Benifit } from "./Benifit";
 
 export class RelatedPerson{
     id:number;
@@ -7,7 +7,7 @@ export class RelatedPerson{
  date_of_birth:Date;
  gender:boolean;
  carreer_group:number;
- listSubInterest:Array<Interest>;
+ listSubBenifit:Array<Benifit>;
 
     constructor(id:number,
         full_name:string,
@@ -15,12 +15,12 @@ export class RelatedPerson{
         date_of_birth:Date,
         gender:boolean,
         carreer_group:number,
-        listSubInterest:Array<Interest>){
+        listSubBenifit:Array<Benifit>){
             this.full_name = full_name;
             this.relation = relation;
             this.date_of_birth = date_of_birth;
             this.gender = gender;
             this.carreer_group = carreer_group;
-            this.listSubInterest = listSubInterest;
+            this.listSubBenifit = listSubBenifit;
     }
 }

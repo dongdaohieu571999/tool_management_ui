@@ -27,13 +27,12 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
-                                   <div class="searchWithDateandValue">
+                                    <div class="searchWithDateandValue">
                                         <div class="left">
                                         </div>
                                         <div class="right">
                                             <div class="input-group searchBar">
-                                                <input type="search" class="form-control form-control-lg" [(ngModel)]="searchValue"
-                                                    placeholder="Nhập từ khóa cần tìm">
+                                                <input type="search" class="form-control form-control-lg" [(ngModel)]="searchValue" placeholder="Nhập từ khóa cần tìm">
                                             </div>
                                             <div class="date">
                                                 <label>From<input id="RfromSearch" type="date" name="dateFrom" [(ngModel)]="dateFrom"
@@ -47,21 +46,21 @@
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                     <table id="illustration-table" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
                                                 <th (click)="sort('id')">Mã bản nháp&nbsp;<i class="fas fa-sort"></i></th>
                                                 <th (click)="sort('create_time')">Ngày Tạo&nbsp;<i class="fas fa-sort"></i></th>
-                                                <th (click)="sort('interest_name')">Sản phẩm chính&nbsp;<i class="fas fa-sort"></i></th>
-                                                <th >Chi tiết</th>
+                                                <th (click)="sort('benifit_name')">Sản phẩm chính&nbsp;<i class="fas fa-sort"></i></th>
+                                                <th>Chi tiết</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr *ngFor="let illustration of illustrations | orderBy: key:reverse | paginate: { id: 'listing_pagination' ,itemsPerPage: 8, currentPage: page, totalItems: totalRecords} ">
                                                 <td>#BMH{{illustration.id}}</td>
                                                 <td>{{illustration.create_time | date:'dd-MM-yyyy'}}</td>
-                                                <td>{{illustration.interest_name}}</td>
+                                                <td>{{illustration.benifit_name}}</td>
                                                 <button (click)="illustrationDetail(illustration.id)" class="btn btn-info" style="height: 40px; width: 100px; margin: 10px; color: white;">Chi Tiết</button>
                                             </tr>
                                         </tbody>

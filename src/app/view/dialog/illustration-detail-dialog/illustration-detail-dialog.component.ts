@@ -2,7 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { Illustration } from 'src/app/model/Illustration';
-import { IllustrationSubInterest } from 'src/app/model/IllustrationSubInterest';
+import { IllustrationSubBenifit } from 'src/app/model/IllustrationSubBenifit';
 import { RelatedPersonInfo } from 'src/app/model/RelatedPersonInfo';
 import { CommonService } from 'src/app/services/common/common.service';
 import { IllustrationService } from 'src/app/services/illustration/illustration.service';
@@ -22,7 +22,7 @@ export class IllustrationDetailDialogComponent implements OnInit {
   illustrationCopy: Illustration;
   listRelatedPersonNumber: Number[] = [];
   listSubRelatedPerSonBig: Array<any> = [];
-  listSubRelatedPerSonSmall: IllustrationSubInterest[] = [];
+  listSubRelatedPerSonSmall: IllustrationSubBenifit[] = [];
   listRelatedPerSonInfo: Array<RelatedPersonInfo> = [];
 
   ngOnInit(): void {
@@ -44,43 +44,43 @@ export class IllustrationDetailDialogComponent implements OnInit {
       console.log(this.illustration);
 
       //Biến đếm số lượng người 
-      var default_number: number = this.illustration.illustrationSubInterestList[0].id_related_person;
+      var default_number: number = this.illustration.illustrationSubBenifitList[0].id_related_person;
       //tìm số lượng người bảo hiểm phụ và thông tin chi tiết
-      for (let i = 0; i < this.illustration.illustrationSubInterestList.length; i++) {
-        if (this.illustration.illustrationSubInterestList[i].id_related_person == default_number) {
+      for (let i = 0; i < this.illustration.illustrationSubBenifitList.length; i++) {
+        if (this.illustration.illustrationSubBenifitList[i].id_related_person == default_number) {
           this.listRelatedPersonNumber.push(default_number);
           let relatedPerson = new RelatedPersonInfo(
-            this.illustration.illustrationSubInterestList[i].full_name_insured_persion_extra,
-            this.illustration.illustrationSubInterestList[i].insurance_buyer_relation_extra_insured_person,
-            this.illustration.illustrationSubInterestList[i].dob_extra_insured_person,
-            this.illustration.illustrationSubInterestList[i].gender_extra_insured_person,
-            this.illustration.illustrationSubInterestList[i].carrier_group_extra_insured_person,
+            this.illustration.illustrationSubBenifitList[i].full_name_insured_persion_extra,
+            this.illustration.illustrationSubBenifitList[i].insurance_buyer_relation_extra_insured_person,
+            this.illustration.illustrationSubBenifitList[i].dob_extra_insured_person,
+            this.illustration.illustrationSubBenifitList[i].gender_extra_insured_person,
+            this.illustration.illustrationSubBenifitList[i].carrier_group_extra_insured_person,
           );   
         this.listRelatedPerSonInfo.push(relatedPerson);
           default_number++;
         }
       }
 
-      // console.log(this.illustration.illustrationSubInterestList.find(i => i.id_related_person == 1)['id_related_person']);
+      // console.log(this.illustration.illustrationSubBenifitList.find(i => i.id_related_person == 1)['id_related_person']);
 
       //Duyệt qua từng người được bảo hiểm bổ sung
       for (let k = 0; k < this.listRelatedPersonNumber.length; k++) {
 
-        let listSubRelatedPerSonSmall: Array<IllustrationSubInterest> = [];
+        let listSubRelatedPerSonSmall: Array<IllustrationSubBenifit> = [];
         let count: number = 0;
-        let id_related_person = this.illustrationCopy.illustrationSubInterestList[0].id_related_person;
+        let id_related_person = this.illustrationCopy.illustrationSubBenifitList[0].id_related_person;
 
         //tìm những thông tin có related id = nhau
-        for (let i = 0; i < this.illustrationCopy.illustrationSubInterestList.length; i++) {
-          if (this.illustrationCopy.illustrationSubInterestList[i].id_related_person == id_related_person) {
-            listSubRelatedPerSonSmall.push(this.illustrationCopy.illustrationSubInterestList[i]);            
+        for (let i = 0; i < this.illustrationCopy.illustrationSubBenifitList.length; i++) {
+          if (this.illustrationCopy.illustrationSubBenifitList[i].id_related_person == id_related_person) {
+            listSubRelatedPerSonSmall.push(this.illustrationCopy.illustrationSubBenifitList[i]);            
             count = count + 1;
           }
         }
         this.listRelatedPerSonInfo[k].listSubInterset = listSubRelatedPerSonSmall;
         this.listSubRelatedPerSonBig.push(listSubRelatedPerSonSmall);
         //tìm mảng với những giá trị của người liên quan còn lại
-        this.illustrationCopy.illustrationSubInterestList = this.illustrationCopy.illustrationSubInterestList.slice(count, this.illustrationCopy.illustrationSubInterestList.length);
+        this.illustrationCopy.illustrationSubBenifitList = this.illustrationCopy.illustrationSubBenifitList.slice(count, this.illustrationCopy.illustrationSubBenifitList.length);
       }
 
       console.log("danh sach nguoi bo sung :");

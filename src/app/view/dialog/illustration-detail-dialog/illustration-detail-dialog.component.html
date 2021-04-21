@@ -14,7 +14,7 @@
 
     <!-- Main content -->
     <section class="content">
-        <div class="container-fluid" >
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
                     <div class="card">
@@ -24,11 +24,11 @@
                         <table id="example1" class="table table-bordered table-striped">
                             <tr>
                                 <th>Họ Và Tên</th>
-                                <td>{{illustration.illustrationMainInterest.full_name_insurance_buyer}}</td>
+                                <td>{{illustration.illustrationMainBenifit.full_name_insurance_buyer}}</td>
                             </tr>
                             <tr>
                                 <th>Mối Quan Hệ Với NĐBH Sản Phẩm Chính</th>
-                                <td>{{illustration.illustrationMainInterest.insurance_buyer_relation_insured_person}}
+                                <td>{{illustration.illustrationMainBenifit.insurance_buyer_relation_insured_person}}
                                 </td>
                             </tr>
                         </table>
@@ -43,21 +43,21 @@
                         <table id="example1" class="table table-bordered table-striped">
                             <tr>
                                 <th>Họ Và Tên</th>
-                                <td>{{illustration.illustrationMainInterest.full_name_insured_person}}</td>
+                                <td>{{illustration.illustrationMainBenifit.full_name_insured_person}}</td>
                             </tr>
                             <tr>
                                 <th>Nhóm Nghề</th>
-                                <td>{{illustration.illustrationMainInterest.carrier_group_insured_person}}</td>
+                                <td>{{illustration.illustrationMainBenifit.carrier_group_insured_person}}</td>
                             </tr>
                             <tr>
                                 <th>Ngày Sinh</th>
-                                <td>{{illustration.illustrationMainInterest.birth_date_insured_person | date}}</td>
+                                <td>{{illustration.illustrationMainBenifit.birth_date_insured_person | date}}</td>
                             </tr>
                             <tr>
                                 <th>Giới Tính</th>
                                 <td>
-                                    <span *ngIf="illustration.illustrationMainInterest.gender_insured_person">Nam</span>
-                                    <span *ngIf="!illustration.illustrationMainInterest.gender_insured_person">Nữ</span>
+                                    <span *ngIf="illustration.illustrationMainBenifit.gender_insured_person">Nam</span>
+                                    <span *ngIf="!illustration.illustrationMainBenifit.gender_insured_person">Nữ</span>
                                 </td>
 
                             </tr>
@@ -73,7 +73,7 @@
                         <table id="example1" class="table table-bordered table-striped">
                             <tr>
                                 <th>Chương Trình</th>
-                                <td>{{illustration.interest_name}}</td>
+                                <td>{{illustration.benifit_name}}</td>
                             </tr>
                             <tr>
                                 <th>Thời Hạn</th>
@@ -84,18 +84,18 @@
                             </tr>
                             <tr>
                                 <th>Số Tiền Bảo Hiểm (VNĐ)</th>
-                                <td>{{illustration.illustrationMainInterest.denominations | currency : "VND"}}</td>
+                                <td>{{illustration.illustrationMainBenifit.denominations | currency : "VND"}}</td>
                             </tr>
                             <tr>
                                 <th>Phí Bảo Hiểm (VNĐ)</th>
-                                <td>{{illustration.illustrationMainInterest.fee_value | currency : "VND"}}</td>
+                                <td>{{illustration.illustrationMainBenifit.fee_value | currency : "VND"}}</td>
                             </tr>
                         </table>
                     </div>
                 </div>
 
                 <div class="col-12" *ngFor="let RelatedPerSonInfo of listRelatedPerSonInfo">
-                    <div class="card" >
+                    <div class="card">
                         <div class="card-header">
                             <h2><b>Bảo Hiểm Bổ Sung của {{RelatedPerSonInfo.full_name_insured_persion_extra}}</b></h2>
                         </div>
@@ -124,11 +124,11 @@
                                 <td>{{RelatedPerSonInfo.carrier_group_extra_insured_person}}</td>
                             </tr>
                         </table>
-                        
+
 
                         <div class="card-header">
                             <h2>
-                                <b>Thông Tin Quyền Lợi Bảo Hiểm Bổ Sung </b>   
+                                <b>Thông Tin Quyền Lợi Bảo Hiểm Bổ Sung </b>
                             </h2>
                         </div>
                         <table id="example1" class="table table-bordered table-striped">
@@ -139,11 +139,11 @@
                                 <th>Phí Bảo Hiểm</th>
                             </tr>
                             <tr *ngFor="let detail of RelatedPerSonInfo.listSubInterset">
-                                <td>{{detail.id_sub_interest}}</td>
+                                <td>{{detail.id_sub_benifit}}</td>
                                 <td>{{detail.carrier_group_extra_insured_person}}</td>
                                 <td>{{detail.denominations | currency : "VND"}}</td>
-                                <td>{{detail.fee_value | currency : "VND"}}</td>                                
-                            </tr>                       
+                                <td>{{detail.fee_value | currency : "VND"}}</td>
+                            </tr>
                         </table>
 
                     </div>
@@ -163,7 +163,7 @@
                     </div>
                 </div>
 
-                
+
             </div>
             <!-- /.row -->
         </div>

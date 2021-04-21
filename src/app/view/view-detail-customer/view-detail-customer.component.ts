@@ -38,7 +38,11 @@ export class ViewDetailCustomerComponent implements OnInit {
 }
   
   public openDialogEdit(){
-    let dialogRef = this.dialog.open(CustomerEditInfoComponent,{data : this.customerInfo} );
+    let dialogRef = this.dialog.open(CustomerEditInfoComponent,{
+      height:'80%',
+      width:'fit-content',
+      data : this.customerInfo
+    } );
     
     dialogRef.afterClosed().subscribe(result => {
       
@@ -58,6 +62,8 @@ export class ViewDetailCustomerComponent implements OnInit {
     this.contractService.getDetailContract(data).subscribe((dataReturn => {
       this.contract = dataReturn;
       let dialogRef = this.dialog.open(ContractDetailDialogComponent, {
+        height:'80%',
+        width:'fit-content',
         data: this.contract
       });
     }))
@@ -65,6 +71,8 @@ export class ViewDetailCustomerComponent implements OnInit {
 
   public openDialogIllustrationDetail(id_illustration: number) {
     let dialogRef = this.dialog.open(IllustrationDetailDialogComponent, {
+      height:'80%',
+      width:'fit-content',
       data: id_illustration
     });
   }

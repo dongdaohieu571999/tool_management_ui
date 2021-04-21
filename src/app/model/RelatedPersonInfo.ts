@@ -1,4 +1,4 @@
-import { IllustrationSubInterest } from "./IllustrationSubInterest";
+import { IllustrationSubBenifit } from "./IllustrationSubBenifit";
 
 export class RelatedPersonInfo{
     full_name_insured_persion_extra:String;
@@ -7,7 +7,7 @@ export class RelatedPersonInfo{
     gender_extra_insured_person:boolean;
     carrier_group_extra_insured_person:number;
 
-    listSubInterset:Array<IllustrationSubInterest>;
+    listSubInterset:Array<IllustrationSubBenifit>;
 
     constructor(full_name:string,relation:string,date_of_birth:Date,gender:boolean,carreer_group:number){
         this.full_name_insured_persion_extra = full_name;

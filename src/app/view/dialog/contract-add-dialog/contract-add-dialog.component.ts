@@ -52,9 +52,9 @@ export class ContractAddDialogComponent implements OnInit {
       this.IllustrationContract = data;
       this.contract.id_illustration = this.illustrationId;
       this.contract.id_customer = this.IllustrationContract.id_customer_info;
-      this.contract.name_contract_owner = this.IllustrationContract.illustrationMainInterest.full_name_insurance_buyer;
-      this.contract.insurance_type = this.IllustrationContract.interest_name;
-      this.contract.id_main_interest = this.IllustrationContract.illustrationMainInterest.id_main_interest;
+      this.contract.name_contract_owner = this.IllustrationContract.illustrationMainBenifit.full_name_insurance_buyer;
+      this.contract.insurance_type = this.IllustrationContract.benifit_name;
+      this.contract.id_main_benifit = this.IllustrationContract.illustrationMainBenifit.id_main_benifit;
       this.contract.contract_total_value = this.IllustrationContract.total_fee;
       this.contract.payment_period_id = this.IllustrationContract.payment_period_id;
       this.referenceTable.getAllReference().subscribe((data => {

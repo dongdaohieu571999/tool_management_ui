@@ -47,6 +47,13 @@
                                     </option>
                                 </select>
                             </div>
+                            <div class="form-group ">
+                                <label for="exampleInputEmail1 ">Dân Tộc</label>
+                                <!-- <p style="color: black; ">{{ customerInfo.nation }}</p> -->
+                                <input type="text" class="form-control" name="nation" required #national="ngModel" pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s]+$" [(ngModel)]="customerInfo.nation">
+                                <span id="errorMessagename" style="color: red;" *ngIf="national.errors?.required && national.touched">Dân Tộc không được để trống</span>
+                                <span id="errorMessagename" style="color: red;" *ngIf="national.errors?.pattern && national.touched">Dân Tộc không được chứa kí tự đặc biệt và chữ số</span>
+                            </div>
                         </div>
                         <div class="col-6">
                             <div class="form-group ">
@@ -109,13 +116,7 @@
                                 <input type="text" class="form-control" name="nationality_2" #national2="ngModel" pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s]+$" [(ngModel)]="customerInfo.nationality_2">
                                 <span id="errorMessagename" style="color: red;" *ngIf="national2.errors?.pattern && national2.touched">Dân Tộc không được chứa kí tự đặc biệt và chữ số</span>
                             </div>
-                            <div class="form-group ">
-                                <label for="exampleInputEmail1 ">Dân Tộc</label>
-                                <!-- <p style="color: black; ">{{ customerInfo.nation }}</p> -->
-                                <input type="text" class="form-control" name="nation" required #national="ngModel" pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s]+$" [(ngModel)]="customerInfo.nation">
-                                <span id="errorMessagename" style="color: red;" *ngIf="national.errors?.required && national.touched">Dân Tộc không được để trống</span>
-                                <span id="errorMessagename" style="color: red;" *ngIf="national.errors?.pattern && national.touched">Dân Tộc không được chứa kí tự đặc biệt và chữ số</span>
-                            </div>
+
                         </div>
                     </div>
                 </mat-tab>

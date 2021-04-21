@@ -44,18 +44,18 @@ export class AppraiserReviewFormComponent implements OnInit {
         this.illustSer.getIllustrationContractCreate(data['id_illustration']).subscribe((data => {
           this.illustration = data;
           let dataCommission = {payment_period_id:data['payment_period_id'],
-          denomination:data['illustrationMainInterest'].denominations}
+          denomination:data['illustrationMainBenifit'].denominations}
           // lấy hệ số commisson để tính thu nhập cho nhân viên
           this.commissionSer.getOneCommisson(dataCommission).subscribe((data => {
             this.revenue.id_contract = this.req.id_contract;
             this.revenue.code_employee = this.req.code_sender;
             this.revenue.income = data['commission'] * this.illustration.total_fee;
-            if(this.illustration.illustrationMainInterest.denominations != 0){
-              if(this.illustration.illustrationSubInterestList != null){
-                this.revenue.revenue_val = this.revenue.revenue_val+this.illustration.illustrationMainInterest.denominations;
-                this.illustration.illustrationSubInterestList.forEach(a => this.revenue.revenue_val += a.denominations)
+            if(this.illustration.illustrationMainBenifit.denominations != 0){
+              if(this.illustration.illustrationSubBenifitList != null){
+                this.revenue.revenue_val = this.revenue.revenue_val+this.illustration.illustrationMainBenifit.denominations;
+                this.illustration.illustrationSubBenifitList.forEach(a => this.revenue.revenue_val += a.denominations)
               } else {
-                this.revenue.revenue_val = this.illustration.illustrationMainInterest.denominations;
+                this.revenue.revenue_val = this.illustration.illustrationMainBenifit.denominations;
               }
               
             }else {

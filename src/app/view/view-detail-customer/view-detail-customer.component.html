@@ -17,7 +17,7 @@
                 <div class="container-fluid">
                     <div class="row" style="margin-top: 10px;">
                         <div class="col-12">
-                            <div class="card">
+                            <div class="card" style="margin-bottom: 6%;">
                                 <div class="card-body">
                                     <mat-tab-group>
                                         <mat-tab label="Thông tin Cơ Bản">
@@ -30,14 +30,13 @@
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputPassword1 ">Ngày Cập Nhật</label>
-                                                        <p style="color: red; ">{{ customerInfo.updated_time |
-                                                            date:'dd-MM-yyyy'}}</p>
+                                                        <p style="color: red; ">{{ customerInfo.updated_time | date:'dd-MM-yyyy'}}
+                                                        </p>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputPassword1 ">Mã Hợp Đồng</label>
                                                         <p style="color: red; ">
-                                                            <a *ngFor="let item of custInfoList"
-                                                                (click)="openDialogContractDetail(item.id_contrac)"> {{
+                                                            <a *ngFor="let item of custInfoList" (click)="openDialogContractDetail(item.id_contrac)"> {{
                                                                 item.id_contract }},&nbsp;&nbsp;</a>
                                                         </p>
                                                     </div>
@@ -45,8 +44,7 @@
                                                         <label for="exampleInputPassword1 ">Mã Bản Minh Họa Tương
                                                             Ứng</label>
                                                         <p style="color: red; ">
-                                                            <a *ngFor="let item of custInfoList"
-                                                                (click)="openDialogIllustrationDetail(item.id_illustration)">
+                                                            <a *ngFor="let item of custInfoList" (click)="openDialogIllustrationDetail(item.id_illustration)">
                                                                 {{ item.id_illustration }},&nbsp;&nbsp;</a>
                                                         </p>
                                                     </div>
@@ -60,7 +58,7 @@
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Giới Tính</label>
-                                                        <p style="color: red; ">{{ customerInfo.gender }}</p>
+                                                        <p style="color: red; ">{{ customerInfo.gender==0? "Nữ":"Nam" }}</p>
                                                     </div>
                                                 </div>
                                                 <div class="col-6">
@@ -70,8 +68,8 @@
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Ngày Sinh</label>
-                                                        <p style="color: red; ">{{ customerInfo.birth_date | date:
-                                                            'dd-MM-yyyy'}}</p>
+                                                        <p style="color: red; ">{{ customerInfo.birth_date | date: 'dd-MM-yyyy'}}
+                                                        </p>
                                                     </div>
                                                     <div class="form-group ">
                                                         <label for="exampleInputEmail1 ">Tuổi</label>
@@ -265,13 +263,10 @@
                                             </div>
                                         </mat-tab>
                                     </mat-tab-group>
-                                    <div style="text-align: center;">
-                                        <button type="button " class="btn btn-success btn-function" data-toggle="modal"
-                                            data-target="#myModal" (click)="openDialogEdit()">Chỉnh Sửa Thông
+                                    <!-- <div class="custom-foot">
+                                        <button type="button " style="width: 100%;padding:5px;" class="btn btn-success btn-function" (click)="openDialogEdit()">Chỉnh Sửa Thông
                                             Tin</button>
-                                        <button type="button " class="btn btn-success btn-function"
-                                            (click)="openDialogReport()">Báo Cáo</button>
-                                    </div>
+                                    </div> -->
                                 </div>
 
                             </div>
@@ -280,36 +275,7 @@
                 </div>
             </section>
         </div>
-
-        <div class="modal modal-danger fade in " id="tamNgung">
-            <div class="modal-dialog ">
-                <div class="modal-content ">
-                    <div class="card">
-                        <div class="card-body">
-                            <h3>Gửi yêu cầu tạm ngưng khách hàng này</h3>
-                            <i style="color: red;">Lý Do Tạm Ngưng</i>
-                            <textarea style="width: 100%;"></textarea>
-                        </div>
-                        <div class="card-footer">
-                            <button type="button " class="btn btn-success">Gửi Yêu Cầu</button>
-                            <button type="button " class="btn btn-danger" data-dismiss="modal">Hủy</button>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-
-
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark ">
-            <!-- Control sidebar content goes here -->
-        </aside>
-        <!-- /.control-sidebar -->
     </div>
-    <!-- ./wrapper -->
-
 </body>
 
 </html>
