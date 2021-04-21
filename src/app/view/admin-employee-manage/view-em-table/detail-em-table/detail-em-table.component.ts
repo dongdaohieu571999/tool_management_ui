@@ -5,6 +5,7 @@ import { forEach } from 'jszip';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { EmployeeAcc } from 'src/app/model/EmployeeAcc';
 import { EmployeeInfoDTO } from 'src/app/model/EmployeeInfoDTO';
+import { CommonService } from 'src/app/services/common/common.service';
 import { EmployeeService } from 'src/app/services/employee/employee.service';
 import { AdminPauseEmployeeDialogComponent } from 'src/app/view/dialog/admin-pause-employee-dialog/admin-pause-employee-dialog.component';
 import { EmployeeEditInfoDialogComponent } from 'src/app/view/dialog/employee-edit-info-dialog/employee-edit-info-dialog.component';
@@ -21,9 +22,10 @@ export class DetailEmTableComponent implements OnInit {
   statusDeactiveAccDialog: boolean = false;
   listAcc: Array<EmployeeAcc>;
   showDelayButton: boolean = true;
-  constructor(private spinner: NgxSpinnerService, private employeeService: EmployeeService, private activateRoute: ActivatedRoute, private dialog: MatDialog) { }
+  constructor(private common:CommonService,private spinner: NgxSpinnerService, private employeeService: EmployeeService, private activateRoute: ActivatedRoute, private dialog: MatDialog) { }
   employeinfoDTO: EmployeeInfoDTO;
   ngOnInit(): void {
+    this.common.titlePage = "Chi Tiết Nhân Viên";
     this.employeeService.getDetailEmployebyID(this.activateRoute.snapshot.params['id']).subscribe((data => {
       this.spinner.show();
       this.employeinfoDTO = data;

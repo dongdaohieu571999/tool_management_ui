@@ -71,6 +71,14 @@ export class ContractService {
       .post<any>(url,data,this.httpOptions)
       .pipe(catchError(this.handleError));
   }
+
+  public getDetailContractForCustomer(data:any): Observable<any> {
+    const url = this.common.makeUrl("/contract/get_detail_contract_for_customer/");
+    return this.httpClient
+      .post<any>(url,data,this.httpOptions)
+      .pipe(catchError(this.handleError));
+  }
+
   public setStatusContract(id_contract: number,id_request:number,description:String,approval_status:string): Observable<any> {
     const url = this.common.makeUrl("/contract/set_active_contract");
     let data = {id_contract:id_contract,id_request:id_request,description:description,approval_status};

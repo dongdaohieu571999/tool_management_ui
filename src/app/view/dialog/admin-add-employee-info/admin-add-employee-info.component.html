@@ -34,12 +34,12 @@
                                 </div>
                                 <div class="form-group ">
                                     <label for="exampleInputEmail1 ">Ngày Sinh</label>
-                                    <input type="date" class="form-control" name="birth_date" [ngModel]="employeinfoDTO.date_of_birth | date:'yyyy-MM-dd'" (ngModelChange)="dateChanged($event)" required>
+                                    <input type="date" class="form-control" name="birth_date" [ngModel]="employeinfoDTO.date_of_birth | date:'yyyy-MM-dd'" (ngModelChange)="caculateAge($event)" max="2020-01-01" required>
                                 </div>
                                 <div class="form-group ">
                                     <label for="exampleInputEmail1 ">Tuổi</label>
                                     <!-- <p style="color: black; ">{{ customerInfo.age }}</p> -->
-                                    <input type="number" class="form-control" name="age" min=20 max=60 required [(ngModel)]="ageCheck" [(ngModel)]="employeinfoDTO.age" #age="ngModel">
+                                    <input type="number" class="form-control" name="age" min=20 max=60 required [(ngModel)]="ageCheck" [(ngModel)]="employeinfoDTO.age" #age="ngModel" readonly>
                                     <span id="errorMessagename" style="color: red;" *ngIf="age.errors?.required && age.touched">Tuổi không được để trống</span>
                                     <span id="errorMessagename" style="color: red;" *ngIf="age.errors?.min && age.touched">Tuổi không được thấp hơn 20</span>
                                     <span id="errorMessagename" style="color: red;" *ngIf="age.errors?.max && age.touched">Tuổi không được cao hơn 60</span>

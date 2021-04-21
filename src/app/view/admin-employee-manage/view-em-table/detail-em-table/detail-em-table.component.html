@@ -17,7 +17,7 @@
                 <div class="container-fluid">
                     <div class="row" style="margin-top: 10px;">
                         <div class="col-12">
-                            <div class="card">
+                            <div class="card" style="margin-bottom: 6%;">
                                 <div class="card-body">
                                     <mat-tab-group>
                                         <mat-tab label="Thông tin Cơ Bản">
@@ -148,45 +148,17 @@
                                         </mat-tab>
                                     </mat-tab-group>
                                 </div>
-                                <button *ngIf="showDelayButton" type="button " class="btn btn-danger btn-function" style="left: 30%;" (click)="openDialogPauseEmployee(employeinfoDTO.id_acc)">Tạm Ngưng</button>
-                                <button type="button " class="btn btn-success btn-function" style="left: 50%;" (click)="openDialogEdit()">Chỉnh Sửa Thông Tin</button>
-
+                                <div class="custom-foot">
+                                    <button *ngIf="showDelayButton" type="button " class="btn btn-danger btn-function" (click)="openDialogPauseEmployee(employeinfoDTO.id_acc)">Tạm Ngưng</button>
+                                    <button type="button " class="btn btn-success btn-function" (click)="openDialogEdit()">Chỉnh Sửa Thông Tin</button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
         </div>
-
-        <!-- <div class="modal modal-danger fade in " id="tamNgung">
-            <div class="modal-dialog ">
-                <div class="modal-content ">
-                    <div class="card">
-                        <div class="card-body">
-                            <h3>Gửi yêu cầu tạm ngưng khách hàng này</h3>
-                            <i style="color: red;">Lý Do Tạm Ngưng</i>
-                            <textarea style="width: 100%;"></textarea>
-                        </div>
-                        <div class="card-footer">
-                            <button type="button " class="btn btn-success">Gửi Yêu Cầu</button>
-                            <button type="button " class="btn btn-danger" data-dismiss="modal">Hủy</button>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div> -->
-
-
-
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark ">
-            <!-- Control sidebar content goes here -->
-        </aside>
-        <!-- /.control-sidebar -->
     </div>
-    <!-- ./wrapper -->
-
 </body>
 
 </html>

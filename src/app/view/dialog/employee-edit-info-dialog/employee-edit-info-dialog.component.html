@@ -33,12 +33,12 @@
                             </div>
                             <div class="form-group ">
                                 <label for="exampleInputEmail1 ">Ngày Sinh</label>
-                                <input type="date" class="form-control" name="birth_date" [ngModel]="employeinfoDTO.date_of_birth" required>
+                                <input type="date" class="form-control" name="birth_date" [ngModel]="employeinfoDTO.date_of_birth" max="2020-01-01" (ngModelChange)="caculateAge($event)" required>
                             </div>
                             <div class="form-group ">
                                 <label for="exampleInputEmail1 ">Tuổi</label>
                                 <!-- <p style="color: black; ">{{ customerInfo.age }}</p> -->
-                                <input type="number" class="form-control" name="age" [(ngModel)]="employeinfoDTO.age">
+                                <input type="number" class="form-control" name="age" [(ngModel)]="employeinfoDTO.age" readonly>
                             </div>
 
 

@@ -1,6 +1,7 @@
 import { Component, OnInit,Inject } from '@angular/core';
 import { inject } from '@angular/core/testing';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { CommonService } from 'src/app/services/common/common.service';
 import { CustomerService } from 'src/app/services/customer/customer.service';
 import { SnackbarService } from 'src/app/services/snackbar/snackbar.service';
 @Component({
@@ -10,7 +11,7 @@ import { SnackbarService } from 'src/app/services/snackbar/snackbar.service';
 })
 
 export class CustomerEditInfoComponent implements OnInit {
-  constructor(public dialogRef: MatDialogRef<CustomerEditInfoComponent>,
+  constructor(private common:CommonService,public dialogRef: MatDialogRef<CustomerEditInfoComponent>,
     @Inject(MAT_DIALOG_DATA) public customerInfo:any,private customerService:CustomerService,private snackbar: SnackbarService) { }
   selectedDeal:Date;
   genders= Array[2] = [
@@ -28,9 +29,13 @@ export class CustomerEditInfoComponent implements OnInit {
     
   }
 
+  caculateAge(date:any){
+    this.customerInfo.age =this.common.calculateAge(new Date(date));
+  }
+
   ngOnInit(): void {
-    this.customerInfo.birth_date = new Date(this.customerInfo.birth_date).getFullYear() +"-"+ (new Date(this.customerInfo.birth_date).getMonth() < 10 ? "0"+(new Date(this.customerInfo.birth_date).getMonth()+1):new Date(this.customerInfo.birth_date).getMonth()+1 )+"-"+ new Date(this.customerInfo.birth_date).getDate();
-  
+    this.customerInfo.birth_date = new Date(this.customerInfo.birth_date).getFullYear() +"-"+ (new Date(this.customerInfo.birth_date).getMonth() < 10 ? "0"+(new Date(this.customerInfo.birth_date).getMonth()+1):new Date(this.customerInfo.birth_date).getMonth()+1 )+"-"+ (new Date(this.customerInfo.birth_date).getDate() < 10 ? "0"+(new Date(this.customerInfo.birth_date).getDate()):new Date(this.customerInfo.birth_date).getDate() );
+
   }
 
   public updateInfoCustomer(){

@@ -33,9 +33,6 @@ export class CustomerAddInfoDialogComponent implements OnInit {
     { value: 0, viewValue: 'Chưa Kết Hôn' },
   ];
 
-  public dateChanged(newDate: any) {
-    this.customerInfo.birth_date = new Date(newDate);
-  }
 
   ngOnInit(): void {
     this.customerInfo.types_identification = "Chứng Minh Thư";
@@ -48,5 +45,9 @@ export class CustomerAddInfoDialogComponent implements OnInit {
       this.customerService.invokeRefreshTableFun(); 
       this.spinner.hide();
     }))
+  }
+
+  caculateAge(date:any){
+    this.customerInfo.age =this.common.calculateAge(new Date(date));
   }
 }

@@ -18,12 +18,6 @@
     </div>
 </div>
 
-<!-- <div class="search-hero">
-    <input class="form-control" type="text" name="search" [(ngModel)]="searchValue" placeholder="&#61442;  Start searching for a customer by name ">
-</div> -->
-
-<!-- <button type="button" class="btn btn-info" (click)="Search()" style="margin-left:10px ;">Tìm Kiếm</button> -->
-
 
 <table style="text-align: center;" class="table table-bordered table-striped">
     <thead>
@@ -41,7 +35,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let customerinfo of customerinfos | orderBy: key:reverse | paginate: { id: 'listing_pagination' ,itemsPerPage: 4, currentPage: page, totalItems: totalRecords} ">
+        <tr *ngFor="let customerinfo of customerinfos | orderBy: key:reverse | paginate: { id: 'listing_pagination' ,itemsPerPage: 6, currentPage: page, totalItems: totalRecords} ">
             <td>#KH{{customerinfo.id}}</td>
             <td>{{customerinfo.code}}</td>
             <td>{{customerinfo.full_name}}</td>

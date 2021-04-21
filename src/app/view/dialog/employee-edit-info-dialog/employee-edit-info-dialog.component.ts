@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { EmployeeInfoDTO } from 'src/app/model/EmployeeInfoDTO';
+import { CommonService } from 'src/app/services/common/common.service';
 import { EmployeeService } from 'src/app/services/employee/employee.service';
 import { SnackbarService } from 'src/app/services/snackbar/snackbar.service';
 
@@ -11,7 +12,7 @@ import { SnackbarService } from 'src/app/services/snackbar/snackbar.service';
 })
 export class EmployeeEditInfoDialogComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<EmployeeEditInfoDialogComponent>,
+  constructor(private common:CommonService,public dialogRef: MatDialogRef<EmployeeEditInfoDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public employeinfoDTO:any,private employeeService:EmployeeService,private snackbar: SnackbarService) { }
 
 
@@ -26,8 +27,13 @@ export class EmployeeEditInfoDialogComponent implements OnInit {
   ];
 
   ngOnInit(): void {
-    this.employeinfoDTO.date_of_birth = new Date(this.employeinfoDTO.date_of_birth).getFullYear() +"-"+ (new Date(this.employeinfoDTO.date_of_birth).getMonth() < 10 ? "0"+(new Date(this.employeinfoDTO.date_of_birth).getMonth()+1):new Date(this.employeinfoDTO.date_of_birth).getMonth()+1 )+"-"+ new Date(this.employeinfoDTO.date_of_birth).getDate();
+    this.employeinfoDTO.date_of_birth = new Date(this.employeinfoDTO.date_of_birth).getFullYear() +"-"+ (new Date(this.employeinfoDTO.date_of_birth).getMonth() < 10 ? "0"+(new Date(this.employeinfoDTO.date_of_birth).getMonth()+1):new Date(this.employeinfoDTO.date_of_birth).getMonth()+1 )+"-"+ (new Date(this.employeinfoDTO.date_of_birth).getDate() < 10 ? "0"+(new Date(this.employeinfoDTO.date_of_birth).getDate()):new Date(this.employeinfoDTO.date_of_birth).getDate() );
   }
+
+  caculateAge(date:any){
+    this.employeinfoDTO.age =this.common.calculateAge(new Date(date));
+  }
+
 public onSubmit(employeinfoDTO:EmployeeInfoDTO){
   this.employeeService.UpdateEmployeeInfo(employeinfoDTO).subscribe((data =>{
     this.snackbar.openSnackBar('Cập Nhật Thành Công','Đóng');
