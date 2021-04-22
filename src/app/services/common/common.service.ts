@@ -58,4 +58,14 @@ public setCookie(name: string, value: string, expireDays: number, path: string =
     }
     return '';
   }
+
+  transformStatus(data: String) {
+    switch (data) {
+      case "CXD": return "Chưa xét duyệt";
+      case "DXD": return "Đang chờ xét duyệt";
+      case "DD": return "Đã duyệt";
+      case "TC": return "Từ chối";
+      case "YCT": return "Yêu cầu thêm";
+    }
+  }
 }

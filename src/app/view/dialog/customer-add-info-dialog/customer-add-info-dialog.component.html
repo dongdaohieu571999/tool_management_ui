@@ -84,10 +84,10 @@
                             </div>
                             <div class="form-group ">
                                 <label for="exampleInputEmail1 ">Giấy Tờ Nhân Thân Số</label>
-                                <input type="text" class="form-control" name="id_card" [(ngModel)]="customerInfo.id_card" required pattern="[0-9]{12}|[0-9]{7}" #id_card="ngModel">
+                                <input type="text" class="form-control" name="id_card" [(ngModel)]="customerInfo.id_card" required pattern="^([0-9]{12}|[0-9]{8})$" #id_card="ngModel">
                                 <span id="errorMessagename" style="color: red;" *ngIf="id_card.errors?.required && id_card.touched">Chứng minh nhân dân không được
                                     để trống</span>
-                                <span id="errorMessagename" style="color: red;" *ngIf="id_card.errors?.pattern && id_card.touched">Chứng minh nhân dân phải đủ 7 số
+                                <span id="errorMessagename" style="color: red;" *ngIf="id_card.errors?.pattern && id_card.touched">Chứng minh nhân dân phải đủ 8 số
                                     hoặc 12 số và không được có chữ cái và kí tự đặc biệt</span>
                             </div>
                             <div class="form-group ">
@@ -141,11 +141,13 @@
                         </div>
                         <div class="form-group ">
                             <label for="exampleInputEmail1 ">Nhóm Nghề</label>
-                            <!-- <p style="color: black; ">{{ customerInfo.occupation_group }}</p> -->
-                            <input type="text" class="form-control" name="occupation_group" required #occupation_group="ngModel" pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s]+$"
-                                [(ngModel)]="customerInfo.occupation_group">
-                            <span id="errorMessagename" style="color: red;" *ngIf="occupation_group.errors?.required && occupation_group.touched">Nhóm Nghề không được để trống</span>
-                            <span id="errorMessagename" style="color: red;" *ngIf="occupation_group.errors?.pattern && occupation_group.touched">Nhóm Nghề không được chứa kí tự đặc biệt và chữ số</span>
+                            <td><select class="form-control" required [(ngModel)]="customerInfo.occupation_group">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                </select>
+
+                            </td>
                         </div>
                         <div class="form-group ">
                             <label for="exampleInputEmail1 ">Tên Cơ Quan Làm Việc</label>

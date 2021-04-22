@@ -77,13 +77,16 @@
                 </div>
             </mat-tab>
             <mat-tab label="Tài Liệu Đính Kèm">
-                <div>
+                <div *ngIf='listDocument != null'>
                     <p><a *ngFor="let doc of listDocument" class="form-control" href="{{doc.url}}">{{doc.name_document}}</a></p>
+                </div>
+                <div *ngIf='listDocument == null' style="text-align: center; padding: 10%">
+                    <h1>Hiện Tại Không Có Tài Liệu Nào !</h1>
                 </div>
             </mat-tab>
         </mat-tab-group>
     </div>
-    <div class="custom-div" *ngIf="authenService.id_role=='2' && contracts.approval_status == 'CXD'">
+    <div class="custom-div" *ngIf="authenService.id_role=='2' && contracts.approval_status == 'Chưa Xét Duyệt'">
         <button type="button" class="btn btn-success" style="width: 100%;" (click)="openDialogSendRequest()">Gửi Yêu Cầu Xét Duyệt</button>
     </div>
 </body>

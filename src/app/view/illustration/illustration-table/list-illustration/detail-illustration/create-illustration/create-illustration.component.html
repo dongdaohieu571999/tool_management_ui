@@ -52,7 +52,7 @@
                         </tr>
                         <tr>
                             <td>Ngày Sinh</td>
-                            <td><input type="date" id="birthDayInsuredPerson" class="form-control" required #dateofbirth="ngModel" [(ngModel)]="illustrationMainBenifit.birth_date_insured_person" max="2019-12-31" >                             
+                            <td><input type="date" id="birthDayInsuredPerson" class="form-control" required #dateofbirth="ngModel" [(ngModel)]="illustrationMainBenifit.birth_date_insured_person" max="2019-12-31">
                             </td>
                         </tr>
                         <tr>
@@ -133,7 +133,7 @@
             <div class="col-12">
 
                 <fieldset>
-                    <legend>Quyền Lợi Bảo Hiểm Bổ Sung Của Nguyễn Văn An</legend>
+                    <legend>Quyền Lợi Bảo Hiểm Bổ Sung Của {{illustrationMainBenifit.full_name_insured_person}}</legend>
                     <table>
                         <tr>
                             <td></td>
@@ -239,7 +239,7 @@
                         <p>Định Kỳ Trả Phí</p>
                         <select class="form-control" [(ngModel)]="mulPeriod" #paymentperiod="ngModel" required>
                             <option [ngValue]="item" *ngFor="let item of reference.multiplierForPaymentPeriod">
-                                {{item.description}} (Hệ Số: {{item.multiplier}})</option>
+                                {{item.description}}</option>
                         </select>
                         <span id="errorMessagename" style="color: red;" *ngIf="paymentperiod.errors?.pattern && paymentperiod.touched">Định Kỳ Trả Phí
                             không được để trống </span>

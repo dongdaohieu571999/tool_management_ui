@@ -49,9 +49,9 @@
 
                                 <div class="form-group ">
                                     <label for="exampleInputEmail1 ">Giấy Tờ Nhân Thân Số</label>
-                                    <input type="text" class="form-control" name="id_card" required pattern="^[0-9]{9}$|^[0-9]{12}$" [(ngModel)]="employeinfoDTO.id_card" #id_card="ngModel">
+                                    <input type="text" class="form-control" name="id_card" required pattern="^([0-9]{12}|[0-9]{8})$" [(ngModel)]="employeinfoDTO.id_card" #id_card="ngModel">
                                     <span id="errorMessagename" style="color: red;" *ngIf="id_card.errors?.required && id_card.touched">Chứng minh nhân dân không được để trống</span>
-                                    <span id="errorMessagename" style="color: red;" *ngIf="id_card.errors?.pattern && id_card.touched">Chứng minh nhân dân phải đủ 9 số hoặc 12 số và không được có chữ cái và kí tự đặc biệt</span>
+                                    <span id="errorMessagename" style="color: red;" *ngIf="id_card.errors?.pattern && id_card.touched">Chứng minh nhân dân phải đủ 8 số hoặc 12 số và không được có chữ cái và kí tự đặc biệt</span>
 
                                 </div>
 

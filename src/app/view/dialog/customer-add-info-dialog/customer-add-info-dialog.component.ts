@@ -44,11 +44,11 @@ export class CustomerAddInfoDialogComponent implements OnInit {
     this.customerService.addCustomerInfo(this.customerInfo).subscribe((data => {
       if(data){
         this.customerService.invokeRefreshTableFun(); 
-        this.spinner.hide();
+        
       } else {
         this.snackbar.openSnackBar("Email Hoặc CMT Bị Trùng","Đóng");
       }
-      
+      this.spinner.hide();
     }))
   }
 

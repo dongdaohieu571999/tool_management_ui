@@ -24,12 +24,6 @@
                                 <!-- <p style="color: black; "><a href="# ">#128462364</a></p> -->
                                 <input type="text" class="form-control" name="id_illustration" [(ngModel)]="customerInfo.id_illustration" readonly>
                             </div>
-                            <!-- <div class="form-group ">
-                                <label for="exampleInputPassword1 ">Mã Khách Hàng</label> -->
-                            <!-- <p style="color: black; ">{{ customerInfo.code }}</p> -->
-                            <!-- <input type="text" class="form-control" name="id" [(ngModel)]="customerInfo.id"
-                                    readonly>
-                            </div> -->
                             <div class="form-group ">
                                 <label for="exampleInputEmail1 ">Họ Tên</label>
                                 <!-- <p style="color: black; ">{{ customerInfo.full_name }}</p> -->
@@ -95,10 +89,10 @@
                             </div>
                             <div class="form-group ">
                                 <label for="exampleInputEmail1 ">Giấy Tờ Nhân Thân Số</label>
-                                <input type="text" class="form-control" name="id_card" [(ngModel)]="customerInfo.id_card" required pattern="^[0-9]{12}$|^[0-9]{7}$" #id_card="ngModel">
+                                <input type="text" class="form-control" name="id_card" [(ngModel)]="customerInfo.id_card" required pattern="^([0-9]{12}|[0-9]{8})$" #id_card="ngModel">
                                 <span id="errorMessagename" style="color: red;" *ngIf="id_card.errors?.required && id_card.touched">Chứng minh nhân dân không được
                                     để trống</span>
-                                <span id="errorMessagename" style="color: red;" *ngIf="id_card.errors?.pattern && id_card.touched">Chứng minh nhân dân phải đủ 7 số
+                                <span id="errorMessagename" style="color: red;" *ngIf="id_card.errors?.pattern && id_card.touched">Chứng minh nhân dân phải đủ 8 số
                                     hoặc 12 số và không được có chữ cái và kí tự đặc biệt</span>
                             </div>
                             <div class="form-group ">
@@ -150,10 +144,6 @@
                                 biệt và chữ số</span>
                         </div>
                         <div class="form-group ">
-                            <!-- <label for="exampleInputEmail1 ">Nhóm Nghề</label> -->
-                            <!-- <p style="color: black; ">{{ customerInfo.occupation_group }}</p> -->
-                            <!-- <input type="text" class="form-control" name="occupation_group" required #occupation_group="ngModel" pattern="^[1-3]+$" -->
-                            <!-- [(ngModel)]="customerInfo.occupation_group"> -->
                             <label for="exampleInputEmail1 ">Nhóm Nghề</label>
                             <td><select class="form-control" required [(ngModel)]="customerInfo.occupation_group">
                                     <option>1</option>
@@ -402,17 +392,6 @@
                                 <span id="errorMessagename" style="color: red;" *ngIf="phone_1.errors?.pattern && phone_1.touched">Số điện thoại phải có 10 số và
                                     bắt đầu (09|03|07|08|05) </span>
                             </div>
-                            <!-- <div class="form-group ">
-                                <label for="exampleInputEmail1 ">Điện Thoại Di Động 1:</label> -->
-                            <!-- <p style="color: black; ">{{ customerInfo.phone_1 }}</p> -->
-                            <!-- <input type="text" class="form-control" name="phone_1_backup"
-                                required #phone_1_backup="ngModel"  pattern="((09|03|07|08|05)+([0-9]{8})\b)"             
-                                [(ngModel)]="customerInfo.phone_1">
-                                    <span id="errorMessagename" style="color: red;"
-                                *ngIf="phone_1_backup.errors?.required && phone_1_backup.touched">Điện Thoại Di Động 1 không được để trống</span>
-                                <span id="errorMessagename" style="color: red;"
-                                *ngIf="phone_1_backup.errors?.pattern && phone_1_backup.touched">Điện Thoại Di Động 1 không được chứa kí tự đặc biệt </span>
-                            </div> -->
                             <div class="form-group ">
                                 <label for="exampleInputEmail1 ">Điện Thoại Di Động 2:</label>
                                 <input type="text" class="form-control" name="phone_2" #phone_2="ngModel" pattern="^((09|03|07|08|05)+([0-9]{8})\b)$" [(ngModel)]="customerInfo.phone_2">
@@ -431,5 +410,5 @@
 </mat-dialog-content>
 <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>Hủy</button>
-    <button mat-button [disabled]="userInfo.invalid" type="submit" mat-dialog-close (click)="updateInfoCustomer()">Thêm</button>
+    <button mat-button [disabled]="userInfo.invalid" type="submit" mat-dialog-close (click)="updateInfoCustomer()">Lưu</button>
 </mat-dialog-actions>
