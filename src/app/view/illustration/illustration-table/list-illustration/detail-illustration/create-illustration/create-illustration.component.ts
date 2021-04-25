@@ -34,7 +34,7 @@ export class CreateIllustrationComponent implements OnInit {
   @ViewChild('content') content: ElementRef;
 
   relatedPerson = new Array<RelatedPerson>();
-  customerInfo = new CustomerInfo(0, new Date(), 0, '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, '', '', '', 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '', 0, 0, '', new Date(), 0, new Date(), '', 0);
+  customerInfo = new CustomerInfo(0, new Date(), 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0, '', '', '', 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '', 0, 0, '', new Date(), 0, new Date(), '', 0);
   mainBenifitList: Array<Benifit>;
   subBenifitList: Array<Benifit>;
   subBenifitListCopy: Array<Benifit>;
@@ -79,6 +79,12 @@ export class CreateIllustrationComponent implements OnInit {
       this.reference = data;
     }))
   }
+
+  carrer_groups = Array[3] = [
+    { value: 1, viewValue: '1' },
+    { value: 2, viewValue: '2' },
+    { value: 3, viewValue: '3' },
+  ];
 
 
 

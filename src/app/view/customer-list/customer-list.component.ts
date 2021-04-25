@@ -15,7 +15,7 @@ export class CustomerListComponent implements OnInit {
   
   
 
-  customerInfo = new CustomerInfo(0,new Date(),0,'','','','','','','','','','','','','',0,0,0,0,0,'','','',0,'','','','','','','','','','','','','','','','','','',0,'',0,0,'',new Date(),0,new Date(),'',0);
+  customerInfo = new CustomerInfo(0,new Date(),0,'','','','','','','','','','','','','','',0,0,0,0,'','','',0,'','','','','','','','','','','','','','','','','','',0,'',0,0,'',new Date(),0,new Date(),'',0);
 
   constructor(private common:CommonService,public dialog : MatDialog) { }
   

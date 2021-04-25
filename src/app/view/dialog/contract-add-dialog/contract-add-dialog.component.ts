@@ -48,10 +48,13 @@ export class ContractAddDialogComponent implements OnInit {
     
   }
 
+  endContractDate:Date;
+
   onchangeValue(){
     if(this.illustrationId != -1){
     this.IllustrationService.getIllustrationContractCreate(this.illustrationId).subscribe((data =>{
       this.IllustrationContract = data;
+      console.log( this.IllustrationContract);
       this.contract.id_illustration = this.illustrationId;
       this.contract.id_customer = this.IllustrationContract.id_customer_info;
       this.contract.name_contract_owner = this.IllustrationContract.illustrationMainBenifit.full_name_insurance_buyer;
@@ -59,6 +62,15 @@ export class ContractAddDialogComponent implements OnInit {
       this.contract.id_main_benifit = this.IllustrationContract.illustrationMainBenifit.id_main_benifit;
       this.contract.contract_total_value = this.IllustrationContract.total_fee;
       this.contract.payment_period_id = this.IllustrationContract.payment_period_id;
+
+      let yearNow = new Date().getFullYear();
+      let yearBirthDay = new Date(this.IllustrationContract.illustrationMainBenifit.birth_date_insured_person).getFullYear();
+      let age = yearNow-yearBirthDay;
+     
+      this.endContractDate = new Date(new Date(this.IllustrationContract.illustrationMainBenifit.birth_date_insured_person).getFullYear()+99-age +"-"+ (new Date(   this.IllustrationContract.illustrationMainBenifit.birth_date_insured_person).getMonth() < 10 ? "0"+(new Date(   this.IllustrationContract.illustrationMainBenifit.birth_date_insured_person).getMonth()+1):new Date(   this.IllustrationContract.illustrationMainBenifit.birth_date_insured_person).getMonth()+1 )+"-"+ new Date(this.IllustrationContract.illustrationMainBenifit.birth_date_insured_person).getDate());
+
+      (<HTMLInputElement>document.getElementById('endTime')).value = this.endContractDate.getFullYear() +"-"+ (this.endContractDate.getMonth() < 10 ? "0"+(this.endContractDate.getMonth()+1):this.endContractDate.getMonth()+1 )+"-"+ this.endContractDate.getDate();
+
       this.referenceTable.getAllReference().subscribe((data => {
         let ref = new Referencetable();
         ref = data;
@@ -72,6 +84,7 @@ export class ContractAddDialogComponent implements OnInit {
 
 
   onSubmit(){
+    this.contract.end_time = new Date(this.endContractDate.getFullYear() +"-"+ (this.endContractDate.getMonth() < 10 ? "0"+(this.endContractDate.getMonth()+1):this.endContractDate.getMonth()+1 )+"-"+ this.endContractDate.getDate());
       this.spinner.show();
       this.contractService.addContract(this.contract).subscribe((data => {
         this.spinner.hide();

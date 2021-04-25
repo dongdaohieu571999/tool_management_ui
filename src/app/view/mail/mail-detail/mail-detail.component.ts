@@ -12,13 +12,12 @@ export class MailDetailComponent implements OnInit {
 
   data: Mail;
   mailId : number;
-  constructor(private mailService: MailService, private router: Router) {
-    this.mailId = mailService.getMailId();
+  constructor(private mailService: MailService, private router: Router,private activeRoute : ActivatedRoute) {
   }
 
   ngOnInit(): void {
     console.log(this.mailId);
-    this.mailService.getDetailMail(this.mailId).subscribe((data => {
+    this.mailService.getDetailMail(this.activeRoute.snapshot.params['id']).subscribe((data => {
       this.data = data;
       console.log(data);
     }));

@@ -145,12 +145,11 @@
                         </div>
                         <div class="form-group ">
                             <label for="exampleInputEmail1 ">Nhóm Nghề</label>
-                            <td><select class="form-control" required [(ngModel)]="customerInfo.occupation_group">
-                                    <option [value]="1">1</option>
-                                    <option [value]="2">2</option>
-                                    <option [value]="3">3</option>
+                            <td>
+                                <select [(ngModel)]="customerInfo.occupation_group" name="occupation_group" class="form-control">
+                                    <option *ngFor="let occupation_group of occupation_groups"
+                                        [value]="occupation_group.value">{{occupation_group.viewValue}}</option>
                                 </select>
-
                             </td>
                         </div>
                         <div class="form-group ">

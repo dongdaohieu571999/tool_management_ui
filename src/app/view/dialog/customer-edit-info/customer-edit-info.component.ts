@@ -26,6 +26,12 @@ export class CustomerEditInfoComponent implements OnInit {
     {value: 0, viewValue: 'Chưa Kết Hôn'},
   ];
 
+  occupation_groups = Array[3] = [
+    { value: 1, viewValue: '1' },
+    { value: 2, viewValue: '2' },
+    { value: 3, viewValue: '3' },
+  ];
+
   public dateChanged(newDate:any){
     this.customerInfo.birth_date = new Date(newDate);
     

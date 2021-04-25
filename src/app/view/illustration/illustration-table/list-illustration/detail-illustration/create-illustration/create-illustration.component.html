@@ -41,13 +41,11 @@
                         </tr>
                         <tr>
                             <td>Nhóm Nghề</td>
-                            <td><select class="form-control" #jobType="ngModel" required [(ngModel)]="illustrationMainBenifit.carrier_group_insured_person">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
+                            <td>
+                                <select [(ngModel)]="illustrationMainBenifit.carrier_group_insured_person" name="carrier_group_insured_person" class="form-control">
+                                    <option *ngFor="let carrer_group of carrer_groups" [value]="carrer_group.value">
+                                        {{carrer_group.viewValue}}</option>
                                 </select>
-                                <span id="errorMessagename" style="color: red;" *ngIf="jobType.errors?.required && jobType.touched">Nhóm Nghề không được để
-                                    trống</span>
                             </td>
                         </tr>
                         <tr>
@@ -193,13 +191,11 @@
                         <option [value]=false>Nữ</option>
                     </select></td>
                 <p>Nhóm Nghề</p>
-                <select class="form-control" [(ngModel)]="item.carreer_group" required #jobTypeRelation="ngModel">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
+                <select [(ngModel)]="item.carreer_group" name="carrier_group=" class="form-control">
+                    <option *ngFor="let carrer_group of carrer_groups" [value]="carrer_group.value">
+                        {{carrer_group.viewValue}}</option>
                 </select>
-                <span id="errorMessagename" style="color: red;" *ngIf="jobTypeRelation.errors?.pattern && jobTypeRelation.touched">Nhóm Nghề
-                    không được để trống </span>
+
             </fieldset>
             <h3>Quyền lợi bổ sung</h3>
             <table>
