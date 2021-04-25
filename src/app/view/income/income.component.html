@@ -10,28 +10,6 @@
 
     <div class="income">
         <div class="card">
-            <div class="card-body">
-                <table class=" table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>Hạng Mục</th>
-                            <th>Số Tiền</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Tổng Thu Nhập Tháng Trước ({{month-1}}/{{year}})</td>
-                            <td>{{RevenueLastMonth | currency :"VND"}}</td>
-                        </tr>
-                        <tr>
-                            <td>Số Lượng Hợp Đồng Mới Tháng Trước ({{month-1}}/{{year}})</td>
-                            <td>{{ContractCount | currency :"VND"}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="card">
             <div class="card-header">
                 <h1 class="card-title">Thu Nhập Theo Hợp Đồng</h1>
             </div>
@@ -48,7 +26,7 @@
                     </thead>
                     <tbody>
                         <tr *ngFor="let revenue of listRevenueEmployee">
-                            <td>{{revenue.id_contract}}</td>
+                            <td>#HD{{revenue.id_contract}}</td>
                             <td>{{revenue.income | currency :"VND"}}</td>
                             <td>{{revenue.revenue_val | currency :"VND"}}</td>
                             <td>{{revenue.create_time | date:'dd/MM/yyyy'}}</td>
@@ -60,20 +38,34 @@
         </div>
         <div class="card">
             <div class="card-header">
-                <h1 class="card-title">Thu Nhập Năm Qua</h1>
+                <h1 class="card-title">Thu Nhập Trong Năm Hiện Tại</h1>
             </div>
             <div class="card-body">
                 <table class=" table table-bordered ">
                     <thead>
-                        <tr>
-                            <th>Tháng</th>
-                            <th>Số Tiền</th>
-                        </tr>
+                        <th></th>
+                        <th>Tháng</th>
+                        <th>Thu Nhập</th>
+                        <th>Doanh Thu</th>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let month of monthRevenueList,index as i">
-                            <td>Tháng {{i+1}}</td>
-                            <td>{{month | currency :"VND"}}</td>
+                        <tr *ngFor="let item of listMoneyCurrent, index as i">
+                            <td *ngIf="i==0" [attr.rowspan]="listMoneyCurrent.length" class="merge-row">Doanh Thu Đã Nhận</td>
+                            <td *ngIf="i==0">Tháng {{listMoneyCurrent[0].month}}</td>
+                            <td *ngIf="i==0">{{ listMoneyCurrent[0].income | currency :"VND" }}</td>
+                            <td *ngIf="i==0">{{ listMoneyCurrent[0].revenue | currency :"VND"}}</td>
+                            <td *ngIf="i!=0">Tháng {{item.month}}</td>
+                            <td *ngIf="i!=0">{{ item.income | currency :"VND"}}</td>
+                            <td *ngIf="i!=0">{{ item.revenue | currency :"VND"}}</td>
+                        </tr>
+                        <tr *ngFor="let item of listMoneyFuture, index as i" style="color: red;">
+                            <td *ngIf="i==0" [attr.rowspan]="listMoneyFuture.length" class="merge-row">Doanh Thu Dự Kiến</td>
+                            <td *ngIf="i==0">Tháng {{ listMoneyFuture[0].month }}</td>
+                            <td *ngIf="i==0">{{ listMoneyFuture[0].income | currency :"VND"}}</td>
+                            <td *ngIf="i==0">{{ listMoneyFuture[0].revenue | currency :"VND"}}</td>
+                            <td *ngIf="i!=0">Tháng {{item.month}}</td>
+                            <td *ngIf="i!=0">{{ item.income | currency :"VND"}}</td>
+                            <td *ngIf="i!=0">{{ item.revenue | currency :"VND"}}</td>
                         </tr>
                     </tbody>
                 </table>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import jwt_decode from "jwt-decode";
+import moment from 'moment';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Contract } from 'src/app/model/Contract';
 import { CustomerInfo } from 'src/app/model/CustomerInfo';
@@ -20,6 +21,7 @@ import { SnackbarService } from 'src/app/services/snackbar/snackbar.service';
 export class ContractAddDialogComponent implements OnInit {
 
   constructor(private spinner:NgxSpinnerService,private snackBar:SnackbarService,private referenceTable:RefertableService,private IllustrationService:IllustrationService,private contractService:ContractService,private common:CommonService,private customerService : CustomerService) { }
+  minDate = moment(new Date()).format('YYYY-MM-DD');
   customerinfos : Array<CustomerInfo>;
   illustrations : Array<Illustration>;
   contract=new Contract(0,0,'',0,'',0,0,new Date(),new Date(),false,'CXD',0,jwt_decode(this.common.getCookie('token_key'))['sub']);

@@ -49,6 +49,15 @@ export class RevenueService {
     .pipe(catchError(this.handleError))
   }
 
+  public getAllIncomeSaler(data:any):Observable<any>{
+    const url = this.common.makeUrl("/revenue/get_all_income_saler");
+    return this.httpClient
+    .post<any>(url,data,this.httpOptions)
+    .pipe(catchError(this.handleError))
+  }
+
+  
+
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.

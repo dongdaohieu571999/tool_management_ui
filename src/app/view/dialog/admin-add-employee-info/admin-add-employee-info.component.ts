@@ -42,7 +42,7 @@ export class AdminAddEmployeeInfoComponent implements OnInit {
         this.notiService.openSnackBar("Thêm thông tin nhân viên thành công","Đóng"); 
       }else{
         this.employeeService.invokeRefreshTableFun();  
-        this.notiService.openSnackBar("Thêm thông tin nhân viên không thành công","Đóng"); 
+        this.notiService.openSnackBar("Thêm thông tin nhân viên KHÔNG thành công","Đóng"); 
       }    
     }))
 
@@ -52,6 +52,7 @@ export class AdminAddEmployeeInfoComponent implements OnInit {
   checkAge: boolean;
   
   caculateAge(date:any){
+    this.employeinfoDTO.date_of_birth = new Date(date);
     this.employeinfoDTO.age =this.common.calculateAge(new Date(date));
   }
 

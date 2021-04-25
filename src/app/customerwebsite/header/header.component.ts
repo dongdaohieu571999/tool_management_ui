@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
 
   exit(){
     this.common.deleteCookie('token_customer');
-    this.route.navigate(['login-customer']);
+    this.route.navigate(['login-customerweb']);
   }
 
 }

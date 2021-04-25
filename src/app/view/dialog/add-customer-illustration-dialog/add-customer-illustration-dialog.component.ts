@@ -10,6 +10,7 @@ import { SnackbarService } from 'src/app/services/snackbar/snackbar.service';
 import { CustomerAcc } from 'src/app/model/CustomerAcc';
 import { CustomerOwnIllustration } from 'src/app/model/CustomerOwnIllustration';
 import { NgxSpinnerService } from 'ngx-spinner';
+import moment from 'moment';
 
 @Component({
   selector: 'app-add-customer-illustration-dialog',
@@ -34,7 +35,7 @@ export class AddCustomerIllustrationDialogComponent implements OnInit {
   listCust:Array<CustomerAcc>;
   myControl = new FormControl();
   codeValue='';
-  end_time= new Date();
+  end_time=  new Date();
   options= new Array();
   filteredOptions: Observable<string[]>;
   listCustomerOwnIllustration:Array<CustomerOwnIllustration>;
@@ -81,6 +82,10 @@ export class AddCustomerIllustrationDialogComponent implements OnInit {
         }
       }
       if(!checkDup){
+        if((new Date(this.end_time)).setHours(0,0,0,0) <= (new Date()).setHours(0,0,0,0)){
+          this.snackBar.openSnackBar('Ngày Kết Thúc Chiến Dịch Là Ngày Tương Lai','Đóng');
+          return;
+        }
         this.customerOwnIllustration.addOneCustomerOwnIllustration(this.codeValue,this.end_time).subscribe((data => {
           this.customerOwnIllustration.invokeRefreshTableFun();
         }))

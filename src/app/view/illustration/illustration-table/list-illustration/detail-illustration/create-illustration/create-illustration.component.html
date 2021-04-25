@@ -31,7 +31,7 @@
                     <table style="display: block;">
                         <tr>
                             <td>Tên</td>
-                            <td><input id="nameCustomer" name="full_name" class="form-control" [(ngModel)]="illustrationMainBenifit.full_name_insured_person" required pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s]+$"
+                            <td><input id="nameCustomer" name="full_name" class="form-control" [(ngModel)]="illustrationMainBenifit.full_name_insured_person" required pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷỹ\s]+$"
                                     #name="ngModel">
                                 <span id="errorMessagename" style="color: red;" *ngIf="name.errors?.required && name.touched">Họ và tên không được để
                                     trống</span>
@@ -52,7 +52,7 @@
                         </tr>
                         <tr>
                             <td>Ngày Sinh</td>
-                            <td><input type="date" id="birthDayInsuredPerson" class="form-control" required #dateofbirth="ngModel" [(ngModel)]="illustrationMainBenifit.birth_date_insured_person" max="2019-12-31">
+                            <td><input type="date" id="birthDayInsuredPerson" class="form-control" required #dateofbirth="ngModel" (ngModelChange)="changeDate($event)" [ngModel]="illustrationMainBenifit.birth_date_insured_person | date:'yyyy-MM-dd'" max="2019-12-31">
                             </td>
                         </tr>
                         <tr>
@@ -105,7 +105,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>Thời Hạn</td>
+                            <td>Thời Hạn (Năm)</td>
                             <td>Mệnh Giá (VNĐ)</td>
                             <td>Phí Bảo Hiểm (VNĐ)</td>
                         </tr>
@@ -169,7 +169,7 @@
                     <button class="w3-button w3-xlarge w3-circle w3-red w3-card-4 customPlusButton" (click)="removeField(i)">-</button>
                 </legend>
                 <p>Họ Và Tên</p>
-                <input class="form-control" [(ngModel)]="item.full_name" required pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s]+$" #nameAddPeople="ngModel">
+                <input class="form-control" [(ngModel)]="item.full_name" required pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀÉếỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s]+$" #nameAddPeople="ngModel">
                 <span id="errorMessagename" style="color: red;" *ngIf="nameAddPeople.errors?.required && nameAddPeople.touched">Họ và tên
                     không được để trống</span>
                 <span id="errorMessagename" style="color: red;" *ngIf="nameAddPeople.errors?.pattern && nameAddPeople.touched">Họ và tên

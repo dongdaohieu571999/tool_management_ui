@@ -259,8 +259,11 @@ export class CreateIllustrationComponent implements OnInit {
     if(value == "Bản Thân"){
       this.illustrationMainBenifit.full_name_insured_person = this.customerInfo.full_name;
       (<HTMLInputElement>document.getElementById('genderInsuredPerson')).value = this.customerInfo.gender ==1?'true':'false';
-      (<HTMLInputElement>document.getElementById('birthDayInsuredPerson')).value =new Date(this.customerInfo.birth_date).getFullYear() +"-"+ (new Date(this.customerInfo.birth_date).getMonth() < 10 ? "0"+(new Date(this.customerInfo.birth_date).getMonth()+1):new Date(this.customerInfo.birth_date).getMonth()+1 )+"-"+ new Date(this.customerInfo.birth_date).getDate();
-    }
+      (<HTMLInputElement>document.getElementById('birthDayInsuredPerson')).value =new Date(this.customerInfo.birth_date).getFullYear() +"-"+ 
+        (new Date(this.customerInfo.birth_date).getMonth() < 10 ? "0"+(new Date(this.customerInfo.birth_date).getMonth()+1):new Date(this.customerInfo.birth_date).getMonth()+1 )+"-"+ 
+        (new Date(this.customerInfo.birth_date).getDate() < 10 ? "0"+(new Date(this.customerInfo.birth_date).getDate()+1):new Date(this.customerInfo.birth_date).getDate()+1 );
+        this.illustrationMainBenifit.birth_date_insured_person = new Date(this.customerInfo.birth_date);
+      }
   }
 
   checkMoneyFormat(){
@@ -369,6 +372,10 @@ export class CreateIllustrationComponent implements OnInit {
       }
 
     }))
+  }
+
+  changeDate(date:any){
+    this.illustrationMainBenifit.birth_date_insured_person = new Date(date);
   }
 }
 

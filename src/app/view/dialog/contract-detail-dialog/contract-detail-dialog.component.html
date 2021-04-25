@@ -81,7 +81,7 @@
                         </mat-tab>
                         <mat-tab label="Tài Liệu Đính Kèm">
                             <div>
-                                <p><a *ngFor="let doc of listDocument" class="form-control" href="{{doc.url}}">{{doc.name_document}}</a></p>
+                                <p class="form-control-custom" *ngFor="let doc of listDocument"><a href="{{doc.url}}">{{doc.name_document}}</a></p>
                             </div>
                         </mat-tab>
                     </mat-tab-group>

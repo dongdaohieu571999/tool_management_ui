@@ -127,11 +127,17 @@ export class DetailRequestComponent implements OnInit {
     this.contractService.getDetailContract(data).subscribe((dataReturn =>{
       this.contractDetail = dataReturn;
       let dialogRef = this.dialog.open(ContractDetailDialogComponent,{
+        height:'80%',
+        width:'50%',
         data:this.contract
       });
     }))
   }
   openillustrationDetailDialog(id_illustration:number){
-    let dialogRef = this.dialog.open(IllustrationDetailDialogComponent,{data:id_illustration});
+    let dialogRef = this.dialog.open(IllustrationDetailDialogComponent,{
+      height:'80%',
+      width:'fit-content',
+      data:id_illustration
+    });
   }
 }

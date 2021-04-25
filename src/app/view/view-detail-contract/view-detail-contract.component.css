@@ -37,3 +37,8 @@ input#file {
     font-weight: bold;
     color: white;
 }
+
+.form-control-custom {
+    padding: 10px;
+    margin: 10px;
+}

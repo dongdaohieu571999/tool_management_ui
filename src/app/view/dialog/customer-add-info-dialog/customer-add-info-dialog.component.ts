@@ -53,6 +53,7 @@ export class CustomerAddInfoDialogComponent implements OnInit {
   }
 
   caculateAge(date:any){
+    this.customerInfo.birth_date = new Date(date);
     this.customerInfo.age =this.common.calculateAge(new Date(date));
   }
 }

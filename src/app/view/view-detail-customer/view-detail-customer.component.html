@@ -137,11 +137,11 @@
                                                 </div>
                                                 <div class="form-group ">
                                                     <label for="exampleInputEmail1 ">Thu Nhập Cá Nhân Hàng Tháng</label>
-                                                    <p style="color: red; ">{{ customerInfo.monthly_income }}\</p>
+                                                    <p style="color: red; ">{{ customerInfo.monthly_income | currency:"VND"}}</p>
                                                 </div>
                                             </div>
                                         </mat-tab>
-                                        <mat-tab label="Địa Chỉ Và Thông Tin Liên Lạc">
+                                        <mat-tab label="Địa Chỉ">
                                             <div class="row">
                                                 <div class="col-6 ">
                                                     <h4>Địa Chỉ Nơi Ở Hiện Tại</h4>
@@ -232,7 +232,7 @@
                                                         <p style="color: red; ">{{ customerInfo.email }}</p>
                                                     </div>
                                                     <div class="form-group ">
-                                                        <label for="exampleInputEmail1 ">Điện Thoại Cố Định:</label>
+                                                        <label for="exampleInputEmail1 ">Điện Thoại Di Động 1:</label>
                                                         <p style="color: red; ">{{ customerInfo.workadd_wards }}</p>
                                                     </div>
                                                     <div class="form-group ">

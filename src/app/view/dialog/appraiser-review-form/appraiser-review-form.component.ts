@@ -50,18 +50,20 @@ export class AppraiserReviewFormComponent implements OnInit {
             this.revenue.id_contract = this.req.id_contract;
             this.revenue.code_employee = this.req.code_sender;
             this.revenue.income = data['commission'] * this.illustration.total_fee;
-            if(this.illustration.illustrationMainBenifit.denominations != 0){
-              if(this.illustration.illustrationSubBenifitList != null){
-                this.revenue.revenue_val = this.revenue.revenue_val+this.illustration.illustrationMainBenifit.denominations;
-                this.illustration.illustrationSubBenifitList.forEach(a => this.revenue.revenue_val += a.denominations)
-              } else {
-                this.revenue.revenue_val = this.illustration.illustrationMainBenifit.denominations;
-              }
+            // if(this.illustration.illustrationMainBenifit.denominations != 0){
+            //   if(this.illustration.illustrationSubBenifitList != null){
+            //     this.revenue.revenue_val = this.revenue.revenue_val+this.illustration.illustrationMainBenifit.denominations;
+            //     this.illustration.illustrationSubBenifitList.forEach(a => this.revenue.revenue_val += a.denominations)
+            //   } else {
+            //     this.revenue.revenue_val = this.illustration.illustrationMainBenifit.denominations;
+            //   }
               
-            }else {
-              this.revenue.revenue_val = 0;
-            }
-            // gửi thông tin tài khoản và password cho khách hàng
+            // }else {
+            //   this.revenue.revenue_val = 0;
+            // }
+            // doanh thu của 1 hợp đồng sẽ bằng tổng phí bảo hiểm đóng theo kỳ hạn
+            this.revenue.revenue_val = this.illustration.total_fee;
+            // gửi thông tin tài khoản và password cho khách hàng khi xét duyệt hợp đồng lần đầu tiên
             this.custService.sendOneAccCustomer((this.illustration.id_customer_info)).subscribe((data => {
               this.revenueSer.addOneRevenue(this.revenue).subscribe((data => {
                 this.spinner.hide();

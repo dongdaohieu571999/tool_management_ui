@@ -31,6 +31,7 @@ export class EmployeeEditInfoDialogComponent implements OnInit {
   }
 
   caculateAge(date:any){
+    this.employeinfoDTO.date_of_birth = new Date(new Date(date).getFullYear() +"-"+ (new Date(date).getMonth() < 10 ? "0"+(new Date(date).getMonth()+1):new Date(date).getMonth()+1 )+"-"+ (new Date(date).getDate() < 10 ? "0"+(new Date(date).getDate()):new Date(date).getDate() ));
     this.employeinfoDTO.age =this.common.calculateAge(new Date(date));
   }
 
