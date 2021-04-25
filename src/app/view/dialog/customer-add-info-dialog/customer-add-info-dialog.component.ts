@@ -34,9 +34,9 @@ export class CustomerAddInfoDialogComponent implements OnInit {
   ];
 
   occupation_groups = Array[3] = [
-    { value: 1, viewValue: '1' },
-    { value: 2, viewValue: '2' },
-    { value: 3, viewValue: '3' },
+    { value: "1", viewValue: '1' },
+    { value: "2", viewValue: '2' },
+    { value: "3", viewValue: '3' },
   ];
 
 
