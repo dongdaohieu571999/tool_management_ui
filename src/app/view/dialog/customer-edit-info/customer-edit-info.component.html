@@ -147,7 +147,7 @@
                             <label for="exampleInputEmail1 ">Nhóm Nghề</label>
                             <td>
                                 <select [(ngModel)]="customerInfo.occupation_group" class="form-control"
-                                    name="marital_status">
+                                    name="occupation_group">
                                     <option *ngFor="let occupation_group of occupation_groups"
                                         [value]="occupation_group.value">{{occupation_group.viewValue}}</option>
                                 </select>

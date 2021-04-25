@@ -196,7 +196,7 @@
                         <div class="form-group ">
                             <label for="exampleInputEmail1 ">Nhóm Nghề</label>
                             <td>
-                                <select [(ngModel)]="customerInfo.occupation_group" class="form-control">
+                                <select [(ngModel)]="customerInfo.occupation_group" class="form-control" name="occupation_group">
                                     <option *ngFor="let occupation_group of occupation_groups"
                                         [value]="occupation_group.value">{{occupation_group.viewValue}}</option>
                                 </select>
@@ -549,5 +549,5 @@
 </mat-dialog-content>
 <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>Hủy</button>
-    <button mat-button [disabled]="userInfo.invalid" type="submit" mat-dialog-close (click)="onSubmit()">Thêm</button>
+    <button mat-button  type="submit" mat-dialog-close (click)="onSubmit()">Thêm</button>
 </mat-dialog-actions>
