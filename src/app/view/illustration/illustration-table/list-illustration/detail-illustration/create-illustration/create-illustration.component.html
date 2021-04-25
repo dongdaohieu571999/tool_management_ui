@@ -46,13 +46,9 @@
                         <tr>
                             <td>Nhóm Nghề</td>
                             <td>
-                                <!-- <select class="form-control" #jobType="ngModel" required [(ngModel)]="illustrationMainBenifit.carrier_group_insured_person">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                </select> -->
+                               
                                 <select [(ngModel)]="illustrationMainBenifit.carrier_group_insured_person"
-                                    class="form-control">
+                                    class="form-control" name="carrier_group_insured_person">
                                     <option *ngFor="let carrer_group of carrer_groups" [value]="carrer_group.value">
                                         {{carrer_group.viewValue}}</option>
                                 </select>
@@ -228,7 +224,7 @@
                     <option>2</option>
                     <option>3</option>
                 </select> -->
-                <select [(ngModel)]="item.carreer_group" class="form-control">
+                <select [(ngModel)]="item.carreer_group" class="form-control" name="carreer_group">
                     <option *ngFor="let carrer_group of carrer_groups" [value]="carrer_group.value">
                         {{carrer_group.viewValue}}</option>
                 </select>
