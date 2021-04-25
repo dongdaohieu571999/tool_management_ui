@@ -131,11 +131,11 @@ export class ViewDetailContractComponent implements OnInit {
     this.contractService.getDetailContract(data).subscribe((data =>{
       this.contracts = data;
       switch(this.contracts.approval_status){
-        case "CXD" : this.contracts.approval_status = "Chưa xét duyệt"; break;
-        case "DXD" : this.contracts.approval_status = "Đang chờ xét duyệt"; break;
-        case "DD" : this.contracts.approval_status = "Đã duyệt"; break;
-        case "TC" : this.contracts.approval_status = "Từ chối"; break;
-        case "YCT" : this.contracts.approval_status = "Yêu cầu thêm"; break;
+        case "CXD" : this.contracts.approval_status = "Chưa Xét Duyệt"; break;
+        case "DXD" : this.contracts.approval_status = "Đang Chờ Xét Duyệt"; break;
+        case "DD" : this.contracts.approval_status = "Đã Duyệt"; break;
+        case "TC" : this.contracts.approval_status = "Từ Chối"; break;
+        case "YCT" : this.contracts.approval_status = "Yêu Cầu Thêm"; break;
       }
       this.referTable.getAllReference().subscribe((data => {
         this.ref=data;

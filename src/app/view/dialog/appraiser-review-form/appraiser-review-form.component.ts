@@ -30,7 +30,7 @@ export class AppraiserReviewFormComponent implements OnInit {
     description:String;
   ngOnInit(): void {
   }
-  revenue=new Revenue(0,'',0,0,0,new Date());
+  revenue=new Revenue(0,'',0,0,0,new Date('2021-01-02'));
   illustration:Illustration;
  approveStatus:string;
  Review(){

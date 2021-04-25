@@ -95,6 +95,13 @@ export class MailComponent implements OnInit {
     this.dateToReceive = null;
   }
 
+  public mailDetail(id: number) {
+    console.log('asdasdasdasdasda')
+    this.router.navigate(['view_detail_mail',id]);
+    
+  }
+
+
   searchValueSent: String = "";
   dateFromSent: Date;
   dateToSent: Date;

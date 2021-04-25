@@ -46,8 +46,7 @@ export class MailService {
 
   
   public getDetailMail(mailId: number) : Observable<any> {
-    const url = this.common.makeUrl("/mail/view_detail_mail/" + mailId + "/" + this.common.getCookie("token_key"));
-    // console.log(url);
+    const url = this.common.makeUrl("/mail/get_detail_mail/"+mailId);
     return this.httpClient.get<any>(url, this.httpOptions).pipe(catchError(this.handleError));
   }
 

@@ -33,6 +33,12 @@ export class CustomerAddInfoDialogComponent implements OnInit {
     { value: 0, viewValue: 'Chưa Kết Hôn' },
   ];
 
+  occupation_groups = Array[3] = [
+    { value: 1, viewValue: '1' },
+    { value: 2, viewValue: '2' },
+    { value: 3, viewValue: '3' },
+  ];
+
 
   ngOnInit(): void {
     this.customerInfo.types_identification = "Chứng Minh Thư";
@@ -41,12 +47,15 @@ export class CustomerAddInfoDialogComponent implements OnInit {
   public onSubmit() {
     this.spinner.show();
     this.customerInfo.code_em_support = this.user['sub'];
-    this.customerInfo.monthly_income=this.customerInfo.monthly_income.toString();
-    // this.customerService.addCustomerInfo(this.customerInfo).subscribe((data => {
-    //   this.customerService.invokeRefreshTableFun(); 
-    //   this.spinner.hide();
-    // }))
-    console.log(  this.customerInfo.monthly_income);
+    this.customerService.addCustomerInfo(this.customerInfo).subscribe((data => {
+      if(data){
+        this.customerService.invokeRefreshTableFun(); 
+        
+      } else {
+        this.snackbar.openSnackBar("Email Hoặc CMT Bị Trùng","Đóng");
+      }
+      this.spinner.hide();
+    }))
   }
 
   caculateAge(date:any){

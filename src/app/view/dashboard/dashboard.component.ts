@@ -45,12 +45,12 @@ export class DashboardComponent implements OnInit {
   monthRevenueList: Array<number> = [];
   ContractApproved: number = 0;
   ContractNotApproved: number = 0;
-  RevenueLastMonth: number = 0;
-  RevenueThisMonth: number = 0;
+  IncomeLastMonth: number = 0;
+  IncomeThisMonth: number = 0;
   listRevenueEmployeeMonthBefore: Array<Revenue> = [];
   listRevenueEmployeeMonthNow: Array<Revenue> = [];
-  percentBetweenRevenue : String;
-  revenueStatus : String;
+  percentBetweenIncome : String;
+  incomeStatus : String;
 
   ngOnInit(): void {
     this.common.titlePage = "Tổng Quan";
@@ -83,34 +83,42 @@ export class DashboardComponent implements OnInit {
       }
     }))
 
-    this.revenueService.getAllRevenueMonthBefore(jwt_decode(this.common.getCookie('token_key'))['sub'], this.month, this.year-1).subscribe((data => {
+    this.revenueService.getAllRevenueMonthBefore(jwt_decode(this.common.getCookie('token_key'))['sub'], this.month, this.year-1).subscribe((data => {      
       this.listRevenueEmployeeMonthBefore = data;
+      if(this.listRevenueEmployeeMonthBefore.length == 0){
+        return;
+      }
       console.log("danh sach thang truoc");
       console.log(this.listRevenueEmployeeMonthBefore);
       for (let i = 0; i < this.listRevenueEmployeeMonthBefore.length; i++) {
-        this.RevenueLastMonth += this.listRevenueEmployeeMonthBefore[i].income;
+        this.IncomeLastMonth += this.listRevenueEmployeeMonthBefore[i].income;
+       
       }
-
+     
+      
       this.revenueService.getAllRevenueMonthBefore(jwt_decode(this.common.getCookie('token_key'))['sub'], this.month + 1, this.year-1).subscribe((data => {
         this.listRevenueEmployeeMonthNow = data;
+        if(this.listRevenueEmployeeMonthNow.length == 0){
+          return;
+        }
         console.log("danh sach thang nay");
         console.log(this.listRevenueEmployeeMonthNow);
         for (let i = 0; i < this.listRevenueEmployeeMonthNow.length; i++) {
-          this.RevenueThisMonth += this.listRevenueEmployeeMonthNow[i].income;
+          this.IncomeThisMonth += this.listRevenueEmployeeMonthNow[i].income;
         }
-        if(this.RevenueThisMonth > this.RevenueLastMonth){
-          this.revenueStatus = 'Tăng';
-        }
-        else{
-          this.revenueStatus = 'Giảm';
-        }
-        if(this.revenueStatus == "Tăng"){
-          this.percentBetweenRevenue = Math.round(((this.RevenueLastMonth/this.RevenueThisMonth)*100)).toString()+"%";
+        if(this.IncomeThisMonth > this.IncomeLastMonth){
+          this.incomeStatus = 'Tăng';
         }
         else{
-          this.percentBetweenRevenue = Math.round(((this.RevenueThisMonth/this.RevenueLastMonth)*100)).toString()+"%";
+          this.incomeStatus = 'Giảm';
         }
-        
+        if(this.incomeStatus == "Tăng"){
+          this.percentBetweenIncome = Math.round(((this.IncomeLastMonth/this.IncomeThisMonth)*100)).toString()+"%";
+        }
+        else{
+          this.percentBetweenIncome = Math.round(((this.IncomeThisMonth/this.IncomeLastMonth)*100)).toString()+"%";
+        }
+      
       }))
     }))
    

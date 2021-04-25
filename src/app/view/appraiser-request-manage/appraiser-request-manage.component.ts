@@ -34,6 +34,9 @@ export class AppraiserRequestManageComponent implements OnInit {
  }))
     this.contractRequestService.getAllContractRequestApproval(jwtDecode(this.common.getCookie('token_key'))['sub']).subscribe((data =>{
       this.contractRequestsApprovals = data;
+      this.contractRequestsApprovals.forEach(element => {
+        element.status = this.common.transformStatus(element.status);
+      });
       this.totalRecordsApprovals = this.contractRequestsApprovals.length;
     }))
 

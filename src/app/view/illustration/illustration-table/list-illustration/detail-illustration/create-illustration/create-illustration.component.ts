@@ -80,6 +80,12 @@ export class CreateIllustrationComponent implements OnInit {
     }))
   }
 
+  carrer_groups = Array[3] = [
+    { value: 1, viewValue: '1' },
+    { value: 2, viewValue: '2' },
+    { value: 3, viewValue: '3' },
+  ];
+
 
 
   onCalculate() {
@@ -90,7 +96,6 @@ export class CreateIllustrationComponent implements OnInit {
       && this.illustrationMainBenifit.insurance_buyer_relation_insured_person != null
       && this.illustrationMainBenifit.denominations != 0
       && this.mulPeriod != null) {
-      console.log('the deo nao');
 
       if (this.subBenifitListCopy.length != 0) {
         for (let item of this.subBenifitListCopy) {
@@ -132,9 +137,7 @@ export class CreateIllustrationComponent implements OnInit {
       if (checkSubmit) {
         this.spinner.show();
         if (this.reference.multiplierForAge.length != 0) {
-          console.log('sai cho loz nay af1');
           this.CalculateFee(this.reference, this.illustration);
-          console.log('sai cho loz nay af2');
         } else {
           this.snackBar.openSnackBar("Vui Lòng Tải Lại Trang", 'Đóng');
         }
@@ -163,7 +166,7 @@ export class CreateIllustrationComponent implements OnInit {
     if (this.subBenifitListCopy.find(i => i.isDisable == false)) {// kiểm tra xem người được bảo hiểm có quyền lợi phụ hay không
       for (let item of this.subBenifitListCopy) {
         if (!item.isDisable) {// tìm kiếm những trường đã được tích chọn
-          item.fee_value = Math.round(item.denominations * ref.multiplierForSubBenifits.find(i => i.sub_benifit_id == item.id)['multiplier'] *
+          item.fee_value = Math.round(item.denominations * ref.multiplierForSubBenifit.find(i => i.sub_benifit_id == item.id)['multiplier'] *
             ref.multiplierForGenders.find(i => i.gender == this.illustrationMainBenifit.gender_insured_person ? '1' : '0')['multiplier'] *
             (1 + this.calculateAge(this.illustrationMainBenifit.birth_date_insured_person) * ref.multiplierForAge.find(i => i.age == this.calculateAge(this.illustrationMainBenifit.birth_date_insured_person))['multiplier']) *
             ref.multiplierForCareerGroup.find(i => i.group_number == this.illustrationMainBenifit.carrier_group_insured_person)['multiplier']);
@@ -182,7 +185,7 @@ export class CreateIllustrationComponent implements OnInit {
     for (let relate of this.relatedPerson) {
       for (let benifit of relate.listSubBenifit) {
         if (!benifit.isDisable) {
-          benifit.fee_value = Math.round(benifit.denominations * ref.multiplierForSubBenifits.find(i => i.sub_benifit_id == benifit.id)['multiplier'] *
+          benifit.fee_value = Math.round(benifit.denominations * ref.multiplierForSubBenifit.find(i => i.sub_benifit_id == benifit.id)['multiplier'] *
             ref.multiplierForGenders.find(i => i.gender == relate.gender ? '1' : '0')['multiplier'] *
             (1 + this.calculateAge(relate.date_of_birth) * ref.multiplierForAge.find(i => i.age == this.calculateAge(relate.date_of_birth))['multiplier']) *
             ref.multiplierForCareerGroup.find(i => i.group_number == relate.carreer_group)['multiplier']);

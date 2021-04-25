@@ -3,7 +3,7 @@ import { MultiplierForCareerGroup } from "./MultiplierForCareerGroup";
 import { MultiplierForGenders } from "./MultiplierForGenders";
 import { MultiplierForMainBenifit } from "./MultiplierForMainBenifit";
 import { MultiplierForPaymentPeriod } from "./MultiplierForPaymentPeriod";
-import { MultiplierForSubBenifits } from "./MultiplierForSubBenifit";
+import { MultiplierForSubBenifit } from "./MultiplierForSubBenifit";
 
 export class Referencetable{
     multiplierForAge: Array<MultiplierForAge> ;
@@ -11,5 +11,5 @@ export class Referencetable{
     multiplierForGenders : Array<MultiplierForGenders> ;
     multiplierForMainBenifit : Array<MultiplierForMainBenifit> ;
     multiplierForPaymentPeriod : Array<MultiplierForPaymentPeriod> ;
-    multiplierForSubBenifits : Array<MultiplierForSubBenifits> ;
+    multiplierForSubBenifit : Array<MultiplierForSubBenifit> ;
 }
