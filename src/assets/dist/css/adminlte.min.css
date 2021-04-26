@@ -31213,8 +31213,8 @@ blockquote.quote-gray-dark h6 {
 }
 
 .bg-gradient-info {
-    background: #17a2b8 linear-gradient(180deg, #3ab0c3, #17a2b8) repeat-x!important;
-    color: #fff
+    background: white !important;
+    color: black;
 }
 
 .bg-gradient-info.btn.disabled,

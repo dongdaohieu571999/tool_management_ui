@@ -26,7 +26,7 @@
                         <div class="icon">
                             <i class="ion ion-cash"></i>
                         </div>
-                        <a href="income" class="small-box-footer">More info <i
+                        <a href="income" class="small-box-footer">Chi Tiết<i
                                 class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
@@ -37,28 +37,28 @@
                         <div class="inner">
                             <h3>{{ContractApproved}}</h3>
 
-                            <p>Tổng số hợp đồng được chấp thuận</p>
+                            <p>Tổng Số Hợp Đồng Đã Được Chấp Thuận</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-document"></i>
                         </div>
-                        <a href="contract" class="small-box-footer">More info <i
+                        <a href="contract" class="small-box-footer">Chi Tiết<i
                                 class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
                 <div class="col-lg-6 col-6">
                     <!-- small box -->
-                    <div class="small-box bg-warning">
-                        <div class="inner">
+                    <div class="small-box" style="background-color: #ff720e!important;">
+                        <div class="inner" style="color: white;">
                             <h3>{{ContractNotApproved}}</h3>
 
-                            <p>Số hồ sơ đang chờ xác nhận</p>
+                            <p>Số Hợp Đồng Đang Chờ Xác Nhận</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-folder"></i>
                         </div>
-                        <a href="contract" class="small-box-footer">More info <i
+                        <a href="contract" class="small-box-footer">Chi Tiết<i
                                 class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
@@ -67,33 +67,17 @@
                     <!-- small box -->
                     <div class="small-box bg-danger">
                         <div class="inner">
-                            <h3>{{IncomeThisMonth | currency : "VND"}}</h3>
+                            <h3>{{listIncomePredic[month-1].income | currency : "VND"}}</h3>
 
-                            <p>Thu nhập của bạn trong tháng</p>
+                            <p>Thu Nhập Của Bạn Trong Tháng</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-cash"></i>
                         </div>
-                        <a href="income" class="small-box-footer">More info <i
+                        <a href="income" class="small-box-footer">Chi Tiết<i
                                 class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-12 col-6">
-                    <!-- small box -->
-                    <div class="small-box bg-warning">
-                        <div class="inner">
-                            <h3>2</h3>
-
-                            <p>Số Thư Chưa Đọc</p>
-                        </div>
-                        <div class="icon">
-                            <i class="ion ion-email"></i>
-                        </div>
-                        <a href="mail" class="small-box-footer">More info <i
-                                class="fas fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-                <!-- ./col -->
             </div>
             <!-- /.row -->
             <!-- Main row -->
@@ -112,68 +96,8 @@
                             <canvas baseChart [colors]="chartColors" [chartType]="'bar'" [datasets]="chartData" [labels]="chartLabels" [options]="chartOptions" [legend]="true">
                             </canvas>
                         </div>
-                        <!-- /.card-footer -->
-                        <!-- </div>
-                    <div class="card">
-                        <div class="card">
-                            <div class="card-header ui-sortable-handle" style="cursor: move;">
-                                <h3 class="card-title">
-                                    <i class="fas fa-chart-pie mr-1"></i>Doanh Thu
-                                </h3>
-                                <div class="card-tools">
-                                    <ul class="nav nav-pills ml-auto">
-                                        <li class="nav-item">
-                                            <a class="nav-link active" href="#revenue-chart" data-toggle="tab">Tổng Quát</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#sales-chart" data-toggle="tab">Chi
-                                                Tiết</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div> -->
-                        <!-- /.card-header -->
-                        <!-- <div class="card-body">
-                            <div class="tab-content p-0"> -->
-                        <!-- Morris chart - Sales -->
-                        <!-- <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: 300px;">
-                                    <div class="chartjs-size-monitor">
-                                        <div class="chartjs-size-monitor-expand">
-                                            <div class=""></div>
-                                        </div>
-                                        <div class="chartjs-size-monitor-shrink">
-                                            <div class=""></div>
-                                        </div>
-                                    </div>
-                                    <canvas id="revenue-chart-canvas" height="375" style="height: 300px; display: block; width: 1138px;" width="1422" class="chartjs-render-monitor"></canvas>
-                                </div>
-                                <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;">
-                                    <div class="chartjs-size-monitor">
-                                        <div class="chartjs-size-monitor-expand">
-                                            <div class=""></div>
-                                        </div>
-                                        <div class="chartjs-size-monitor-shrink">
-                                            <div class=""></div>
-                                        </div>
-                                    </div>
-                                    <canvas id="sales-chart-canvas" height="375" style="height: 300px; display: block; width: 1138px;" width="1422" class="chartjs-render-monitor"></canvas>
-                                </div>
-                            </div>
-                        </div> -->
-                        <!-- /.card-body -->
                     </div>
-                    <!-- /.card -->
-
-
-                    <!-- TO DO List -->
-
-                    <!-- /.card -->
                 </section>
-                <!-- /.Left col -->
-                <!-- right col (We are only adding the ID to make the widgets sortable)-->
-
-                <!-- right col -->
             </div>
             <!-- /.row (main row) -->
         </div>

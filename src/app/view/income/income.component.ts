@@ -90,6 +90,7 @@ totalRecords: number;
           this.listMoneyFuture.push(item);
         }
       })
+      console.log(this.listMoneyFuture)
     }))
 
   }

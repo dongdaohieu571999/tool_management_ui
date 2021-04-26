@@ -8,6 +8,9 @@ export class CommonService {
 
   constructor() { }
 
+  // HOST = 'localhost:8080';
+  HOST = '35.225.118.49';
+
   callRefreshTable = new EventEmitter();
   subsVar: Subscription;
 
@@ -18,12 +21,10 @@ export class CommonService {
   titlePage:string;
 
   makeUrl(path: string): string{
-    return 'http://localhost:8080/api'+path+'?token_key='+this.getCookie("token_key");
-    // return 'http://35.225.118.49/api'+path+'?token_key='+this.getCookie("token_key");
+    return 'http://'+this.HOST+'/api'+path+'?token_key='+this.getCookie("token_key");
   }
   makeUrlForCustomer(path: string): string{
-    return 'http://localhost:8080/api'+path;
-    // return 'http://35.225.118.49/api'+path;
+    return 'http://'+this.HOST+'/api'+path;
   }
 
   public deleteCookie(name) {

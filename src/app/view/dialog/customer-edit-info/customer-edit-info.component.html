@@ -185,7 +185,7 @@
                         <div class="form-group ">
                             <label for="exampleInputEmail1 ">Thu Nhập Cá Nhân Hàng Tháng</label>
                             <!-- <p style="color: black; ">{{ customerInfo.monthly_income }}\</p> -->
-                            <input type="number" class="form-control" name="monthly_income" required #monthly_income="ngModel" pattern="[0-9]+" [(ngModel)]="customerInfo.monthly_income">
+                            <input type="number" min="0" class="form-control" name="monthly_income" required #monthly_income="ngModel" pattern="[0-9]+" [(ngModel)]="customerInfo.monthly_income">
                             <span id="errorMessagename" style="color: red;" *ngIf="monthly_income.errors?.required && monthly_income.touched">Thu Nhập Cá Nhân Hàng
                                 Tháng không được để trống</span>
                             <span id="errorMessagename" style="color: red;" *ngIf="monthly_income.errors?.pattern && monthly_income.touched">Thu Nhập Cá Nhân Hàng
