@@ -51,6 +51,7 @@ export class DashboardComponent implements OnInit {
   listRevenueEmployeeMonthNow: Array<Revenue> = [];
   percentBetweenIncome : String;
   incomeStatus : String;
+  firstMonthWork: boolean;
 
   ngOnInit(): void {
     this.common.titlePage = "Tổng Quan";
@@ -86,7 +87,12 @@ export class DashboardComponent implements OnInit {
     this.revenueService.getAllRevenueMonthBefore(jwt_decode(this.common.getCookie('token_key'))['sub'], this.month, this.year-1).subscribe((data => {      
       this.listRevenueEmployeeMonthBefore = data;
       if(this.listRevenueEmployeeMonthBefore.length == 0){
+        this.IncomeLastMonth = 1;
+        this.firstMonthWork = true;
         return;
+      }
+      else{
+        this.firstMonthWork = false;
       }
       console.log("danh sach thang truoc");
       console.log(this.listRevenueEmployeeMonthBefore);
@@ -98,14 +104,19 @@ export class DashboardComponent implements OnInit {
       
       this.revenueService.getAllRevenueMonthBefore(jwt_decode(this.common.getCookie('token_key'))['sub'], this.month + 1, this.year-1).subscribe((data => {
         this.listRevenueEmployeeMonthNow = data;
+             
         if(this.listRevenueEmployeeMonthNow.length == 0){
+
           return;
         }
         console.log("danh sach thang nay");
         console.log(this.listRevenueEmployeeMonthNow);
         for (let i = 0; i < this.listRevenueEmployeeMonthNow.length; i++) {
-          this.IncomeThisMonth += this.listRevenueEmployeeMonthNow[i].income;
+          if(new Date(this.listRevenueEmployeeMonthNow[i].create_time).getDate() < new Date().getDate()){
+            this.IncomeThisMonth += this.listRevenueEmployeeMonthNow[i].income;
+          }         
         }
+
         if(this.IncomeThisMonth > this.IncomeLastMonth){
           this.incomeStatus = 'Tăng';
         }
