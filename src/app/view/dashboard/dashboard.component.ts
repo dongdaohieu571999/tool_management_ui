@@ -97,8 +97,7 @@ export class DashboardComponent implements OnInit {
       console.log("danh sach thang truoc");
       console.log(this.listRevenueEmployeeMonthBefore);
       for (let i = 0; i < this.listRevenueEmployeeMonthBefore.length; i++) {
-        this.IncomeLastMonth += this.listRevenueEmployeeMonthBefore[i].income;
-       
+        this.IncomeLastMonth += this.listRevenueEmployeeMonthBefore[i].income;       
       }
      
       
