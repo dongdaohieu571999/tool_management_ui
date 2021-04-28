@@ -37,13 +37,12 @@
                                         </div>
                                         <div class="right">
                                             <div class="input-group searchBar">
-                                                <input type="search" class="form-control form-control-lg" [(ngModel)]="searchValueReceive"
-                                                    placeholder="Nhập từ khóa cần tìm">
+                                                <input type="search" class="form-control form-control-lg" [(ngModel)]="searchValueReceive" placeholder="Nhập từ khóa cần tìm">
                                             </div>
                                             <div class="date">
-                                                <label>From<input id="RfromSearchReceive" type="date" name="dateFromReceive" [(ngModel)]="dateFromReceive"
+                                                <label>Từ Ngày<input id="RfromSearchReceive" type="date" name="dateFromReceive" [(ngModel)]="dateFromReceive"
                                                         class="form-control form-control-sm" placeholder="" aria-controls="example1"></label>
-                                                <label style="margin-left: 2%;"> To<input id="RtoSearchReceive" type="date" name="dateToReceive" [(ngModel)]="dateToReceive"
+                                                <label style="margin-left: 2%;"> Đến Ngày<input id="RtoSearchReceive" type="date" name="dateToReceive" [(ngModel)]="dateToReceive"
                                                         class="form-control form-control-sm" placeholder="" aria-controls="example1"></label>
                                                 <button type="button" class="btn btn-danger btn-date" (click)="ResetDateReceive()">Xóa
                                                     ngày</button>
@@ -51,7 +50,7 @@
                                                 </button>
                                             </div>
                                         </div>
-                                    </div>      
+                                    </div>
 
                                     <table id="example1" class="table table-bordered table-striped">
                                         <thead>
@@ -75,8 +74,8 @@
                                                 <td>{{ mailReceive.priority }}</td>
                                                 <td>{{ mailReceive.status==1? 'Đã Nhận':'Đã Hủy' }}</td>
                                                 <td>{{ mailReceive.time | date:'dd/MM/yyyy'}}</td>
-                    
-                                                <td><button  (click)="mailDetail(mailReceive.id)" class="btn btn-info" style="height: 40px; width: 100px; margin: 10px; color: white;">Chi Tiết</button></td>
+
+                                                <td><button (click)="mailDetail(mailReceive.id)" class="btn btn-info" style="height: 40px; width: 100px; margin: 10px; color: white;">Chi Tiết</button></td>
                                             </tr>
                                         </tbody>
                                         <tfoot>
@@ -96,27 +95,26 @@
                                 </div>
                                 <!-- /.card-body -->
                                 <div class="card-body">
-                                <h3>Thư đã gửi</h3>
-                                <div class="searchWithDateandValue">
-                                    <div class="left">
-                                    </div>
-                                    <div class="right">
-                                        <div class="input-group searchBar">
-                                            <input type="search" class="form-control form-control-lg" [(ngModel)]="searchValueSent"
-                                                placeholder="Nhập từ khóa cần tìm">
+                                    <h3>Thư đã gửi</h3>
+                                    <div class="searchWithDateandValue">
+                                        <div class="left">
                                         </div>
-                                        <div class="date">
-                                            <label>From<input id="RfromSearchSent" type="date" name="dateFromSent" [(ngModel)]="dateFromSent"
+                                        <div class="right">
+                                            <div class="input-group searchBar">
+                                                <input type="search" class="form-control form-control-lg" [(ngModel)]="searchValueSent" placeholder="Nhập từ khóa cần tìm">
+                                            </div>
+                                            <div class="date">
+                                                <label>Từ Ngày<input id="RfromSearchSent" type="date" name="dateFromSent" [(ngModel)]="dateFromSent"
                                                     class="form-control form-control-sm" placeholder="" aria-controls="example1"></label>
-                                            <label style="margin-left: 2%;"> To<input id="RtoSearchSent" type="date" name="dateToSent" [(ngModel)]="dateToSent"
+                                                <label style="margin-left: 2%;"> Đến Ngày<input id="RtoSearchSent" type="date" name="dateToSent" [(ngModel)]="dateToSent"
                                                     class="form-control form-control-sm" placeholder="" aria-controls="example1"></label>
-                                            <button type="button" class="btn btn-danger btn-date" (click)="ResetDateSent()">Xóa
+                                                <button type="button" class="btn btn-danger btn-date" (click)="ResetDateSent()">Xóa
                                                 ngày</button>
-                                            <button type="button" class="btn btn-info btn-date" (click)="SearchSent()">Tìm kiếm
+                                                <button type="button" class="btn btn-info btn-date" (click)="SearchSent()">Tìm kiếm
                                             </button>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>  
 
                                     <table id="example1" class="table table-bordered table-striped">
                                         <thead>
@@ -140,7 +138,7 @@
                                                 <td>{{ mailSent.priority }}</td>
                                                 <td>{{ mailSent.status==1?'Đã Gửi':'Chưa Gửi' }}</td>
                                                 <td>{{ mailSent.time | date:'dd/MM/yyyy'}}</td>
-                                                <td><button  (click)="mailDetail(mailSent.id)" class="btn btn-info" style="height: 40px; width: 100px; margin: 10px; color: white;">Chi Tiết</button></td>
+                                                <td><button (click)="mailDetail(mailSent.id)" class="btn btn-info" style="height: 40px; width: 100px; margin: 10px; color: white;">Chi Tiết</button></td>
                                             </tr>
                                         </tbody>
                                         <tfoot>
