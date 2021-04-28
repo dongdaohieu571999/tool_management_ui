@@ -78,7 +78,7 @@ const routes: Routes = [
   {path: "forget-password", component: ForgetPasswordComponent},
   {path: "", component: HomeCustomerComponent},
   {path: "login-customerweb", component:  SignInCustomerComponent},
-  {path: "detail-page-customerweb", component:  DetailPageComponent},
+  {path: "detail-page-customerweb/:id", component:  DetailPageComponent},
   {path: "illustration-customerweb", component:  ListIllustrationCustomerComponent},
   {path: "contract-customerweb", component:  ListContractCustomerComponent},
   {path: "profile-customerweb", component:  ProfileCustomerComponent},
