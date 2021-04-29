@@ -56,7 +56,7 @@
                             </div>
                             <div class="form-group ">
                                 <label for="exampleInputEmail1 ">Ngày Sinh</label>
-                                <input type="date" class="form-control" name="birth_date" [ngModel]="customerInfo.birth_date" (ngModelChange)="caculateAge($event)" max="2020-01-01" required>
+                                <input type="date" class="form-control" name="birth_date" [ngModel]="customerInfo.birth_date | date:'yyyy-MM-dd' " (ngModelChange)="caculateAge($event)" max="2020-01-01" required>
                             </div>
                             <div class="form-group ">
                                 <label for="exampleInputEmail1 ">Tuổi</label>
@@ -69,7 +69,7 @@
                             <div class="form-group ">
                                 <label for="exampleInputEmail1 ">Nơi Sinh</label>
                                 <!-- <p style="color: black; ">{{ customerInfo.curadd_city }}</p> -->
-                                <input type="text" class="form-control" name="curadd_city" required pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷỹ\s0-9\/-]+$" [(ngModel)]="customerInfo.birth_address"
+                                <input type="text" class="form-control" name="curadd_city" required pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷ,ỹ\s0-9\/-]+$" [(ngModel)]="customerInfo.birth_address"
                                     #curadd_city="ngModel">
                                 <span id="errorMessagename" style="color: red;" *ngIf="curadd_city.errors?.required && curadd_city.touched">Nơi Sinh không được để
                                     trống</span>
@@ -96,7 +96,7 @@
                             <div class="form-group ">
                                 <label for="exampleInputEmail1 ">Quốc Tịch Thứ Nhất</label>
                                 <!-- <p style="color: black; ">{{ customerInfo.nationality_1 }}</p> -->
-                                <input type="text" class="form-control" name="nationality_1" required #national1="ngModel" pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷỹ\s]+$"
+                                <input type="text" class="form-control" name="nationality_1" required #national1="ngModel" pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵ,ỷỹ\s]+$"
                                     [(ngModel)]="customerInfo.nationality_1">
 
                                 <span id="errorMessagename" style="color: red;" *ngIf="national1.errors?.required && national1.touched">Quốc Tịch Thứ Nhất không
@@ -201,7 +201,7 @@
                             <div class="form-group ">
                                 <label for="exampleInputEmail1 ">Số Nhà và Tên Đường</label>
                                 <!-- <p style="color: black; ">{{ customerInfo.curadd_no_street }}</p> -->
-                                <input type="text" class="form-control" name="curadd_no_street" required #curadd_no_street="ngModel" pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷỹ\s0-9\/-]+$"
+                                <input type="text" class="form-control" name="curadd_no_street" required #curadd_no_street="ngModel" pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷ,ỹ\s0-9\/-]+$"
                                     [(ngModel)]="customerInfo.curadd_no_street">
                                 <span id="errorMessagename" style="color: red;" *ngIf="curadd_no_street.errors?.required && curadd_no_street.touched">Số Nhà và Tên
                                     Đường không được để trống</span>
@@ -211,7 +211,7 @@
                             <div class="form-group ">
                                 <label for="exampleInputEmail1 ">Thành Phố/Tỉnh</label>
                                 <!-- <p style="color: black; ">{{ customerInfo.curadd_city }}</p> -->
-                                <input type="text" class="form-control" name="curadd_city" required #curadd_city="ngModel" pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷỹ\s0-9\/-]+$"
+                                <input type="text" class="form-control" name="curadd_city" required #curadd_city="ngModel" pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷ,ỹ\s0-9\/-]+$"
                                     [(ngModel)]="customerInfo.curadd_city">
                                 <span id="errorMessagename" style="color: red;" *ngIf="curadd_city.errors?.required && curadd_city.touched">Thành Phố/Tỉnh không
                                     được để trống</span>
@@ -221,7 +221,7 @@
                             <div class="form-group ">
                                 <label for="exampleInputEmail1 ">Quận/Huyện</label>
                                 <!-- <p style="color: black; ">{{ customerInfo.curadd_district }}</p> -->
-                                <input type="text" class="form-control" name="curadd_district" required #curadd_district="ngModel" pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷỹ\s0-9\/-]+$"
+                                <input type="text" class="form-control" name="curadd_district" required #curadd_district="ngModel" pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷ,ỹ\s0-9\/-]+$"
                                     [(ngModel)]="customerInfo.curadd_district">
                                 <span id="errorMessagename" style="color: red;" *ngIf="curadd_district.errors?.required && curadd_district.touched">Quận/Huyện không
                                     được để trống</span>
@@ -231,7 +231,7 @@
                             <div class="form-group ">
                                 <label for="exampleInputEmail1 ">Phường/Xã/Thị Trấn:</label>
                                 <!-- <p style="color: black; ">{{ customerInfo.curadd_wards }}</p> -->
-                                <input type="text" class="form-control" name="curadd_wards" required #curadd_wards="ngModel" pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷỹ\s0-9\/-]+$"
+                                <input type="text" class="form-control" name="curadd_wards" required #curadd_wards="ngModel" pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷ,ỹ\s0-9\/-]+$"
                                     [(ngModel)]="customerInfo.curadd_wards">
                                 <span id="errorMessagename" style="color: red;" *ngIf="curadd_wards.errors?.required && curadd_wards.touched">Phường/Xã/Thị Trấn
                                     không được để trống</span>
@@ -244,7 +244,7 @@
                             <div class="form-group ">
                                 <label for="exampleInputEmail1 ">Số Nhà và Tên Đường</label>
                                 <!-- <p style="color: black; ">{{ customerInfo.peradd_no_street }}</p> -->
-                                <input type="text" class="form-control" name="peradd_no_street" required #peradd_no_street="ngModel" pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷỹ\s0-9\/-]+$"
+                                <input type="text" class="form-control" name="peradd_no_street" required #peradd_no_street="ngModel" pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷ,ỹ\s0-9\/-]+$"
                                     [(ngModel)]="customerInfo.peradd_no_street">
                                 <span id="errorMessagename" style="color: red;" *ngIf="peradd_no_street.errors?.required && peradd_no_street.touched">Số Nhà và Tên
                                     Đường không được để trống</span>
@@ -254,7 +254,7 @@
                             <div class="form-group ">
                                 <label for="exampleInputEmail1 ">Thành Phố/Tỉnh</label>
                                 <!-- <p style="color: black; ">{{ customerInfo.peradd_city }}</p> -->
-                                <input type="text" class="form-control" name="peradd_city" required #peradd_city="ngModel" pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷỹ\s0-9\/-]+$"
+                                <input type="text" class="form-control" name="peradd_city" required #peradd_city="ngModel" pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷ,ỹ\s0-9\/-]+$"
                                     [(ngModel)]="customerInfo.peradd_city">
                                 <span id="errorMessagename" style="color: red;" *ngIf="peradd_city.errors?.required && peradd_city.touched">Thành Phố/Tỉnh không
                                     được để trống</span>
@@ -264,7 +264,7 @@
                             <div class="form-group ">
                                 <label for="exampleInputEmail1 ">Quận/Huyện</label>
                                 <!-- <p style="color: black; ">{{ customerInfo.peradd_district }}</p> -->
-                                <input type="text" class="form-control" name="peradd_district" required #peradd_district="ngModel" pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷỹ\s0-9\/-]+$"
+                                <input type="text" class="form-control" name="peradd_district" required #peradd_district="ngModel" pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷ,ỹ\s0-9\/-]+$"
                                     [(ngModel)]="customerInfo.peradd_district">
                                 <span id="errorMessagename" style="color: red;" *ngIf="peradd_district.errors?.required && peradd_district.touched">Quận/Huyện không
                                     được để trống</span>
@@ -274,7 +274,7 @@
                             <div class="form-group ">
                                 <label for="exampleInputEmail1 ">Phường/Xã/Thị Trấn:</label>
                                 <!-- <p style="color: black; ">{{ customerInfo.peradd_wards }}</p> -->
-                                <input type="text" class="form-control" name="peradd_wards" required #peradd_wards="ngModel" pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷỹ\s0-9\/-]+$"
+                                <input type="text" class="form-control" name="peradd_wards" required #peradd_wards="ngModel" pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷ,ỹ\s0-9\/-]+$"
                                     [(ngModel)]="customerInfo.peradd_wards">
                                 <span id="errorMessagename" style="color: red;" *ngIf="peradd_wards.errors?.required && peradd_wards.touched">Phường/Xã/Thị Trấn
                                     không được để trống</span>
@@ -289,7 +289,7 @@
                             <div class="form-group ">
                                 <label for="exampleInputEmail1 ">Số Nhà và Tên Đường</label>
                                 <!-- <p style="color: black; ">{{ customerInfo.conadd_no_street }}</p> -->
-                                <input type="text" class="form-control" name="conadd_no_street" required #conadd_no_street="ngModel" pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷỹ\s0-9\/-]+$"
+                                <input type="text" class="form-control" name="conadd_no_street" required #conadd_no_street="ngModel" pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷ,ỹ\s0-9\/-]+$"
                                     [(ngModel)]="customerInfo.conadd_no_street">
                                 <span id="errorMessagename" style="color: red;" *ngIf="conadd_no_street.errors?.required && conadd_no_street.touched">Số Nhà và Tên
                                     Đường không được để trống</span>
@@ -299,7 +299,7 @@
                             <div class="form-group ">
                                 <label for="exampleInputEmail1 ">Thành Phố/Tỉnh</label>
                                 <!-- <p style="color: black; ">{{ customerInfo.conadd_city }}</p> -->
-                                <input type="text" class="form-control" name="conadd_city" required #conadd_city="ngModel" pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷỹ\s0-9\/-]+$"
+                                <input type="text" class="form-control" name="conadd_city" required #conadd_city="ngModel" pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷ,ỹ\s0-9\/-]+$"
                                     [(ngModel)]="customerInfo.conadd_city">
                                 <span id="errorMessagename" style="color: red;" *ngIf="conadd_city.errors?.required && conadd_city.touched">Thành Phố/Tỉnh không
                                     được để trống</span>
@@ -309,7 +309,7 @@
                             <div class="form-group ">
                                 <label for="exampleInputEmail1 ">Quận/Huyện</label>
                                 <!-- <p style="color: black; ">{{ customerInfo.conadd_district }}</p> -->
-                                <input type="text" class="form-control" name="conadd_district" required #conadd_district="ngModel" pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷỹ\s0-9\/-]+$"
+                                <input type="text" class="form-control" name="conadd_district" required #conadd_district="ngModel" pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷ,ỹ\s0-9\/-]+$"
                                     [(ngModel)]="customerInfo.conadd_district">
                                 <span id="errorMessagename" style="color: red;" *ngIf="conadd_district.errors?.required && conadd_district.touched">Quận/Huyện không
                                     được để trống</span>
@@ -319,7 +319,7 @@
                             <div class="form-group ">
                                 <label for="exampleInputEmail1 ">Phường/Xã/Thị Trấn:</label>
                                 <!-- <p style="color: black; ">{{ customerInfo.conadd_wards }}</p> -->
-                                <input type="text" class="form-control" name="conadd_wards" required #conadd_wards="ngModel" pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷỹ\s0-9\/-]+$"
+                                <input type="text" class="form-control" name="conadd_wards" required #conadd_wards="ngModel" pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷ,ỹ\s0-9\/-]+$"
                                     [(ngModel)]="customerInfo.conadd_wards">
                                 <span id="errorMessagename" style="color: red;" *ngIf="conadd_wards.errors?.required && conadd_wards.touched">Phường/Xã/Thị Trấn
                                     không được để trống</span>
@@ -332,7 +332,7 @@
                             <div class="form-group ">
                                 <label for="exampleInputEmail1 ">Số Nhà và Tên Đường</label>
                                 <!-- <p style="color: black; ">{{ customerInfo.workadd_no_street }}</p> -->
-                                <input type="text" class="form-control" name="workadd_no_street" required #workadd_no_street="ngModel" pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷỹ\s0-9\/-]+$"
+                                <input type="text" class="form-control" name="workadd_no_street" required #workadd_no_street="ngModel" pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷ,ỹ\s0-9\/-]+$"
                                     [(ngModel)]="customerInfo.workadd_no_street">
                                 <span id="errorMessagename" style="color: red;" *ngIf="workadd_no_street.errors?.required && workadd_no_street.touched">Số Nhà và
                                     Tên Đường không được để trống</span>
@@ -342,7 +342,7 @@
                             <div class="form-group ">
                                 <label for="exampleInputEmail1 ">Thành Phố/Tỉnh</label>
                                 <!-- <p style="color: black; ">{{ customerInfo.workadd_city }}</p> -->
-                                <input type="text" class="form-control" name="workadd_city" required #workadd_city="ngModel" pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷỹ\s0-9\/-]+$"
+                                <input type="text" class="form-control" name="workadd_city" required #workadd_city="ngModel" pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷ,ỹ\s0-9\/-]+$"
                                     [(ngModel)]="customerInfo.workadd_city">
                                 <span id="errorMessagename" style="color: red;" *ngIf="workadd_city.errors?.required && workadd_city.touched">Thành Phố/Tỉnh không
                                     được để trống</span>
@@ -352,7 +352,7 @@
                             <div class="form-group ">
                                 <label for="exampleInputEmail1 ">Quận/Huyện</label>
                                 <!-- <p style="color: black; ">{{ customerInfo.workadd_district }}</p> -->
-                                <input type="text" class="form-control" name="workadd_district" required #workadd_district="ngModel" pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷỹ\s0-9\/-]+$"
+                                <input type="text" class="form-control" name="workadd_district" required #workadd_district="ngModel" pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷ,ỹ\s0-9\/-]+$"
                                     [(ngModel)]="customerInfo.workadd_district">
                                 <span id="errorMessagename" style="color: red;" *ngIf="workadd_district.errors?.required && workadd_district.touched">Quận/Huyện
                                     không được để trống</span>
@@ -362,7 +362,7 @@
                             <div class="form-group ">
                                 <label for="exampleInputEmail1 ">Phường/Xã/Thị Trấn:</label>
                                 <!-- <p style="color: black; ">{{ customerInfo.workadd_wards }}</p> -->
-                                <input type="text" class="form-control" name="workadd_wards" required #workadd_wards="ngModel" pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷỹ\s0-9\/-]+$"
+                                <input type="text" class="form-control" name="workadd_wards" required #workadd_wards="ngModel" pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷ,ỹ\s0-9\/-]+$"
                                     [(ngModel)]="customerInfo.workadd_wards">
                                 <span id="errorMessagename" style="color: red;" *ngIf="workadd_wards.errors?.required && workadd_wards.touched">Phường/Xã/Thị Trấn
                                     không được để trống</span>

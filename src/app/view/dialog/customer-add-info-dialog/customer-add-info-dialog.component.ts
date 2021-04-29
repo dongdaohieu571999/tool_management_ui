@@ -51,7 +51,7 @@ export class CustomerAddInfoDialogComponent implements OnInit {
     this.customerService.addCustomerInfo(this.customerInfo).subscribe((data => {
       if(data){
         this.customerService.invokeRefreshTableFun(); 
-        
+        this.snackbar.openSnackBar("Thêm Thông tin Thành Công","Đóng");
       } else {
         this.snackbar.openSnackBar("Email Hoặc CMT Bị Trùng","Đóng");
       }

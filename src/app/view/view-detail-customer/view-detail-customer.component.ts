@@ -32,6 +32,7 @@ export class ViewDetailCustomerComponent implements OnInit {
     this.spinner.show();
     this.customerService.getOneCustomerInfoBySaler(this.activateRoute.snapshot.params['id'],this.common.getCookie("token_key")).subscribe((data =>{
     this.customerInfo = data[0];
+      console.log(this.customerInfo);
     this.custInfoList = data;
     this.spinner.hide();
   }))
