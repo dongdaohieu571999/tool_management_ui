@@ -37,7 +37,7 @@ export class ContractDetailDialogComponent implements OnInit {
       this.referTable.getAllReference().subscribe((data => {
         this.ref=data;
         this.payment_period = this.ref.multiplierForPaymentPeriod.find(i => i.priod_id = this.contracts.payment_period_id)['description'];  
-        this.fileService.getFile(this.contracts.id).subscribe((data => {
+        this.fileService.getFileForCustomer(this.contracts.id).subscribe((data => {
           this.listDocument = data;
         }))   
       }))
@@ -45,7 +45,7 @@ export class ContractDetailDialogComponent implements OnInit {
       this.referTable.getAllReferenceForCustomer(this.common.getCookie('token_customer')).subscribe((data => {
         this.ref=data;
         this.payment_period = this.ref.multiplierForPaymentPeriod.find(i => i.priod_id = this.contracts.payment_period_id)['description'];  
-        this.fileService.getFile(this.contracts.id).subscribe((data => {
+        this.fileService.getFileForCustomer(this.contracts.id).subscribe((data => {
           this.listDocument = data;
           console.log(this.listDocument);
         }))  

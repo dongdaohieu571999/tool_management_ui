@@ -45,10 +45,10 @@ export class EmployeeService {
     .pipe(catchError(this.handleError));
   }
 
-  public getAllAccByIDRole(id_role:number): Observable<any>{
+  public getAllAccByIDRole(data:any): Observable<any>{
     const url = this.common.makeUrl("/employee/get_all_employee_acc_by_idRole");
     return this.httpClient
-    .post<any>(url,id_role,this.httpOptions)
+    .post<any>(url,data,this.httpOptions)
     .pipe(catchError(this.handleError));
   }
 

@@ -59,8 +59,8 @@
                         <tr *ngFor="let contract of contracts | orderBy: key:reverse | paginate: { id: 'listing_pagination' ,itemsPerPage: 8, currentPage: page, totalItems: totalRecords}">
                             <td>#HD{{contract.id}}</td>
                             <td>
-                                <a *ngIf="contract.id_customer">#KH{{contract.id_customer}}</a>
-                                <a *ngIf="!contract.id_customer"></a>
+                                <p *ngIf="contract.id_customer">#KH{{contract.id_customer}}</p>
+                                <p *ngIf="!contract.id_customer"></p>
                             </td>
                             <td>{{contract.name_contract_owner}}</td>
                             <td>{{contract.insurance_type}}</td>

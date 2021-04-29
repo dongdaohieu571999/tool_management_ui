@@ -3,6 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Attachment } from 'src/app/model/Attachment';
 import { EmployeeAcc } from 'src/app/model/EmployeeAcc';
+import { EmployeeInfoDTO } from 'src/app/model/EmployeeInfoDTO';
 import { PauseReason } from 'src/app/model/PauseReason';
 import { CommonService } from 'src/app/services/common/common.service';
 import { EmployeeService } from 'src/app/services/employee/employee.service';
@@ -16,7 +17,7 @@ import { SnackbarService } from 'src/app/services/snackbar/snackbar.service';
 })
 export class AdminPauseEmployeeDialogComponent implements OnInit {
 
-  constructor(private common:CommonService,private spinner:NgxSpinnerService, private fileService:FileManagementService,private snackBar:SnackbarService,@Inject(MAT_DIALOG_DATA) public id_employee_acc:number,
+  constructor(private common:CommonService,private spinner:NgxSpinnerService, private fileService:FileManagementService,private snackBar:SnackbarService,@Inject(MAT_DIALOG_DATA) public employeeInfo:EmployeeInfoDTO,
   private employeeService:EmployeeService,public dialogRef: MatDialogRef<AdminPauseEmployeeDialogComponent>) { }
 
   employeeAcc : Array<EmployeeAcc>;
@@ -24,15 +25,15 @@ export class AdminPauseEmployeeDialogComponent implements OnInit {
   selectedFile=new Array<File>();
   description:string;
   ngOnInit(): void {
-    this.employeeService.getAllAccByIDRole(2).subscribe((data => {
+    this.employeeService.getAllAccByIDRole({id:2,code_app_support:this.employeeInfo.code_ap_support}).subscribe((data => {
       this.employeeAcc = data;
-      this.employeeAcc=this.employeeAcc.filter(x => x.status == true && !(x.id == this.id_employee_acc));
+      this.employeeAcc=this.employeeAcc.filter(x => x.status == true && !(x.id == this.employeeInfo.id_acc));
     }))
    
   }
   PauseEmployee(){
     let codeEmployeeNew = (<HTMLInputElement>document.getElementById('saler')).value;
-    this.employeeService.PauseEmployee(codeEmployeeNew,this.id_employee_acc).subscribe((data =>{
+    this.employeeService.PauseEmployee(codeEmployeeNew,this.employeeInfo.id_acc).subscribe((data =>{
         this.snackBar.openSnackBar("Ngưng nhân viên thành công","Đóng");
     }))
     this.dialogRef.close();
@@ -57,7 +58,7 @@ export class AdminPauseEmployeeDialogComponent implements OnInit {
         let listFileSave = Array<PauseReason>();
         let listAttachMent = Array<Attachment>();
         for(let i=0;i<this.selectedFile.length;i++){
-          listFileSave.push(new PauseReason(this.description,this.adminAcc.id,this.id_employee_acc,new Date(),data['body'][i][1]));
+          listFileSave.push(new PauseReason(this.description,this.adminAcc.id,this.employeeInfo.id_acc,new Date(),data['body'][i][1]));
           listAttachMent.push(new Attachment(data['body'][i][1],data['body'][i][0]));
         }
         this.fileService.saveFile(listFileSave).subscribe((data => {

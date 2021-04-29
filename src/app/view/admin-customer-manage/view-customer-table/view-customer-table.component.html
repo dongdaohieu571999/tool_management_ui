@@ -43,7 +43,7 @@
                 <td>{{ customer.status==1? "Hoạt Động" : "Không Hoạt Động" }}</td>
                 <td>
                     <button (click)="customerDetail(customer.id)" class="btn btn-info" style="height: 40px; width: 100px; margin: 10px; color: white;">Chi Tiết</button></td>
-                <td><button *ngIf="customer.code" class="btn btn-block btn-success" (click)="resetAccPassword(customer)">Đặt Lại Mật Khẩu</button></tr>
+                <td><button *ngIf="customer.code" class="btn btn-block btn-success" style="height: 40px; width: 150px; margin: 10px; color: white;" (click)="resetAccPassword(customer)">Đặt Lại Mật Khẩu</button></tr>
         </tbody>
         <tfoot>
             <tr>

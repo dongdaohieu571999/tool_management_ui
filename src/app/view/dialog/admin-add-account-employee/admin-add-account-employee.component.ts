@@ -46,7 +46,7 @@ export class AdminAddAccountEmployeeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.employeeService.getAllAccByIDRole(3).subscribe((data => {
+    this.employeeService.getAllAccByIDRole({id:3,code_app_support:''}).subscribe((data => {
       // kiểm tra nếu role != 2 thì code_suppervisor là admin
       if(this.role!=2){
         this.code_suppervisor = "admin";

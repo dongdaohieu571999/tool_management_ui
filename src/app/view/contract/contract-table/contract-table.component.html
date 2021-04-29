@@ -33,7 +33,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let contract of contracts | orderBy: key:reverse | paginate: { id: 'listing_pagination' ,itemsPerPage: 8, currentPage: page, totalItems: totalRecords}">
+        <tr *ngFor="let contract of contracts | orderBy: key:reverse | paginate: { id: 'listing_pagination' ,itemsPerPage: 6, currentPage: page, totalItems: totalRecords}">
             <td>#HD{{contract.id}}</td>
             <td>
                 <a *ngIf="contract.id_customer" (click)="openDialogCustomerDetail(contract.id_customer)">#KH{{contract.id_customer}}</a>
@@ -68,4 +68,4 @@
         </tr>
     </tfoot>
 </table>
-<pagination-controls style="float: right;" id="listing_pagination" maxSize="5" directionLinks="true" (pageChange)="page = $event"></pagination-controls>
+<pagination-controls style="float: right;" id="listing_pagination" maxSize="2" directionLinks="true" (pageChange)="page = $event"></pagination-controls>

@@ -39,6 +39,13 @@ export class FileManagementService {
     .pipe(catchError(this.handleError));
   }
 
+  public getFileForCustomer(data:any): Observable<any>{
+    const url = this.common.makeUrlForCustomer('/customer-api/get_customer_attachment/');
+    return this.httpClient
+    .post<any>(url,data,this.httpOptions)
+    .pipe(catchError(this.handleError));
+  }
+
   
 
   private handleError(error: HttpErrorResponse) {

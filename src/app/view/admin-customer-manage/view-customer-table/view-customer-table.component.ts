@@ -102,8 +102,8 @@ export class ViewCustomerTableComponent implements OnInit {
   this.dateFrom = null;
   this.dateTo = null;
   }
-  key = 'id';
-  reverse: boolean = false;
+  key = '';
+  reverse: boolean = true;
   sort(key){
     this.key = key;
     this.reverse = !this.reverse;

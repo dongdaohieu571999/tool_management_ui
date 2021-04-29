@@ -54,8 +54,8 @@ export class DetailEmTableComponent implements OnInit {
     })
   }
 
-  public openDialogPauseEmployee(id: number) {
-    let dialogRef = this.dialog.open(AdminPauseEmployeeDialogComponent, { data: id });
+  public openDialogPauseEmployee(data:EmployeeInfoDTO) {
+    let dialogRef = this.dialog.open(AdminPauseEmployeeDialogComponent, { data: data });
 
   }
 }
