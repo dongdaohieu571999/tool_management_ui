@@ -67,7 +67,8 @@ export class AdminPauseEmployeeDialogComponent implements OnInit {
         let listAttachMent = Array<Attachment>();
         for(let i=0;i<this.selectedFile.length;i++){
           listFileSave.push(new PauseReason(this.description,this.adminAcc.id,this.employee_info_dto.id_acc,new Date(),data['body'][i][1]));
-          listAttachMent.push(new Attachment(data['body'][i][1],data['body'][i][0]));
+          listAttachMent.push(new Attachment(data['body'][i][0],data['body'][i][1],''));
+          
         }
         console.log("asdasda");
         console.log(listFileSave);
