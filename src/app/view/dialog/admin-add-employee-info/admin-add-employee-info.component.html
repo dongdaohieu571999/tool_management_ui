@@ -76,7 +76,7 @@
                                     <input type="text" class="form-control" name="curadd_no_street" required pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷỹ\s0-9\/-]+$" #curadd_no_street="ngModel"
                                         [(ngModel)]="employeinfoDTO.curadd_no_street">
                                     <span id="errorMessagename" style="color: red;" *ngIf="curadd_no_street.errors?.required && curadd_no_street.touched">Số Nhà và Tên Đường không được để trống</span>
-                                    <span id="errorMessagename" style="color: red;" *ngIf="curadd_no_street.errors?.min && curadd_no_street.touched">Số Nhà và Tên Đường không được chứa kí tự đặc biệt</span>
+                                    <span id="errorMessagename" style="color: red;" *ngIf="curadd_no_street.errors?.pattern && curadd_no_street.touched">Số Nhà và Tên Đường không được chứa kí tự đặc biệt</span>
                                 </div>
                                 <div class="form-group ">
                                     <label for="exampleInputEmail1 ">Thành Phố/Tỉnh</label>
