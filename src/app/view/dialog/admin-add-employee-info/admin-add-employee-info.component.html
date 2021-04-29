@@ -73,7 +73,7 @@
                                 <div class="form-group ">
                                     <label for="exampleInputEmail1 ">Số Nhà và Tên Đường</label>
                                     <!-- <p style="color: black; ">{{ customerInfo.curadd_no_street }}</p> -->
-                                    <input type="text" class="form-control" name="curadd_no_street" required pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷỹ\s0-9\/-]+$" #curadd_no_street="ngModel"
+                                    <input type="text" class="form-control" name="curadd_no_street" required pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷ,ỹ\s0-9\/-]+$" #curadd_no_street="ngModel"
                                         [(ngModel)]="employeinfoDTO.curadd_no_street">
                                     <span id="errorMessagename" style="color: red;" *ngIf="curadd_no_street.errors?.required && curadd_no_street.touched">Số Nhà và Tên Đường không được để trống</span>
                                     <span id="errorMessagename" style="color: red;" *ngIf="curadd_no_street.errors?.min && curadd_no_street.touched">Số Nhà và Tên Đường không được chứa kí tự đặc biệt</span>
@@ -81,7 +81,7 @@
                                 <div class="form-group ">
                                     <label for="exampleInputEmail1 ">Thành Phố/Tỉnh</label>
                                     <!-- <p style="color: black; ">{{ customerInfo.curadd_city }}</p> -->
-                                    <input type="text" class="form-control" name="curadd_city" required pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷỹ\s0-9\/-]+$" #curadd_city="ngModel"
+                                    <input type="text" class="form-control" name="curadd_city" required pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷ,ỹ\s0-9\/-]+$" #curadd_city="ngModel"
                                         [(ngModel)]="employeinfoDTO.curadd_city">
                                     <span id="errorMessagename" style="color: red;" *ngIf="curadd_city.errors?.required && curadd_city.touched">Thành Phố/Tỉnh không được để trống</span>
                                     <span id="errorMessagename" style="color: red;" *ngIf="curadd_city.errors?.pattern && curadd_city.touched">Thành Phố/Tỉnh không được chứa kí tự đặc biệt</span>
@@ -89,7 +89,7 @@
                                 <div class="form-group ">
                                     <label for="exampleInputEmail1 ">Quận/Huyện</label>
                                     <!-- <p style="color: black; ">{{ customerInfo.curadd_district }}</p> -->
-                                    <input type="text" class="form-control" name="curadd_district" required pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷỹ\s0-9\/-]+$" #curadd_district="ngModel"
+                                    <input type="text" class="form-control" name="curadd_district" required pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷ,ỹ\s0-9\/-]+$" #curadd_district="ngModel"
                                         [(ngModel)]="employeinfoDTO.curadd_district">
                                     <span id="errorMessagename" style="color: red;" *ngIf="curadd_district.errors?.required && curadd_district.touched">Quận/Huyện không được để trống</span>
                                     <span id="errorMessagename" style="color: red;" *ngIf="curadd_district.errors?.pattern && curadd_district.touched">Quận/Huyện không được chứa kí tự đặc biệt</span>
@@ -97,7 +97,7 @@
                                 <div class="form-group ">
                                     <label for="exampleInputEmail1 ">Phường/Xã/Thị Trấn:</label>
                                     <!-- <p style="color: black; ">{{ customerInfo.curadd_wards }}</p> -->
-                                    <input type="text" class="form-control" name="curadd_wards" required pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷỹ\s0-9\/-]+$" #curadd_wards="ngModel"
+                                    <input type="text" class="form-control" name="curadd_wards" required pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷ,ỹ\s0-9\/-]+$" #curadd_wards="ngModel"
                                         [(ngModel)]="employeinfoDTO.curadd_wards">
                                     <span id="errorMessagename" style="color: red;" *ngIf="curadd_wards.errors?.required && curadd_wards.touched">Phường/Xã/Thị Trấn không được để trống</span>
                                     <span id="errorMessagename" style="color: red;" *ngIf="curadd_wards.errors?.pattern && curadd_wards.touched">Phường/Xã/Thị Trấn không được chứa kí tự đặc biệt</span>
@@ -108,7 +108,7 @@
                                 <div class="form-group ">
                                     <label for="exampleInputEmail1 ">Số Nhà và Tên Đường</label>
                                     <!-- <p style="color: black; ">{{ customerInfo.peradd_no_street }}</p> -->
-                                    <input type="text" class="form-control" name="peradd_no_street" required pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷỹ\s0-9\/-]+$" #peradd_no_street="ngModel"
+                                    <input type="text" class="form-control" name="peradd_no_street" required pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷ,ỹ\s0-9\/-]+$" #peradd_no_street="ngModel"
                                         [(ngModel)]="employeinfoDTO.peradd_no_street">
                                     <span id="errorMessagename" style="color: red;" *ngIf="peradd_no_street.errors?.required && peradd_no_street.touched">Số Nhà và Tên Đường không được để trống</span>
                                     <span id="errorMessagename" style="color: red;" *ngIf="peradd_no_street.errors?.pattern && peradd_no_street.touched">Số Nhà và Tên Đường không được chứa kí tự đặc biệt</span>
@@ -116,7 +116,7 @@
                                 <div class="form-group ">
                                     <label for="exampleInputEmail1 ">Thành Phố/Tỉnh</label>
                                     <!-- <p style="color: black; ">{{ customerInfo.peradd_city }}</p> -->
-                                    <input type="text" class="form-control" name="peradd_city" required pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷỹ\s0-9\/-]+$" #peradd_city="ngModel"
+                                    <input type="text" class="form-control" name="peradd_city" required pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷ,ỹ\s0-9\/-]+$" #peradd_city="ngModel"
                                         [(ngModel)]="employeinfoDTO.peradd_city">
                                     <span id="errorMessagename" style="color: red;" *ngIf="peradd_city.errors?.required && peradd_city.touched">Thành Phố/Tỉnh không được để trống</span>
                                     <span id="errorMessagename" style="color: red;" *ngIf="peradd_city.errors?.pattern && peradd_city.touched">Thành Phố/Tỉnh không được chứa kí tự đặc biệt</span>
@@ -124,7 +124,7 @@
                                 <div class="form-group ">
                                     <label for="exampleInputEmail1 ">Quận/Huyện</label>
                                     <!-- <p style="color: black; ">{{ customerInfo.peradd_district }}</p> -->
-                                    <input type="text" class="form-control" name="peradd_district" required pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷỹ\s0-9\/-]+$" #peradd_district="ngModel"
+                                    <input type="text" class="form-control" name="peradd_district" required pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷ,ỹ\s0-9\/-]+$" #peradd_district="ngModel"
                                         [(ngModel)]="employeinfoDTO.peradd_district">
                                     <span id="errorMessagename" style="color: red;" *ngIf="peradd_district.errors?.required && peradd_district.touched">Quận/Huyện không được để trống</span>
                                     <span id="errorMessagename" style="color: red;" *ngIf="peradd_district.errors?.pattern && peradd_district.touched">Quận/Huyện không được chứa kí tự đặc biệt</span>
@@ -132,7 +132,7 @@
                                 <div class="form-group ">
                                     <label for="exampleInputEmail1 ">Phường/Xã/Thị Trấn:</label>
                                     <!-- <p style="color: black; ">{{ customerInfo.peradd_wards }}</p> -->
-                                    <input type="text" class="form-control" name="peradd_wards" required pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷỹ\s0-9\/-]+$" #peradd_wards="ngModel"
+                                    <input type="text" class="form-control" name="peradd_wards" required pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷ,ỹ\s0-9\/-]+$" #peradd_wards="ngModel"
                                         [(ngModel)]="employeinfoDTO.peradd_wards">
                                     <span id="errorMessagename" style="color: red;" *ngIf="peradd_wards.errors?.required && peradd_wards.touched">Phường/Xã/Thị Trấn không được để trống</span>
                                     <span id="errorMessagename" style="color: red;" *ngIf="peradd_wards.errors?.pattern && peradd_wards.touched">Phường/Xã/Thị Trấn không được chứa kí tự đặc biệt</span>
@@ -143,7 +143,7 @@
                                 <div class="form-group ">
                                     <label for="exampleInputEmail1 ">Số Nhà và Tên Đường</label>
                                     <!-- <p style="color: black; ">{{ customerInfo.conadd_no_street }}</p> -->
-                                    <input type="text" class="form-control" name="conadd_no_street" required pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷỹ\s0-9\/-]+$" #conadd_no_street="ngModel"
+                                    <input type="text" class="form-control" name="conadd_no_street" required pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷ,ỹ\s0-9\/-]+$" #conadd_no_street="ngModel"
                                         [(ngModel)]="employeinfoDTO.conadd_no_street">
                                     <span id="errorMessagename" style="color: red;" *ngIf="conadd_no_street.errors?.required && conadd_no_street.touched">Số Nhà và Tên Đường không được để trống</span>
                                     <span id="errorMessagename" style="color: red;" *ngIf="conadd_no_street.errors?.pattern && conadd_no_street.touched">Số Nhà và Tên Đường không được chứa kí tự đặc biệt</span>
@@ -151,7 +151,7 @@
                                 <div class="form-group ">
                                     <label for="exampleInputEmail1 ">Thành Phố/Tỉnh</label>
                                     <!-- <p style="color: black; ">{{ customerInfo.conadd_city }}</p> -->
-                                    <input type="text" class="form-control" name="conadd_city" required pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷỹ\s0-9\/-]+$" #conadd_city="ngModel"
+                                    <input type="text" class="form-control" name="conadd_city" required pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷ,ỹ\s0-9\/-]+$" #conadd_city="ngModel"
                                         [(ngModel)]="employeinfoDTO.conadd_city">
                                     <span id="errorMessagename" style="color: red;" *ngIf="conadd_city.errors?.required && conadd_city.touched">Thành Phố/Tỉnh không được để trống</span>
                                     <span id="errorMessagename" style="color: red;" *ngIf="conadd_city.errors?.pattern && conadd_city.touched">Thành Phố/Tỉnh không được chứa kí tự đặc biệt</span>
@@ -159,7 +159,7 @@
                                 <div class="form-group ">
                                     <label for="exampleInputEmail1 ">Quận/Huyện</label>
                                     <!-- <p style="color: black; ">{{ customerInfo.conadd_district }}</p> -->
-                                    <input type="text" class="form-control" name="conadd_district" required pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷỹ\s0-9\/-]+$" #conadd_district="ngModel"
+                                    <input type="text" class="form-control" name="conadd_district" required pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷ,ỹ\s0-9\/-]+$" #conadd_district="ngModel"
                                         [(ngModel)]="employeinfoDTO.conadd_district">
                                     <span id="errorMessagename" style="color: red;" *ngIf="conadd_district.errors?.required && conadd_district.touched">Quận/Huyện không được để trống</span>
                                     <span id="errorMessagename" style="color: red;" *ngIf="conadd_district.errors?.pattern && conadd_district.touched">Quận/Huyện không được chứa kí tự đặc biệt</span>
@@ -167,7 +167,7 @@
                                 <div class="form-group ">
                                     <label for="exampleInputEmail1 ">Phường/Xã/Thị Trấn:</label>
                                     <!-- <p style="color: black; ">{{ customerInfo.conadd_wards }}</p> -->
-                                    <input type="text" class="form-control" name="conadd_wards" required pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷỹ\s0-9\/-]+$" #conadd_wards="ngModel"
+                                    <input type="text" class="form-control" name="conadd_wards" required pattern="^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéếêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳýỵỷ,ỹ\s0-9\/-]+$" #conadd_wards="ngModel"
                                         [(ngModel)]="employeinfoDTO.conadd_wards">
                                     <span id="errorMessagename" style="color: red;" *ngIf="conadd_wards.errors?.required && conadd_wards.touched">Phường/Xã/Thị Trấn không được để trống</span>
                                     <span id="errorMessagename" style="color: red;" *ngIf="conadd_wards.errors?.pattern && conadd_wards.touched">Phường/Xã/Thị Trấn không được chứa kí tự đặc biệt</span>
