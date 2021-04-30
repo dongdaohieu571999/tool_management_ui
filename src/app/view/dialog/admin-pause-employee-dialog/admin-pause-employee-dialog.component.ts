@@ -42,9 +42,8 @@ export class AdminPauseEmployeeDialogComponent implements OnInit {
   PauseEmployee(){
     let codeEmployeeNew = (<HTMLInputElement>document.getElementById('saler')).value;
     this.employeeService.PauseEmployee(codeEmployeeNew,this.employee_info_dto.id_acc).subscribe((data =>{
-        this.snackBar.openSnackBar("Ngưng nhân viên thành công","Đóng");
-    }))
-    this.router.navigate(['employee-manage']);
+       
+    }))   
   }
 
   onChangeFile(event){
@@ -67,19 +66,16 @@ export class AdminPauseEmployeeDialogComponent implements OnInit {
         let listAttachMent = Array<Attachment>();
         for(let i=0;i<this.selectedFile.length;i++){
           listFileSave.push(new PauseReason(this.description,this.adminAcc.id,this.employee_info_dto.id_acc,new Date(),data['body'][i][1]));
-          listAttachMent.push(new Attachment(data['body'][i][0],data['body'][i][1],''));
-          
-        }
-        console.log("asdasda");
-        console.log(listFileSave);
-        console.log("asdasda");
-        console.log(listAttachMent);
+          listAttachMent.push(new Attachment(0,data['body'][i][0],data['body'][i][1],this.selectedFile[i].name));         
+        }     
         this.fileService.saveFileAttachment(listAttachMent).subscribe((data => {
-          console.log(data)
-          this.employeeService.PauseEmployeeReason(listFileSave).subscribe((data => {
-            console.log(data)
+     
+          this.employeeService.PauseEmployeeReason(listFileSave).subscribe((data => {   
             this.PauseEmployee();
+            this.dialogRef.close();
+            
             this.spinner.hide();
+            this.snackBar.openSnackBar("Ngưng nhân viên thành công","Đóng");
           }))
         }))
       }   
