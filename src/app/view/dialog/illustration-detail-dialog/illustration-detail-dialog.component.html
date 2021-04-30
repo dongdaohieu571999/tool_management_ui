@@ -139,7 +139,7 @@
                                 <th>Phí Bảo Hiểm</th>
                             </tr>
                             <tr *ngFor="let detail of RelatedPerSonInfo.listSubInterset">
-                                <td>{{detail.id_sub_benifit}}</td>
+                                <td>{{subBenifitList[detail.id_sub_benifit - 1].benifit_name}}</td>
                                 <td>{{detail.carrier_group_extra_insured_person}}</td>
                                 <td>{{detail.denominations | currency : "VND"}}</td>
                                 <td>{{detail.fee_value | currency : "VND"}}</td>

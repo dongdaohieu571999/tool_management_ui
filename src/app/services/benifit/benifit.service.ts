@@ -32,6 +32,13 @@ export class BenifitService {
     .pipe(catchError(this.handleError));
   }
 
+  public getAllSubBenifitForCustomer(){
+    const url =  this.common.makeUrlForCustomer('/customer-api/get_all_sub_benifit/') ;
+    return this.httpClient
+    .get<any>(url,this.httpOptions)
+    .pipe(catchError(this.handleError));
+  }
+
 
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {

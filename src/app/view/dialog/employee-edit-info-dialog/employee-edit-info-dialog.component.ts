@@ -37,8 +37,14 @@ export class EmployeeEditInfoDialogComponent implements OnInit {
 
 public onSubmit(employeinfoDTO:EmployeeInfoDTO){
   this.employeeService.UpdateEmployeeInfo(employeinfoDTO).subscribe((data =>{
-    this.snackbar.openSnackBar('Cập Nhật Thành Công','Đóng');
-    this.dialogRef.close();
+    if(data){
+      this.snackbar.openSnackBar('Cập Nhật Thành Công','Đóng');
+      this.dialogRef.close();
+    } else {
+      this.snackbar.openSnackBar('Email Có Thể Đã Bị Trùng','Đóng');
+      this.dialogRef.close();
+    }
+    
   }))
 }
 }

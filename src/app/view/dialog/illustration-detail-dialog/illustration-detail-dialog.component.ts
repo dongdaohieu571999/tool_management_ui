@@ -1,9 +1,11 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
+import { Benifit } from 'src/app/model/Benifit';
 import { Illustration } from 'src/app/model/Illustration';
 import { IllustrationSubBenifit } from 'src/app/model/IllustrationSubBenifit';
 import { RelatedPersonInfo } from 'src/app/model/RelatedPersonInfo';
+import { BenifitService } from 'src/app/services/benifit/benifit.service';
 import { CommonService } from 'src/app/services/common/common.service';
 import { IllustrationService } from 'src/app/services/illustration/illustration.service';
 
@@ -15,9 +17,10 @@ import { IllustrationService } from 'src/app/services/illustration/illustration.
 export class IllustrationDetailDialogComponent implements OnInit {
   
   constructor(public dialogRef: MatDialogRef<IllustrationDetailDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public id: number,private common:CommonService,
+    @Inject(MAT_DIALOG_DATA) public id: number,private common:CommonService,private benifitSer:BenifitService,
     private illustrationService: IllustrationService, private activateRoute: ActivatedRoute) { }
 
+  subBenifitList: Array<Benifit> = [];
   illustration: Illustration;
   illustrationCopy: Illustration;
   listRelatedPersonNumber: Number[] = [];
@@ -27,12 +30,18 @@ export class IllustrationDetailDialogComponent implements OnInit {
 
   ngOnInit(): void {
     if(this.common.getCookie('token_key')){
-    this.illustrationService.getIllustrationContractCreate(this.id).subscribe((data => {
-      this.process(data);
+    this.illustrationService.getIllustrationContractCreate(this.id).subscribe((data1 => {
+      this.benifitSer.getAllSubBenifit().subscribe((data => {
+        this.subBenifitList = data;
+        this.process(data1);
+      }))
     }))
   } else{
-    this.illustrationService.getIllustContractCreateForCustomerWebsite(this.id).subscribe((data => {
-      this.process(data);
+    this.illustrationService.getIllustContractCreateForCustomerWebsite(this.id).subscribe((data1 => {
+      this.benifitSer.getAllSubBenifitForCustomer().subscribe((data => {
+        this.subBenifitList = data;
+        this.process(data1);
+      }))
     }))
   }
 }
@@ -40,8 +49,6 @@ export class IllustrationDetailDialogComponent implements OnInit {
   public process(data:any){
     this.illustration = data;
       this.illustrationCopy = data;
-      console.log("ban minh hoa chi tiet :");
-      console.log(this.illustration);
 
       //Biến đếm số lượng người 
       var default_number: number = this.illustration.illustrationSubBenifitList[0].id_related_person;
@@ -82,12 +89,6 @@ export class IllustrationDetailDialogComponent implements OnInit {
         //tìm mảng với những giá trị của người liên quan còn lại
         this.illustrationCopy.illustrationSubBenifitList = this.illustrationCopy.illustrationSubBenifitList.slice(count, this.illustrationCopy.illustrationSubBenifitList.length);
       }
-
-      console.log("danh sach nguoi bo sung :");
-      console.log(this.listSubRelatedPerSonBig);
-
-      console.log("danh sach nguoi bo sung chi tiet :");
-      console.log(this.listRelatedPerSonInfo);
   }
 
 }
