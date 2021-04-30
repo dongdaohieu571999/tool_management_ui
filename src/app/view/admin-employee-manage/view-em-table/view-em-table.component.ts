@@ -8,6 +8,7 @@ import { EmployeeInfoDTO } from 'src/app/model/EmployeeInfoDTO';
 import { EmployeeService } from 'src/app/services/employee/employee.service';
 import { ServerHttpService } from 'src/app/services/http/server-http.service';
 import { AdminAddAccountEmployeeComponent } from '../../dialog/admin-add-account-employee/admin-add-account-employee.component';
+import { AdminResetPasswordComponent } from '../../dialog/admin-reset-password/admin-reset-password/admin-reset-password.component';
 
 @Component({
   selector: 'app-view-em-table',
@@ -31,6 +32,16 @@ export class ViewEmTableComponent implements OnInit {
         this.refresh();
       });   
     this.refresh();
+  }
+  
+
+  public resetAccPassword(employeeinfo:EmployeeInfoDTO){
+    const dialogRef = this.dialog.open(AdminResetPasswordComponent,({
+      data:employeeinfo
+    }));
+
+    dialogRef.afterClosed().subscribe(result => {
+    });
   }
 
   public openDialog(employeeinfo: EmployeeInfoDTO) {

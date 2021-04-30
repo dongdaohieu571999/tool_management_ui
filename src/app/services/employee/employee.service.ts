@@ -28,6 +28,12 @@ export class EmployeeService {
     }),
   }
   
+  public resetPassEmployee(data:any): Observable<any>{
+    const url = this.common.makeUrl("/employee/reset_acc_password_for_employee");
+    return this.httpClient
+    .post<any>(url,data,this.httpOptions)
+    .pipe(catchError(this.handleError));
+  }
 
   public PauseEmployee(codeEmployeeNew:String,id_employee_old:number): Observable<any>{
     let data = {codeEmployeeNew:codeEmployeeNew,id_employee_old:id_employee_old};

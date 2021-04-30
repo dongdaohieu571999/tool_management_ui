@@ -52,10 +52,10 @@
                 <td>
                     <button (click)="EmployeeDetail(employeeinfo.id)" class="btn btn-info" style="height: 40px; width: 100px; margin: 10px; color: white;">Chi Tiết</button>
                 </td>
+
                 <td>
-                    <button *ngIf="employeeinfo.code" class="btn btn-block btn-primary" disabled>Thêm Tài Khoản</button>
-                    <button *ngIf="!employeeinfo.code" (click)="openDialog(employeeinfo)" class="btn btn-block btn-primary">Thêm Tài
-            Khoản</button>
+                    <button *ngIf="employeeinfo.code" class="btn btn-block btn-success" style="height: 40px; width: 150px; margin: 10px; color: white;" (click)="resetAccPassword(employeeinfo)">Đặt Lại Mật Khẩu</button>
+                    <button *ngIf="!employeeinfo.code" (click)="openDialog(employeeinfo)" class="btn btn-block btn-primary">Thêm Tài Khoản</button>
                 </td>
             </tr>
         </tbody>
