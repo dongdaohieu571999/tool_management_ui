@@ -20,83 +20,75 @@ export class DetailPageComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.activateRoute.snapshot.params['id'] == 1) {
-      this.pageHeader = "BẢO HIỂM TRỄ CHUYẾN BAY";
-      this.pageImg = "https://paa.vn/wp-content/uploads/2019/11/tre-chuyen-bay.jpg";
-      this.pageHeaderImg = "https://cdn.vntrip.vn/cam-nang/wp-content/uploads/2020/07/co-nen-mua-bao-hiem-khi-mua-ve-may-bay-khong-2.jpg";
+      this.pageHeader = "Bảo hiểm chăm sóc y tế";
+      this.pageImg = "https://baohiemchamsocsuckhoedaiichi.com/wp-content/uploads/2018/10/y-nghia-cua-bao-hiem-suc-khoe.jpg";
+      this.pageHeaderImg = "https://baohiemchamsocsuckhoedaiichi.com/wp-content/uploads/2018/10/y-nghia-cua-bao-hiem-suc-khoe.jpg";
       this.pageContent =
-        "Bạn đang có dự định du lịch,công tác trong thời gian tới? Chắc hẳn bạn đã có 1 vali những bộ cánh để lên hình thật phong cách, hay những chiếc camera xịn xò lưu giữ khoảnh khắc đẹp trong suốt hành trình…Trước khi khởi hành, hãy chắc chắn chuyến đi của bạn sẽ được trọn vẹn bằng cách bỏ túi bộ đôi <b>Bảo hiểm Du lịch và Bảo hiểm trễ chuyến bay</b> với những quyền lợi siêu hấp dẫn nhé.</br><br/>"
-        + "<b>1</b>-Được thiết kế phù hợp với từng khả năng tài chính và nhu cầu của khách hàng, với quyền lợi bảo hiểm đa dạng, phạm vi bảo vệ toàn diện, bạn và gia đình cùng với tất cả những người cùng tham gia chuyến hành trình sẽ an tâm tuyệt đối cả về tính mạng và tài sản trước mọi rủi ro không lường trước.</br><br/>"
-        + "<b>A-Bảo hiểm Trễ chuyến bay Flight Easy</b> </br>Bạn sẽ làm gì nếu chỉ cách vài giờ khởi hành mà nhận được thông báo Delay từ hãng hàng không? Đơn giản thôi, hãy sắp xếp lại công việc của mình trong lúc chờ đợi, và vui vẻ nhận ngay “ting ting” 888.000 VNĐ vào tài khoản của bạn với Bảo hiểm trễ chuyến của Bảo Việt. Chúng tôi sẽ giúp bạn bù đắp phần nào tổn thất từ những bất tiện do trễ chuyến gây ra.<br/>"
-        + "<br/>Với phí bảo hiểm chỉ 35,000 VNĐ, nhận ngay mức bồi thường 888.000 VNĐ khi phải chờ trên 2h đồng hồ liên tục.</br><br/>"
-        + "Bồi thường trực tuyến đơn giản, KH nhận tiền sau 5p hoàn thành thủ tục.</br><br/>"
-        + "<b>B-Bảo hiểm du lịch Travel Easy:</b></br>Với mức phí bảo hiểm chỉ từ 70.000 VNĐ, hành trình của bạn sẽ được bảo vệ để an tâm trọn vẹn trước mọi rủi ro không lường trước với hạn mức trách nhiệm bảo hiểm tới 400 triệu đồng. Quyền lợi bảo hiểm đa dạng, phạm vi bảo vệ toàn diện, hãy đăng ký tham gia ngay Bảo hiểm du lịch Travel Easy chỉ sau vài Click chuột.<br/></br>Phạm vi lãnh thổ Việt Nam.<br/></br>Quyền lợi bảo hiểm chính của sản phẩm gồm:Tai nạn cá nhân : lên tới 400.000.000VND/người.</br></br>Vận chuyển y tế cấp cứu : giá trị không giới hạn.</br></br>"
-    } else if (this.activateRoute.snapshot.params['id'] == 2) {
-      this.pageHeader = "BẢO HIỂM DU LỊCH";
-      this.pageImg = "https://www.baoviet.com.vn/insurance/Uploads/Library/Images/SP02071814_36469425_185869765427431_2580449388325240832_n.jpg";
-      this.pageHeaderImg = "https://www.baoviet.com.vn/insurance/Uploads/Library/Images/SP02071814_36469425_185869765427431_2580449388325240832_n.jpg";
-      this.pageContent =
-        "Bảo hiểm du lịch Việt Nam là sản phẩm bảo hiểm dành cho những khách du lịch là người Việt Nam hoặc người nước ngoài đang sinh sống tại Việt Nam đi du lịch, tham quan các địa danh du lịch trong phạm vi nước Việt Nam.<br/><br/>"
-        + "Trong những chuyến du lịch luôn có khả năng xảy ra những rủi ro tai nạn giao thông, tai nạn trong quá trình đi lại tham gia các hoạt động tại địa điểm du lịch gây thương tật về thân thể, sức khỏe, thậm chí có thể nguy hại tới tính mạng.<br/><br/>"
-        + "Nhưng với sản phẩm bảo hiểm du lịch Việt Nam, khách du lịch có thể hoàn toàn chủ động lựa chọn các mức bồi thường tối đa cho mình từ <b>100 triệu đồng</b> cho tới <b>500 triệu đồng</b> để bảo vệ bản thân trong suốt hành trình của mình với mức phí bảo hiểm hết sức hợp lý, chỉ từ <b>17.000 đồng/người/ngày</b>.<br/><br/>"
-        + "So với các chi phí khác của chuyến du lịch, chi phí bảo hiểm có thể coi là thấp nhất và nhưng mang lại những quyền lợi rất lớn và cần thiết khi không may rủi ro xảy ra. Bạn muốn đảm bảo mình luôn an toàn để yên tâm tận hưởng chuyến đi? Hãy cho phép chúng tôi là người bạn đồng hành, người luôn đứng đằng sau khi bạn cần đến sự trợ giúp nhất.</br><br/>"
-    } else if (this.activateRoute.snapshot.params['id'] == 3) {
-      this.pageHeader = "BẢO HIỂM UNG THƯ";
-      this.pageImg = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf6uJMe0o6AzoSkR-G9kv6BL7_-bCsLdQNbg&usqp=CAU";
-      this.pageHeaderImg = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf6uJMe0o6AzoSkR-G9kv6BL7_-bCsLdQNbg&usqp=CAU";
-      this.pageContent =
-        "Bên cạnh những ảnh hưởng về thể chất và tinh thần, những người bị chẩn đoán mắc bệnh ung thư thường phải đối mặt với những khó khăn về kinh tế. Hơn lúc nào hết, họ cần có thêm chi phí hỗ trợ điều trị, chi trả tiền thuốc và các khoản chi phí không tên khác. Sản phẩm bảo hiểm bệnh ung thư là một giải pháp tối ưu, giảm bớt gánh nặng cho khách hàng.<br/><br/>"
-        + "<b>1.Ưu điểm nổi bật của sản phẩm</b><br/>-Quyền lợi bảo hiểm được thanh toán theo khoản trọn gói cho khách hàng, giúp khách hàng chủ động tài chính đúng vào thời điểm họ cảm thấy có ít lựa chọn.<br/><br/>"
-        + "- Quyền lợi bảo hiểm được chi trả ngay sau lần chuẩn đoán đầu tiên khi khách hàng cần đến nhất.<br/><br/>"
-        + "- Quyền lợi bảo hiểm được đảm bảo tự động tái tục theo chu kỳ 5 năm mà không cần thẩm định gì thêm.<br/><br/>"
-        + "- Phí bảo hiểm hấp dẫn với thủ tục tham gia đơn giản và thuận tiện.<br/><br/>"
-        + "- Phí bảo hiểm hấp dẫn với thủ tục tham gia đơn giản và thuận tiện.<br/><br/>"
-        + "- Phí bảo hiểm được thanh toán trong suốt thời hạn của hợp đồng bảo hiểm và được tái tục hàng năm.<br/><br/>"
-        + "2. Quyền lợi của sản phẩm Bảo hiểm bệnh ung thư<br/><br/>"
-        + "<b>- Quyền lợi bảo hiểm bệnh ung thư:</b> tối đa lên tới 1 tỷ đồng.<br/><br/>"
-        + "<b>- Quyền lợi trợ cấp nằm viện:</b> tối đa 2 triệu đồng/ngày.<br/><br/>"
-        + "<b>- Quyền lợi tử vong do bệnh ung thư:</b> tối đa 50 triệu đồng.<br/><br/>"
-        + "<b>- Quyền lợi tử vong do tai nạn:</b> tối đa 50 triệu đồng.<br/><br/>"
-        + "- Các quyền lợi bảo hiểm độc lập nhau với các lựa chọn số tiền bảo hiểm tham gia hấp dẫn.<br/><br/>"
-        + "3. Điều kiện tham gia bảo hiểm<br/><br/>"
-        + "<b>- Đối tượng tham gia:</b> là bên mua bảo hiểm phù hợp với quy định của Bảo hiểm Bảo Việt.<br/><br/>"
-        + "<b>- Tuổi tham gia bảo hiểm:</b> ùy vào đối tượng tham gia, tuổi tham gia có thể từ 16 tuổi đến 55 tuổi (tái tục đến 65 tuổi).<br/><br/>"
-        + "<b>- Số tiền bảo hiểm: </b>  250 triệu đồng, 500 triệu đồng và 1 tỷ đồng.<br/><br/>"
-        + "<b>- Thời hạn bảo hiểm:</b> Theo chu kỳ 5 năm và tự động tái tục hàng năm.<br/><br/>"
-        + "<b>-  Phí bảo hiểm:</b> Tính theo độ tuổi và áp dụng cùng khung tỷ lệ phí theo định kỳ 5 năm.<br/><br/>"
-        + "- Các quyền lợi bảo hiểm độc lập nhau với các lựa chọn số tiền bảo hiểm tham gia hấp dẫn.<br/><br/>"
-    } else if (this.activateRoute.snapshot.params['id'] == 4) {
-      this.pageHeader = "BẢO HIỂM XE MÁY";
-      this.pageImg = "https://static.tapchitaichinh.vn/images/upload/duongthanhhai/05252020/bao-hiem-xe-may-an-toan-4-5079.jpg";
-      this.pageHeaderImg = "https://static.tapchitaichinh.vn/images/upload/duongthanhhai/05252020/bao-hiem-xe-may-an-toan-4-5079.jpg";
-      this.pageContent =
-        "Chiếc xe máy là người bạn đồng hành không thể thiếu trong mỗi gia đình người Việt. Tham gia BaoViet MotorCare - Bảo hiểm Xe máy của Bảo Việt (bao gồm bảo hiểm trách nhiệm dân sự chủ xe và bảo hiểm tai nạn người ngồi trên xe) với một khoản chi phí nhỏ chỉ từ 66.000 đồng, bạn đã có thể bảo vệ cho chiếc xe và người thân khi tham gia giao thông.</br><br/>"
-        + "<b>1. Gói bảo hiểm dành cho xe máy bao gồm:</b><br/><br/>"
-        + "- Bảo hiểm trách nhiệm dân sự bắt buộc của chủ xe.<br/><br/>"
-        + "- Bảo hiểm tai nạn người ngồi trên xe.<br/><br/>"
-        + "<b>2. Quyền lợi bảo hiểm:</b><br/><br/>"
-        + "Tham gia Gói bảo hiểm toàn diện xe máy, khách hàng sẽ được bồi thường:<br/><br/>"
-        + "- Thiệt hại về thân thể, tính mạng và tài sản đối với bên thứ ba do xe gây ra.<br/><br/>"
-        + "- Thiệt hại về thân thể đối với người điều khiển xe và người ngồi trên xe bị tai nạn khi đang ở trên xe, lên xuống xe trong quá trình xe tham gia giao thông.<br/><br/>"
-    } else {
-      this.pageHeader = "BẢO HIỂM NHÂN THỌ";
-      this.pageImg = "https://baohiemnhantholife.com/wp-content/uploads/2019/08/bao-hiem-nhan-tho-la-gi-2-1280x720.jpeg";
-      this.pageHeaderImg = "https://baohiemnhantholife.com/wp-content/uploads/2019/08/bao-hiem-nhan-tho-la-gi-2-1280x720.jpeg";
-      this.pageContent =
-        "</br>"
-        + "<b>I. Bảo hiểm nhân thọ là gì?</b><br/><br/>"
-        + "Bảo hiểm nhân thọ là sản phẩm của các công ty bảo hiểm nhằm bảo vệ con người trước những rủi ro liên quan đến sức khỏe, thân thể, tính mạng. Đơn giản là người tham gia thỏa thuận và ký kết hợp đồng bảo hiểm với công ty bảo hiểm về việc sẽ đóng đúng những khoản phí đều đặn vào quỹ dự trữ tài chính do công ty bảo hiểm quản lý để được chi trả số tiền nhất định khi không may gặp rủi ro hoặc đến thời điểm đáo hạn.<br/><br/>"
-        + "<b>II. Các loại hình bảo hiểm nhân thọ</b><br/><br/>"
-        + "Bảo hiểm sinh kỳ là nghiệp vụ bảo hiểm cho trường hợp người được bảo hiểm sống đến một thời hạn nhất định, theo đó doanh nghiệp bảo hiểm phải trả tiền bảo hiểm cho người thụ hưởng, nếu người được bảo hiểm vẫn sống đến thời hạn được thoả thuận trong hợp đồng bảo hiểm.<br/><br/>"
-        + "Bảo hiểm tử kỳ là nghiệp vụ bảo hiểm cho trường hợp người được bảo hiểm chết trong một thời hạn nhất định, theo đó doanh nghiệp bảo hiểm phải trả tiền bảo hiểm cho người thụ hưởng, nếu người được bảo hiểm chết trong thời hạn được thoả thuận trong hợp đồng bảo hiểm.<br/><br/>"
-        + "Bảo hiểm trả tiền định kỳ là nghiệp vụ bảo hiểm cho trường hợp người được bảo hiểm sống đến một thời hạn nhất định; sau thời hạn đó doanh nghiệp bảo hiểm phải trả tiền bảo hiểm định kỳ cho người thụ hưởng theo thoả thuận trong hợp đồng bảo hiểm.<br/><br/>"
-        + "Bảo hiểm hỗn hợp là nghiệp vụ bảo hiểm kết hợp bảo hiểm sinh kỳ và bảo hiểm tử kỳ.<br/><br/>"
-        + "Bảo hiểm trọn đời là nghiệp vụ bảo hiểm cho trường hợp người được bảo hiểm chết vào bất kỳ thời điểm nào trong suốt cuộc đời của người đó.” (trích Khoản 12 - Điều 3 - Luật kinh doanh bảo hiểm)<br/>"
-        + "<b>III. Hiểu đúng về bảo hiểm nhân thọ với 4 điều sau:</b><br/><br/>"
-        + "1. Mục đích chính là bảo vệ trước rủi ro chứ không phải tiết kiệm sinh lời <br/><br/>"
-        + "2. Là kênh tài chính dài hạn để chuẩn bị trước cho tương lai <br/>"
-        + "3. Chỉ bảo vệ trước rủi ro không lường trước chứ không phải là rủi ro có sẵn <br/><br/>"
-        + "4. Không phải bảo vệ trước " + "tất tần tật" + " các loại rủi ro<br/><br/>"
+        "<b>QUYỀN LỢI TRỢ CẤP VIỆN PHÍ</b>"
+        + "- Trợ cấp viện phí cơ bản: Chi trả 100% số tiền bảo hiểm cho mỗi ngày nằm viện, lên tới 100 ngày trong 12 tháng</br></br>"
+        + "- Trợ cấp viện phí đặc biệt: Chi trả 200% số tiền bảo hiểm cho mỗi ngày nằm viện, lên tới 300 ngày trong toàn bộ thời hạn bảo hiểm của sản phẩm bổ trợ.</br></br>"
+        + "- Áp dụng riêng đối với Người được bảo hiểm dưới 4 tuổi</br></br>"
+        + "<b>QUYỀN LỢI TRỢ CẤP PHẪU THUẬT</b></br></br>"
+        + "- Chi trả 500% Số tiền bảo hiểm</br></br>"
+        + "-Số lần phẫu thuật chi trả lên tới 2 lần trong 12 tháng và 10 lần trong toàn bộ thời hạn bảo hiểm của sản phẩm bổ trợ.</br></br>"
+        + "-Áp dụng riêng đối với Người được bảo hiểm dưới 4 tuổi.</br></br>"
+        + "<b>QUYỀN LỢI THƯỞNG KHI KHÔNG CÓ YÊU CẦU GIẢI QUYẾT QUYỀN LỢI BẢO HIỂM</b>"
+        + "-  Thưởng 1 định kỳ phí bảo hiểm năm của sản phẩm bổ trợ vào Ngày kỷ niệm Hợp đồng lần thứ 8 và mỗi 8 năm sau đó, nếu Hợp đồng vẫn còn hiệu lực.</br></br>"
+        + "- Thưởng khi không có yêu cầu giải quyết Quyền lợi bảo hiểm: Nếu trong kỳ xét thưởng (8 năm) không có bất kỳ yêu cầu giải quyết Quyền lợi bảo hiểm nào được chi trả.</br></br>"
+        + "- Áp dụng riêng đối với Người được bảo hiểm dưới 4 tuổi</br></br>"
 
+    } else if (this.activateRoute.snapshot.params['id'] == 2) {
+      this.pageHeader = "Bảo hiểm phẫu thuật và điều trị ngoại khoa";
+      this.pageImg = "https://www.baovietnhantho.com.vn/storage/8df93397-a308-459a-8f05-02a4092c23f9/AnTamHanhPhuc-cover.jpg";
+      this.pageHeaderImg = "https://www.baovietnhantho.com.vn/storage/8df93397-a308-459a-8f05-02a4092c23f9/AnTamHanhPhuc-cover.jpg";
+      this.pageContent =
+        "Sản phẩm này không chỉ giúp Bạn quẳng gánh lo âu về mặt tài chính, mà còn giúp Bạn có điều kiện để yên tâm lựa chọn phương thức điều trị tốt hơn nếu không may Bạn phải phẫu thuật, điều trị ngoại khoa - Bạn và những người thân hoàn toàn an tâm điều trị để sớm bình phục sức khỏe.<br/><br/>"
+        +"<b>BẠN ĐƯỢC QUYỀN LỢI GÌ</b></br></br>"
+        +"-Bạn sẽ được nhận trợ cấp trong trường hợp phải phẫu thuật và/hoặc điều trị ngoại khoa (*). Khoản trợ cấp này giúp Bạn có điều kiện để lựa chọn những dịch vụ chữa trị, thuốc men với chất lượng cao hơn.</br></br>"
+        +"-Tổng số trường hợp được chi trả tiền bảo hiểm lên đến 535 loại phẫu thuật, điều trị ngoại khoa khác nhau</br></br>"
+        +"-Linh hoạt tham gia khi có thể tham gia cùng lúc với Hợp đồng chính hoặc sau khi Hợp đồng chính đã có hiệu lực</br></br>"
+        +"-Bạn được chi trả quyền lợi bảo hiểm theo Số tiền bảo hiểm và tỷ lệ trả tiền bảo hiễm phẫu thuật và điều trị ngoại khoa được quy định trong Điều khoản sản phẩm).</br></br>"
+        +"-Được bảo hiểm liên tục với Quyền lợi tự động tái tục bảo hiểm hàng năm</br></br>"     
+    } else if (this.activateRoute.snapshot.params['id'] == 3) {
+      this.pageHeader = "Chăm sóc sức khỏe dành cho phụ nữ";
+      this.pageImg = "http://nhanhauclinic.com.vn/wp-content/uploads/2020/11/kham-benh-cho-ng%C6%B0%C6%A1i-ngheo.jpg";
+      this.pageHeaderImg = "http://nhanhauclinic.com.vn/wp-content/uploads/2020/11/kham-benh-cho-ng%C6%B0%C6%A1i-ngheo.jpg";
+      this.pageContent =
+      "Con người là hoa của đất và phụ nữ là hương hoa của cuộc đời. Ngoài đặc ân là phái đẹp, tạo hóa đã ban cho người phụ nữ một thiên chức vô cùng quan trọng và cao quý là làm vợ, làm mẹ. Để bạn luôn tự hào và hãnh diện khi được tạo hóa ban cho đặc ân, giao cho một trọng trách vô cùng quan trọng và cao quý ấy - bạn hãy chủ động tạo cho mình một cuộc sống vui về tinh thần và khỏe mạnh về thể chất.</br></br>"
+      +"<b>BẠN ĐƯỢC QUYỀN LỢI GÌ</b></br></br>"
+      +"-Sự chăm sóc và bảo vệ sức khỏe toàn diện dành cho phụ nữ với các quyền lợi bảo hiểm cho 8 bệnh ung thư phụ nữ, 36 bệnh lý nghiêm trọng, 7 bệnh biến chứng sản khoa và 597 loại phẫu thuật và điều trị ngoại khoa mở rộng.</br></br>"
+      +"-Phạm vi bảo hiểm và mức trách nhiệm thiết thực với phụ nữ</br></br>"
+      +"-Tiết kiệm lớn cho những dự định quan trọng trong tương lai khi kết hợp tham gia với Hợp đồng chính</br></br>"
+      +"-Linh hoạt tham gia khi có thể tham gia cùng lúc với Hợp đồng chính hoặc sau khi Hợp đồng chính đã có hiệu lực.</br></br>"
+      +"-Được bảo hiểm liên tục với Quyền lợi tự động tái tục bảo hiểm hàng năm</br></br>"  
+    } else if (this.activateRoute.snapshot.params['id'] == 4) {
+      this.pageHeader = "Bảo hiểm tai nạn toàn diện";
+      this.pageImg = "https://ibaoviet.vn/wp-content/uploads/2018/09/tim-hieu-ve-goi-bao-hiem-tai-nan-toan-dien-nang-cao-1.jpg";
+      this.pageHeaderImg = "https://ibaoviet.vn/wp-content/uploads/2018/09/tim-hieu-ve-goi-bao-hiem-tai-nan-toan-dien-nang-cao-1.jpg";
+      this.pageContent =
+      "Cuộc sống ngày nay luôn rình tập những hiểm họa, tai nạn rủi ro có thể bất ngờ ập tới bất kỳ ai trong chúng ta, gây nên không chỉ những mất mát về tài chính mà con là những nỗi đau tinh thần không thể nào bù đắp.<br/><br/>"
+      +"<b>QUYỀN LỢI BẢO HIỂM RỦI RO DO TAI NẠN</b></br></br>"
+      +"- Tử vong do tai nạn thông thường: Chi trả 100% Số tiền bảo hiểm còn lại.</br></br>"
+      +"-Tử vong khi đang sử dụng các phương tiện vận chuyển hành khách đường bộ hoặc đường sắt: Chi trả 200% Số tiền bảo hiểm còn lại</br></br>"
+      +"-Tử vong khi đi trên các chuyến máy bay thương mại: Chi trả 300% Số tiền bảo hiểm còn lại</br></br>"
+      +"-Thương tật vĩnh viễn do tai nạn: Chi trả theo 15 mức độ thương tật, Tổng quyền lợi tối đa 100% Số tiền bảo hiểm.</br></br>"
+      +"-Bỏng nặng do tai nạn: Chi trả 100% Số tiền bảo hiểm còn lại</br></br>"
+      +"-Áp dụng đối với người được bảo hiểm dưới 4 tuổi, chi tiết trong điều khoản của sản phẩm.</br></br>" 
+      +"-Số tiền bảo hiểm còn lại là số tiền bảo hiểm của Sản phẩm bổ trợ này trừ đi tổng số tiền đã trả trước đó trong trường hợp người được bảo hiểm bị thương tật vĩnh viễn do tai nạn (nếu có)</br></br>"
+    } else {
+      this.pageHeader = "Bảo hiểm các bệnh lý nghiêm trọng";
+      this.pageImg = "https://www.manulife.com.vn/vi/san-pham-bo-tro-bao-hiem-nhan-tho/bao-hiem-benh-ly-nghiem-trong/_jcr_content/root/responsivegrid_641029165/responsivegrid_532132352/responsivegrid_copy/contentteaser_103927_1156311427.coreimg.jpeg/1596534668581.jpeg";
+      this.pageHeaderImg = "https://www.manulife.com.vn/vi/san-pham-bo-tro-bao-hiem-nhan-tho/bao-hiem-benh-ly-nghiem-trong/_jcr_content/root/responsivegrid_641029165/responsivegrid_532132352/responsivegrid_copy/contentteaser_103927_1156311427.coreimg.jpeg/1596534668581.jpeg";
+      this.pageContent =
+      "Cuộc sống ngày càng hiện đại với các tiến bộ không ngừng trong khoa học công nghệ đã mang đến cho con người những ứng dụng hữu ích trong đời sống hàng ngày, nhưng cùng lúc đó những ảnh hưởng từ môi trường sống và từ chính con người cũng đem đến những rủi ro, hiểm họa khôn lường đối với sức khỏe và sinh mạng của mỗi chúng ta. <br/><br/>"
+      +"<b>BẠN ĐƯỢC QUYỀN LỢI GÌ</b></br></br>"
+      +"-Yên tâm điều trị để vượt qua bệnh tật với nguồn tài chính được Bảo Việt Nhân thọ chi trả khi không may mắc phải bệnh lý nghiêm trọng.</br></br>"
+      +"-Phạm vi bảo hiểm thiết thực với 100% Số tiền bảo hiểm được Bảo Việt Nhân thọ chi trả nếu chẳng may mắc phải 1 trong 36 Bệnh lý nghiêm trọng</br></br>"
+      +"-Linh hoạt tham gia khi có thể tham gia cùng lúc với Hợp đồng chính hoặc sau khi Hợp đồng chính đã có hiệu lực</br></br>"
+      +"-Tiết kiệm lớn cho những dự định quan trọng trong tương lai khi kết hợp tham gia với Hợp đồng chính.</br></br>"
+      +"-Được bảo hiểm liên tục với Quyền lợi tự động tái tục bảo hiểm hàng năm</br></br>" 
+      +"<b>Điều kiện tham gia</b></br></br>"
+      +"Độ tuổi tham gia : Từ 01 - 60 tuổi"
     }
 
   }

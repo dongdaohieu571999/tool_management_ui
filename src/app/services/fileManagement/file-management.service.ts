@@ -32,6 +32,13 @@ export class FileManagementService {
     .pipe(catchError(this.handleError));
   }
 
+  public saveFileAttachment(data:any): Observable<any>{
+    const url = this.common.makeUrl('/attachment/save_attachment/');
+    return this.httpClient
+    .post<any>(url,data,this.httpOptions)
+    .pipe(catchError(this.handleError));
+  }
+
   public getFile(data:any): Observable<any>{
     const url = this.common.makeUrl('/attachment/get_customer_attachment/');
     return this.httpClient

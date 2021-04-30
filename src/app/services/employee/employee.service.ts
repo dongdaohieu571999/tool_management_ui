@@ -43,6 +43,13 @@ export class EmployeeService {
     .pipe(catchError(this.handleError));
   }
 
+  public PauseEmployeeReason(data:any): Observable<any>{
+    const url = this.common.makeUrl("/employee/pause_reason_employee");
+    return this.httpClient
+    .post<any>(url,data,this.httpOptions)
+    .pipe(catchError(this.handleError));
+  }
+
 
   public getAllAcc(): Observable<any>{
     const url = this.common.makeUrl("/employee/get_all_employee_acc");
