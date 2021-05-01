@@ -38,8 +38,7 @@ export class ContractChangeInfoDialogComponent implements OnInit {
     contractForm.value.totalPayment,
     contractForm.value.signDate
     );
-      this.contractService.EditContract(contractinfo).subscribe((data => {
-        console.log(data);      
+      this.contractService.EditContract(contractinfo).subscribe((data => {     
         this.snackbar.openSnackBar('Cập Nhật Thành Công','Đóng'); 
       }))
   }

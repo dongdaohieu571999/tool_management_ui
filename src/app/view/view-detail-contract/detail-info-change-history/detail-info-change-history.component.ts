@@ -18,10 +18,8 @@ export class DetailInfoChangeHistoryComponent implements OnInit {
   ngOnInit(): void {
     this.contractService.getDetailContractChangeHistory(this.activateRoute.snapshot.params['id']).subscribe((data =>{
       this.oldInfomation = data;
-      console.log(this.oldInfomation);
       this.contractService.getDetailContract(this.oldInfomation.id_contract).subscribe((data =>{
         this.newInfomation = data;
-        console.log(this.newInfomation);
       }))
     }))
 

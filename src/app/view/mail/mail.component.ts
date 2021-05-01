@@ -96,7 +96,6 @@ export class MailComponent implements OnInit {
   }
 
   public mailDetail(id: number) {
-    console.log('asdasdasdasdasda')
     this.router.navigate(['view_detail_mail',id]);
     
   }

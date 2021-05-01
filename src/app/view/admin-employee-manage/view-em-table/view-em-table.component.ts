@@ -56,7 +56,6 @@ export class ViewEmTableComponent implements OnInit {
   public refresh() {
     this.spinner.show();
     this.employeeService.getAllInfoAcc().subscribe((data => {
-      console.log(data);
       this.data = data;
       this.totalRecords = data.length;
       this.spinner.hide();
@@ -120,7 +119,6 @@ export class ViewEmTableComponent implements OnInit {
     // console.log("Username :"+this.user + "Password : "+this.password);
     const newEmAcc = new EmployeeAcc(accForm.value.user, accForm.value.password, 1, true);
     this.employeeService.addEmployeeAccount(newEmAcc).subscribe((data => {
-      console.log(data);
     }));
     this.displayAddAccDialog();
   }

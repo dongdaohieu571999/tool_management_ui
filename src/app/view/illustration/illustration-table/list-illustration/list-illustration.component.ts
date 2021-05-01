@@ -35,7 +35,6 @@ illustrations : Array<Illustration>;
     this.spinner.show();
     this.illustrationService.getAllIllustrationBelongCustomer(this.activateRoute.snapshot.params['id']).subscribe((data =>{
       this.illustrations = data;
-      console.log(this.illustrations);
       this.totalRecords = data.length;
       this.spinner.hide();
     }))
@@ -77,7 +76,6 @@ illustrations : Array<Illustration>;
       let searchText = "%" + this.searchValue + "%";
       this.illustrationService.searchAllIllustrationBelongCustomer(this.activateRoute.snapshot.params['id'],dateFrom1,dateTo1,searchText).subscribe((data =>{
         this.illustrations = data;
-        console.log( this.illustrations);
         this.totalRecords = data.length;
         this.spinner.hide();
         this.page=1;

@@ -39,11 +39,8 @@ export class AdminPauseEmployeeDialogComponent implements OnInit {
       this.adminAcc = data;
     }))
   }
-  PauseEmployee(){
-    let codeEmployeeNew = (<HTMLInputElement>document.getElementById('saler')).value;
-    this.employeeService.PauseEmployee(codeEmployeeNew,this.employee_info_dto.id_acc).subscribe((data =>{
-       
-    }))   
+  PauseEmployee(listAttachMent:Array<Attachment>){
+      
   }
 
   onChangeFile(event){
@@ -70,12 +67,13 @@ export class AdminPauseEmployeeDialogComponent implements OnInit {
         }     
         this.fileService.saveFileAttachment(listAttachMent).subscribe((data => {
      
-          this.employeeService.PauseEmployeeReason(listFileSave).subscribe((data => {   
-            this.PauseEmployee();
-            this.dialogRef.close();
-            
-            this.spinner.hide();
-            this.snackBar.openSnackBar("Ngưng nhân viên thành công","Đóng");
+          this.employeeService.PauseEmployeeReason(listFileSave).subscribe((data => {
+            let codeEmployeeNew = (<HTMLInputElement>document.getElementById('saler')).value;
+            this.employeeService.PauseEmployee(codeEmployeeNew,this.employee_info_dto.id_acc,listAttachMent).subscribe((data =>{
+              this.dialogRef.close();
+              this.spinner.hide();
+              this.snackBar.openSnackBar("Ngưng nhân viên thành công","Đóng");
+            })) 
           }))
         }))
       }   
