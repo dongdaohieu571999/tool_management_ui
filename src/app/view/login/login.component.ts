@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { CommonService } from 'src/app/services/common/common.service';
 import { EmployeeService } from 'src/app/services/employee/employee.service';
-import { SnackbarService } from 'src/app/services/snackbar/snackbar.service';
+import  jwt_decode  from 'jwt-decode';
 import { SigInData } from '../../model/SigInData';
 import { AuthenService } from '../../services/authen/authen.service';
 

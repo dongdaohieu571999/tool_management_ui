@@ -25,7 +25,6 @@ export class AdminAddAccountEmployeeComponent implements OnInit {
     this.spinner.show();
     let employeeAcc = new EmployeeAcc(addAccEmployeeForm.value.code,'',this.role,true);
     let emAccWithEmail = {email:this.data.email,emAcc:employeeAcc,code_suppervisor:this.code_suppervisor,id_custInfo:this.data.id};
-    console.log(emAccWithEmail)
     this.employeeService.addOneAccEmployee(emAccWithEmail).subscribe((dataid => {
       if(dataid != null){
         this.employeeService.getDetailEmployebyID(employeeInfo.id).subscribe((employeeInfoDTO =>{

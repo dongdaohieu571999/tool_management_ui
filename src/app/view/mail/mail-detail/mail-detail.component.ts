@@ -16,10 +16,8 @@ export class MailDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.mailId);
     this.mailService.getDetailMail(this.activeRoute.snapshot.params['id']).subscribe((data => {
       this.data = data;
-      console.log(data);
     }));
   }
 

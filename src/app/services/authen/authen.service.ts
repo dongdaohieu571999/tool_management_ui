@@ -17,7 +17,8 @@ export class AuthenService {
   isAuthen = false;
   empolyeeInfo:EmployeeInfoDTO;
 
-  constructor(private spinner: NgxSpinnerService,public snackBar:SnackbarService,private router: Router, private serverhttpService:ServerHttpService,private employee:EmployeeService,private common:CommonService) { }
+  constructor(private spinner: NgxSpinnerService,public snackBar:SnackbarService,private router: Router,
+     private serverhttpService:ServerHttpService,private employee:EmployeeService,private common:CommonService) { }
 
   authenticate(sigIndata: SigInData){
     if(sigIndata.getCode() == '' || sigIndata.getPass() == ''){

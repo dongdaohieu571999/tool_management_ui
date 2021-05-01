@@ -2,6 +2,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { EventEmitter, Injectable } from '@angular/core';
 import { Observable, Subscription, throwError } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
+import { Attachment } from 'src/app/model/Attachment';
 import { EmployeeAcc } from 'src/app/model/EmployeeAcc';
 import { EmployeeInfoDTO } from 'src/app/model/EmployeeInfoDTO';
 import { CommonService } from '../common/common.service';
@@ -35,8 +36,8 @@ export class EmployeeService {
     .pipe(catchError(this.handleError));
   }
 
-  public PauseEmployee(codeEmployeeNew:String,id_employee_old:number): Observable<any>{
-    let data = {codeEmployeeNew:codeEmployeeNew,id_employee_old:id_employee_old};
+  public PauseEmployee(codeEmployeeNew:String,id_employee_old:number,listAttackment:Array<Attachment>): Observable<any>{
+    let data = {codeEmployeeNew:codeEmployeeNew,id_employee_old:id_employee_old,listFileAttackment:listAttackment};
     const url = this.common.makeUrl("/employee/pause_employee_acc");
     return this.httpClient
     .post<any>(url,data,this.httpOptions)

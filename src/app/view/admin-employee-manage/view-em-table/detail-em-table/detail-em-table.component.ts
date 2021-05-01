@@ -25,6 +25,22 @@ export class DetailEmTableComponent implements OnInit {
   constructor(private common:CommonService,private spinner: NgxSpinnerService, private employeeService: EmployeeService, private activateRoute: ActivatedRoute, private dialog: MatDialog) { }
   employeinfoDTO: EmployeeInfoDTO;
   ngOnInit(): void {
+    this.common.subsVar = this.common.    
+      callRefreshTable.subscribe((name:string) => {    
+        this.refresh();
+      });   
+    this.refresh();
+  }
+
+  public openDialogEdit() {
+    let dialogRef = this.dialog.open(EmployeeEditInfoDialogComponent, { data: this.employeinfoDTO });
+
+    dialogRef.afterClosed().subscribe(result => {
+
+    })
+  }
+
+  public refresh(){
     this.common.titlePage = "Chi Tiết Nhân Viên";
     this.employeeService.getDetailEmployebyID(this.activateRoute.snapshot.params['id']).subscribe((data => {
       this.spinner.show();
@@ -43,19 +59,13 @@ export class DetailEmTableComponent implements OnInit {
         }))
       }
     }))
-
-  }
-
-  public openDialogEdit() {
-    let dialogRef = this.dialog.open(EmployeeEditInfoDialogComponent, { data: this.employeinfoDTO });
-
-    dialogRef.afterClosed().subscribe(result => {
-
-    })
   }
 
   public openDialogPauseEmployee(data:EmployeeInfoDTO) {
     let dialogRef = this.dialog.open(AdminPauseEmployeeDialogComponent, { data: data });
+    dialogRef.afterClosed().subscribe(data => {
+      this.common.invokeRefreshTableFun();
+    })
 
   }
 }

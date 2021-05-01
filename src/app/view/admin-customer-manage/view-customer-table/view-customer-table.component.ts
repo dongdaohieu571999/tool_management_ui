@@ -54,7 +54,6 @@ export class ViewCustomerTableComponent implements OnInit {
     this.customerService.getAllCustomerInfoAdmin().subscribe((data => {
       this.data = data;
       this.totalRecords = data.length;
-      console.log(jwt_decode(this.common.getCookie('token_key'))['sub']);
     })) 
     this.spinner.hide();
   }
