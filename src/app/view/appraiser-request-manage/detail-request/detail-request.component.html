@@ -20,13 +20,13 @@
                                     <div class="form-group ">
                                         <label for="exampleInputPassword1 ">Mã Hợp Đồng</label>
                                         <p style="color: red; ">
-                                            <span><a *ngFor="let item of custInfo" (click)="openDialogContractDetail(item.id_contract)">{{ item?.id_contract }}&nbsp;</a></span>
+                                            <span><a *ngFor="let item of custInfo" (click)="openDialogContractDetail(item.id_contract)">#HĐ{{ item?.id_contract }}&nbsp;&nbsp;</a></span>
                                         </p>
                                     </div>
                                     <div class="form-group ">
                                         <label for="exampleInputPassword1 ">Mã Bản Minh Họa Tương Ứng</label>
                                         <p style="color: red;">
-                                            <span><a *ngFor="let item of custInfo" (click)="openillustrationDetailDialog(item.id_illustration)"> {{ item?.id_illustration }}&nbsp;</a></span>
+                                            <span><a *ngFor="let item of custInfo" (click)="openillustrationDetailDialog(item.id_illustration)">#BMH{{ item?.id_illustration }}&nbsp;&nbsp;</a></span>
                                         </p>
                                     </div>
                                     <div class="form-group ">
@@ -51,7 +51,7 @@
                                     </div>
                                     <div class="form-group ">
                                         <label for="exampleInputEmail1 ">Ngày Sinh</label>
-                                        <p style="color: red; ">{{ custInfo[0]?.birth_address }}</p>
+                                        <p style="color: red; ">{{ custInfo[0]?.birth_address | date: 'dd-MM-yyyy'}}</p>
                                     </div>
                                     <div class="form-group ">
                                         <label for="exampleInputEmail1 ">Tuổi</label>
@@ -283,10 +283,10 @@
                             </tr>
                             <tr>
                                 <th>Thời Hạn</th>
-                                <td *ngIf="illustration?.payment_period_id==1">Tháng</td>
-                                <td *ngIf="illustration?.payment_period_id==2">Quý</td>
-                                <td *ngIf="illustration?.payment_period_id==3">Nửa năm</td>
-                                <td *ngIf="illustration?.payment_period_id==4">Năm</td>
+                                <td *ngIf="illustration?.payment_period_id==4">Tháng</td>
+                                <td *ngIf="illustration?.payment_period_id==3">Quý</td>
+                                <td *ngIf="illustration?.payment_period_id==2">Nửa năm</td>
+                                <td *ngIf="illustration?.payment_period_id==1">Năm</td>
                             </tr>
                             <tr>
                                 <th>Số Tiền Bảo Hiểm (VNĐ)</th>
@@ -314,7 +314,7 @@
                             </tr>
                             <tr>
                                 <th>Ngày Sinh</th>
-                                <td>{{RelatedPerSonInfo?.dob_extra_insured_person | date}}</td>
+                                <td>{{RelatedPerSonInfo?.dob_extra_insured_person | date: 'dd-MM-yyyy'}}</td>
                             </tr>
                             <tr>
                                 <th>Giới Tính</th>
@@ -343,7 +343,7 @@
                                 <th>Phí Bảo Hiểm</th>
                             </tr>
                             <tr *ngFor="let detail of RelatedPerSonInfo.listSubInterset">
-                                <td>{{detail?.id_sub_benifit}}</td>
+                                <td>{{listSubBenifit[detail?.id_sub_benifit-1].benifit_name}}</td>
                                 <td>{{detail?.carrier_group_extra_insured_person}}</td>
                                 <td>{{detail?.denominations | currency : "VND"}}</td>
                                 <td>{{detail?.fee_value | currency : "VND"}}</td>

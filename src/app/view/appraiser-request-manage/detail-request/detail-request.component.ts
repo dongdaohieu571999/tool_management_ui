@@ -19,6 +19,8 @@ import { Illustration } from 'src/app/model/Illustration';
 import { FileManagementService } from 'src/app/services/fileManagement/file-management.service';
 import { CustomerAttachment } from 'src/app/model/CustomerAttachment';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { Benifit } from 'src/app/model/Benifit';
+import { BenifitService } from 'src/app/services/benifit/benifit.service';
 
 @Component({
   selector: 'app-detail-request',
@@ -27,6 +29,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class DetailRequestComponent implements OnInit {
 
+  listSubBenifit: Array<Benifit> = [];
   listDocument=new Array<CustomerAttachment>();
   illustration: Illustration;
   illustrationCopy: Illustration;
@@ -39,7 +42,7 @@ export class DetailRequestComponent implements OnInit {
   req:Request;
   contract:Contract;
   custInfo:Array<CustomerInfo>;
-  constructor(private common:CommonService,private custService:CustomerService,private illustrationService:IllustrationService,
+  constructor(private common:CommonService,private benifitSer:BenifitService,private illustrationService:IllustrationService,private custService:CustomerService,
     private contractService:ContractService,private dialog : MatDialog,private fileService:FileManagementService,private spinner:NgxSpinnerService,
     private contractRequestService:ContractrequestService,private activateRoute:ActivatedRoute) { }
 
@@ -105,6 +108,11 @@ export class DetailRequestComponent implements OnInit {
           }))
         }))
         // End Lấy detail contract
+
+        this.benifitSer.getAllSubBenifit().subscribe((data => {
+          this.listSubBenifit = data;
+          console.log(data)
+        }))
 
 
         this.custService.getDetailCustomerInfoAdmin(this.contract.id_customer).subscribe((data2 => {

@@ -69,7 +69,7 @@ export class ContractAddDialogComponent implements OnInit {
      
       this.endContractDate = new Date(new Date(this.IllustrationContract.illustrationMainBenifit.birth_date_insured_person).getFullYear()+99-age +"-"+ (new Date(   this.IllustrationContract.illustrationMainBenifit.birth_date_insured_person).getMonth() < 10 ? "0"+(new Date(   this.IllustrationContract.illustrationMainBenifit.birth_date_insured_person).getMonth()+1):new Date(   this.IllustrationContract.illustrationMainBenifit.birth_date_insured_person).getMonth()+1 )+"-"+ new Date(this.IllustrationContract.illustrationMainBenifit.birth_date_insured_person).getDate());
 
-      (<HTMLInputElement>document.getElementById('endTime')).value = this.endContractDate.getFullYear() +"-"+ (this.endContractDate.getMonth() < 10 ? "0"+(this.endContractDate.getMonth()+1):this.endContractDate.getMonth()+1 )+"-"+ this.endContractDate.getDate();
+      (<HTMLInputElement>document.getElementById('endTime')).value = this.endContractDate.getFullYear() +"-"+ (this.endContractDate.getMonth() < 10 ? "0"+(this.endContractDate.getMonth()+1):this.endContractDate.getMonth()+1 )+"-"+ (this.endContractDate.getDate() < 10 ? "0"+(this.endContractDate.getDate()):this.endContractDate.getDate());
 
       this.referenceTable.getAllReference().subscribe((data => {
         let ref = new Referencetable();

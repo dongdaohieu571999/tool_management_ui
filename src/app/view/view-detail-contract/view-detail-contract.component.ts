@@ -139,7 +139,7 @@ export class ViewDetailContractComponent implements OnInit {
       }
       this.referTable.getAllReference().subscribe((data => {
         this.ref=data;
-        this.payment_period = this.ref.multiplierForPaymentPeriod.find(i => i.priod_id = this.contracts.payment_period_id)['description'];
+        this.payment_period = this.ref.multiplierForPaymentPeriod.find(i => i.id == this.contracts.payment_period_id)['description'];
         this.fileService.getFile(this.contracts.id).subscribe((data => {
           this.listDocument = data;
           this.spinner.hide();
