@@ -22,7 +22,7 @@ export class AppComponent {
     var url =window.location.href;
     if(this.common.getCookie("token_key") === ''){
       this.authenService.isAuthen=false;
-      if (!this.authenService.isAuthen && (url.includes('confirm-change-pass')|| url.includes('forget-password'))){
+      if (!this.authenService.isAuthen && url.includes('confirm-change-pass') && !url.includes('active_key')){
         this.router.navigate(['login']);
         return;
       }

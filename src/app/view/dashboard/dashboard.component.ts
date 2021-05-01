@@ -67,43 +67,10 @@ listIncome : Array<Income> = [];
         }
       }
     }))
-
-    // this.revenueService.getAllRevenueMonthBefore(jwt_decode(this.common.getCookie('token_key'))['sub'], this.month, this.year-1).subscribe((data => {      
-    //   this.listRevenueEmployeeMonthBefore = data;
-    //   if(this.listRevenueEmployeeMonthBefore.length == 0){
-    //     return;
-    //   }
-    //   console.log("danh sach thang truoc");
-    //   console.log(this.listRevenueEmployeeMonthBefore);
-    //   for (let i = 0; i < this.listRevenueEmployeeMonthBefore.length; i++) {
-    //     this.IncomeLastMonth += this.listRevenueEmployeeMonthBefore[i].income;
-       
-    //   }
      
       
-    //   this.revenueService.getAllRevenueMonthBefore(jwt_decode(this.common.getCookie('token_key'))['sub'], this.month + 1, this.year-1).subscribe((data => {
-    //     this.listRevenueEmployeeMonthNow = data;
-    //     if(this.listRevenueEmployeeMonthNow.length == 0){
-    //       return;
-    //     }
-    //     for (let i = 0; i < this.listRevenueEmployeeMonthNow.length; i++) {
-    //       this.IncomeThisMonth += this.listRevenueEmployeeMonthNow[i].income;
-    //     }
-    //     if(this.IncomeThisMonth > this.IncomeLastMonth){
-    //       this.incomeStatus = 'Tăng';
-    //     }
-    //     else{
-    //       this.incomeStatus = 'Giảm';
-    //     }
-    //     if(this.incomeStatus == "Tăng"){
-    //       this.percentBetweenIncome = Math.round(((this.IncomeLastMonth/this.IncomeThisMonth)*100)).toString()+"%";
-    //     }
-    //     else{
-    //       this.percentBetweenIncome = Math.round(((this.IncomeThisMonth/this.IncomeLastMonth)*100)).toString()+"%";
-    //     }
-      
-    //   }))
-    // }))
+    
+    
    
 
   }
@@ -149,6 +116,20 @@ CalculateIncomeForThisYear(){
         nextTime.setMonth(nextTime.getMonth()+this.transformPeriod(item.description));
       }
     })
+    this.IncomeLastMonth = this.listIncomePredic[this.month-2].income;
+    this.IncomeThisMonth = this.listIncomePredic[this.month-1].income;
+    if(this.IncomeThisMonth > this.IncomeLastMonth){
+      this.incomeStatus = 'Tăng';
+    }
+    else{
+      this.incomeStatus = 'Giảm';
+    }
+    if(this.incomeStatus == "Tăng"){
+      this.percentBetweenIncome = Math.round((((this.IncomeThisMonth-this.IncomeLastMonth)/this.IncomeThisMonth)*100)).toString()+"%";
+    }
+    else{
+      this.percentBetweenIncome = Math.round((((this.IncomeLastMonth-this.IncomeThisMonth)/this.IncomeLastMonth)*100)).toString()+"%";
+    }
     this.chartData = [
       { data: [this.listIncomePredic[0].income,this.listIncomePredic[1].income,
         this.listIncomePredic[2].income,this.listIncomePredic[3].income,

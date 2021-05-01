@@ -85,7 +85,11 @@ export class CustomerTableComponent implements OnInit {
   }
 
   public editDrafCustomerInfo(customerInfo: CustomerInfo) {
-    let dialogRef = this.dialog.open(CustomerEditInfoComponent, { data: customerInfo });
+    let dialogRef = this.dialog.open(CustomerEditInfoComponent, { 
+      height: '80%',
+      width: 'fit-content',
+      data: customerInfo 
+    });
     dialogRef.afterClosed().subscribe(result => {
 
     })

@@ -30,9 +30,15 @@ export class ConfirmChangePassComponent implements OnInit {
         let dataChangePass = {"password":form.value.pass.trim(),"token_key":params['active_key']};
         this.spinner.show();
         this.httpService.changePassword(dataChangePass).subscribe((data => {
-          this.spinner.hide();
-          this.snackbar.openSnackBar('Đổi Mật Khẩu Thành Công!','Đóng');
-          this.route.navigate(['/login']);
+          if(data){
+            this.spinner.hide();
+            this.snackbar.openSnackBar('Đổi Mật Khẩu Thành Công!','Đóng');
+            this.route.navigate(['/login']);
+          } else {
+            this.spinner.hide();
+            this.snackbar.openSnackBar('Đổi Mật Khẩu KHÔNG Thành Công!','Đóng');
+          }
+          
         }));
       }))
       
