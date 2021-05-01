@@ -41,6 +41,7 @@ import { ListIllustrationCustomerComponent } from './customerwebsite/list-illust
 import { ListContractCustomerComponent } from './customerwebsite/list-contract-customer/list-contract-customer.component';
 import { ProfileCustomerComponent } from './customerwebsite/profile-customer/profile-customer.component';
 import { ChangePassCustomerComponent } from './customerwebsite/change-pass-customer/change-pass-customer.component';
+import { CompensationTreatmentComponent } from './customerwebsite/compensation-treatment/compensation-treatment.component';
 
 const routes: Routes = [
   {path : "dashboard", component: DashboardComponent},
@@ -83,6 +84,7 @@ const routes: Routes = [
   {path: "contract-customerweb", component:  ListContractCustomerComponent},
   {path: "profile-customerweb", component:  ProfileCustomerComponent},
   {path: "change-pass-customerweb", component:  ChangePassCustomerComponent},
+  {path: "compensation-treatment", component:  CompensationTreatmentComponent},
   
 ];
 
