@@ -51,6 +51,7 @@ export class AdminAddAccountEmployeeComponent implements OnInit {
         this.code_suppervisor = "admin";
       }
       this.employeeAccList = data;
+      this.code_suppervisor = this.employeeAccList[0].code;
     }))
   }
 

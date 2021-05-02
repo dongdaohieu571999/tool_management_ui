@@ -15,7 +15,7 @@
                         </div>
                         <div class="form-group">
                             <label>Chức Danh</label>
-                            <select class="form-control" name="role" [(ngModel)]="role">
+                            <select class="form-control" name="role" [(ngModel)]="role" required>
                                 <option [value]="1">ADMIN</option>
                                 <option [value]="2">SALER</option>
                                 <option [value]="3">APPRAISER</option>
@@ -23,8 +23,8 @@
                         </div>
                         <div class="form-group">
                             <label>Nguời Giám Sát</label>
-                            <select class="form-control" name="role1" [(ngModel)]="code_suppervisor" *ngIf="role==2">
-                                <option [value]="item.code" *ngFor="let item of employeeAccList">{{item.code}}</option>
+                            <select class="form-control"  id= "suppervisor" name="role1" [(ngModel)]="code_suppervisor" *ngIf="role==2" required>
+                                <option [value]="item.code" *ngFor="let item of employeeAccList" selected>{{item.code}}</option>
                             </select>
                             <input name="admin" *ngIf="role!=2" class="form-control" type="text" value="admin" readonly>
                         </div>

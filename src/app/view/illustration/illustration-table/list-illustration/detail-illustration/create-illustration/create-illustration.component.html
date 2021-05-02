@@ -112,12 +112,12 @@
                                 <input class="form-control" value="{{ mainBenifitSelect.fee_period }}" readonly>
                             </td>
                             <td>
-                                <input class="form-control" type="number" id="menhgia" (keydown)="checkMoneyFormat()" required #menhgia="ngModel" [(ngModel)]="illustrationMainBenifit.denominations" min="{{ mainBenifitSelect.minimum_value }}" pattern="^[^-a-zA-Z]+$">
-                                <!-- <span id="errorMessagename" style="color: red;" *ngIf="menhgia.errors?.required && menhgia.touched">Mệnh Giá không được để
+                                <input class="form-control" type="number" id="menhgia" required #menhgia="ngModel" [(ngModel)]="illustrationMainBenifit.denominations" min="{{ mainBenifitSelect.minimum_value }}" pattern="^[0-9]+$">
+                                <span id="errorMessagename" style="color: red;" *ngIf="menhgia.errors?.required && menhgia.touched">Mệnh Giá không được để
                                     trống</span>
                                 <span id="errorMessagename" style="color: red;" *ngIf="menhgia.errors?.pattern && menhgia.touched">Mệnh Giá không hợp
                                     lệ
-                                </span> -->
+                                </span>
                             </td>
                             <td>
                                 <input class="form-control" readonly [(ngModel)]="illustrationMainBenifit.fee_value">
@@ -149,7 +149,12 @@
                                 <input class="form-control" value="{{ illustrationMainBenifit.carrier_group_insured_person }}" name="carrier_group_extra_insured_person" readonly>
                             </td>
                             <td>
-                                <input class="form-control" type="number" name="denominations" [(ngModel)]="benifit.denominations" [attr.disabled]="benifit.isDisable?'':null" min="50000000">
+                                <input class="form-control" type="number" name="denominations" #menhgiaN="ngModel" [(ngModel)]="benifit.denominations" [attr.disabled]="benifit.isDisable?'':null" min="50000000" pattern="^[0-9]+$">
+                                <span id="errorMessagename" style="color: red;" *ngIf="menhgiaN.errors?.required && menhgiaN.touched">Mệnh Giá không được để
+                                    trống</span>
+                                <span id="errorMessagename" style="color: red;" *ngIf="menhgiaN.errors?.pattern && menhgiaN.touched">Mệnh Giá không hợp
+                                    lệ
+                                </span>
                             </td>
                             <td>
                                 <input class="form-control" value="{{ benifit.fee_value }}" name="fee_value" readonly>
