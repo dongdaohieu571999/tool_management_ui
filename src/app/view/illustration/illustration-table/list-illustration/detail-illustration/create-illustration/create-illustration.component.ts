@@ -95,13 +95,14 @@ export class CreateIllustrationComponent implements OnInit {
       && this.illustrationMainBenifit.birth_date_insured_person != null
       && this.illustrationMainBenifit.insurance_buyer_relation_insured_person != null
       && this.illustrationMainBenifit.denominations != 0
+      && !this.illustrationMainBenifit.denominations.toString().includes("-")
       && this.mulPeriod != null) {
 
       if (this.subBenifitListCopy.length != 0) {
         for (let item of this.subBenifitListCopy) {
           if (!item.isDisable) {
-            if (item.denominations == 0 || item.denominations == null) {
-              this.snackBar.openSnackBar("Vui lòng điền các trường đầy đủ", "Đóng");
+            if (item.denominations == 0 || item.denominations == null || item.denominations.toString().includes("-")) {
+              this.snackBar.openSnackBar("Vui lòng điền các trường đầy đủ và mệnh giá hợp lệ", "Đóng");
               checkSubmit = false;
               break;
             }
@@ -117,8 +118,8 @@ export class CreateIllustrationComponent implements OnInit {
             if (relate.listSubBenifit.length != 0) {
               for (let benifit of relate.listSubBenifit) {
                 if (!benifit.isDisable) {
-                  if (benifit.denominations == 0 || benifit.denominations == null) {
-                    this.snackBar.openSnackBar("Vui lòng điền các trường đầy đủ", "Đóng");
+                  if (benifit.denominations == 0 || benifit.denominations == null || benifit.denominations.toString().includes("-")) {
+                    this.snackBar.openSnackBar("Vui lòng điền các trường đầy đủ và mệnh giá hợp lệ", "Đóng");
                     checkSubmit = false;
                     break;
                   }
@@ -126,7 +127,7 @@ export class CreateIllustrationComponent implements OnInit {
               }
             }
           } else {
-            this.snackBar.openSnackBar("Vui lòng điền các trường đầy đủ", "Đóng");
+            this.snackBar.openSnackBar("Vui lòng điền các trường đầy đủ và mệnh giá hợp lệ", "Đóng");
             checkSubmit = false;
             break;
           }
@@ -146,7 +147,7 @@ export class CreateIllustrationComponent implements OnInit {
       }
 
     } else {
-      this.snackBar.openSnackBar("Vui lòng điền các trường đầy đủ", "Đóng");
+      this.snackBar.openSnackBar("Vui lòng điền các trường đầy đủ và mệnh giá hợp lệ", "Đóng");
     }
 
   }
