@@ -95,9 +95,12 @@ export class CreateIllustrationComponent implements OnInit {
       && this.illustrationMainBenifit.birth_date_insured_person != null
       && this.illustrationMainBenifit.insurance_buyer_relation_insured_person != null
       && this.illustrationMainBenifit.denominations != 0
-      && !this.illustrationMainBenifit.denominations.toString().includes("-")
+      && this.illustrationMainBenifit.denominations != null
       && this.mulPeriod != null) {
-
+      if (this.illustrationMainBenifit.denominations.toString().includes("-")) {
+        this.snackBar.openSnackBar("Vui lòng điền các trường đầy đủ và mệnh giá hợp lệ", "Đóng");
+        return;
+      }
       if (this.subBenifitListCopy.length != 0) {
         for (let item of this.subBenifitListCopy) {
           if (!item.isDisable) {
@@ -133,7 +136,6 @@ export class CreateIllustrationComponent implements OnInit {
           }
         }
       }
-
       //tinh chi phi
       if (checkSubmit) {
         this.spinner.show();
@@ -241,8 +243,8 @@ export class CreateIllustrationComponent implements OnInit {
 
   getInfoCustomer() {
     this.activeRoute.queryParams.subscribe(params => {
-      this.customerService.getOneCustomerInfoBySaler(params['id'],this.common.getCookie('token_key')).subscribe((data => {
-        this.customerInfo=data[0];
+      this.customerService.getOneCustomerInfoBySaler(params['id'], this.common.getCookie('token_key')).subscribe((data => {
+        this.customerInfo = data[0];
         this.illustrationMainBenifit.full_name_insurance_buyer = this.customerInfo.full_name;
         this.illustrationMainBenifit.id_illustration = params['id'];
         this.id_ill = params['id'];
@@ -261,20 +263,21 @@ export class CreateIllustrationComponent implements OnInit {
     return;
   }
 
-  insuranceBuyerRelationValue(){
+  insuranceBuyerRelationValue() {
     let value = (<HTMLInputElement>document.getElementById('buyerRelation')).value;
-    if(value == "Bản Thân"){
+    if (value == "Bản Thân") {
       this.illustrationMainBenifit.full_name_insured_person = this.customerInfo.full_name;
-      (<HTMLInputElement>document.getElementById('genderInsuredPerson')).value = this.customerInfo.gender ==1?'true':'false';
-      (<HTMLInputElement>document.getElementById('birthDayInsuredPerson')).value =new Date(this.customerInfo.birth_date).getFullYear() +"-"+ 
-        (new Date(this.customerInfo.birth_date).getMonth() < 10 ? "0"+(new Date(this.customerInfo.birth_date).getMonth()+1):new Date(this.customerInfo.birth_date).getMonth()+1 )+"-"+ 
-        (new Date(this.customerInfo.birth_date).getDate() < 10 ? "0"+(new Date(this.customerInfo.birth_date).getDate()+1):new Date(this.customerInfo.birth_date).getDate()+1 );
-        this.illustrationMainBenifit.birth_date_insured_person = new Date(this.customerInfo.birth_date);
-      }
+      (<HTMLInputElement>document.getElementById('genderInsuredPerson')).value = this.customerInfo.gender == 1 ? 'true' : 'false';
+      (<HTMLInputElement>document.getElementById('birthDayInsuredPerson')).value = new Date(this.customerInfo.birth_date).getFullYear() + "-" +
+        (new Date(this.customerInfo.birth_date).getMonth() < 10 ? "0" + (new Date(this.customerInfo.birth_date).getMonth() + 1) : new Date(this.customerInfo.birth_date).getMonth() + 1) + "-" +
+        (new Date(this.customerInfo.birth_date).getDate() < 10 ? "0" + (new Date(this.customerInfo.birth_date).getDate() + 1) : new Date(this.customerInfo.birth_date).getDate() + 1);
+      this.illustrationMainBenifit.birth_date_insured_person = new Date(this.customerInfo.birth_date);
+      this.illustrationMainBenifit.carrier_group_insured_person = Number(this.customerInfo.occupation_group);
+    }
   }
 
-  checkMoneyFormat(){
-    
+  checkMoneyFormat() {
+
   }
 
 
@@ -346,42 +349,93 @@ export class CreateIllustrationComponent implements OnInit {
   }
 
   save() {
-    this.spinner.show();
-    this.illustration.illustrationSubBenifitList = [];
-    // thêm người được bảo vệ bằng các quyền lợi bổ sung
-    this.relateSer.addRelatedPerson({
-      full_name: this.illustrationMainBenifit.full_name_insured_person,
-      date_of_birth: this.illustrationMainBenifit.birth_date_insured_person, gender: this.illustrationMainBenifit.gender_insured_person,
-      carreer_group: this.illustrationMainBenifit.carrier_group_insured_person, relation: this.illustrationMainBenifit.insurance_buyer_relation_insured_person,
-      id_illustration: this.id_ill
-    }).subscribe((data => {
-      for (let benifit of this.subBenifitListCopy) {
-        if (!benifit.isDisable) {
-          this.activeRoute.queryParams.subscribe(params => {
-
-            let subBenifit = new IllustrationSubBenifit(params['id'], benifit.id, this.illustrationMainBenifit.full_name_insured_person
-              , this.illustrationMainBenifit.insurance_buyer_relation_insured_person, this.illustrationMainBenifit.birth_date_insured_person, this.calculateAge(this.illustrationMainBenifit.birth_date_insured_person),
-              this.illustrationMainBenifit.gender_insured_person, this.illustrationMainBenifit.carrier_group_insured_person, benifit.denominations,
-              benifit.fee_value, false, data);
-
-
-            this.illustration.illustrationSubBenifitList.push(subBenifit);
-          })
+    //validate
+    let checkSubmit = true;
+    if (this.create_time_ill != null
+      && this.illustrationMainBenifit.full_name_insured_person != ""
+      && this.illustrationMainBenifit.birth_date_insured_person != null
+      && this.illustrationMainBenifit.insurance_buyer_relation_insured_person != null
+      && this.illustrationMainBenifit.denominations != 0
+      && this.illustrationMainBenifit.denominations != null
+      && this.mulPeriod != null) {
+      if (this.illustrationMainBenifit.denominations.toString().includes("-")) {
+        this.snackBar.openSnackBar("Vui lòng điền các trường đầy đủ và mệnh giá hợp lệ", "Đóng");
+        return;
+      }
+      if (this.subBenifitListCopy.length != 0) {
+        for (let item of this.subBenifitListCopy) {
+          if (!item.isDisable) {
+            if (item.denominations == 0 || item.denominations == null || item.denominations.toString().includes("-")) {
+              this.snackBar.openSnackBar("Vui lòng điền các trường đầy đủ và mệnh giá hợp lệ", "Đóng");
+              return;
+            }
+          }
         }
       }
-      // lưu các người được bảo hiểm khác và lấy id của họ gắn vào cho mỗi illustrationSubBenifit
-      // vì callback được gọi lồng nhau nên không thể dùng for loop mà ta cần dùng đệ quy
-      if (this.relatedPerson.length != 0) {
-        this.next();
-      } else {
-        this.processSaveIntoDB();
 
+      if (this.relatedPerson.length != 0) {
+        for (let relate of this.relatedPerson) {
+          if (relate.full_name != null
+            && relate.relation != null
+            && relate.date_of_birth != null) {
+            if (relate.listSubBenifit.length != 0) {
+              for (let benifit of relate.listSubBenifit) {
+                if (!benifit.isDisable) {
+                  if (benifit.denominations == 0 || benifit.denominations == null || benifit.denominations.toString().includes("-")) {
+                    this.snackBar.openSnackBar("Vui lòng điền các trường đầy đủ và mệnh giá hợp lệ", "Đóng");
+                    return;
+                  }
+                }
+              }
+            }
+          } else {
+            this.snackBar.openSnackBar("Vui lòng điền các trường đầy đủ và mệnh giá hợp lệ", "Đóng");
+            return;
+          }
+        }
+      }
+      else {
+        this.snackBar.openSnackBar("Vui lòng điền các trường đầy đủ và mệnh giá hợp lệ", "Đóng");
+        return;
       }
 
-    }))
-  }
 
-  changeDate(date:any){
+      this.spinner.show();
+      this.illustration.illustrationSubBenifitList = [];
+      // thêm người được bảo vệ bằng các quyền lợi bổ sung
+      this.relateSer.addRelatedPerson({
+        full_name: this.illustrationMainBenifit.full_name_insured_person,
+        date_of_birth: this.illustrationMainBenifit.birth_date_insured_person, gender: this.illustrationMainBenifit.gender_insured_person,
+        carreer_group: this.illustrationMainBenifit.carrier_group_insured_person, relation: this.illustrationMainBenifit.insurance_buyer_relation_insured_person,
+        id_illustration: this.id_ill
+      }).subscribe((data => {
+        for (let benifit of this.subBenifitListCopy) {
+          if (!benifit.isDisable) {
+            this.activeRoute.queryParams.subscribe(params => {
+
+              let subBenifit = new IllustrationSubBenifit(params['id'], benifit.id, this.illustrationMainBenifit.full_name_insured_person
+                , this.illustrationMainBenifit.insurance_buyer_relation_insured_person, this.illustrationMainBenifit.birth_date_insured_person, this.calculateAge(this.illustrationMainBenifit.birth_date_insured_person),
+                this.illustrationMainBenifit.gender_insured_person, this.illustrationMainBenifit.carrier_group_insured_person, benifit.denominations,
+                benifit.fee_value, false, data);
+
+
+              this.illustration.illustrationSubBenifitList.push(subBenifit);
+            })
+          }
+        }
+        // lưu các người được bảo hiểm khác và lấy id của họ gắn vào cho mỗi illustrationSubBenifit
+        // vì callback được gọi lồng nhau nên không thể dùng for loop mà ta cần dùng đệ quy
+        if (this.relatedPerson.length != 0) {
+          this.next();
+        } else {
+          this.processSaveIntoDB();
+
+        }
+
+      }))
+    }
+  }
+  changeDate(date: any) {
     this.illustrationMainBenifit.birth_date_insured_person = new Date(date);
   }
 }
