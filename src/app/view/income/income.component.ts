@@ -55,15 +55,17 @@ totalRecords: number;
     this.revenueService.getAllIncomeSaler(jwt_decode(this.common.getCookie('token_key'))['sub']).subscribe((data => {
       this.listIncome = data;
       this.listIncome.forEach(item => {
-        //Bước 1: cộng income vào tháng mà hợp đồng này được xét duyệt
-        let time = (new Date(item.create_time)).getMonth() + 1;// thời gian mà hợp đòng được xét duyệt
-        this.listIncomePredic[time -1].income += item.income;
-        this.listIncomePredic[time-1].revenue += item.revenue_val;
+        //Bước 1: cộng income vào tháng mà hợp đồng này bắt đầu hoạt động
+      var startTime = new Date(item.start_time);
+      if(startTime.getFullYear() == this.year){
+        this.listIncomePredic[startTime.getMonth()].income += item.income;
+        this.listIncomePredic[startTime.getMonth()].revenue += item.revenue_val;
+      }
 
         //Bước 2: Tính Income cho các tháng tiếp theo trong năm đó
         var startTime = new Date(item.start_time);// tháng mà khach hàng bắt đầu ký hợp đồng và trao tiền
-        var desTime = new Date((new Date(item.start_time)).setFullYear(startTime.getFullYear() + 1)); // thời gian 1 năm đầu tiên của hợp đồng tính từ ngày đầu tiên
-        var nextTime = new Date((new Date(item.start_time)).setMonth(startTime.getMonth()+this.transformPeriod(item.description)))
+        var desTime = this.addMonths(new Date(item.start_time),12); // thời gian 1 năm đầu tiên của hợp đồng tính từ ngày đầu tiên
+        var nextTime = this.addMonths(new Date(item.start_time),this.transformPeriod(item.description));
         while(true){
           if(nextTime.getFullYear() > this.year) break;
           else if(nextTime.getFullYear() == this.year){
@@ -79,7 +81,7 @@ totalRecords: number;
               }
             })
           }
-          nextTime.setMonth(nextTime.getMonth()+this.transformPeriod(item.description));
+          nextTime = this.addMonths(new Date(nextTime),this.transformPeriod(item.description));
         }
       })
       // chia rõ ràng 2 phần : phần 1 bao gồm các tháng doanh thu đã nhận, phần 2 bao gồm các doanh thu dự kiến
@@ -96,6 +98,17 @@ totalRecords: number;
   public IncomeDetailLastYear(month:number){
     this.router.navigate(['employee-detail-income',month]);
   }
+
+
+  addMonths(date:Date, months:number) {
+    var d = date.getDate();
+    date.setMonth(date.getMonth() + +months);
+    if (date.getDate() != d) {
+      date.setDate(0);
+    }
+    return date;
+  }
+
   transformPeriod(data:any){
     switch(data){
       case ("Năm"):{
