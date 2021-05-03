@@ -12,9 +12,9 @@
                 <span class="brand-text font-weight-light">Thoát</span>
             </a>
             <hr style="color: gray;">
-            <a mat-list-item>
+            <a mat-list-item [routerLink]="['/detail_employee_info']">
                 <img src="../assets/images/avatar5.png" class="imglink" alt="User Image">
-                <a class="d-block">{{ authenService.empolyeeInfo?.name }}</a>
+                <a class="d-block" >{{ authenService.empolyeeInfo?.name }} {{ authenService.empolyeeInfo?.id_acc }}</a>
             </a>
             <hr style="color: gray;">
             <!-- Saler -->

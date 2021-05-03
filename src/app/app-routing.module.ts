@@ -42,6 +42,7 @@ import { ListContractCustomerComponent } from './customerwebsite/list-contract-c
 import { ProfileCustomerComponent } from './customerwebsite/profile-customer/profile-customer.component';
 import { ChangePassCustomerComponent } from './customerwebsite/change-pass-customer/change-pass-customer.component';
 import { CompensationTreatmentComponent } from './customerwebsite/compensation-treatment/compensation-treatment.component';
+import { DetailEmployeeInfoComponent } from './view/detail-employee-info/detail-employee-info.component';
 
 const routes: Routes = [
   {path : "dashboard", component: DashboardComponent},
@@ -85,6 +86,7 @@ const routes: Routes = [
   {path: "profile-customerweb", component:  ProfileCustomerComponent},
   {path: "change-pass-customerweb", component:  ChangePassCustomerComponent},
   {path: "compensation-treatment", component:  CompensationTreatmentComponent},
+  {path: "detail_employee_info/:id", component:  DetailEmployeeInfoComponent},
   
 ];
 

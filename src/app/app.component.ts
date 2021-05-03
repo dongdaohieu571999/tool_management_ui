@@ -19,6 +19,7 @@ export class AppComponent {
   constructor(public authenService: AuthenService, public common:CommonService,private employeeSer:EmployeeService,
     public router: Router){
     
+    
     var url =window.location.href;
     if(this.common.getCookie("token_key") === ''){
       this.authenService.isAuthen=false;
@@ -35,9 +36,15 @@ export class AppComponent {
       }
       this.authenService.isAuthen = true;
       this.employeeSer.getAccByCode(this.common.getCookie('token_key')).subscribe((data => {
+        console.log("code cua employee");
+        console.log(data);
+        console.log(jwt_decode(this.common.getCookie('token_key'))['sub']);
         this.authenService.id_role = data['id_role'];
-        this.employeeSer.getDetailEmployebyCode(jwt_decode(this.common.getCookie('token_key'))['sub']).subscribe((data => {
+        this.employeeSer.getDetailEmployebyCode(jwt_decode(this.common.getCookie('token_key'))['sub']).subscribe((data => {    
+          console.log("data cua employee dang nhap");
+          console.log(data);    
           this.authenService.empolyeeInfo = data;
+          
         }))
         if(url.includes('login')){
           if(this.authenService.id_role == '2'){
