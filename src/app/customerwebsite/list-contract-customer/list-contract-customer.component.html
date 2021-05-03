@@ -64,7 +64,7 @@
                             </td>
                             <td>{{contract.name_contract_owner}}</td>
                             <td>{{contract.insurance_type}}</td>
-                            <td>{{contract.id_main_benifit}}</td>
+                            <td>#G{{contract.id_main_benifit}}</td>
                             <td>
                                 <a *ngIf="contract.id_illustration" (click)="openDialogIllustrationDetail(contract.id_illustration)">#BMH{{contract.id_illustration}}</a>
                                 <a *ngIf="!contract.id_illustration"></a>
