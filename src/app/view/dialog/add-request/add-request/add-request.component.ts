@@ -21,7 +21,7 @@ export class AddRequestComponent implements OnInit {
 
   constructor(@Inject(MAT_DIALOG_DATA) public contract: Contract,private contractService:ContractService,private snackBar:SnackbarService,private spinner:NgxSpinnerService,private reqService:ContractrequestService,private common:CommonService,private EmAccService:EmployeeService) { }
 
-  req=new Request(0,'',0,new Date(),0,'','','','',0,'');
+  req=new Request(0,'',0,new Date(),0,'','','','high',0,'');
   EmAcc:EmployeeInfoDTO;
   ngOnInit(): void {
     this.EmAccService.getDetailEmployebyCode(jwt_decode(this.common.getCookie('token_key'))['sub']).subscribe((data => {

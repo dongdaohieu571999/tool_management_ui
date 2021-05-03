@@ -86,7 +86,7 @@
             </mat-tab>
         </mat-tab-group>
     </div>
-    <div class="custom-div" *ngIf="authenService.id_role=='2' && contracts.approval_status == 'Chưa Xét Duyệt'">
+    <div class="custom-div" *ngIf="authenService.id_role=='2' && (contracts.approval_status == 'Chưa Xét Duyệt' || contracts.approval_status == 'Yêu Cầu Thêm')">
         <button type="button" class="btn btn-success" style="width: 100%;" (click)="openDialogSendRequest()">Gửi Yêu Cầu Xét Duyệt</button>
     </div>
 </body>
