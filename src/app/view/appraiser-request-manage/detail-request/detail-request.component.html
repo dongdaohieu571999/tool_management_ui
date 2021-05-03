@@ -51,7 +51,7 @@
                                     </div>
                                     <div class="form-group ">
                                         <label for="exampleInputEmail1 ">Ngày Sinh</label>
-                                        <p style="color: red; ">{{ custInfo[0]?.birth_address | date: 'dd-MM-yyyy'}}</p>
+                                        <p style="color: red; ">{{ custInfo[0]?.birth_date | date: 'dd-MM-yyyy'}}</p>
                                     </div>
                                     <div class="form-group ">
                                         <label for="exampleInputEmail1 ">Tuổi</label>
@@ -75,7 +75,7 @@
                                     </div>
                                     <div class="form-group ">
                                         <label for="exampleInputEmail1 ">Quốc Tịch Khác Khác (Nếu Có)</label>
-                                        <p style="color: red; ">{{ custInfo[0]?.nationality_1 }}</p>
+                                        <p style="color: red; ">{{ custInfo[0]?.nationality_2 }}</p>
                                     </div>
                                     <div class="form-group ">
                                         <label for="exampleInputEmail1 ">Dân Tộc</label>
@@ -209,10 +209,6 @@
                                 <div class="form-group ">
                                     <label for="exampleInputEmail1 ">Email:</label>
                                     <p style="color: red; ">{{ custInfo[0]?.email }}</p>
-                                </div>
-                                <div class="form-group ">
-                                    <label for="exampleInputEmail1 ">Điện Thoại Di Động 1:</label>
-                                    <p style="color: red; ">{{ custInfo[0]?.workadd_wards }}</p>
                                 </div>
                                 <div class="form-group ">
                                     <label for="exampleInputEmail1 ">Điện Thoại Di Động 1:</label>

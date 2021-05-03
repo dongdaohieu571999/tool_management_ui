@@ -50,7 +50,8 @@ export class IllustrationDetailDialogComponent implements OnInit {
     this.illustration = data;
       this.illustrationCopy = data;
 
-      //Biến đếm số lượng người 
+      if(this.illustration.illustrationSubBenifitList.length != 0){
+        //Biến đếm số lượng người 
       var default_number: number = this.illustration.illustrationSubBenifitList[0].id_related_person;
       //tìm số lượng người bảo hiểm phụ và thông tin chi tiết
       for (let i = 0; i < this.illustration.illustrationSubBenifitList.length; i++) {
@@ -89,6 +90,8 @@ export class IllustrationDetailDialogComponent implements OnInit {
         //tìm mảng với những giá trị của người liên quan còn lại
         this.illustrationCopy.illustrationSubBenifitList = this.illustrationCopy.illustrationSubBenifitList.slice(count, this.illustrationCopy.illustrationSubBenifitList.length);
       }
+      }
+      
   }
 
 }

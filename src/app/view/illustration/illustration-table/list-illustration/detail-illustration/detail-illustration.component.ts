@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Benifit } from 'src/app/model/Benifit';
 import { Illustration } from 'src/app/model/Illustration';
 import { IllustrationSubBenifit } from 'src/app/model/IllustrationSubBenifit';
 import { RelatedPersonInfo } from 'src/app/model/RelatedPersonInfo';
+import { BenifitService } from 'src/app/services/benifit/benifit.service';
 import { CommonService } from 'src/app/services/common/common.service';
 import { IllustrationService } from 'src/app/services/illustration/illustration.service';
 
@@ -13,7 +15,9 @@ import { IllustrationService } from 'src/app/services/illustration/illustration.
 })
 export class DetailIllustrationComponent implements OnInit {
 
-  constructor(private common:CommonService,private illustrationService: IllustrationService, private activateRoute: ActivatedRoute) { }
+  constructor(private common:CommonService,private illustrationService: IllustrationService,private benSer:BenifitService,
+     private activateRoute: ActivatedRoute) { }
+  subBenifitList: Array<Benifit> = [];
   illustration: Illustration;
   illustrationCopy: Illustration;
   listRelatedPersonNumber: Number[] = [];
@@ -27,9 +31,11 @@ export class DetailIllustrationComponent implements OnInit {
     this.common.titlePage = 'Thông Tin Chi Tiết Bảng Minh Họa';
     this.illustrationService.getIllustrationContractCreate(this.activateRoute.snapshot.params['id']).subscribe((data => {
       this.illustration = data;
+      console.log(data)
       this.illustrationCopy = data;
 
-      //Biến đếm số lượng người 
+      if(this.illustration.illustrationSubBenifitList.length != 0){
+        //Biến đếm số lượng người 
       var default_number: number = this.illustration.illustrationSubBenifitList[0].id_related_person;
       //tìm số lượng người bảo hiểm phụ và thông tin chi tiết
       for (let i = 0; i < this.illustration.illustrationSubBenifitList.length; i++) {
@@ -68,6 +74,14 @@ export class DetailIllustrationComponent implements OnInit {
         //tìm mảng với những giá trị của người liên quan còn lại
         this.illustrationCopy.illustrationSubBenifitList = this.illustrationCopy.illustrationSubBenifitList.slice(count, this.illustrationCopy.illustrationSubBenifitList.length);
       }
+      }
+      
+
+
+      this.benSer.getAllSubBenifit().subscribe((data => {
+        this.subBenifitList = data;
+      }))
+
     }))
   }
 

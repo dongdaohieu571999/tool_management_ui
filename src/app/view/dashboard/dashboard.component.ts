@@ -123,14 +123,18 @@ CalculateIncomeForThisYear(){
     if(this.IncomeThisMonth > this.IncomeLastMonth){
       this.incomeStatus = 'Tăng';
     }
-    else{
+    else if (this.IncomeThisMonth < this.IncomeLastMonth){
       this.incomeStatus = 'Giảm';
+    } else {
+      this.incomeStatus = 'Không Xác Định';
     }
     if(this.incomeStatus == "Tăng"){
       this.percentBetweenIncome = Math.round((((this.IncomeThisMonth-this.IncomeLastMonth)/this.IncomeThisMonth)*100)).toString()+"%";
     }
-    else{
+    else if(this.incomeStatus == "Giảm"){
       this.percentBetweenIncome = Math.round((((this.IncomeLastMonth-this.IncomeThisMonth)/this.IncomeLastMonth)*100)).toString()+"%";
+    } else {
+      this.percentBetweenIncome = '';
     }
     this.chartData = [
       { data: [this.listIncomePredic[0].income,this.listIncomePredic[1].income,
