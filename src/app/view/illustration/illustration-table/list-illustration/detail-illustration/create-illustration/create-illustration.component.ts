@@ -267,13 +267,14 @@ export class CreateIllustrationComponent implements OnInit {
     let value = (<HTMLInputElement>document.getElementById('buyerRelation')).value;
     if (value == "Bản Thân") {
       this.illustrationMainBenifit.full_name_insured_person = this.customerInfo.full_name;
-      (<HTMLInputElement>document.getElementById('genderInsuredPerson')).value = this.customerInfo.gender == 1 ? 'true' : 'false';
+      this.illustrationMainBenifit.gender_insured_person = this.customerInfo.gender == 1 ? true : false;
       (<HTMLInputElement>document.getElementById('birthDayInsuredPerson')).value = new Date(this.customerInfo.birth_date).getFullYear() + "-" +
         (new Date(this.customerInfo.birth_date).getMonth() < 10 ? "0" + (new Date(this.customerInfo.birth_date).getMonth() + 1) : new Date(this.customerInfo.birth_date).getMonth() + 1) + "-" +
         (new Date(this.customerInfo.birth_date).getDate() < 10 ? "0" + (new Date(this.customerInfo.birth_date).getDate() + 1) : new Date(this.customerInfo.birth_date).getDate() + 1);
       this.illustrationMainBenifit.birth_date_insured_person = new Date(this.customerInfo.birth_date);
       this.illustrationMainBenifit.carrier_group_insured_person = Number(this.customerInfo.occupation_group);
     }
+    console.log(this.illustrationMainBenifit.gender_insured_person)
   }
 
   checkMoneyFormat() {
@@ -369,6 +370,9 @@ export class CreateIllustrationComponent implements OnInit {
             if (item.denominations == 0 || item.denominations == null || item.denominations.toString().includes("-")) {
               this.snackBar.openSnackBar("Vui lòng điền các trường đầy đủ và mệnh giá hợp lệ", "Đóng");
               return;
+            }else if(item.fee_value == 0 && item.denominations){
+              this.snackBar.openSnackBar("Vui lòng nhấn tính phí bảo hiểm cho các giá trị mới", "Đóng");
+              return;
             }
           }
         }
@@ -384,6 +388,9 @@ export class CreateIllustrationComponent implements OnInit {
                 if (!benifit.isDisable) {
                   if (benifit.denominations == 0 || benifit.denominations == null || benifit.denominations.toString().includes("-")) {
                     this.snackBar.openSnackBar("Vui lòng điền các trường đầy đủ và mệnh giá hợp lệ", "Đóng");
+                    return;
+                  } else if(benifit.fee_value == 0 && benifit.denominations){
+                    this.snackBar.openSnackBar("Vui lòng nhấn tính phí bảo hiểm cho các giá trị mới", "Đóng");
                     return;
                   }
                 }

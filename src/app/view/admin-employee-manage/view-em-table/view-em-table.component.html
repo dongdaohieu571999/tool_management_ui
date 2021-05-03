@@ -55,7 +55,7 @@
 
                 <td>
                     <button *ngIf="employeeinfo.code" class="btn btn-block btn-success" [disabled]="employeeinfo.status==0? true : false" style="height: 40px; width: 150px; margin: 10px; color: white;" (click)="resetAccPassword(employeeinfo)">Đặt Lại Mật Khẩu</button>
-                    <button *ngIf="!employeeinfo.code" (click)="openDialog(employeeinfo)" class="btn btn-block btn-primary">Thêm Tài Khoản</button>
+                    <button *ngIf="!employeeinfo.code" (click)="openDialog(employeeinfo)" style="height: 40px; width: 150px; margin: 10px; color: white;" class="btn btn-block btn-primary">Thêm Tài Khoản</button>
                 </td>
             </tr>
         </tbody>
