@@ -21,11 +21,11 @@ export class DetailPageComponent implements OnInit {
   ngOnInit(): void {
     if (this.activateRoute.snapshot.params['id'] == 1) {
       this.pageHeader = "Bảo hiểm chăm sóc y tế";
-      this.pageImg = "https://baohiemchamsocsuckhoedaiichi.com/wp-content/uploads/2018/10/y-nghia-cua-bao-hiem-suc-khoe.jpg";
-      this.pageHeaderImg = "https://baohiemchamsocsuckhoedaiichi.com/wp-content/uploads/2018/10/y-nghia-cua-bao-hiem-suc-khoe.jpg";
+      this.pageImg = "https://www.baovietnhantho.com.vn/storage/8df54680-da1f-4000-a131-72749a7fe70c/c/BHChamSocYTe-cover-large.jpg";
+      this.pageHeaderImg = "https://www.baovietnhantho.com.vn/storage/8df54680-da1f-4000-a131-72749a7fe70c/c/BHChamSocYTe-cover-large.jpg";
       this.pageContent =
         "<b>QUYỀN LỢI TRỢ CẤP VIỆN PHÍ</b>"
-        + "- Trợ cấp viện phí cơ bản: Chi trả 100% số tiền bảo hiểm cho mỗi ngày nằm viện, lên tới 100 ngày trong 12 tháng</br></br>"
+        + "<br><br>- Trợ cấp viện phí cơ bản: Chi trả 100% số tiền bảo hiểm cho mỗi ngày nằm viện, lên tới 100 ngày trong 12 tháng</br></br>"
         + "- Trợ cấp viện phí đặc biệt: Chi trả 200% số tiền bảo hiểm cho mỗi ngày nằm viện, lên tới 300 ngày trong toàn bộ thời hạn bảo hiểm của sản phẩm bổ trợ.</br></br>"
         + "- Áp dụng riêng đối với Người được bảo hiểm dưới 4 tuổi</br></br>"
         + "<b>QUYỀN LỢI TRỢ CẤP PHẪU THUẬT</b></br></br>"
@@ -33,7 +33,7 @@ export class DetailPageComponent implements OnInit {
         + "-Số lần phẫu thuật chi trả lên tới 2 lần trong 12 tháng và 10 lần trong toàn bộ thời hạn bảo hiểm của sản phẩm bổ trợ.</br></br>"
         + "-Áp dụng riêng đối với Người được bảo hiểm dưới 4 tuổi.</br></br>"
         + "<b>QUYỀN LỢI THƯỞNG KHI KHÔNG CÓ YÊU CẦU GIẢI QUYẾT QUYỀN LỢI BẢO HIỂM</b>"
-        + "-  Thưởng 1 định kỳ phí bảo hiểm năm của sản phẩm bổ trợ vào Ngày kỷ niệm Hợp đồng lần thứ 8 và mỗi 8 năm sau đó, nếu Hợp đồng vẫn còn hiệu lực.</br></br>"
+        + "<br><br>- Thưởng 1 định kỳ phí bảo hiểm năm của sản phẩm bổ trợ vào Ngày kỷ niệm Hợp đồng lần thứ 8 và mỗi 8 năm sau đó, nếu Hợp đồng vẫn còn hiệu lực.</br></br>"
         + "- Thưởng khi không có yêu cầu giải quyết Quyền lợi bảo hiểm: Nếu trong kỳ xét thưởng (8 năm) không có bất kỳ yêu cầu giải quyết Quyền lợi bảo hiểm nào được chi trả.</br></br>"
         + "- Áp dụng riêng đối với Người được bảo hiểm dưới 4 tuổi</br></br>"
 
@@ -43,7 +43,7 @@ export class DetailPageComponent implements OnInit {
       this.pageHeaderImg = "https://www.baovietnhantho.com.vn/storage/8df93397-a308-459a-8f05-02a4092c23f9/AnTamHanhPhuc-cover.jpg";
       this.pageContent =
         "Sản phẩm này không chỉ giúp Bạn quẳng gánh lo âu về mặt tài chính, mà còn giúp Bạn có điều kiện để yên tâm lựa chọn phương thức điều trị tốt hơn nếu không may Bạn phải phẫu thuật, điều trị ngoại khoa - Bạn và những người thân hoàn toàn an tâm điều trị để sớm bình phục sức khỏe.<br/><br/>"
-        +"<b>BẠN ĐƯỢC QUYỀN LỢI GÌ</b></br></br>"
+        +"<br><br><b>BẠN ĐƯỢC QUYỀN LỢI GÌ</b></br></br>"
         +"-Bạn sẽ được nhận trợ cấp trong trường hợp phải phẫu thuật và/hoặc điều trị ngoại khoa (*). Khoản trợ cấp này giúp Bạn có điều kiện để lựa chọn những dịch vụ chữa trị, thuốc men với chất lượng cao hơn.</br></br>"
         +"-Tổng số trường hợp được chi trả tiền bảo hiểm lên đến 535 loại phẫu thuật, điều trị ngoại khoa khác nhau</br></br>"
         +"-Linh hoạt tham gia khi có thể tham gia cùng lúc với Hợp đồng chính hoặc sau khi Hợp đồng chính đã có hiệu lực</br></br>"
@@ -55,7 +55,7 @@ export class DetailPageComponent implements OnInit {
       this.pageHeaderImg = "http://nhanhauclinic.com.vn/wp-content/uploads/2020/11/kham-benh-cho-ng%C6%B0%C6%A1i-ngheo.jpg";
       this.pageContent =
       "Con người là hoa của đất và phụ nữ là hương hoa của cuộc đời. Ngoài đặc ân là phái đẹp, tạo hóa đã ban cho người phụ nữ một thiên chức vô cùng quan trọng và cao quý là làm vợ, làm mẹ. Để bạn luôn tự hào và hãnh diện khi được tạo hóa ban cho đặc ân, giao cho một trọng trách vô cùng quan trọng và cao quý ấy - bạn hãy chủ động tạo cho mình một cuộc sống vui về tinh thần và khỏe mạnh về thể chất.</br></br>"
-      +"<b>BẠN ĐƯỢC QUYỀN LỢI GÌ</b></br></br>"
+      +"<br><br><b>BẠN ĐƯỢC QUYỀN LỢI GÌ</b></br></br>"
       +"-Sự chăm sóc và bảo vệ sức khỏe toàn diện dành cho phụ nữ với các quyền lợi bảo hiểm cho 8 bệnh ung thư phụ nữ, 36 bệnh lý nghiêm trọng, 7 bệnh biến chứng sản khoa và 597 loại phẫu thuật và điều trị ngoại khoa mở rộng.</br></br>"
       +"-Phạm vi bảo hiểm và mức trách nhiệm thiết thực với phụ nữ</br></br>"
       +"-Tiết kiệm lớn cho những dự định quan trọng trong tương lai khi kết hợp tham gia với Hợp đồng chính</br></br>"
