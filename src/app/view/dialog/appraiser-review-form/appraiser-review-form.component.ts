@@ -29,6 +29,7 @@ export class AppraiserReviewFormComponent implements OnInit {
     private router:Router) { }
     description:String;
   ngOnInit(): void {
+    this.approveStatus = "DD";
   }
   revenue=new Revenue(0,'',0,0,0,new Date());
   illustration:Illustration;

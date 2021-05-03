@@ -3,7 +3,7 @@
         <div class="card-header">
             <h2><b>Form Xét Duyệt</b></h2>
         </div>
-        <form>
+        <form #reviewForm="ngForm">
             <table class="table">
 
                 <tr>
@@ -18,8 +18,10 @@
                 </tr>
                 <tr>
                     <th>Ghi Chú</th>
-                    <td><textarea class="form-control" rows="3" maxlength="2000" placeholder="Enter ..." name="description" [(ngModel)]="description">
-
+                    <td><textarea class="form-control" rows="3"  maxlength="2000" placeholder="Enter ..."
+                            name="description" [(ngModel)]="description" #note="ngModel" required>
+                        <span id="errorMessagename" style="color: red;" *ngIf="note.errors?.required && note.touched">Ghi Chú không được để trống</span>
+                                    
                     </textarea>
                     </td>
                 </tr>
@@ -30,5 +32,5 @@
 </mat-dialog-content>
 <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>Hủy</button>
-    <button mat-button mat-dialog-close type="submit" (click)="Review()">Lưu</button>
+    <button mat-button mat-dialog-close [disabled]="reviewForm.invalid" type="submit" (click)="Review()">Lưu</button>
 </mat-dialog-actions>

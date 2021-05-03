@@ -8,8 +8,8 @@ export class CommonService {
 
   constructor() { }
 
-  // HOST = 'localhost:8080';
-  HOST = '34.87.108.112';
+  HOST = 'localhost:8080';
+  // HOST = '34.87.108.112';
 
   callRefreshTable = new EventEmitter();
   subsVar: Subscription;

@@ -350,7 +350,6 @@ export class CreateIllustrationComponent implements OnInit {
 
   save() {
     //validate
-    let checkSubmit = true;
     if (this.create_time_ill != null
       && this.illustrationMainBenifit.full_name_insured_person != ""
       && this.illustrationMainBenifit.birth_date_insured_person != null
@@ -358,10 +357,12 @@ export class CreateIllustrationComponent implements OnInit {
       && this.illustrationMainBenifit.denominations != 0
       && this.illustrationMainBenifit.denominations != null
       && this.mulPeriod != null) {
+
       if (this.illustrationMainBenifit.denominations.toString().includes("-")) {
         this.snackBar.openSnackBar("Vui lòng điền các trường đầy đủ và mệnh giá hợp lệ", "Đóng");
         return;
       }
+
       if (this.subBenifitListCopy.length != 0) {
         for (let item of this.subBenifitListCopy) {
           if (!item.isDisable) {
@@ -392,8 +393,10 @@ export class CreateIllustrationComponent implements OnInit {
             this.snackBar.openSnackBar("Vui lòng điền các trường đầy đủ và mệnh giá hợp lệ", "Đóng");
             return;
           }
+          
         }
       }
+    }
       else {
         this.snackBar.openSnackBar("Vui lòng điền các trường đầy đủ và mệnh giá hợp lệ", "Đóng");
         return;
@@ -434,7 +437,6 @@ export class CreateIllustrationComponent implements OnInit {
 
       }))
     }
-  }
   changeDate(date: any) {
     this.illustrationMainBenifit.birth_date_insured_person = new Date(date);
   }
