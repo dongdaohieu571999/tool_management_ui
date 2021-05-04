@@ -13,7 +13,7 @@
             </a>
             <hr style="color: gray;">
             <a mat-list-item [routerLink]="['/detail-employee-info']">
-                <img src="../assets/images/avatar5.png" class="imglink" alt="User Image">
+                <img [src]="authenService.empolyeeInfo?.name? '../assets/images/profile_man.png' : '../assets/images/profile_women.png' " class="imglink" alt="User Image">
                 <a class="d-block">{{ authenService.empolyeeInfo?.name }}</a>
             </a>
             <hr style="color: gray;">
