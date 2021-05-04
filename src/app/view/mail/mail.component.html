@@ -31,7 +31,10 @@
                             <div class="card">
                                 <!-- /.card-header -->
                                 <div class="card-body">
-                                    <h3>Thư nhận được</h3>
+                                    <div style="color: white;width: fit-content;background-color: #ff3030;padding: 10px;border-radius: 10px;">
+                                        <h3 style="margin: 0 auto;">THƯ ĐÃ NHẬN</h3>
+                                    </div>
+
                                     <div class="searchWithDateandValue">
                                         <div class="left">
                                         </div>
@@ -73,7 +76,7 @@
                                                 <td>{{ mailReceive.status==1? 'Đã Nhận':'Đã Hủy' }}</td>
                                                 <td>{{ mailReceive.time | date:'dd/MM/yyyy'}}</td>
 
-                                                <td><button (click)="mailDetail(mailReceive.id)" class="btn btn-info" style="height: 40px; width: 100px; margin: 10px; color: white;">Chi Tiết</button></td>
+                                                <td><button (click)="mailDetail(mailReceive.id)" class="btn btn-info" style="height: 40px; width: 100%; color: white;">Chi Tiết</button></td>
                                             </tr>
                                         </tbody>
                                         <tfoot>
@@ -95,7 +98,9 @@
                             </div>
                             <div class="card">
                                 <div class="card-body">
-                                    <h3>Thư đã gửi</h3>
+                                    <div style="color: white;width: fit-content;background-color: #17a2b8;padding: 10px;border-radius: 10px;">
+                                        <h3 style="margin: 0 auto;">THƯ ĐÃ GỬI</h3>
+                                    </div>
                                     <div class="searchWithDateandValue">
                                         <div class="left">
                                         </div>
@@ -136,7 +141,7 @@
                                                 <td>{{ mailSent.name }}</td>
                                                 <td>{{ mailSent.status==1?'Đã Gửi':'Chưa Gửi' }}</td>
                                                 <td>{{ mailSent.time | date:'dd/MM/yyyy'}}</td>
-                                                <td><button (click)="mailDetail(mailSent.id)" class="btn btn-info" style="height: 40px; width: 100px; margin: 10px; color: white;">Chi Tiết</button></td>
+                                                <td><button (click)="mailDetail(mailSent.id)" class="btn btn-info" style="height: 40px; width: 100%; color: white;">Chi Tiết</button></td>
                                             </tr>
                                         </tbody>
                                         <tfoot>
