@@ -99,6 +99,7 @@ import { ProfileCustomerComponent } from './customerwebsite/profile-customer/pro
 import { HeaderComponent } from './customerwebsite/header/header.component';
 import { ChangePassCustomerComponent } from './customerwebsite/change-pass-customer/change-pass-customer.component';
 import { CompensationTreatmentComponent } from './customerwebsite/compensation-treatment/compensation-treatment.component';
+import { DetailEmployeeInfoComponent } from './view/detail-employee-info/detail-employee-info.component';
 
 
 
@@ -178,6 +179,7 @@ import { CompensationTreatmentComponent } from './customerwebsite/compensation-t
     HeaderComponent,
     ChangePassCustomerComponent,
     CompensationTreatmentComponent,
+    DetailEmployeeInfoComponent,
   ],
   imports: [
     DataTablesModule,
