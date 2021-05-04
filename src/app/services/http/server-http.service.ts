@@ -19,7 +19,7 @@ export class ServerHttpService {
 
   constructor(private httpClient: HttpClient, private common: CommonService) { }
 
-  private REST_API_SERVER = 'http://'+this.common.HOST+'/api';
+  private REST_API_SERVER = this.common.HOST+'/api';
 
   public getAcc(code: string,pass: string): Observable<any>{
     const url = `${this.REST_API_SERVER}/login?code=`+btoa(code)+'&pass='+btoa(pass);

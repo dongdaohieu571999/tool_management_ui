@@ -59,7 +59,6 @@
                                                 <th>Chủ Đề</th>
                                                 <th>Mã Người Gửi</th>
                                                 <th>Người Gửi</th>
-                                                <th>Độ Ưu Tiên</th>
                                                 <th>Trạng Thái</th>
                                                 <th>Ngày Gửi</th>
                                                 <th>Chi Tiết</th>
@@ -71,7 +70,6 @@
                                                 <td>{{ mailReceive.title }}</td>
                                                 <td>{{ mailReceive.code }}</td>
                                                 <td>{{ mailReceive.name }}</td>
-                                                <td>{{ mailReceive.priority }}</td>
                                                 <td>{{ mailReceive.status==1? 'Đã Nhận':'Đã Hủy' }}</td>
                                                 <td>{{ mailReceive.time | date:'dd/MM/yyyy'}}</td>
 
@@ -84,7 +82,6 @@
                                                 <th>Chủ Đề</th>
                                                 <th>Mã Người Gửi</th>
                                                 <th>Người Gửi</th>
-                                                <th>Độ Ưu Tiên</th>
                                                 <th>Trạng Thái</th>
                                                 <th>Ngày Gửi</th>
                                                 <th>Chi Tiết</th>
@@ -94,6 +91,9 @@
                                     <pagination-controls style="float: right;" id="listing_pagination_receive" maxSize="5" directionLinks="true" (pageChange)="pagesReceive = $event"></pagination-controls>
                                 </div>
                                 <!-- /.card-body -->
+
+                            </div>
+                            <div class="card">
                                 <div class="card-body">
                                     <h3>Thư đã gửi</h3>
                                     <div class="searchWithDateandValue">
@@ -123,7 +123,6 @@
                                                 <th>Chủ Đề</th>
                                                 <th>Mã Người Nhận</th>
                                                 <th>Người Nhận</th>
-                                                <th>Độ Ưu Tiên</th>
                                                 <th>Trạng Thái</th>
                                                 <th>Ngày Gửi</th>
                                                 <th>Chi Tiết</th>
@@ -135,7 +134,6 @@
                                                 <td>{{ mailSent.title }}</td>
                                                 <td>{{ mailSent.code }}</td>
                                                 <td>{{ mailSent.name }}</td>
-                                                <td>{{ mailSent.priority }}</td>
                                                 <td>{{ mailSent.status==1?'Đã Gửi':'Chưa Gửi' }}</td>
                                                 <td>{{ mailSent.time | date:'dd/MM/yyyy'}}</td>
                                                 <td><button (click)="mailDetail(mailSent.id)" class="btn btn-info" style="height: 40px; width: 100px; margin: 10px; color: white;">Chi Tiết</button></td>
@@ -147,7 +145,6 @@
                                                 <th>Chủ Đề</th>
                                                 <th>Mã Người Nhận</th>
                                                 <th>Người Nhận</th>
-                                                <th>Độ Ưu Tiên</th>
                                                 <th>Trạng Thái</th>
                                                 <th>Ngày Gửi</th>
                                                 <th>Chi Tiết</th>

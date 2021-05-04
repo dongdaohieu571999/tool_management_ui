@@ -8,8 +8,8 @@ export class CommonService {
 
   constructor() { }
 
-  HOST = 'localhost:8080';
-  // HOST = '34.87.108.112';
+  // HOST = 'http://localhost:8080';
+  HOST = 'https://isolution.asia';
 
   callRefreshTable = new EventEmitter();
   subsVar: Subscription;
@@ -21,10 +21,10 @@ export class CommonService {
   titlePage:string;
 
   makeUrl(path: string): string{
-    return 'http://'+this.HOST+'/api'+path+'?token_key='+this.getCookie("token_key");
+    return this.HOST+'/api'+path+'?token_key='+this.getCookie("token_key");
   }
   makeUrlForCustomer(path: string): string{
-    return 'http://'+this.HOST+'/api'+path;
+    return this.HOST+'/api'+path;
   }
 
   public deleteCookie(name) {
