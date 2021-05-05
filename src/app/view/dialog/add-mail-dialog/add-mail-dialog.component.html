@@ -6,7 +6,7 @@
         <div class="card-body">
             <div class="form-group">
                 <label>Người Nhận</label>
-                <input id="receiverName" type="text" class="form-control" name="email" placeholder="Người Nhận" [formControl]="myControl" [matAutocomplete]="auto" required>
+                <input id="receiverName" type="text" class="form-control" placeholder="Người Nhận" [formControl]="myControl" [matAutocomplete]="auto" required>
 
                 <mat-autocomplete #auto="matAutocomplete">
                     <mat-option *ngFor="let option of filteredOptions | async" [value]="option">

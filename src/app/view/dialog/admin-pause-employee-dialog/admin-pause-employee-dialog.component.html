@@ -10,9 +10,11 @@
                 <option  *ngFor="let item of employeeAcc" [value]="item.code">{{item.code}}</option>
             </select>
 
-            <h3>Tải lên các giấy tờ cần thiết </h3>
-            <p *ngFor="let file of selectedFile">{{ file.name }}</p>
-            <input type="file" name="file" class="form-control" (change)="onChangeFile($event)">
+            <h2>Tải lên các giấy tờ cần thiết </h2>       
+            <p *ngFor="let file of selectedFile ; index as i" class="list-file">{{ file.name }} &nbsp;&nbsp;
+                <span (click)="removeFile(i)" style="padding: 5px;"><i class="fas fa-times" style="color: gray;"></i></span>
+            </p>
+            <input id="file" type="file" (change)="onChangeFile($event)">
             <button (click)="onUpload()" [disabled]="pauseReason.invalid" class="btn">GỬI</button>
         </div>
     </form>

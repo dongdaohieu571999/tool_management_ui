@@ -377,7 +377,7 @@
                             <div class="form-group ">
                                 <label for="exampleInputEmail1 ">Email:</label>
                                 <!-- <p style="color: black; ">{{ customerInfo.email }}</p> -->
-                                <input type="text" class="form-control" name="email" required #email="ngModel" pattern="^[a-z][a-z0-9_\.]{5,32}@[a-z0-9]{2,}(\.[a-z0-9]{2,4}){1,2}$" [(ngModel)]="customerInfo.email">
+                                <input type="text" class="form-control" name="email" required #email="ngModel" pattern="^[\w\d_\.]{5,32}@[\.\-_\w\d]{2,}(\.[\w\d]{2,4}){1,2}$" [(ngModel)]="customerInfo.email">
                                 <span id="errorMessagename" style="color: red;" *ngIf="email.errors?.required && email.touched">Email không được để trống</span>
                                 <span id="errorMessagename" style="color: red;" *ngIf="email.errors?.pattern && email.touched">Email không đúng định dạng. Ví dụ :
                                     abc@gmail.com</span>

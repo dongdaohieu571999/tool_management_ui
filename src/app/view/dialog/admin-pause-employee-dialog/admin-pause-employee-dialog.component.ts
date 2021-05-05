@@ -50,6 +50,13 @@ export class AdminPauseEmployeeDialogComponent implements OnInit {
     }
     this.selectedFile.push(event.target.files[0]);
   }
+
+  removeFile(index:number){
+    if(index>-1){
+      this.selectedFile.splice(index,1)
+    }
+  }
+
   onUpload(){
     if(this.selectedFile.length!=0){
       this.spinner.show();

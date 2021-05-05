@@ -32,8 +32,7 @@
                         </div>
                     </div>
                     <span id="errorMessagename" style="color: red;" *ngIf="newPass.errors?.required && newPass.touched">Password không được để trống</span>
-                    <span id="errorMessagename" style="color: red;" *ngIf="newPass.errors?.pattern && newPass.touched">Password Cần Ít Nhất 8 Ký Tự, Trong Đó Ít Nhất 1 số 
-                        Và 1 Ký Tự Đặc Biệt</span>
+                    <span id="errorMessagename" style="color: red;" *ngIf="newPass.errors?.pattern && newPass.touched">Password cần có ít nhất 8 ký tự, trong đó ít nhất có 1 số 1 chữ thường, 1 chữ hoa và 1 ký tự đặc biệt</span>
                     <div class="input-group mb-3">
                         <input type="password" class="form-control" placeholder="Xác Nhận Mật Khẩu Mới" name="confirmNewPass" ngModel #confirmNewPass="ngModel" required pattern="^(?=.{8,})(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).*$">
 
@@ -44,8 +43,7 @@
                         </div>
                     </div>
                     <span id="errorMessagename" style="color: red;" *ngIf="confirmNewPass.errors?.required && confirmNewPass.touched">Password không được để trống</span>
-                    <span id="errorMessagename" style="color: red;" *ngIf="confirmNewPass.errors?.pattern && confirmNewPass.touched">Password Cần Ít Nhất 8 Ký Tự, Trong Đó Ít Nhất 1 số 
-                        Và 1 Ký Tự Đặc Biệt</span>
+                    <span id="errorMessagename" style="color: red;" *ngIf="confirmNewPass.errors?.pattern && confirmNewPass.touched">Password cần có ít nhất 8 ký tự, trong đó ít nhất có 1 số 1 chữ thường, 1 chữ hoa và 1 ký tự đặc biệt</span>
                     <div class="row">
                         <div class="col-12">
                             <button type="submit" [disabled]="changePassForm.invalid" class="btn btn-primary btn-block">Yêu Cầu Mật Khẩu Mới</button>
