@@ -44,8 +44,8 @@ export class AdminPauseEmployeeDialogComponent implements OnInit {
   }
 
   onChangeFile(event){
-    if(event.target.files[0].size > 10485760){
-      this.snackBar.openSnackBar("Dung Lượng File Cần Nhỏ Hơn 10Mb","Đóng");
+    if(event.target.files[0].size > 1048576){
+      this.snackBar.openSnackBar("Dung Lượng File Cần Nhỏ Hơn Hoặc Bằng 1Mb","Đóng");
       return;
     }
     this.selectedFile.push(event.target.files[0]);

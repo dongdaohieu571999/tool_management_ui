@@ -14,8 +14,8 @@
             <div class="form-group">
                 <label>Độ Ưu Tiên</label>
                 <select class="form-control" name="priority" [(ngModel)]="req.priority">
-                    <option value="high" >high</option>
-                    <option value="low">low</option>
+                    <option value="Cao" >Cao</option>
+                    <option value="Thấp">Thấp</option>
                 </select>
             </div>
         </div>
@@ -23,5 +23,5 @@
 </mat-dialog-content>
 <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>Hủy</button>
-    <button mat-button mat-dialog-close [disabled] = "requestForm.invalid" (click)="sendReq()">Gửi</button>
+    <button mat-button mat-dialog-close [disabled]="requestForm.invalid" (click)="sendReq()">Gửi</button>
 </mat-dialog-actions>
